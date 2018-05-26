@@ -1,0 +1,762 @@
+A166 MACRO ASSEMBLER  A3                                                                  05/26/2018 15:24:40 PAGE     1
+
+
+MACRO ASSEMBLER A166 V5.30
+OBJECT MODULE PLACED IN A3.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C166\BIN\A166.EXE A3.a66 MODV2 SEGMENTED MODV2 SET(SMALL) DEBUG EP
+
+LOC      OBJ             LINE     SOURCE
+
+                            1     ;$NONSEGMENTED              ; Nur Tiny Model möglich
+                            2     $MODV2                 ; Code fuer 161/163/164/165/167
+                          598     $LIST
+                          599     ;
+                          600     ;       TITLE <Mein Text>
+                          601     ;
+                          602     ;       Prozessor Definitionen
+                          603     ;
+                          604     ;------------------------------------------------------------
+                          605     ; Hier folgen Ihre Konstanten Definitionen
+                          606     ;
+                          607     ;Ora            EQU     0       ;Portbit für Ora
+                          608     
+ 0000                     609     S1                      EQU 0
+ 0001                     610     S2                      EQU 1
+ 0002                     611     TA1                     EQU 2
+ 0003                     612     TA2                     EQU 3
+ 0004                     613     LED1            EQU 4
+ 0005                     614     LED2            EQU 5
+ 0006                     615     LED3            EQU 6
+ 0007                     616     LED4            EQU 7
+                          617     
+                          618     
+--------                  619     Datenspeicher   SECTION Data
+                          620     ;------------------------------------------------------------
+                          621     ; Hier folgen Ihre Speicher Vereinbarungen
+                          622     ;
+                          623     ;Mein_Speicher           DB      12      ;Byte Initialisiert
+                          624     ;Mein_Speicher1          DW      65      ;Word Initialisiert
+                          625     ;Mein_Speicher2          DD      4711
+                          626     ;Mein_Text               DB      'ASCII Text'
+                          627     
+--------                  628     Datenspeicher   ENDS
+                          629     ;
+                          630     ;
+--------                  631     Programme       Section Code
+                          632     ASSUME  DPP3:SYSTEM
+                          633     ASSUME  DPP0:Datenspeicher
+                          634     ;------------------------------------------------------------
+                          635     ; Hier stehen Ihre Unterprogramme
+                          636     PortInit PROC
+                          637     ; Outputs
+00000000 E6F08000         638     mov R0, #0x80 ;1 for output
+00000004 F6F008E8         639     mov P0_IOCR_4,R0 ;allocation output
+00000008 F6F00AE8         640     mov P0_IOCR_5,R0 ;allocation output
+0000000C F6F00CE8         641     mov P0_IOCR_6,R0 ;allocation output
+00000010 F6F00EE8         642     mov P0_IOCR_7,R0 ;allocation output
+                          643     
+                          644     ; inputs
+00000014 E000             645     mov R0, #0x00 ;0 for input
+00000016 F6F008E8         646     mov P0_IOCR_4,R0 ;allocation input
+0000001A F6F00AE8         647     mov P0_IOCR_5,R0 ;allocation input
+0000001E F6F00CE8         648     mov P0_IOCR_6,R0 ;allocation input
+00000022 F6F00EE8         649     mov P0_IOCR_7,R0 ;allocation input
+                          650     
+00000026 CB00             651     ret
+                          652     PortInit EndP
+                          653     ;
+A166 MACRO ASSEMBLER  A3                                                                  05/26/2018 15:24:40 PAGE     2
+
+                          654     ;PInit  Initialisiert den Port Px
+                          655     ;=====
+                          656     ;       I: nix
+                          657     ;       O: nix
+                          658     ;       Z: Register, die zerstört werden.
+                          659     ;
+                          660     MyUp1   PROC NEAR
+                          661     
+00000028 CB00             662             Ret
+                          663     MyUp1   EndP;
+                          664     
+                          665     ;------------------------------------------------------------
+                          666     ; Hier startet das Hauptprogramm
+                          667     ;
+                          668     A_RESET PROC TASK STARTUP INTNO RESET = 0
+0000002A F2F00CFF         669             mov     r0,BUSCON0
+0000002E 66F000FF         670             and     r0,#0xFF00
+00000032 F6F00CFF         671             mov     BUSCON0,r0
+00000036 E600???? R       672             mov     dpp0,#PAG Datenspeicher         ;Page von Datenspeicher => DPP0
+0000003A E60E0300         673             mov     KSCCFG,#0x0003;                 ;Module Enable
+0000003E F2F01CFE         674             mov     R0,KSCCFG                       ;wieder ruecklesen
+00000042 0D00             675             JMP     Main    
+                          676     A_RESET EndP
+                          677     
+                          678     MAIN    Proc
+                          679     ;------------------------------------------------------------
+                          680     ;Hier geht Ihr Hauptprogramm los
+                          681     ;
+00000044 BBDD             682     call PortInit
+                          683     
+00000046 F2F0A2FF         684             MOV R0,P0_OUT
+0000004A 76F0F000         685             OR      R0,#0xF0                ;1111
+0000004E F6F0A2FF         686             MOV P0_OUT,R0
+                          687     
+                          688             loop:
+                          689     
+                          690             ;start LED 1
+00000052 F2F080FF         691             MOV R0,P0_IN
+00000056 66F00800         692             AND R0,#0x08            ;1000
+0000005A 46F00800         693             CMP R0,#0x08            ;compare and set flag
+0000005E 2D05             694             JMP cc_EQ,if_true
+00000060 E6F1EF00         695             MOV R1,#0xEF            ;1110
+00000064 F6F1A2FF         696             MOV P0_OUT,R1
+00000068 0D06             697             JMP stop1
+                          698             if_true:
+0000006A F2F1A2FF         699             MOV R1,P0_OUT
+0000006E 76F11000         700             OR R1,#0x10                     ;0001 0000
+00000072 F6F1A2FF         701             MOV P0_OUT,R1
+                          702             stop1:
+                          703             ;end LED 1
+                          704     
+                          705             ;start LED 2
+00000076 F2F080FF         706             MOV R0,P0_IN
+0000007A 6804             707             AND R0,#0x04            ;0100
+0000007C 4804             708             CMP R0,#0x04            ;compare and set flag
+0000007E 2D05             709             JMP cc_EQ,if_true2
+00000080 E6F1DF00         710             MOV R1,#0xDF            ;1101 1111
+00000084 F6F1A2FF         711             MOV P0_OUT,R1
+00000088 0D06             712             JMP stop2
+                          713             if_true2:
+0000008A F2F1A2FF         714             MOV R1,P0_OUT
+0000008E 76F12000         715             OR R1,#0x20                     ;0010 0000
+00000092 F6F1A2FF         716             MOV P0_OUT,R1
+                          717             stop2:
+                          718             ;end LED 2
+                          719             
+A166 MACRO ASSEMBLER  A3                                                                  05/26/2018 15:24:40 PAGE     3
+
+                          720             
+00000096 BBC8             721             Call    MyUp1   
+                          722     
+                          723     Forever:
+                          724     
+                          725     
+00000098 0DFF             726             jmp             Forever
+                          727     ;
+                          728     ;  Notstop
+                          729     ;
+0000009A 0DFF             730     StopJetzt:      JMP     StopJetzt
+                          731     
+                          732     Main            ENDP
+                          733     
+--------                  734     Programme       ENDS
+                          735     ;
+                          736     
+                          737             END
+A166 MACRO ASSEMBLER  A3                                                                  05/26/2018 15:24:40 PAGE     4
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             TYPE   VALUE             I  ATTRIBUTES
+
+ACC0 . . . . . . .  BIT    FF52H.3           A  
+ACC1 . . . . . . .  BIT    FF52H.7           A  
+ACC10. . . . . . .  BIT    FF56H.11          A  
+ACC11. . . . . . .  BIT    FF56H.15          A  
+ACC12. . . . . . .  BIT    FF58H.3           A  
+ACC13. . . . . . .  BIT    FF58H.7           A  
+ACC14. . . . . . .  BIT    FF58H.11          A  
+ACC15. . . . . . .  BIT    FF58H.15          A  
+ACC16. . . . . . .  BIT    FF22H.3           A  
+ACC17. . . . . . .  BIT    FF22H.7           A  
+ACC18. . . . . . .  BIT    FF22H.11          A  
+ACC19. . . . . . .  BIT    FF22H.15          A  
+ACC2 . . . . . . .  BIT    FF52H.11          A  
+ACC20. . . . . . .  BIT    FF24H.3           A  
+ACC21. . . . . . .  BIT    FF24H.7           A  
+ACC22. . . . . . .  BIT    FF24H.11          A  
+ACC23. . . . . . .  BIT    FF24H.15          A  
+ACC24. . . . . . .  BIT    FF26H.3           A  
+ACC25. . . . . . .  BIT    FF26H.7           A  
+ACC26. . . . . . .  BIT    FF26H.11          A  
+ACC27. . . . . . .  BIT    FF26H.15          A  
+ACC28. . . . . . .  BIT    FF28H.3           A  
+ACC29. . . . . . .  BIT    FF28H.7           A  
+ACC3 . . . . . . .  BIT    FF52H.15          A  
+ACC30. . . . . . .  BIT    FF28H.11          A  
+ACC31. . . . . . .  BIT    FF28H.15          A  
+ACC4 . . . . . . .  BIT    FF54H.3           A  
+ACC5 . . . . . . .  BIT    FF54H.7           A  
+ACC6 . . . . . . .  BIT    FF54H.11          A  
+ACC7 . . . . . . .  BIT    FF54H.15          A  
+ACC8 . . . . . . .  BIT    FF56H.3           A  
+ACC9 . . . . . . .  BIT    FF56H.7           A  
+ADBSY. . . . . . .  BIT    FFA0H.8           A  
+ADCDIS . . . . . .  BIT    F1D4H.0           A  
+ADCIC. . . . . . .  WORD   FF98H             A  SFR
+ADCIE. . . . . . .  BIT    FF98H.6           A  
+ADCIN. . . . . . .  BIT    FFA0H.10          A  
+ADCIR. . . . . . .  BIT    FF98H.7           A  
+ADCON. . . . . . .  WORD   FFA0H             A  SFR
+ADCRQ. . . . . . .  BIT    FFA0H.11          A  
+ADDAT. . . . . . .  WORD   FEA0H             A  SFR
+ADDAT2 . . . . . .  WORD   F0A0H             A  ESFR
+ADDRSEL1 . . . . .  WORD   FE18H             A  SFR
+ADDRSEL2 . . . . .  WORD   FE1AH             A  SFR
+ADDRSEL3 . . . . .  WORD   FE1CH             A  SFR
+ADDRSEL4 . . . . .  WORD   FE1EH             A  SFR
+ADEIC. . . . . . .  WORD   FF9AH             A  SFR
+ADEIE. . . . . . .  BIT    FF9AH.6           A  
+ADEIR. . . . . . .  BIT    FF9AH.7           A  
+ADST . . . . . . .  BIT    FFA0H.7           A  
+ADWR . . . . . . .  BIT    FFA0H.9           A  
+ALECTL0. . . . . .  BIT    FF0CH.9           A  
+ALECTL1. . . . . .  BIT    FF14H.9           A  
+ALECTL2. . . . . .  BIT    FF16H.9           A  
+ALECTL3. . . . . .  BIT    FF18H.9           A  
+ALECTL4. . . . . .  BIT    FF1AH.9           A  
+ASC0DIS. . . . . .  BIT    F1D4H.1           A  
+ASC1DIS. . . . . .  BIT    F1D4H.10          A  
+A_RESET. . . . . .  I-FAR  2AH               R  SEC=PROGRAMME
+BUSACT0. . . . . .  BIT    FF0CH.10          A  
+A166 MACRO ASSEMBLER  A3                                                                  05/26/2018 15:24:40 PAGE     5
+
+BUSACT1. . . . . .  BIT    FF14H.10          A  
+BUSACT2. . . . . .  BIT    FF16H.10          A  
+BUSACT3. . . . . .  BIT    FF18H.10          A  
+BUSACT4. . . . . .  BIT    FF1AH.10          A  
+BUSCON0. . . . . .  WORD   FF0CH             A  SFR
+BUSCON1. . . . . .  WORD   FF14H             A  SFR
+BUSCON2. . . . . .  WORD   FF16H             A  SFR
+BUSCON3. . . . . .  WORD   FF18H             A  SFR
+BUSCON4. . . . . .  WORD   FF1AH             A  SFR
+BYTDIS . . . . . .  BIT    FF12H.9           A  
+C. . . . . . . . .  BIT    FF10H.1           A  
+CAN1DIS. . . . . .  BIT    F1D4H.13          A  
+CAN2DIS. . . . . .  BIT    F1D4H.14          A  
+CAPIN. . . . . . .  BIT    FFC4H.2           A  
+CAPREL . . . . . .  WORD   FE4AH             A  SFR
+CC0. . . . . . . .  WORD   FE80H             A  SFR
+CC0IC. . . . . . .  WORD   FF78H             A  SFR
+CC0IE. . . . . . .  BIT    FF78H.6           A  
+CC0IR. . . . . . .  BIT    FF78H.7           A  
+CC1. . . . . . . .  WORD   FE82H             A  SFR
+CC10 . . . . . . .  WORD   FE94H             A  SFR
+CC10IC . . . . . .  WORD   FF8CH             A  SFR
+CC10IE . . . . . .  BIT    FF8CH.6           A  
+CC10IR . . . . . .  BIT    FF8CH.7           A  
+CC11 . . . . . . .  WORD   FE96H             A  SFR
+CC11IC . . . . . .  WORD   FF8EH             A  SFR
+CC11IE . . . . . .  BIT    FF8EH.6           A  
+CC11IR . . . . . .  BIT    FF8EH.7           A  
+CC12 . . . . . . .  WORD   FE98H             A  SFR
+CC12IC . . . . . .  WORD   FF90H             A  SFR
+CC12IE . . . . . .  BIT    FF90H.6           A  
+CC12IR . . . . . .  BIT    FF90H.7           A  
+CC13 . . . . . . .  WORD   FE9AH             A  SFR
+CC13IC . . . . . .  WORD   FF92H             A  SFR
+CC13IE . . . . . .  BIT    FF92H.6           A  
+CC13IR . . . . . .  BIT    FF92H.7           A  
+CC14 . . . . . . .  WORD   FE9CH             A  SFR
+CC14IC . . . . . .  WORD   FF94H             A  SFR
+CC14IE . . . . . .  BIT    FF94H.6           A  
+CC14IR . . . . . .  BIT    FF94H.7           A  
+CC15 . . . . . . .  WORD   FE9EH             A  SFR
+CC15IC . . . . . .  WORD   FF96H             A  SFR
+CC15IE . . . . . .  BIT    FF96H.6           A  
+CC15IR . . . . . .  BIT    FF96H.7           A  
+CC16 . . . . . . .  WORD   FE60H             A  SFR
+CC16IC . . . . . .  WORD   F160H             A  ESFR
+CC16IE . . . . . .  BIT    F160H.6           A  
+CC16IR . . . . . .  BIT    F160H.7           A  
+CC17 . . . . . . .  WORD   FE62H             A  SFR
+CC17IC . . . . . .  WORD   F162H             A  ESFR
+CC17IE . . . . . .  BIT    F162H.6           A  
+CC17IR . . . . . .  BIT    F162H.7           A  
+CC18 . . . . . . .  WORD   FE64H             A  SFR
+CC18IC . . . . . .  WORD   F164H             A  ESFR
+CC18IE . . . . . .  BIT    F164H.6           A  
+CC18IR . . . . . .  BIT    F164H.7           A  
+CC19 . . . . . . .  WORD   FE66H             A  SFR
+CC19IC . . . . . .  WORD   F166H             A  ESFR
+CC19IE . . . . . .  BIT    F166H.6           A  
+CC19IR . . . . . .  BIT    F166H.7           A  
+CC1DIS . . . . . .  BIT    F1D4H.6           A  
+CC1IC. . . . . . .  WORD   FF7AH             A  SFR
+CC1IE. . . . . . .  BIT    FF7AH.6           A  
+CC1IR. . . . . . .  BIT    FF7AH.7           A  
+CC2. . . . . . . .  WORD   FE84H             A  SFR
+CC20 . . . . . . .  WORD   FE68H             A  SFR
+A166 MACRO ASSEMBLER  A3                                                                  05/26/2018 15:24:40 PAGE     6
+
+CC20IC . . . . . .  WORD   F168H             A  ESFR
+CC20IE . . . . . .  BIT    F168H.6           A  
+CC20IR . . . . . .  BIT    F168H.7           A  
+CC21 . . . . . . .  WORD   FE6AH             A  SFR
+CC21IC . . . . . .  WORD   F16AH             A  ESFR
+CC21IE . . . . . .  BIT    F16AH.6           A  
+CC21IR . . . . . .  BIT    F16AH.7           A  
+CC22 . . . . . . .  WORD   FE6CH             A  SFR
+CC22IC . . . . . .  WORD   F16CH             A  ESFR
+CC22IE . . . . . .  BIT    F16CH.6           A  
+CC22IR . . . . . .  BIT    F16CH.7           A  
+CC23 . . . . . . .  WORD   FE6EH             A  SFR
+CC23IC . . . . . .  WORD   F16EH             A  ESFR
+CC23IE . . . . . .  BIT    F16EH.6           A  
+CC23IR . . . . . .  BIT    F16EH.7           A  
+CC24 . . . . . . .  WORD   FE70H             A  SFR
+CC24IC . . . . . .  WORD   F170H             A  ESFR
+CC24IE . . . . . .  BIT    F170H.6           A  
+CC24IR . . . . . .  BIT    F170H.7           A  
+CC25 . . . . . . .  WORD   FE72H             A  SFR
+CC25IC . . . . . .  WORD   F172H             A  ESFR
+CC25IE . . . . . .  BIT    F172H.6           A  
+CC25IR . . . . . .  BIT    F172H.7           A  
+CC26 . . . . . . .  WORD   FE74H             A  SFR
+CC26IC . . . . . .  WORD   F174H             A  ESFR
+CC26IE . . . . . .  BIT    F174H.6           A  
+CC26IR . . . . . .  BIT    F174H.7           A  
+CC27 . . . . . . .  WORD   FE76H             A  SFR
+CC27IC . . . . . .  WORD   F176H             A  ESFR
+CC27IE . . . . . .  BIT    F176H.6           A  
+CC27IR . . . . . .  BIT    F176H.7           A  
+CC28 . . . . . . .  WORD   FE78H             A  SFR
+CC28IC . . . . . .  WORD   F178H             A  ESFR
+CC28IE . . . . . .  BIT    F178H.6           A  
+CC28IR . . . . . .  BIT    F178H.7           A  
+CC29 . . . . . . .  WORD   FE7AH             A  SFR
+CC29IC . . . . . .  WORD   F184H             A  ESFR
+CC29IE . . . . . .  BIT    F184H.6           A  
+CC29IR . . . . . .  BIT    F184H.7           A  
+CC2DIS . . . . . .  BIT    F1D4H.7           A  
+CC2IC. . . . . . .  WORD   FF7CH             A  SFR
+CC2IE. . . . . . .  BIT    FF7CH.6           A  
+CC2IR. . . . . . .  BIT    FF7CH.7           A  
+CC3. . . . . . . .  WORD   FE86H             A  SFR
+CC30 . . . . . . .  WORD   FE7CH             A  SFR
+CC30IC . . . . . .  WORD   F18CH             A  ESFR
+CC30IE . . . . . .  BIT    F18CH.6           A  
+CC30IR . . . . . .  BIT    F18CH.7           A  
+CC31 . . . . . . .  WORD   FE7EH             A  SFR
+CC31IC . . . . . .  WORD   F194H             A  ESFR
+CC31IE . . . . . .  BIT    F194H.6           A  
+CC31IR . . . . . .  BIT    F194H.7           A  
+CC3IC. . . . . . .  WORD   FF7EH             A  SFR
+CC3IE. . . . . . .  BIT    FF7EH.6           A  
+CC3IR. . . . . . .  BIT    FF7EH.7           A  
+CC4. . . . . . . .  WORD   FE88H             A  SFR
+CC4IC. . . . . . .  WORD   FF80H             A  SFR
+CC4IE. . . . . . .  BIT    FF80H.6           A  
+CC4IR. . . . . . .  BIT    FF80H.7           A  
+CC5. . . . . . . .  WORD   FE8AH             A  SFR
+CC5IC. . . . . . .  WORD   FF82H             A  SFR
+CC5IE. . . . . . .  BIT    FF82H.6           A  
+CC5IR. . . . . . .  BIT    FF82H.7           A  
+CC6. . . . . . . .  WORD   FE8CH             A  SFR
+CC6IC. . . . . . .  WORD   FF84H             A  SFR
+CC6IE. . . . . . .  BIT    FF84H.6           A  
+A166 MACRO ASSEMBLER  A3                                                                  05/26/2018 15:24:40 PAGE     7
+
+CC6IR. . . . . . .  BIT    FF84H.7           A  
+CC7. . . . . . . .  WORD   FE8EH             A  SFR
+CC7IC. . . . . . .  WORD   FF86H             A  SFR
+CC7IE. . . . . . .  BIT    FF86H.6           A  
+CC7IR. . . . . . .  BIT    FF86H.7           A  
+CC8. . . . . . . .  WORD   FE90H             A  SFR
+CC8IC. . . . . . .  WORD   FF88H             A  SFR
+CC8IE. . . . . . .  BIT    FF88H.6           A  
+CC8IR. . . . . . .  BIT    FF88H.7           A  
+CC9. . . . . . . .  WORD   FE92H             A  SFR
+CC9IC. . . . . . .  WORD   FF8AH             A  SFR
+CC9IE. . . . . . .  BIT    FF8AH.6           A  
+CC9IR. . . . . . .  BIT    FF8AH.7           A  
+CCM0 . . . . . . .  WORD   FF52H             A  SFR
+CCM1 . . . . . . .  WORD   FF54H             A  SFR
+CCM2 . . . . . . .  WORD   FF56H             A  SFR
+CCM3 . . . . . . .  WORD   FF58H             A  SFR
+CCM4 . . . . . . .  WORD   FF22H             A  SFR
+CCM5 . . . . . . .  WORD   FF24H             A  SFR
+CCM6 . . . . . . .  WORD   FF26H             A  SFR
+CCM7 . . . . . . .  WORD   FF28H             A  SFR
+CLKEN. . . . . . .  BIT    FF12H.8           A  
+CLKLOCK. . . . . .  BIT    F1D0H.15          A  
+CRIC . . . . . . .  WORD   FF6AH             A  SFR
+CRIE . . . . . . .  BIT    FF6AH.6           A  
+CRIR . . . . . . .  BIT    FF6AH.7           A  
+CSP. . . . . . . .  WORD   FE08H             A  SFR
+CSREN1 . . . . . .  BIT    FF14H.14          A  
+CSREN2 . . . . . .  BIT    FF16H.14          A  
+CSREN3 . . . . . .  BIT    FF18H.14          A  
+CSREN4 . . . . . .  BIT    FF1AH.14          A  
+CSWEN1 . . . . . .  BIT    FF14H.15          A  
+CSWEN2 . . . . . .  BIT    FF16H.15          A  
+CSWEN3 . . . . . .  BIT    FF18H.15          A  
+CSWEN4 . . . . . .  BIT    FF1AH.15          A  
+DATENSPEICHER. . .  ----   ----              R  SECTION
+DP0H . . . . . . .  WORD   F102H             A  ESFR
+DP0L . . . . . . .  WORD   F100H             A  ESFR
+DP1H . . . . . . .  WORD   F106H             A  ESFR
+DP1L . . . . . . .  WORD   F104H             A  ESFR
+DP2. . . . . . . .  WORD   FFC2H             A  SFR
+DP3. . . . . . . .  WORD   FFC6H             A  SFR
+DP4. . . . . . . .  WORD   FFCAH             A  SFR
+DP6. . . . . . . .  WORD   FFCEH             A  SFR
+DP7. . . . . . . .  WORD   FFD2H             A  SFR
+DP8. . . . . . . .  WORD   FFD6H             A  SFR
+DPP0 . . . . . . .  WORD   FE00H             A  SFR
+DPP3 . . . . . . .  WORD   1FC0H             A  SFR
+E. . . . . . . . .  BIT    FF10H.4           A  
+EXICON . . . . . .  WORD   F1C0H             A  ESFR
+FMDIS. . . . . . .  BIT    F1D4H.5           A  
+FOREVER. . . . . .  NEAR   98H               R  SEC=PROGRAMME
+GPT1DIS. . . . . .  BIT    F1D4H.3           A  
+GPT2DIS. . . . . .  BIT    F1D4H.4           A  
+HLDEN. . . . . . .  BIT    FF10H.10          A  
+I2CDIS . . . . . .  BIT    F1D4H.11          A  
+IEN. . . . . . . .  BIT    FF10H.11          A  
+IF_TRUE. . . . . .  NEAR   6AH               R  SEC=PROGRAMME
+IF_TRUE2 . . . . .  NEAR   8AH               R  SEC=PROGRAMME
+ILLBUS . . . . . .  BIT    FFACH.0           A  
+ILLINA . . . . . .  BIT    FFACH.1           A  
+ILLOPA . . . . . .  BIT    FFACH.2           A  
+ISNC . . . . . . .  WORD   F1DEH             A  ESFR
+KSCCFG . . . . . .  WORD   FE1CH             A  SFR
+LED1 . . . . . . .  DATA3  4H                A  
+LED2 . . . . . . .  DATA3  5H                A  
+A166 MACRO ASSEMBLER  A3                                                                  05/26/2018 15:24:40 PAGE     8
+
+LED3 . . . . . . .  DATA3  6H                A  
+LED4 . . . . . . .  DATA3  7H                A  
+LOOP . . . . . . .  NEAR   52H               R  SEC=PROGRAMME
+MAIN . . . . . . .  NEAR   44H               R  SEC=PROGRAMME
+MDC. . . . . . . .  WORD   FF0EH             A  SFR
+MDRIU. . . . . . .  BIT    FF0EH.4           A  
+MTTC0. . . . . . .  BIT    FF0CH.5           A  
+MTTC1. . . . . . .  BIT    FF14H.5           A  
+MTTC2. . . . . . .  BIT    FF16H.5           A  
+MTTC3. . . . . . .  BIT    FF18H.5           A  
+MTTC4. . . . . . .  BIT    FF1AH.5           A  
+MULIP. . . . . . .  BIT    FF10H.5           A  
+MYUP1. . . . . . .  NEAR   28H               R  SEC=PROGRAMME
+N. . . . . . . . .  BIT    FF10H.0           A  
+NMI. . . . . . . .  BIT    FFACH.15          A  
+ODP2 . . . . . . .  WORD   F1C2H             A  ESFR
+ODP3 . . . . . . .  WORD   F1C6H             A  ESFR
+ODP6 . . . . . . .  WORD   F1CEH             A  ESFR
+ODP7 . . . . . . .  WORD   F1D2H             A  ESFR
+ODP8 . . . . . . .  WORD   F1D6H             A  ESFR
+ONES . . . . . . .  WORD   FF1EH             A  SFR
+P0H. . . . . . . .  WORD   FF02H             A  SFR
+P0L. . . . . . . .  WORD   FF00H             A  SFR
+P0_IN. . . . . . .  WORD   FF80H             A  SFR
+P0_IOCR_0. . . . .  DATA16 E800H             A  
+P0_IOCR_1. . . . .  DATA16 E802H             A  
+P0_IOCR_2. . . . .  DATA16 E804H             A  
+P0_IOCR_3. . . . .  DATA16 E806H             A  
+P0_IOCR_4. . . . .  DATA16 E808H             A  
+P0_IOCR_5. . . . .  DATA16 E80AH             A  
+P0_IOCR_6. . . . .  DATA16 E80CH             A  
+P0_IOCR_7. . . . .  DATA16 E80EH             A  
+P0_OUT . . . . . .  WORD   FFA2H             A  SFR
+P1H. . . . . . . .  WORD   FF06H             A  SFR
+P1L. . . . . . . .  WORD   FF04H             A  SFR
+P2 . . . . . . . .  WORD   FFC0H             A  SFR
+P2_IN. . . . . . .  WORD   FF84H             A  SFR
+P2_IOCR_0. . . . .  DATA16 E840H             A  
+P2_IOCR_1. . . . .  DATA16 E842H             A  
+P2_IOCR_10 . . . .  DATA16 E854H             A  
+P2_IOCR_11 . . . .  DATA16 E856H             A  
+P2_IOCR_12 . . . .  DATA16 E858H             A  
+P2_IOCR_2. . . . .  DATA16 E844H             A  
+P2_IOCR_3. . . . .  DATA16 E846H             A  
+P2_IOCR_4. . . . .  DATA16 E848H             A  
+P2_IOCR_5. . . . .  DATA16 E84AH             A  
+P2_IOCR_6. . . . .  DATA16 E84CH             A  
+P2_IOCR_7. . . . .  DATA16 E84EH             A  
+P2_IOCR_8. . . . .  DATA16 E850H             A  
+P2_IOCR_9. . . . .  DATA16 E852H             A  
+P2_OUT . . . . . .  WORD   FFA6H             A  SFR
+P3 . . . . . . . .  WORD   FFC4H             A  SFR
+P4 . . . . . . . .  WORD   FFC8H             A  SFR
+P5 . . . . . . . .  WORD   FFA2H             A  SFR
+P6 . . . . . . . .  WORD   FFCCH             A  SFR
+P7 . . . . . . . .  WORD   FFD0H             A  SFR
+P8 . . . . . . . .  WORD   FFD4H             A  SFR
+PB01 . . . . . . .  BIT    FF32H.12          A  
+PCDDIS . . . . . .  BIT    F1D4H.15          A  
+PECC0. . . . . . .  WORD   FEC0H             A  SFR
+PECC1. . . . . . .  WORD   FEC2H             A  SFR
+PECC2. . . . . . .  WORD   FEC4H             A  SFR
+PECC3. . . . . . .  WORD   FEC6H             A  SFR
+PECC4. . . . . . .  WORD   FEC8H             A  SFR
+PECC5. . . . . . .  WORD   FECAH             A  SFR
+PECC6. . . . . . .  WORD   FECCH             A  SFR
+A166 MACRO ASSEMBLER  A3                                                                  05/26/2018 15:24:40 PAGE     9
+
+PECC7. . . . . . .  WORD   FECEH             A  SFR
+PEN0 . . . . . . .  BIT    FF32H.0           A  
+PEN1 . . . . . . .  BIT    FF32H.1           A  
+PEN2 . . . . . . .  BIT    FF32H.2           A  
+PEN3 . . . . . . .  BIT    FF32H.3           A  
+PIE0 . . . . . . .  BIT    FF30H.8           A  
+PIE1 . . . . . . .  BIT    FF30H.9           A  
+PIE2 . . . . . . .  BIT    FF30H.10          A  
+PIE3 . . . . . . .  BIT    FF30H.11          A  
+PIR0 . . . . . . .  BIT    FF30H.12          A  
+PIR1 . . . . . . .  BIT    FF30H.13          A  
+PIR2 . . . . . . .  BIT    FF30H.14          A  
+PIR3 . . . . . . .  BIT    FF30H.15          A  
+PLLIE. . . . . . .  BIT    F1DEH.3           A  
+PLLIR. . . . . . .  BIT    F1DEH.2           A  
+PM0. . . . . . . .  BIT    FF32H.4           A  
+PM1. . . . . . . .  BIT    FF32H.5           A  
+PM2. . . . . . . .  BIT    FF32H.6           A  
+PM3. . . . . . . .  BIT    FF32H.7           A  
+PORTINIT . . . . .  NEAR   0H                R  SEC=PROGRAMME
+PP0. . . . . . . .  WORD   F038H             A  ESFR
+PP1. . . . . . . .  WORD   F03AH             A  ESFR
+PP2. . . . . . . .  WORD   F03CH             A  ESFR
+PP3. . . . . . . .  WORD   F03EH             A  ESFR
+PROGRAMME. . . . .  ----   ----              R  SECTION
+PRTFLT . . . . . .  BIT    FFACH.3           A  
+PS2. . . . . . . .  BIT    FF32H.14          A  
+PS3. . . . . . . .  BIT    FF32H.15          A  
+PSW. . . . . . . .  WORD   FF10H             A  SFR
+PT0. . . . . . . .  WORD   F030H             A  ESFR
+PT1. . . . . . . .  WORD   F032H             A  ESFR
+PT2. . . . . . . .  WORD   F034H             A  ESFR
+PT3. . . . . . . .  WORD   F036H             A  ESFR
+PTI0 . . . . . . .  BIT    FF30H.4           A  
+PTI1 . . . . . . .  BIT    FF30H.5           A  
+PTI2 . . . . . . .  BIT    FF30H.6           A  
+PTI3 . . . . . . .  BIT    FF30H.7           A  
+PTR0 . . . . . . .  BIT    FF30H.0           A  
+PTR1 . . . . . . .  BIT    FF30H.1           A  
+PTR2 . . . . . . .  BIT    FF30H.2           A  
+PTR3 . . . . . . .  BIT    FF30H.3           A  
+PW0. . . . . . . .  WORD   FE30H             A  SFR
+PW1. . . . . . . .  WORD   FE32H             A  SFR
+PW2. . . . . . . .  WORD   FE34H             A  SFR
+PW3. . . . . . . .  WORD   FE36H             A  SFR
+PWMCON0. . . . . .  WORD   FF30H             A  SFR
+PWMCON1. . . . . .  WORD   FF32H             A  SFR
+PWMDIS . . . . . .  BIT    F1D4H.9           A  
+PWMIC. . . . . . .  WORD   F17EH             A  ESFR
+PWMIE. . . . . . .  BIT    F17EH.6           A  
+PWMIR. . . . . . .  BIT    F17EH.7           A  
+RCS. . . . . . . .  BIT    F1D0H.6           A  
+RDYEN0 . . . . . .  BIT    FF0CH.12          A  
+RDYEN1 . . . . . .  BIT    FF14H.12          A  
+RDYEN2 . . . . . .  BIT    FF16H.12          A  
+RDYEN3 . . . . . .  BIT    FF18H.12          A  
+RDYEN4 . . . . . .  BIT    FF1AH.12          A  
+RESET. . . . . . .  INTNO  0000H             A  GLB 
+ROMEN. . . . . . .  BIT    FF12H.10          A  
+ROMS1. . . . . . .  BIT    FF12H.12          A  
+RP0H . . . . . . .  WORD   F108H             A  ESFR
+RTCIE. . . . . . .  BIT    F1DEH.1           A  
+RTCIR. . . . . . .  BIT    F1DEH.0           A  
+RWDC0. . . . . . .  BIT    FF0CH.4           A  
+RWDC1. . . . . . .  BIT    FF14H.4           A  
+RWDC2. . . . . . .  BIT    FF16H.4           A  
+A166 MACRO ASSEMBLER  A3                                                                  05/26/2018 15:24:40 PAGE    10
+
+RWDC3. . . . . . .  BIT    FF18H.4           A  
+RWDC4. . . . . . .  BIT    FF1AH.4           A  
+S0BG . . . . . . .  WORD   FEB4H             A  SFR
+S0BRS. . . . . . .  BIT    FFB0H.13          A  
+S0CON. . . . . . .  WORD   FFB0H             A  SFR
+S0EIC. . . . . . .  WORD   FF70H             A  SFR
+S0EIE. . . . . . .  BIT    FF70H.6           A  
+S0EIR. . . . . . .  BIT    FF70H.7           A  
+S0FE . . . . . . .  BIT    FFB0H.9           A  
+S0FEN. . . . . . .  BIT    FFB0H.6           A  
+S0LB . . . . . . .  BIT    FFB0H.14          A  
+S0ODD. . . . . . .  BIT    FFB0H.12          A  
+S0OE . . . . . . .  BIT    FFB0H.10          A  
+S0OEN. . . . . . .  BIT    FFB0H.7           A  
+S0PE . . . . . . .  BIT    FFB0H.8           A  
+S0PEN. . . . . . .  BIT    FFB0H.5           A  
+S0R. . . . . . . .  BIT    FFB0H.15          A  
+S0RBUF . . . . . .  WORD   FEB2H             A  SFR
+S0REN. . . . . . .  BIT    FFB0H.4           A  
+S0RIC. . . . . . .  WORD   FF6EH             A  SFR
+S0RIE. . . . . . .  BIT    FF6EH.6           A  
+S0RIR. . . . . . .  BIT    FF6EH.7           A  
+S0STP. . . . . . .  BIT    FFB0H.3           A  
+S0TBIC . . . . . .  WORD   F19CH             A  ESFR
+S0TBIE . . . . . .  BIT    F19CH.6           A  
+S0TBIR . . . . . .  BIT    F19CH.7           A  
+S0TBUF . . . . . .  WORD   FEB0H             A  SFR
+S0TIC. . . . . . .  WORD   FF6CH             A  SFR
+S0TIE. . . . . . .  BIT    FF6CH.6           A  
+S0TIR. . . . . . .  BIT    FF6CH.7           A  
+S1 . . . . . . . .  DATA3  0H                A  
+S2 . . . . . . . .  DATA3  1H                A  
+SCS. . . . . . . .  BIT    F1D0H.7           A  
+SGTEN. . . . . . .  BIT    FF12H.11          A  
+SP . . . . . . . .  WORD   FE12H             A  SFR
+SPSEG. . . . . . .  WORD   FF0CH             A  SFR
+SSCBE. . . . . . .  BIT    FFB2H.11          A  
+SSCBEN . . . . . .  BIT    FFB2H.11          A  
+SSCBR. . . . . . .  WORD   F0B4H             A  ESFR
+SSCBSY . . . . . .  BIT    FFB2H.12          A  
+SSCCON . . . . . .  WORD   FFB2H             A  SFR
+SSCDIS . . . . . .  BIT    F1D4H.2           A  
+SSCEIC . . . . . .  WORD   FF76H             A  SFR
+SSCEIE . . . . . .  BIT    FF76H.6           A  
+SSCEIR . . . . . .  BIT    FF76H.7           A  
+SSCEN. . . . . . .  BIT    FFB2H.15          A  
+SSCHB. . . . . . .  BIT    FFB2H.4           A  
+SSCMS. . . . . . .  BIT    FFB2H.14          A  
+SSCP0. . . . . . .  BIT    FFB2H.6           A  
+SSCPE. . . . . . .  BIT    FFB2H.10          A  
+SSCPEN . . . . . .  BIT    FFB2H.10          A  
+SSCPH. . . . . . .  BIT    FFB2H.5           A  
+SSCRB. . . . . . .  WORD   F0B2H             A  ESFR
+SSCRE. . . . . . .  BIT    FFB2H.9           A  
+SSCREN . . . . . .  BIT    FFB2H.9           A  
+SSCRIC . . . . . .  WORD   FF74H             A  SFR
+SSCRIE . . . . . .  BIT    FF74H.6           A  
+SSCRIR . . . . . .  BIT    FF74H.7           A  
+SSCTB. . . . . . .  WORD   F0B0H             A  ESFR
+SSCTE. . . . . . .  BIT    FFB2H.8           A  
+SSCTEN . . . . . .  BIT    FFB2H.8           A  
+SSCTIC . . . . . .  WORD   FF72H             A  SFR
+SSCTIE . . . . . .  BIT    FF72H.6           A  
+SSCTIR . . . . . .  BIT    FF72H.7           A  
+STARTUP. . . . . .  ----   ----                 
+STKOF. . . . . . .  BIT    FFACH.14          A  
+A166 MACRO ASSEMBLER  A3                                                                  05/26/2018 15:24:40 PAGE    11
+
+STKOV. . . . . . .  WORD   FE14H             A  SFR
+STKUF. . . . . . .  BIT    FFACH.13          A  
+STKUN. . . . . . .  WORD   FE16H             A  SFR
+STOP1. . . . . . .  NEAR   76H               R  SEC=PROGRAMME
+STOP2. . . . . . .  NEAR   96H               R  SEC=PROGRAMME
+STOPJETZT. . . . .  NEAR   9AH               R  SEC=PROGRAMME
+SYSCON . . . . . .  WORD   FF12H             A  SFR
+SYSCON2. . . . . .  WORD   F1D0H             A  ESFR
+SYSCON3. . . . . .  WORD   F1D4H             A  ESFR
+T0 . . . . . . . .  WORD   FE50H             A  SFR
+T01CON . . . . . .  WORD   FF50H             A  SFR
+T0IC . . . . . . .  WORD   FF9CH             A  SFR
+T0IE . . . . . . .  BIT    FF9CH.6           A  
+T0IN . . . . . . .  BIT    FFC4H.0           A  
+T0IR . . . . . . .  BIT    FF9CH.7           A  
+T0M. . . . . . . .  BIT    FF50H.3           A  
+T0R. . . . . . . .  BIT    FF50H.6           A  
+T0REL. . . . . . .  WORD   FE54H             A  SFR
+T1 . . . . . . . .  WORD   FE52H             A  SFR
+T1IC . . . . . . .  WORD   FF9EH             A  SFR
+T1IE . . . . . . .  BIT    FF9EH.6           A  
+T1IR . . . . . . .  BIT    FF9EH.7           A  
+T1M. . . . . . . .  BIT    FF50H.11          A  
+T1R. . . . . . . .  BIT    FF50H.14          A  
+T1REL. . . . . . .  WORD   FE56H             A  SFR
+T2 . . . . . . . .  WORD   FE40H             A  SFR
+T2CON. . . . . . .  WORD   FF40H             A  SFR
+T2EUD. . . . . . .  BIT    FFA2H.15          A  
+T2IC . . . . . . .  WORD   FF60H             A  SFR
+T2IE . . . . . . .  BIT    FF60H.6           A  
+T2IN . . . . . . .  BIT    FFC4H.7           A  
+T2IR . . . . . . .  BIT    FF60H.7           A  
+T2R. . . . . . . .  BIT    FF40H.6           A  
+T2UD . . . . . . .  BIT    FF40H.7           A  
+T2UDE. . . . . . .  BIT    FF40H.8           A  
+T3 . . . . . . . .  WORD   FE42H             A  SFR
+T3CON. . . . . . .  WORD   FF42H             A  SFR
+T3EUD. . . . . . .  BIT    FFC4H.4           A  
+T3IC . . . . . . .  WORD   FF62H             A  SFR
+T3IE . . . . . . .  BIT    FF62H.6           A  
+T3IN . . . . . . .  BIT    FFC4H.6           A  
+T3IR . . . . . . .  BIT    FF62H.7           A  
+T3OE . . . . . . .  BIT    FF42H.9           A  
+T3OTL. . . . . . .  BIT    FF42H.10          A  
+T3OUT. . . . . . .  BIT    FFC4H.3           A  
+T3R. . . . . . . .  BIT    FF42H.6           A  
+T3UD . . . . . . .  BIT    FF42H.7           A  
+T3UDE. . . . . . .  BIT    FF42H.8           A  
+T4 . . . . . . . .  WORD   FE44H             A  SFR
+T4CON. . . . . . .  WORD   FF44H             A  SFR
+T4EUD. . . . . . .  BIT    FFA2H.14          A  
+T4IC . . . . . . .  WORD   FF64H             A  SFR
+T4IE . . . . . . .  BIT    FF64H.6           A  
+T4IN . . . . . . .  BIT    FFC4H.5           A  
+T4IR . . . . . . .  BIT    FF64H.7           A  
+T4R. . . . . . . .  BIT    FF44H.6           A  
+T4UD . . . . . . .  BIT    FF44H.7           A  
+T4UDE. . . . . . .  BIT    FF44H.8           A  
+T5 . . . . . . . .  WORD   FE46H             A  SFR
+T5CLR. . . . . . .  BIT    FF46H.14          A  
+T5CON. . . . . . .  WORD   FF46H             A  SFR
+T5EUD. . . . . . .  BIT    FFA2H.11          A  
+T5IC . . . . . . .  WORD   FF66H             A  SFR
+T5IE . . . . . . .  BIT    FF66H.6           A  
+T5IN . . . . . . .  BIT    FFA2H.13          A  
+T5IR . . . . . . .  BIT    FF66H.7           A  
+A166 MACRO ASSEMBLER  A3                                                                  05/26/2018 15:24:40 PAGE    12
+
+T5R. . . . . . . .  BIT    FF46H.6           A  
+T5SC . . . . . . .  BIT    FF46H.15          A  
+T5UD . . . . . . .  BIT    FF46H.7           A  
+T5UDE. . . . . . .  BIT    FF46H.8           A  
+T6 . . . . . . . .  WORD   FE48H             A  SFR
+T6CON. . . . . . .  WORD   FF48H             A  SFR
+T6IC . . . . . . .  WORD   FF68H             A  SFR
+T6IE . . . . . . .  BIT    FF68H.6           A  
+T6IN . . . . . . .  BIT    FFA2H.12          A  
+T6IR . . . . . . .  BIT    FF68H.7           A  
+T6OE . . . . . . .  BIT    FF48H.9           A  
+T6OTL. . . . . . .  BIT    FF48H.10          A  
+T6OUT. . . . . . .  BIT    FFC4H.1           A  
+T6R. . . . . . . .  BIT    FF48H.6           A  
+T6SR . . . . . . .  BIT    FF48H.15          A  
+T6UD . . . . . . .  BIT    FF48H.7           A  
+T6UDE. . . . . . .  BIT    FF48H.8           A  
+T7 . . . . . . . .  WORD   F050H             A  ESFR
+T78CON . . . . . .  WORD   FF20H             A  SFR
+T7IC . . . . . . .  WORD   F17AH             A  ESFR
+T7IE . . . . . . .  BIT    F17AH.6           A  
+T7IR . . . . . . .  BIT    F17AH.7           A  
+T7M. . . . . . . .  BIT    FF20H.3           A  
+T7R. . . . . . . .  BIT    FF20H.6           A  
+T7REL. . . . . . .  WORD   F054H             A  ESFR
+T8 . . . . . . . .  WORD   F052H             A  ESFR
+T8IC . . . . . . .  WORD   F17CH             A  ESFR
+T8IE . . . . . . .  BIT    F17CH.6           A  
+T8IR . . . . . . .  BIT    F17CH.7           A  
+T8M. . . . . . . .  BIT    FF20H.11          A  
+T8R. . . . . . . .  BIT    FF20H.14          A  
+T8REL. . . . . . .  WORD   F056H             A  ESFR
+TA1. . . . . . . .  DATA3  2H                A  
+TA2. . . . . . . .  DATA3  3H                A  
+TFR. . . . . . . .  WORD   FFACH             A  SFR
+UNDOPC . . . . . .  BIT    FFACH.7           A  
+USR0 . . . . . . .  BIT    FF10H.6           A  
+V. . . . . . . . .  BIT    FF10H.2           A  
+WDT. . . . . . . .  WORD   FEAEH             A  SFR
+WDTCON . . . . . .  WORD   FFAEH             A  SFR
+WDTIN. . . . . . .  BIT    FFAEH.0           A  
+WDTR . . . . . . .  BIT    FFAEH.1           A  
+WRCFG. . . . . . .  BIT    FF12H.7           A  
+XP0IC. . . . . . .  WORD   F186H             A  ESFR
+XP0IE. . . . . . .  BIT    F186H.6           A  
+XP0IR. . . . . . .  BIT    F186H.7           A  
+XP1IC. . . . . . .  WORD   F18EH             A  ESFR
+XP1IE. . . . . . .  BIT    F18EH.6           A  
+XP1IR. . . . . . .  BIT    F18EH.7           A  
+XP2IC. . . . . . .  WORD   F196H             A  ESFR
+XP2IE. . . . . . .  BIT    F196H.6           A  
+XP2IR. . . . . . .  BIT    F196H.7           A  
+XP3IC. . . . . . .  WORD   F19EH             A  ESFR
+XP3IE. . . . . . .  BIT    F19EH.6           A  
+XP3IR. . . . . . .  BIT    F19EH.7           A  
+Z. . . . . . . . .  BIT    FF10H.3           A  
+ZEROS. . . . . . .  WORD   FF1CH             A  SFR
+
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

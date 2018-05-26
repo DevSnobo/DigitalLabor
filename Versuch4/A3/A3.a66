@@ -87,15 +87,43 @@ MAIN	Proc
 ;Hier geht Ihr Hauptprogramm los
 ;
 call PortInit
-	BSET P0_OUT.LED1
-	BSET P0_OUT.LED2
-	BSET P0_OUT.LED3
-	BSET P0_OUT.LED4
+
+	MOV R0,P0_OUT
+	OR 	R0,#0xF0		;1111
+	MOV P0_OUT,R0
 
 	loop:
-	BMOV P0_OUT.LED1,P0_IN.TA1
-	BMOV P0_OUT.LED2,P0_IN.TA2
-	JMP loop	
+
+	;start LED 1
+	MOV R0,P0_IN
+	AND R0,#0x08		;1000
+	CMP R0,#0x08		;compare and set flag
+	JMP cc_EQ,if_true
+	MOV R1,#0xEF		;1110
+	MOV P0_OUT,R1
+	JMP stop1
+	if_true:
+	MOV R1,P0_OUT
+	OR R1,#0x10			;0001 0000
+	MOV P0_OUT,R1
+	stop1:
+	;end LED 1
+
+	;start LED 2
+	MOV R0,P0_IN
+	AND R0,#0x04		;0100
+	CMP R0,#0x04		;compare and set flag
+	JMP cc_EQ,if_true2
+	MOV R1,#0xDF		;1101 1111
+	MOV P0_OUT,R1
+	JMP stop2
+	if_true2:
+	MOV R1,P0_OUT
+	OR R1,#0x20			;0010 0000
+	MOV P0_OUT,R1
+	stop2:
+	;end LED 2
+	
 	
 	Call	MyUp1	
 
