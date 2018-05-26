@@ -1,0 +1,17 @@
+<html>
+<body>
+<pre>
+<h1>µVision3 Build Log</h1>
+<h2>Project:</h2>
+C:\Users\John Doe\Desktop\Versuch4\A2\A2.uv2
+Project File Date:  05/26/2018
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling A2.a66...
+linking...
+Program Size: data=0(near=0) const=0(near=0) code=110
+"A2" - 0 Error(s), 0 Warning(s).
+</pre>
+</body>
+</html>
