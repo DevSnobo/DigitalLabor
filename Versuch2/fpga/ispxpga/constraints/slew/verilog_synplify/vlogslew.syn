@@ -1,0 +1,9 @@
+JDF B
+// Created by Version 3.0 
+PROJECT Untitled
+DESIGN vlogslew Normal
+DEVKIT LFX125C-04F256CES/2X
+ENTRY Schematic/Verilog HDL
+MODULE vlogslew.v
+MODSTYLE slewvlog Normal
+SYNTHESIS_TOOL Synplify

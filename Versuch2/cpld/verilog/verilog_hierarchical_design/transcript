@@ -1,0 +1,72 @@
+# Reading C:/Data/Magma_files/S magma/MAGMA10/MODELSIM/WIN32LOEM/../tcl/vsim/pref.tcl 
+# do timingsim.wdo 
+# Model Technology ModelSim LATTICE vlog 5.4d Compiler 1999.02 Sep 16 2000
+# -- Compiling module verilog_hierarchical_design
+# Top level modules:
+# 	verilog_hierarchical_design
+# Model Technology ModelSim LATTICE vlog 5.4d Compiler 1999.02 Sep 16 2000
+# -- Compiling module timingsim_wdl
+# Top level modules:
+# 	timingsim_wdl
+# vsim -L LC4K_vlg -L mgen_vlog -sdfmax UUT=verilog_hierarchical_design.sdf timingsim_wdl 
+# Loading verilog_hierarchical_design.sdf
+# Loading work.timingsim_wdl
+# Loading work.verilog_hierarchical_design
+# WARNING: [TSCALE] - Module 'verilog_hierarchical_design' does not have a `timescale directive in effect, but previous modules do
+#        Region: /timingsim_wdl/UUT
+# Loading C:/Data/Magma_files/S magma/MAGMA10/MODELSIM/WIN32LOEM/../lattice/verilog/lc4k.IBUF
+# Loading C:/Data/Magma_files/S magma/MAGMA10/MODELSIM/WIN32LOEM/../lattice/verilog/lc4k.OBUF
+# Loading C:/Data/Magma_files/S magma/MAGMA10/MODELSIM/WIN32LOEM/../lattice/verilog/lc4k.DFFRH
+# Loading C:/Data/Magma_files/S magma/MAGMA10/MODELSIM/WIN32LOEM/../lattice/verilog/lc4k.OR2
+# Loading C:/Data/Magma_files/S magma/MAGMA10/MODELSIM/WIN32LOEM/../lattice/verilog/lc4k.AND2
+# Loading C:/Data/Magma_files/S magma/MAGMA10/MODELSIM/WIN32LOEM/../lattice/verilog/lc4k.INV
+# Loading C:/Data/Magma_files/S magma/MAGMA10/MODELSIM/WIN32LOEM/../lattice/verilog/lc4k.MACH_DFF
+# ** Fatal: ERROR: SDF files require Lattice primitive library
+#    Time: 0 ps  Iteration: 0  Region: /timingsim_wdl
+# FATAL ERROR while loading design
+# Error loading design
+# Error: Error loading design 
+#        Pausing macro execution 
+# MACRO ./timingsim_wdl.udo PAUSED at line 4
+view wave
+# .wave
+run -all 
+# No Design Loaded!
+vlog -reportprogress 300 -work work {C:/Data/Magma_files/S magma/Magma10/ispCPLD/examples/verilog/verilog_hierarchical_design/verilog_hierarchical_design.v}
+# Model Technology ModelSim LATTICE vlog 5.4d Compiler 1999.02 Sep 16 2000
+# -- Compiling module mux
+# -- Compiling module reg8
+# -- Compiling module rotate
+# -- Compiling module verilog_hierarchical_design
+# Top level modules:
+# 	verilog_hierarchical_design
+vlog -reportprogress 300 -work work {C:/Data/Magma_files/S magma/Magma10/ispCPLD/examples/verilog/verilog_hierarchical_design/verilog_hierarchical_design.vo}
+# Model Technology ModelSim LATTICE vlog 5.4d Compiler 1999.02 Sep 16 2000
+# -- Compiling module verilog_hierarchical_design
+# Top level modules:
+# 	verilog_hierarchical_design
+vlog -reportprogress 300 -work work {C:/Data/Magma_files/S magma/Magma10/ispCPLD/examples/verilog/verilog_hierarchical_design/verilog_hierarchical_design.vo}
+# Model Technology ModelSim LATTICE vlog 5.4d Compiler 1999.02 Sep 16 2000
+# -- Compiling module verilog_hierarchical_design
+# Top level modules:
+# 	verilog_hierarchical_design
+vsim -L LC4K_vlg -L mgen_vlog -sdfmax UUT=verilog_hierarchical_design.sdf work.verilog_hierarchical_design
+# vsim -L LC4K_vlg -L mgen_vlog -sdfmax UUT=verilog_hierarchical_design.sdf work.verilog_hierarchical_design 
+# Loading verilog_hierarchical_design.sdf
+# Loading work.verilog_hierarchical_design
+# Loading C:/Data/Magma_files/S magma/MAGMA10/MODELSIM/WIN32LOEM/../lattice/verilog/lc4k.IBUF
+# WARNING: [TSCALE] - Module 'IBUF' has a `timescale directive in effect, but previous modules do not
+#        Region: /verilog_hierarchical_design/IN_a_7_I_1
+# Loading C:/Data/Magma_files/S magma/MAGMA10/MODELSIM/WIN32LOEM/../lattice/verilog/lc4k.OBUF
+# Loading C:/Data/Magma_files/S magma/MAGMA10/MODELSIM/WIN32LOEM/../lattice/verilog/lc4k.DFFRH
+# Loading C:/Data/Magma_files/S magma/MAGMA10/MODELSIM/WIN32LOEM/../lattice/verilog/lc4k.OR2
+# Loading C:/Data/Magma_files/S magma/MAGMA10/MODELSIM/WIN32LOEM/../lattice/verilog/lc4k.AND2
+# Loading C:/Data/Magma_files/S magma/MAGMA10/MODELSIM/WIN32LOEM/../lattice/verilog/lc4k.INV
+# Loading C:/Data/Magma_files/S magma/MAGMA10/MODELSIM/WIN32LOEM/../lattice/verilog/lc4k.MACH_DFF
+# ** Fatal: ERROR: SDF files require Lattice primitive library
+#    Time: 0 ps  Iteration: 0  Region: /verilog_hierarchical_design
+# FATAL ERROR while loading design
+# Error loading design
+# Error: Error loading design 
+#        Pausing macro execution 
+# MACRO ./timingsim_wdl.udo PAUSED at line 4

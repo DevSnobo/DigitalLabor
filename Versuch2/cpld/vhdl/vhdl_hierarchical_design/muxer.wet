@@ -1,0 +1,4 @@
+Wave a_vec[7:0]
+Wave b_vec[7:0]
+Wave sel
+Wave outvec[7:0]

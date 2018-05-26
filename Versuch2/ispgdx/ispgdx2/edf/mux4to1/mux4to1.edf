@@ -1,0 +1,975 @@
+(edif mux4to1 
+ (edifVersion 2 0 0)
+ (edifLevel 0)
+ (keywordMap (keywordLevel 0))
+ (status 
+  (written 
+   (timestamp 2002 09 09 03 55 01)
+   (program "LeonardoSpectrum for Lattice" (version "2002c.24_OEM_Lattice"))
+   (author "Mentor Graphics Corp")))
+ (external PRIMITIVES 
+  (edifLevel 0)
+  (technology (numberDefinition )))
+ (external ispgdx2 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell MUX4 (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port I1 (direction INPUT))
+     (port I2 (direction INPUT))
+     (port I3 (direction INPUT))
+     (port S0 (direction INPUT))
+     (port S1 (direction INPUT))
+     (port O (direction OUTPUT)))
+    (property AREA (string "0.010000"))))
+  (cell OBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port O (direction OUTPUT)
+      (property pad (string "T"))))))
+  (cell IBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT)
+      (property pad (string "T")))
+     (port O (direction OUTPUT)))
+    (property AREA (string "1.000000"))))
+  (cell DFFRH (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port D (direction INPUT))
+     (port CLK (direction INPUT))
+     (port R (direction INPUT))
+     (port Q (direction OUTPUT)))
+    (property AREA (string "5.000000")))))
+ (library work 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell mux4to1 (cellType GENERIC)
+   (view behave  (viewType NETLIST)
+    (interface 
+     (port (array (rename mux_out "mux_out(15:0)") 16 )(direction OUTPUT))
+     (port (array (rename mux_in1 "mux_in1(15:0)") 16 )(direction INPUT))
+     (port (array (rename mux_in2 "mux_in2(15:0)") 16 )(direction INPUT))
+     (port (array (rename mux_in3 "mux_in3(15:0)") 16 )(direction INPUT))
+     (port (array (rename mux_in4 "mux_in4(15:0)") 16 )(direction INPUT))
+     (port clk (direction INPUT))
+     (port (array (rename sel "sel(1:0)") 2 )(direction INPUT))
+     (port rst (direction INPUT)))
+    (contents 
+     (instance modgen_mux_4_ix12 (viewRef NETLIST  (cellRef MUX4 (libraryRef ispgdx2 ))))
+     (instance modgen_mux_5_ix12 (viewRef NETLIST  (cellRef MUX4 (libraryRef ispgdx2 ))))
+     (instance modgen_mux_6_ix12 (viewRef NETLIST  (cellRef MUX4 (libraryRef ispgdx2 ))))
+     (instance modgen_mux_7_ix12 (viewRef NETLIST  (cellRef MUX4 (libraryRef ispgdx2 ))))
+     (instance modgen_mux_8_ix12 (viewRef NETLIST  (cellRef MUX4 (libraryRef ispgdx2 ))))
+     (instance modgen_mux_9_ix12 (viewRef NETLIST  (cellRef MUX4 (libraryRef ispgdx2 ))))
+     (instance modgen_mux_10_ix12 (viewRef NETLIST  (cellRef MUX4 (libraryRef ispgdx2 ))))
+     (instance modgen_mux_11_ix12 (viewRef NETLIST  (cellRef MUX4 (libraryRef ispgdx2 ))))
+     (instance modgen_mux_12_ix12 (viewRef NETLIST  (cellRef MUX4 (libraryRef ispgdx2 ))))
+     (instance modgen_mux_13_ix12 (viewRef NETLIST  (cellRef MUX4 (libraryRef ispgdx2 ))))
+     (instance modgen_mux_14_ix12 (viewRef NETLIST  (cellRef MUX4 (libraryRef ispgdx2 ))))
+     (instance modgen_mux_15_ix12 (viewRef NETLIST  (cellRef MUX4 (libraryRef ispgdx2 ))))
+     (instance modgen_mux_16_ix12 (viewRef NETLIST  (cellRef MUX4 (libraryRef ispgdx2 ))))
+     (instance modgen_mux_17_ix12 (viewRef NETLIST  (cellRef MUX4 (libraryRef ispgdx2 ))))
+     (instance modgen_mux_18_ix12 (viewRef NETLIST  (cellRef MUX4 (libraryRef ispgdx2 ))))
+     (instance modgen_mux_19_ix12 (viewRef NETLIST  (cellRef MUX4 (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_out_15_ "io_mux_out(15)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_out_14_ "io_mux_out(14)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_out_13_ "io_mux_out(13)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_out_12_ "io_mux_out(12)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_out_11_ "io_mux_out(11)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_out_10_ "io_mux_out(10)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_out_9_ "io_mux_out(9)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_out_8_ "io_mux_out(8)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_out_7_ "io_mux_out(7)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_out_6_ "io_mux_out(6)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_out_5_ "io_mux_out(5)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_out_4_ "io_mux_out(4)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_out_3_ "io_mux_out(3)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_out_2_ "io_mux_out(2)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_out_1_ "io_mux_out(1)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_out_0_ "io_mux_out(0)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in1_15_ "io_mux_in1(15)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in1_14_ "io_mux_in1(14)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in1_13_ "io_mux_in1(13)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in1_12_ "io_mux_in1(12)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in1_11_ "io_mux_in1(11)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in1_10_ "io_mux_in1(10)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in1_9_ "io_mux_in1(9)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in1_8_ "io_mux_in1(8)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in1_7_ "io_mux_in1(7)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in1_6_ "io_mux_in1(6)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in1_5_ "io_mux_in1(5)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in1_4_ "io_mux_in1(4)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in1_3_ "io_mux_in1(3)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in1_2_ "io_mux_in1(2)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in1_1_ "io_mux_in1(1)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in1_0_ "io_mux_in1(0)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in2_15_ "io_mux_in2(15)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in2_14_ "io_mux_in2(14)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in2_13_ "io_mux_in2(13)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in2_12_ "io_mux_in2(12)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in2_11_ "io_mux_in2(11)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in2_10_ "io_mux_in2(10)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in2_9_ "io_mux_in2(9)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in2_8_ "io_mux_in2(8)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in2_7_ "io_mux_in2(7)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in2_6_ "io_mux_in2(6)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in2_5_ "io_mux_in2(5)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in2_4_ "io_mux_in2(4)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in2_3_ "io_mux_in2(3)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in2_2_ "io_mux_in2(2)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in2_1_ "io_mux_in2(1)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in2_0_ "io_mux_in2(0)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in3_15_ "io_mux_in3(15)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in3_14_ "io_mux_in3(14)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in3_13_ "io_mux_in3(13)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in3_12_ "io_mux_in3(12)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in3_11_ "io_mux_in3(11)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in3_10_ "io_mux_in3(10)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in3_9_ "io_mux_in3(9)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in3_8_ "io_mux_in3(8)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in3_7_ "io_mux_in3(7)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in3_6_ "io_mux_in3(6)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in3_5_ "io_mux_in3(5)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in3_4_ "io_mux_in3(4)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in3_3_ "io_mux_in3(3)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in3_2_ "io_mux_in3(2)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in3_1_ "io_mux_in3(1)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in3_0_ "io_mux_in3(0)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in4_15_ "io_mux_in4(15)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in4_14_ "io_mux_in4(14)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in4_13_ "io_mux_in4(13)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in4_12_ "io_mux_in4(12)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in4_11_ "io_mux_in4(11)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in4_10_ "io_mux_in4(10)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in4_9_ "io_mux_in4(9)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in4_8_ "io_mux_in4(8)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in4_7_ "io_mux_in4(7)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in4_6_ "io_mux_in4(6)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in4_5_ "io_mux_in4(5)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in4_4_ "io_mux_in4(4)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in4_3_ "io_mux_in4(3)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in4_2_ "io_mux_in4(2)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in4_1_ "io_mux_in4(1)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_mux_in4_0_ "io_mux_in4(0)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance io_clk (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_sel_1_ "io_sel(1)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance (rename io_sel_0_ "io_sel(0)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance io_rst (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance ix1 (viewRef NETLIST  (cellRef DFFRH (libraryRef ispgdx2 ))))
+     (instance ix5 (viewRef NETLIST  (cellRef DFFRH (libraryRef ispgdx2 ))))
+     (instance ix9 (viewRef NETLIST  (cellRef DFFRH (libraryRef ispgdx2 ))))
+     (instance ix29 (viewRef NETLIST  (cellRef DFFRH (libraryRef ispgdx2 ))))
+     (instance ix33 (viewRef NETLIST  (cellRef DFFRH (libraryRef ispgdx2 ))))
+     (instance ix37 (viewRef NETLIST  (cellRef DFFRH (libraryRef ispgdx2 ))))
+     (instance ix41 (viewRef NETLIST  (cellRef DFFRH (libraryRef ispgdx2 ))))
+     (instance ix45 (viewRef NETLIST  (cellRef DFFRH (libraryRef ispgdx2 ))))
+     (instance ix49 (viewRef NETLIST  (cellRef DFFRH (libraryRef ispgdx2 ))))
+     (instance ix53 (viewRef NETLIST  (cellRef DFFRH (libraryRef ispgdx2 ))))
+     (instance ix57 (viewRef NETLIST  (cellRef DFFRH (libraryRef ispgdx2 ))))
+     (instance ix61 (viewRef NETLIST  (cellRef DFFRH (libraryRef ispgdx2 ))))
+     (instance ix65 (viewRef NETLIST  (cellRef DFFRH (libraryRef ispgdx2 ))))
+     (instance ix69 (viewRef NETLIST  (cellRef DFFRH (libraryRef ispgdx2 ))))
+     (instance ix73 (viewRef NETLIST  (cellRef DFFRH (libraryRef ispgdx2 ))))
+     (instance ix77 (viewRef NETLIST  (cellRef DFFRH (libraryRef ispgdx2 ))))
+     (net (rename int_mux_out_15_ "int_mux_out(15)") 
+      (joined 
+       (portRef Q (instanceRef ix77 ))
+       (portRef I0 (instanceRef io_mux_out_15_ ))))
+     (net (rename int_mux_out_14_ "int_mux_out(14)") 
+      (joined 
+       (portRef Q (instanceRef ix73 ))
+       (portRef I0 (instanceRef io_mux_out_14_ ))))
+     (net (rename int_mux_out_13_ "int_mux_out(13)") 
+      (joined 
+       (portRef Q (instanceRef ix69 ))
+       (portRef I0 (instanceRef io_mux_out_13_ ))))
+     (net (rename int_mux_out_12_ "int_mux_out(12)") 
+      (joined 
+       (portRef Q (instanceRef ix65 ))
+       (portRef I0 (instanceRef io_mux_out_12_ ))))
+     (net (rename int_mux_out_11_ "int_mux_out(11)") 
+      (joined 
+       (portRef Q (instanceRef ix61 ))
+       (portRef I0 (instanceRef io_mux_out_11_ ))))
+     (net (rename int_mux_out_10_ "int_mux_out(10)") 
+      (joined 
+       (portRef Q (instanceRef ix57 ))
+       (portRef I0 (instanceRef io_mux_out_10_ ))))
+     (net (rename int_mux_out_9_ "int_mux_out(9)") 
+      (joined 
+       (portRef Q (instanceRef ix53 ))
+       (portRef I0 (instanceRef io_mux_out_9_ ))))
+     (net (rename int_mux_out_8_ "int_mux_out(8)") 
+      (joined 
+       (portRef Q (instanceRef ix49 ))
+       (portRef I0 (instanceRef io_mux_out_8_ ))))
+     (net (rename int_mux_out_7_ "int_mux_out(7)") 
+      (joined 
+       (portRef Q (instanceRef ix45 ))
+       (portRef I0 (instanceRef io_mux_out_7_ ))))
+     (net (rename int_mux_out_6_ "int_mux_out(6)") 
+      (joined 
+       (portRef Q (instanceRef ix41 ))
+       (portRef I0 (instanceRef io_mux_out_6_ ))))
+     (net (rename int_mux_out_5_ "int_mux_out(5)") 
+      (joined 
+       (portRef Q (instanceRef ix37 ))
+       (portRef I0 (instanceRef io_mux_out_5_ ))))
+     (net (rename int_mux_out_4_ "int_mux_out(4)") 
+      (joined 
+       (portRef Q (instanceRef ix33 ))
+       (portRef I0 (instanceRef io_mux_out_4_ ))))
+     (net (rename int_mux_out_3_ "int_mux_out(3)") 
+      (joined 
+       (portRef Q (instanceRef ix29 ))
+       (portRef I0 (instanceRef io_mux_out_3_ ))))
+     (net (rename int_mux_out_2_ "int_mux_out(2)") 
+      (joined 
+       (portRef Q (instanceRef ix9 ))
+       (portRef I0 (instanceRef io_mux_out_2_ ))))
+     (net (rename int_mux_out_1_ "int_mux_out(1)") 
+      (joined 
+       (portRef Q (instanceRef ix5 ))
+       (portRef I0 (instanceRef io_mux_out_1_ ))))
+     (net (rename int_mux_out_0_ "int_mux_out(0)") 
+      (joined 
+       (portRef Q (instanceRef ix1 ))
+       (portRef I0 (instanceRef io_mux_out_0_ ))))
+     (net (rename int_mux_in1_15_ "int_mux_in1(15)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in1_15_ ))
+       (portRef I0 (instanceRef modgen_mux_4_ix12 ))))
+     (net (rename int_mux_in1_14_ "int_mux_in1(14)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in1_14_ ))
+       (portRef I0 (instanceRef modgen_mux_5_ix12 ))))
+     (net (rename int_mux_in1_13_ "int_mux_in1(13)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in1_13_ ))
+       (portRef I0 (instanceRef modgen_mux_6_ix12 ))))
+     (net (rename int_mux_in1_12_ "int_mux_in1(12)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in1_12_ ))
+       (portRef I0 (instanceRef modgen_mux_7_ix12 ))))
+     (net (rename int_mux_in1_11_ "int_mux_in1(11)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in1_11_ ))
+       (portRef I0 (instanceRef modgen_mux_8_ix12 ))))
+     (net (rename int_mux_in1_10_ "int_mux_in1(10)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in1_10_ ))
+       (portRef I0 (instanceRef modgen_mux_9_ix12 ))))
+     (net (rename int_mux_in1_9_ "int_mux_in1(9)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in1_9_ ))
+       (portRef I0 (instanceRef modgen_mux_10_ix12 ))))
+     (net (rename int_mux_in1_8_ "int_mux_in1(8)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in1_8_ ))
+       (portRef I0 (instanceRef modgen_mux_11_ix12 ))))
+     (net (rename int_mux_in1_7_ "int_mux_in1(7)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in1_7_ ))
+       (portRef I0 (instanceRef modgen_mux_12_ix12 ))))
+     (net (rename int_mux_in1_6_ "int_mux_in1(6)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in1_6_ ))
+       (portRef I0 (instanceRef modgen_mux_13_ix12 ))))
+     (net (rename int_mux_in1_5_ "int_mux_in1(5)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in1_5_ ))
+       (portRef I0 (instanceRef modgen_mux_14_ix12 ))))
+     (net (rename int_mux_in1_4_ "int_mux_in1(4)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in1_4_ ))
+       (portRef I0 (instanceRef modgen_mux_15_ix12 ))))
+     (net (rename int_mux_in1_3_ "int_mux_in1(3)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in1_3_ ))
+       (portRef I0 (instanceRef modgen_mux_16_ix12 ))))
+     (net (rename int_mux_in1_2_ "int_mux_in1(2)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in1_2_ ))
+       (portRef I0 (instanceRef modgen_mux_17_ix12 ))))
+     (net (rename int_mux_in1_1_ "int_mux_in1(1)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in1_1_ ))
+       (portRef I0 (instanceRef modgen_mux_18_ix12 ))))
+     (net (rename int_mux_in1_0_ "int_mux_in1(0)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in1_0_ ))
+       (portRef I0 (instanceRef modgen_mux_19_ix12 ))))
+     (net (rename int_mux_in2_15_ "int_mux_in2(15)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in2_15_ ))
+       (portRef I1 (instanceRef modgen_mux_4_ix12 ))))
+     (net (rename int_mux_in2_14_ "int_mux_in2(14)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in2_14_ ))
+       (portRef I1 (instanceRef modgen_mux_5_ix12 ))))
+     (net (rename int_mux_in2_13_ "int_mux_in2(13)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in2_13_ ))
+       (portRef I1 (instanceRef modgen_mux_6_ix12 ))))
+     (net (rename int_mux_in2_12_ "int_mux_in2(12)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in2_12_ ))
+       (portRef I1 (instanceRef modgen_mux_7_ix12 ))))
+     (net (rename int_mux_in2_11_ "int_mux_in2(11)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in2_11_ ))
+       (portRef I1 (instanceRef modgen_mux_8_ix12 ))))
+     (net (rename int_mux_in2_10_ "int_mux_in2(10)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in2_10_ ))
+       (portRef I1 (instanceRef modgen_mux_9_ix12 ))))
+     (net (rename int_mux_in2_9_ "int_mux_in2(9)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in2_9_ ))
+       (portRef I1 (instanceRef modgen_mux_10_ix12 ))))
+     (net (rename int_mux_in2_8_ "int_mux_in2(8)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in2_8_ ))
+       (portRef I1 (instanceRef modgen_mux_11_ix12 ))))
+     (net (rename int_mux_in2_7_ "int_mux_in2(7)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in2_7_ ))
+       (portRef I1 (instanceRef modgen_mux_12_ix12 ))))
+     (net (rename int_mux_in2_6_ "int_mux_in2(6)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in2_6_ ))
+       (portRef I1 (instanceRef modgen_mux_13_ix12 ))))
+     (net (rename int_mux_in2_5_ "int_mux_in2(5)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in2_5_ ))
+       (portRef I1 (instanceRef modgen_mux_14_ix12 ))))
+     (net (rename int_mux_in2_4_ "int_mux_in2(4)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in2_4_ ))
+       (portRef I1 (instanceRef modgen_mux_15_ix12 ))))
+     (net (rename int_mux_in2_3_ "int_mux_in2(3)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in2_3_ ))
+       (portRef I1 (instanceRef modgen_mux_16_ix12 ))))
+     (net (rename int_mux_in2_2_ "int_mux_in2(2)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in2_2_ ))
+       (portRef I1 (instanceRef modgen_mux_17_ix12 ))))
+     (net (rename int_mux_in2_1_ "int_mux_in2(1)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in2_1_ ))
+       (portRef I1 (instanceRef modgen_mux_18_ix12 ))))
+     (net (rename int_mux_in2_0_ "int_mux_in2(0)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in2_0_ ))
+       (portRef I1 (instanceRef modgen_mux_19_ix12 ))))
+     (net (rename int_mux_in3_15_ "int_mux_in3(15)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in3_15_ ))
+       (portRef I2 (instanceRef modgen_mux_4_ix12 ))))
+     (net (rename int_mux_in3_14_ "int_mux_in3(14)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in3_14_ ))
+       (portRef I2 (instanceRef modgen_mux_5_ix12 ))))
+     (net (rename int_mux_in3_13_ "int_mux_in3(13)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in3_13_ ))
+       (portRef I2 (instanceRef modgen_mux_6_ix12 ))))
+     (net (rename int_mux_in3_12_ "int_mux_in3(12)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in3_12_ ))
+       (portRef I2 (instanceRef modgen_mux_7_ix12 ))))
+     (net (rename int_mux_in3_11_ "int_mux_in3(11)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in3_11_ ))
+       (portRef I2 (instanceRef modgen_mux_8_ix12 ))))
+     (net (rename int_mux_in3_10_ "int_mux_in3(10)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in3_10_ ))
+       (portRef I2 (instanceRef modgen_mux_9_ix12 ))))
+     (net (rename int_mux_in3_9_ "int_mux_in3(9)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in3_9_ ))
+       (portRef I2 (instanceRef modgen_mux_10_ix12 ))))
+     (net (rename int_mux_in3_8_ "int_mux_in3(8)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in3_8_ ))
+       (portRef I2 (instanceRef modgen_mux_11_ix12 ))))
+     (net (rename int_mux_in3_7_ "int_mux_in3(7)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in3_7_ ))
+       (portRef I2 (instanceRef modgen_mux_12_ix12 ))))
+     (net (rename int_mux_in3_6_ "int_mux_in3(6)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in3_6_ ))
+       (portRef I2 (instanceRef modgen_mux_13_ix12 ))))
+     (net (rename int_mux_in3_5_ "int_mux_in3(5)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in3_5_ ))
+       (portRef I2 (instanceRef modgen_mux_14_ix12 ))))
+     (net (rename int_mux_in3_4_ "int_mux_in3(4)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in3_4_ ))
+       (portRef I2 (instanceRef modgen_mux_15_ix12 ))))
+     (net (rename int_mux_in3_3_ "int_mux_in3(3)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in3_3_ ))
+       (portRef I2 (instanceRef modgen_mux_16_ix12 ))))
+     (net (rename int_mux_in3_2_ "int_mux_in3(2)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in3_2_ ))
+       (portRef I2 (instanceRef modgen_mux_17_ix12 ))))
+     (net (rename int_mux_in3_1_ "int_mux_in3(1)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in3_1_ ))
+       (portRef I2 (instanceRef modgen_mux_18_ix12 ))))
+     (net (rename int_mux_in3_0_ "int_mux_in3(0)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in3_0_ ))
+       (portRef I2 (instanceRef modgen_mux_19_ix12 ))))
+     (net (rename int_mux_in4_15_ "int_mux_in4(15)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in4_15_ ))
+       (portRef I3 (instanceRef modgen_mux_4_ix12 ))))
+     (net (rename int_mux_in4_14_ "int_mux_in4(14)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in4_14_ ))
+       (portRef I3 (instanceRef modgen_mux_5_ix12 ))))
+     (net (rename int_mux_in4_13_ "int_mux_in4(13)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in4_13_ ))
+       (portRef I3 (instanceRef modgen_mux_6_ix12 ))))
+     (net (rename int_mux_in4_12_ "int_mux_in4(12)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in4_12_ ))
+       (portRef I3 (instanceRef modgen_mux_7_ix12 ))))
+     (net (rename int_mux_in4_11_ "int_mux_in4(11)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in4_11_ ))
+       (portRef I3 (instanceRef modgen_mux_8_ix12 ))))
+     (net (rename int_mux_in4_10_ "int_mux_in4(10)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in4_10_ ))
+       (portRef I3 (instanceRef modgen_mux_9_ix12 ))))
+     (net (rename int_mux_in4_9_ "int_mux_in4(9)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in4_9_ ))
+       (portRef I3 (instanceRef modgen_mux_10_ix12 ))))
+     (net (rename int_mux_in4_8_ "int_mux_in4(8)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in4_8_ ))
+       (portRef I3 (instanceRef modgen_mux_11_ix12 ))))
+     (net (rename int_mux_in4_7_ "int_mux_in4(7)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in4_7_ ))
+       (portRef I3 (instanceRef modgen_mux_12_ix12 ))))
+     (net (rename int_mux_in4_6_ "int_mux_in4(6)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in4_6_ ))
+       (portRef I3 (instanceRef modgen_mux_13_ix12 ))))
+     (net (rename int_mux_in4_5_ "int_mux_in4(5)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in4_5_ ))
+       (portRef I3 (instanceRef modgen_mux_14_ix12 ))))
+     (net (rename int_mux_in4_4_ "int_mux_in4(4)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in4_4_ ))
+       (portRef I3 (instanceRef modgen_mux_15_ix12 ))))
+     (net (rename int_mux_in4_3_ "int_mux_in4(3)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in4_3_ ))
+       (portRef I3 (instanceRef modgen_mux_16_ix12 ))))
+     (net (rename int_mux_in4_2_ "int_mux_in4(2)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in4_2_ ))
+       (portRef I3 (instanceRef modgen_mux_17_ix12 ))))
+     (net (rename int_mux_in4_1_ "int_mux_in4(1)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in4_1_ ))
+       (portRef I3 (instanceRef modgen_mux_18_ix12 ))))
+     (net (rename int_mux_in4_0_ "int_mux_in4(0)") 
+      (joined 
+       (portRef O (instanceRef io_mux_in4_0_ ))
+       (portRef I3 (instanceRef modgen_mux_19_ix12 ))))
+     (net int_clk 
+      (joined 
+       (portRef O (instanceRef io_clk ))
+       (portRef CLK (instanceRef ix1 ))
+       (portRef CLK (instanceRef ix5 ))
+       (portRef CLK (instanceRef ix9 ))
+       (portRef CLK (instanceRef ix29 ))
+       (portRef CLK (instanceRef ix33 ))
+       (portRef CLK (instanceRef ix37 ))
+       (portRef CLK (instanceRef ix41 ))
+       (portRef CLK (instanceRef ix45 ))
+       (portRef CLK (instanceRef ix49 ))
+       (portRef CLK (instanceRef ix53 ))
+       (portRef CLK (instanceRef ix57 ))
+       (portRef CLK (instanceRef ix61 ))
+       (portRef CLK (instanceRef ix65 ))
+       (portRef CLK (instanceRef ix69 ))
+       (portRef CLK (instanceRef ix73 ))
+       (portRef CLK (instanceRef ix77 ))))
+     (net (rename int_sel_1_ "int_sel(1)") 
+      (joined 
+       (portRef O (instanceRef io_sel_1_ ))
+       (portRef S1 (instanceRef modgen_mux_4_ix12 ))
+       (portRef S1 (instanceRef modgen_mux_5_ix12 ))
+       (portRef S1 (instanceRef modgen_mux_6_ix12 ))
+       (portRef S1 (instanceRef modgen_mux_7_ix12 ))
+       (portRef S1 (instanceRef modgen_mux_8_ix12 ))
+       (portRef S1 (instanceRef modgen_mux_9_ix12 ))
+       (portRef S1 (instanceRef modgen_mux_10_ix12 ))
+       (portRef S1 (instanceRef modgen_mux_11_ix12 ))
+       (portRef S1 (instanceRef modgen_mux_12_ix12 ))
+       (portRef S1 (instanceRef modgen_mux_13_ix12 ))
+       (portRef S1 (instanceRef modgen_mux_14_ix12 ))
+       (portRef S1 (instanceRef modgen_mux_15_ix12 ))
+       (portRef S1 (instanceRef modgen_mux_16_ix12 ))
+       (portRef S1 (instanceRef modgen_mux_17_ix12 ))
+       (portRef S1 (instanceRef modgen_mux_18_ix12 ))
+       (portRef S1 (instanceRef modgen_mux_19_ix12 ))))
+     (net (rename int_sel_0_ "int_sel(0)") 
+      (joined 
+       (portRef O (instanceRef io_sel_0_ ))
+       (portRef S0 (instanceRef modgen_mux_4_ix12 ))
+       (portRef S0 (instanceRef modgen_mux_5_ix12 ))
+       (portRef S0 (instanceRef modgen_mux_6_ix12 ))
+       (portRef S0 (instanceRef modgen_mux_7_ix12 ))
+       (portRef S0 (instanceRef modgen_mux_8_ix12 ))
+       (portRef S0 (instanceRef modgen_mux_9_ix12 ))
+       (portRef S0 (instanceRef modgen_mux_10_ix12 ))
+       (portRef S0 (instanceRef modgen_mux_11_ix12 ))
+       (portRef S0 (instanceRef modgen_mux_12_ix12 ))
+       (portRef S0 (instanceRef modgen_mux_13_ix12 ))
+       (portRef S0 (instanceRef modgen_mux_14_ix12 ))
+       (portRef S0 (instanceRef modgen_mux_15_ix12 ))
+       (portRef S0 (instanceRef modgen_mux_16_ix12 ))
+       (portRef S0 (instanceRef modgen_mux_17_ix12 ))
+       (portRef S0 (instanceRef modgen_mux_18_ix12 ))
+       (portRef S0 (instanceRef modgen_mux_19_ix12 ))))
+     (net int_rst 
+      (joined 
+       (portRef O (instanceRef io_rst ))
+       (portRef R (instanceRef ix1 ))
+       (portRef R (instanceRef ix5 ))
+       (portRef R (instanceRef ix9 ))
+       (portRef R (instanceRef ix29 ))
+       (portRef R (instanceRef ix33 ))
+       (portRef R (instanceRef ix37 ))
+       (portRef R (instanceRef ix41 ))
+       (portRef R (instanceRef ix45 ))
+       (portRef R (instanceRef ix49 ))
+       (portRef R (instanceRef ix53 ))
+       (portRef R (instanceRef ix57 ))
+       (portRef R (instanceRef ix61 ))
+       (portRef R (instanceRef ix65 ))
+       (portRef R (instanceRef ix69 ))
+       (portRef R (instanceRef ix73 ))
+       (portRef R (instanceRef ix77 ))))
+     (net nx12 
+      (joined 
+       (portRef O (instanceRef modgen_mux_4_ix12 ))
+       (portRef D (instanceRef ix77 ))))
+     (net nx13 
+      (joined 
+       (portRef O (instanceRef modgen_mux_5_ix12 ))
+       (portRef D (instanceRef ix73 ))))
+     (net nx14 
+      (joined 
+       (portRef O (instanceRef modgen_mux_6_ix12 ))
+       (portRef D (instanceRef ix69 ))))
+     (net nx15 
+      (joined 
+       (portRef O (instanceRef modgen_mux_7_ix12 ))
+       (portRef D (instanceRef ix65 ))))
+     (net nx16 
+      (joined 
+       (portRef O (instanceRef modgen_mux_8_ix12 ))
+       (portRef D (instanceRef ix61 ))))
+     (net nx17 
+      (joined 
+       (portRef O (instanceRef modgen_mux_9_ix12 ))
+       (portRef D (instanceRef ix57 ))))
+     (net nx18 
+      (joined 
+       (portRef O (instanceRef modgen_mux_10_ix12 ))
+       (portRef D (instanceRef ix53 ))))
+     (net nx19 
+      (joined 
+       (portRef O (instanceRef modgen_mux_11_ix12 ))
+       (portRef D (instanceRef ix49 ))))
+     (net nx20 
+      (joined 
+       (portRef O (instanceRef modgen_mux_12_ix12 ))
+       (portRef D (instanceRef ix45 ))))
+     (net nx21 
+      (joined 
+       (portRef O (instanceRef modgen_mux_13_ix12 ))
+       (portRef D (instanceRef ix41 ))))
+     (net nx22 
+      (joined 
+       (portRef O (instanceRef modgen_mux_14_ix12 ))
+       (portRef D (instanceRef ix37 ))))
+     (net nx23 
+      (joined 
+       (portRef O (instanceRef modgen_mux_15_ix12 ))
+       (portRef D (instanceRef ix33 ))))
+     (net nx24 
+      (joined 
+       (portRef O (instanceRef modgen_mux_16_ix12 ))
+       (portRef D (instanceRef ix29 ))))
+     (net nx25 
+      (joined 
+       (portRef O (instanceRef modgen_mux_17_ix12 ))
+       (portRef D (instanceRef ix9 ))))
+     (net nx26 
+      (joined 
+       (portRef O (instanceRef modgen_mux_18_ix12 ))
+       (portRef D (instanceRef ix5 ))))
+     (net nx27 
+      (joined 
+       (portRef O (instanceRef modgen_mux_19_ix12 ))
+       (portRef D (instanceRef ix1 ))))
+     (net (rename mux_out_15_ "mux_out(15)") 
+      (joined 
+       (portRef (member mux_out 0))
+       (portRef O (instanceRef io_mux_out_15_ ))))
+     (net (rename mux_out_14_ "mux_out(14)") 
+      (joined 
+       (portRef (member mux_out 1))
+       (portRef O (instanceRef io_mux_out_14_ ))))
+     (net (rename mux_out_13_ "mux_out(13)") 
+      (joined 
+       (portRef (member mux_out 2))
+       (portRef O (instanceRef io_mux_out_13_ ))))
+     (net (rename mux_out_12_ "mux_out(12)") 
+      (joined 
+       (portRef (member mux_out 3))
+       (portRef O (instanceRef io_mux_out_12_ ))))
+     (net (rename mux_out_11_ "mux_out(11)") 
+      (joined 
+       (portRef (member mux_out 4))
+       (portRef O (instanceRef io_mux_out_11_ ))))
+     (net (rename mux_out_10_ "mux_out(10)") 
+      (joined 
+       (portRef (member mux_out 5))
+       (portRef O (instanceRef io_mux_out_10_ ))))
+     (net (rename mux_out_9_ "mux_out(9)") 
+      (joined 
+       (portRef (member mux_out 6))
+       (portRef O (instanceRef io_mux_out_9_ ))))
+     (net (rename mux_out_8_ "mux_out(8)") 
+      (joined 
+       (portRef (member mux_out 7))
+       (portRef O (instanceRef io_mux_out_8_ ))))
+     (net (rename mux_out_7_ "mux_out(7)") 
+      (joined 
+       (portRef (member mux_out 8))
+       (portRef O (instanceRef io_mux_out_7_ ))))
+     (net (rename mux_out_6_ "mux_out(6)") 
+      (joined 
+       (portRef (member mux_out 9))
+       (portRef O (instanceRef io_mux_out_6_ ))))
+     (net (rename mux_out_5_ "mux_out(5)") 
+      (joined 
+       (portRef (member mux_out 10))
+       (portRef O (instanceRef io_mux_out_5_ ))))
+     (net (rename mux_out_4_ "mux_out(4)") 
+      (joined 
+       (portRef (member mux_out 11))
+       (portRef O (instanceRef io_mux_out_4_ ))))
+     (net (rename mux_out_3_ "mux_out(3)") 
+      (joined 
+       (portRef (member mux_out 12))
+       (portRef O (instanceRef io_mux_out_3_ ))))
+     (net (rename mux_out_2_ "mux_out(2)") 
+      (joined 
+       (portRef (member mux_out 13))
+       (portRef O (instanceRef io_mux_out_2_ ))))
+     (net (rename mux_out_1_ "mux_out(1)") 
+      (joined 
+       (portRef (member mux_out 14))
+       (portRef O (instanceRef io_mux_out_1_ ))))
+     (net (rename mux_out_0_ "mux_out(0)") 
+      (joined 
+       (portRef (member mux_out 15))
+       (portRef O (instanceRef io_mux_out_0_ ))))
+     (net (rename mux_in1_15_ "mux_in1(15)") 
+      (joined 
+       (portRef (member mux_in1 0))
+       (portRef I0 (instanceRef io_mux_in1_15_ ))))
+     (net (rename mux_in1_14_ "mux_in1(14)") 
+      (joined 
+       (portRef (member mux_in1 1))
+       (portRef I0 (instanceRef io_mux_in1_14_ ))))
+     (net (rename mux_in1_13_ "mux_in1(13)") 
+      (joined 
+       (portRef (member mux_in1 2))
+       (portRef I0 (instanceRef io_mux_in1_13_ ))))
+     (net (rename mux_in1_12_ "mux_in1(12)") 
+      (joined 
+       (portRef (member mux_in1 3))
+       (portRef I0 (instanceRef io_mux_in1_12_ ))))
+     (net (rename mux_in1_11_ "mux_in1(11)") 
+      (joined 
+       (portRef (member mux_in1 4))
+       (portRef I0 (instanceRef io_mux_in1_11_ ))))
+     (net (rename mux_in1_10_ "mux_in1(10)") 
+      (joined 
+       (portRef (member mux_in1 5))
+       (portRef I0 (instanceRef io_mux_in1_10_ ))))
+     (net (rename mux_in1_9_ "mux_in1(9)") 
+      (joined 
+       (portRef (member mux_in1 6))
+       (portRef I0 (instanceRef io_mux_in1_9_ ))))
+     (net (rename mux_in1_8_ "mux_in1(8)") 
+      (joined 
+       (portRef (member mux_in1 7))
+       (portRef I0 (instanceRef io_mux_in1_8_ ))))
+     (net (rename mux_in1_7_ "mux_in1(7)") 
+      (joined 
+       (portRef (member mux_in1 8))
+       (portRef I0 (instanceRef io_mux_in1_7_ ))))
+     (net (rename mux_in1_6_ "mux_in1(6)") 
+      (joined 
+       (portRef (member mux_in1 9))
+       (portRef I0 (instanceRef io_mux_in1_6_ ))))
+     (net (rename mux_in1_5_ "mux_in1(5)") 
+      (joined 
+       (portRef (member mux_in1 10))
+       (portRef I0 (instanceRef io_mux_in1_5_ ))))
+     (net (rename mux_in1_4_ "mux_in1(4)") 
+      (joined 
+       (portRef (member mux_in1 11))
+       (portRef I0 (instanceRef io_mux_in1_4_ ))))
+     (net (rename mux_in1_3_ "mux_in1(3)") 
+      (joined 
+       (portRef (member mux_in1 12))
+       (portRef I0 (instanceRef io_mux_in1_3_ ))))
+     (net (rename mux_in1_2_ "mux_in1(2)") 
+      (joined 
+       (portRef (member mux_in1 13))
+       (portRef I0 (instanceRef io_mux_in1_2_ ))))
+     (net (rename mux_in1_1_ "mux_in1(1)") 
+      (joined 
+       (portRef (member mux_in1 14))
+       (portRef I0 (instanceRef io_mux_in1_1_ ))))
+     (net (rename mux_in1_0_ "mux_in1(0)") 
+      (joined 
+       (portRef (member mux_in1 15))
+       (portRef I0 (instanceRef io_mux_in1_0_ ))))
+     (net (rename mux_in2_15_ "mux_in2(15)") 
+      (joined 
+       (portRef (member mux_in2 0))
+       (portRef I0 (instanceRef io_mux_in2_15_ ))))
+     (net (rename mux_in2_14_ "mux_in2(14)") 
+      (joined 
+       (portRef (member mux_in2 1))
+       (portRef I0 (instanceRef io_mux_in2_14_ ))))
+     (net (rename mux_in2_13_ "mux_in2(13)") 
+      (joined 
+       (portRef (member mux_in2 2))
+       (portRef I0 (instanceRef io_mux_in2_13_ ))))
+     (net (rename mux_in2_12_ "mux_in2(12)") 
+      (joined 
+       (portRef (member mux_in2 3))
+       (portRef I0 (instanceRef io_mux_in2_12_ ))))
+     (net (rename mux_in2_11_ "mux_in2(11)") 
+      (joined 
+       (portRef (member mux_in2 4))
+       (portRef I0 (instanceRef io_mux_in2_11_ ))))
+     (net (rename mux_in2_10_ "mux_in2(10)") 
+      (joined 
+       (portRef (member mux_in2 5))
+       (portRef I0 (instanceRef io_mux_in2_10_ ))))
+     (net (rename mux_in2_9_ "mux_in2(9)") 
+      (joined 
+       (portRef (member mux_in2 6))
+       (portRef I0 (instanceRef io_mux_in2_9_ ))))
+     (net (rename mux_in2_8_ "mux_in2(8)") 
+      (joined 
+       (portRef (member mux_in2 7))
+       (portRef I0 (instanceRef io_mux_in2_8_ ))))
+     (net (rename mux_in2_7_ "mux_in2(7)") 
+      (joined 
+       (portRef (member mux_in2 8))
+       (portRef I0 (instanceRef io_mux_in2_7_ ))))
+     (net (rename mux_in2_6_ "mux_in2(6)") 
+      (joined 
+       (portRef (member mux_in2 9))
+       (portRef I0 (instanceRef io_mux_in2_6_ ))))
+     (net (rename mux_in2_5_ "mux_in2(5)") 
+      (joined 
+       (portRef (member mux_in2 10))
+       (portRef I0 (instanceRef io_mux_in2_5_ ))))
+     (net (rename mux_in2_4_ "mux_in2(4)") 
+      (joined 
+       (portRef (member mux_in2 11))
+       (portRef I0 (instanceRef io_mux_in2_4_ ))))
+     (net (rename mux_in2_3_ "mux_in2(3)") 
+      (joined 
+       (portRef (member mux_in2 12))
+       (portRef I0 (instanceRef io_mux_in2_3_ ))))
+     (net (rename mux_in2_2_ "mux_in2(2)") 
+      (joined 
+       (portRef (member mux_in2 13))
+       (portRef I0 (instanceRef io_mux_in2_2_ ))))
+     (net (rename mux_in2_1_ "mux_in2(1)") 
+      (joined 
+       (portRef (member mux_in2 14))
+       (portRef I0 (instanceRef io_mux_in2_1_ ))))
+     (net (rename mux_in2_0_ "mux_in2(0)") 
+      (joined 
+       (portRef (member mux_in2 15))
+       (portRef I0 (instanceRef io_mux_in2_0_ ))))
+     (net (rename mux_in3_15_ "mux_in3(15)") 
+      (joined 
+       (portRef (member mux_in3 0))
+       (portRef I0 (instanceRef io_mux_in3_15_ ))))
+     (net (rename mux_in3_14_ "mux_in3(14)") 
+      (joined 
+       (portRef (member mux_in3 1))
+       (portRef I0 (instanceRef io_mux_in3_14_ ))))
+     (net (rename mux_in3_13_ "mux_in3(13)") 
+      (joined 
+       (portRef (member mux_in3 2))
+       (portRef I0 (instanceRef io_mux_in3_13_ ))))
+     (net (rename mux_in3_12_ "mux_in3(12)") 
+      (joined 
+       (portRef (member mux_in3 3))
+       (portRef I0 (instanceRef io_mux_in3_12_ ))))
+     (net (rename mux_in3_11_ "mux_in3(11)") 
+      (joined 
+       (portRef (member mux_in3 4))
+       (portRef I0 (instanceRef io_mux_in3_11_ ))))
+     (net (rename mux_in3_10_ "mux_in3(10)") 
+      (joined 
+       (portRef (member mux_in3 5))
+       (portRef I0 (instanceRef io_mux_in3_10_ ))))
+     (net (rename mux_in3_9_ "mux_in3(9)") 
+      (joined 
+       (portRef (member mux_in3 6))
+       (portRef I0 (instanceRef io_mux_in3_9_ ))))
+     (net (rename mux_in3_8_ "mux_in3(8)") 
+      (joined 
+       (portRef (member mux_in3 7))
+       (portRef I0 (instanceRef io_mux_in3_8_ ))))
+     (net (rename mux_in3_7_ "mux_in3(7)") 
+      (joined 
+       (portRef (member mux_in3 8))
+       (portRef I0 (instanceRef io_mux_in3_7_ ))))
+     (net (rename mux_in3_6_ "mux_in3(6)") 
+      (joined 
+       (portRef (member mux_in3 9))
+       (portRef I0 (instanceRef io_mux_in3_6_ ))))
+     (net (rename mux_in3_5_ "mux_in3(5)") 
+      (joined 
+       (portRef (member mux_in3 10))
+       (portRef I0 (instanceRef io_mux_in3_5_ ))))
+     (net (rename mux_in3_4_ "mux_in3(4)") 
+      (joined 
+       (portRef (member mux_in3 11))
+       (portRef I0 (instanceRef io_mux_in3_4_ ))))
+     (net (rename mux_in3_3_ "mux_in3(3)") 
+      (joined 
+       (portRef (member mux_in3 12))
+       (portRef I0 (instanceRef io_mux_in3_3_ ))))
+     (net (rename mux_in3_2_ "mux_in3(2)") 
+      (joined 
+       (portRef (member mux_in3 13))
+       (portRef I0 (instanceRef io_mux_in3_2_ ))))
+     (net (rename mux_in3_1_ "mux_in3(1)") 
+      (joined 
+       (portRef (member mux_in3 14))
+       (portRef I0 (instanceRef io_mux_in3_1_ ))))
+     (net (rename mux_in3_0_ "mux_in3(0)") 
+      (joined 
+       (portRef (member mux_in3 15))
+       (portRef I0 (instanceRef io_mux_in3_0_ ))))
+     (net (rename mux_in4_15_ "mux_in4(15)") 
+      (joined 
+       (portRef (member mux_in4 0))
+       (portRef I0 (instanceRef io_mux_in4_15_ ))))
+     (net (rename mux_in4_14_ "mux_in4(14)") 
+      (joined 
+       (portRef (member mux_in4 1))
+       (portRef I0 (instanceRef io_mux_in4_14_ ))))
+     (net (rename mux_in4_13_ "mux_in4(13)") 
+      (joined 
+       (portRef (member mux_in4 2))
+       (portRef I0 (instanceRef io_mux_in4_13_ ))))
+     (net (rename mux_in4_12_ "mux_in4(12)") 
+      (joined 
+       (portRef (member mux_in4 3))
+       (portRef I0 (instanceRef io_mux_in4_12_ ))))
+     (net (rename mux_in4_11_ "mux_in4(11)") 
+      (joined 
+       (portRef (member mux_in4 4))
+       (portRef I0 (instanceRef io_mux_in4_11_ ))))
+     (net (rename mux_in4_10_ "mux_in4(10)") 
+      (joined 
+       (portRef (member mux_in4 5))
+       (portRef I0 (instanceRef io_mux_in4_10_ ))))
+     (net (rename mux_in4_9_ "mux_in4(9)") 
+      (joined 
+       (portRef (member mux_in4 6))
+       (portRef I0 (instanceRef io_mux_in4_9_ ))))
+     (net (rename mux_in4_8_ "mux_in4(8)") 
+      (joined 
+       (portRef (member mux_in4 7))
+       (portRef I0 (instanceRef io_mux_in4_8_ ))))
+     (net (rename mux_in4_7_ "mux_in4(7)") 
+      (joined 
+       (portRef (member mux_in4 8))
+       (portRef I0 (instanceRef io_mux_in4_7_ ))))
+     (net (rename mux_in4_6_ "mux_in4(6)") 
+      (joined 
+       (portRef (member mux_in4 9))
+       (portRef I0 (instanceRef io_mux_in4_6_ ))))
+     (net (rename mux_in4_5_ "mux_in4(5)") 
+      (joined 
+       (portRef (member mux_in4 10))
+       (portRef I0 (instanceRef io_mux_in4_5_ ))))
+     (net (rename mux_in4_4_ "mux_in4(4)") 
+      (joined 
+       (portRef (member mux_in4 11))
+       (portRef I0 (instanceRef io_mux_in4_4_ ))))
+     (net (rename mux_in4_3_ "mux_in4(3)") 
+      (joined 
+       (portRef (member mux_in4 12))
+       (portRef I0 (instanceRef io_mux_in4_3_ ))))
+     (net (rename mux_in4_2_ "mux_in4(2)") 
+      (joined 
+       (portRef (member mux_in4 13))
+       (portRef I0 (instanceRef io_mux_in4_2_ ))))
+     (net (rename mux_in4_1_ "mux_in4(1)") 
+      (joined 
+       (portRef (member mux_in4 14))
+       (portRef I0 (instanceRef io_mux_in4_1_ ))))
+     (net (rename mux_in4_0_ "mux_in4(0)") 
+      (joined 
+       (portRef (member mux_in4 15))
+       (portRef I0 (instanceRef io_mux_in4_0_ ))))
+     (net clk 
+      (joined 
+       (portRef clk )
+       (portRef I0 (instanceRef io_clk ))))
+     (net (rename sel_1_ "sel(1)") 
+      (joined 
+       (portRef (member sel 0))
+       (portRef I0 (instanceRef io_sel_1_ ))))
+     (net (rename sel_0_ "sel(0)") 
+      (joined 
+       (portRef (member sel 1))
+       (portRef I0 (instanceRef io_sel_0_ ))))
+     (net rst 
+      (joined 
+       (portRef rst )
+       (portRef I0 (instanceRef io_rst ))))))))
+ (design mux4to1 (cellRef mux4to1 (libraryRef work ))))

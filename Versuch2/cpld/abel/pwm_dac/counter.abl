@@ -1,0 +1,24 @@
+MODULE counter
+
+TITLE 'bit preloadable up counter'
+
+"Constants
+    c,x = .c.,.x.;
+
+"Inputs
+    clk,rst    pin ;
+
+"Outputs
+    q7..q0     pin istype 'reg,buffer';
+
+"Sets
+    count = [q7..q0];
+
+Equations
+
+    count := (count.fb + 1);
+    count.clk = clk;
+    count.ar = rst;
+
+END
+

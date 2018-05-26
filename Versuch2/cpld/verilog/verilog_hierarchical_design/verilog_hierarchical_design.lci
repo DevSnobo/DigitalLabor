@@ -1,0 +1,105 @@
+
+[Device]
+Family = lc4k;
+PartNumber = LC4128ZE-5TN100C;
+Package = 100TQFP;
+PartType = LC4128ZE;
+Speed = -5.8;
+Operating_condition = COM;
+Status = Production;
+
+[Revision]
+Parent = lc4k128e.lci;
+Design = ;
+DATE = 05/10/2010;
+TIME = 15:06:12;
+Source_Format = Schematic_Verilog_HDL;
+Synthesis = Synplify;
+
+[IGNORE ASSIGNMENTS]
+
+[CLEAR ASSIGNMENTS]
+
+[BACKANNOTATE ASSIGNMENTS]
+
+[GLOBAL CONSTRAINTS]
+
+[LOCATION ASSIGNMENTS]
+layer = OFF;
+
+[GROUP ASSIGNMENTS]
+layer = OFF;
+
+[RESOURCE RESERVATIONS]
+layer = OFF;
+
+[FITTER REPORT FORMAT]
+
+[POWER]
+
+[SOURCE CONSTRAINT OPTION]
+
+[Fast Bypass]
+
+[OSM Bypass]
+
+[INPUT REGISTERS]
+
+[NETLIST/DELAY FORMAT]
+
+[IO TYPES]
+layer = OFF;
+
+[PULLUP]
+
+[SLEWRATE]
+
+[opt global constraints list]
+
+[Global Constraints Process Update]
+
+[Explorer User Settings]
+
+[Pin attributes list]
+
+[global constraints list]
+
+[pin lock limitation]
+
+[LOCATION ASSIGNMENTS LIST]
+
+[RESOURCE RESERVATIONS LIST]
+
+[individual constraints list]
+
+[Attributes list setting]
+
+[Timing Analyzer]
+
+[PLL Assignments]
+
+[Dual Function Macrocell]
+
+[Explorer Results]
+
+[VHDL synplify constraints]
+
+[VHDL spectrum constraints]
+
+[verilog synplify constraints]
+
+[verilog spectrum constraints]
+
+[VHDL synplify constraints list]
+
+[VHDL spectrum constraints list]
+
+[verilog synplify constraints list]
+
+[verilog spectrum constraints list]
+
+[Power Guard]
+
+[ORP Bypass]
+
+[Register Powerup]

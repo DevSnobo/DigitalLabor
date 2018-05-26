@@ -1,0 +1,2 @@
+-blif -inp test_ramdps16kwx2rx2.bl4 -out test_ramdps16kwx2rx2.bl5
+-err automake.err -log test_ramdps16kwx2rx2.log -mod test_ramdps16kwx2rx2 -sc

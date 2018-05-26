@@ -1,0 +1,2 @@
+. test_ramdps16kwx2rx2 test_ramdps16kwx2rx2.edf c:\isptools\ispcpld\examples\ispxpld\edif\test_ramdps16kwx2rx2\test_ramdps16kwx2rx2.edf
+U0 L_RAMDPS_LPM_RAM_DP_PSEUDO_2_2_16384_14_14_16384_REGISTERED_UNREGISTERED_REGISTERED_REGISTERED_UNUSED_RAM_init  c:\isptools\ispcpld\examples\ispxpld\edif\test_ramdps16kwx2rx2\

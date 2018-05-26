@@ -1,0 +1,6 @@
+
+
+MODULE test_rom16kx2
+
+	SUBMODULE L_ROM
+		INSTANCE U0

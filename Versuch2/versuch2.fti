@@ -1,0 +1,52 @@
+#PLAFILE     versuch2.bl5
+#DATE        Thu May 03 14:51:50 2018
+
+#DESIGN      versuch2
+#DEVICE      MACH4S-256
+
+
+// Default settings.
+DATA GLOBAL tINDIO:0
+
+
+// Signal locations
+DATA LOCATION S1:E_*_23
+DATA LOCATION T1:E_*_21
+DATA LOCATION q_3_:J_3_71
+DATA LOCATION q_2_:J_12_70
+DATA LOCATION q_1_:I_3_63
+DATA LOCATION q_0_:I_12_62
+DATA LOCATION gnd_n_n:C_15
+DATA LOCATION T1_i:F_15
+
+// Signals direction
+DATA IO_DIR S1:IN
+DATA IO_DIR T1:IN
+DATA IO_DIR q_3_:OUT
+DATA IO_DIR q_2_:OUT
+DATA IO_DIR q_1_:OUT
+DATA IO_DIR q_0_:OUT
+
+// Signals using Shared Clock or CE
+DATA tBCLK q_3_.C
+DATA tBCLK q_2_.C
+DATA tBCLK q_1_.C
+DATA tBCLK q_0_.C
+
+// Signals using Shared Init Pterm
+DATA tBSR q_3_.PR
+DATA tBSR q_2_.PR
+DATA tBSR q_1_.PR
+DATA tBSR q_0_.PR
+
+// Block Load Adders
+DATA tBLA takt:1
+DATA tBLA q_0_:1
+DATA tBLA q_1_:1
+DATA tBLA S1:1
+
+// Signals using OSM or fast 5-PTs path
+DATA tOSM q_3_
+DATA tOSM q_2_
+DATA tOSM q_1_
+DATA tOSM q_0_

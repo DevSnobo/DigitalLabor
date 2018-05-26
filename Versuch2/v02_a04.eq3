@@ -1,0 +1,52 @@
+|--------------------------------------------------- ----------|
+|- ispLEVER Classic 1.6.00.07.29.12 Equations File            -|
+|- Copyright(C), 1992-2012, Lattice Semiconductor Corporation -|
+|- All Rights Reserved.                                       -|
+|--------------------------------------------------------------|
+
+
+Equations:
+
+
+T1_i = !T1 ; (1 pterm, 1 signal)
+
+gelb = !i2_z_tmp_1_.Q & i2_z_tmp_2_.Q & !i2_z_tmp_3_.Q
+    # i2_z_tmp_1_.Q & i2_z_tmp_2_.Q & i2_z_tmp_3_.Q ; (2 pterms, 3 signals)
+
+gnd_n_n = 0 ; (0 pterm, 0 signal)
+
+gruen = !i2_z_tmp_2_.Q & !i2_z_tmp_3_.Q ; (1 pterm, 2 signals)
+
+i2_z_tmp_0_.D = !i2_z_tmp_0_.Q ; (1 pterm, 1 signal)
+i2_z_tmp_0_.C = takt ; (1 pterm, 1 signal)
+i2_z_tmp_0_.AR = S1 ; (1 pterm, 1 signal)
+
+i2_z_tmp_1_.D = i2_z_tmp_0_.Q & !i2_z_tmp_1_.Q
+    # !i2_z_tmp_0_.Q & i2_z_tmp_1_.Q ; (2 pterms, 2 signals)
+i2_z_tmp_1_.C = takt ; (1 pterm, 1 signal)
+i2_z_tmp_1_.AR = S1 ; (1 pterm, 1 signal)
+
+i2_z_tmp_2_.D = i2_z_tmp_0_.Q & i2_z_tmp_1_.Q & !i2_z_tmp_2_.Q
+    # !i2_z_tmp_1_.Q & i2_z_tmp_2_.Q
+    # !i2_z_tmp_0_.Q & i2_z_tmp_2_.Q ; (3 pterms, 3 signals)
+i2_z_tmp_2_.C = takt ; (1 pterm, 1 signal)
+i2_z_tmp_2_.AR = S1 ; (1 pterm, 1 signal)
+
+i2_z_tmp_3_.D = i2_z_tmp_0_.Q & i2_z_tmp_1_.Q & i2_z_tmp_2_.Q & !i2_z_tmp_3_.Q
+    # !i2_z_tmp_2_.Q & i2_z_tmp_3_.Q
+    # !i2_z_tmp_1_.Q & i2_z_tmp_3_.Q
+    # !i2_z_tmp_0_.Q & i2_z_tmp_3_.Q ; (4 pterms, 4 signals)
+i2_z_tmp_3_.C = takt ; (1 pterm, 1 signal)
+i2_z_tmp_3_.AR = S1 ; (1 pterm, 1 signal)
+
+q_0_ = 1 ; (1 pterm, 0 signal)
+
+q_1_ = 1 ; (1 pterm, 0 signal)
+
+q_2_ = 1 ; (1 pterm, 0 signal)
+
+q_3_ = 1 ; (1 pterm, 0 signal)
+
+rot = i2_z_tmp_1_.Q & i2_z_tmp_2_.Q
+    # i2_z_tmp_3_.Q ; (2 pterms, 3 signals)
+

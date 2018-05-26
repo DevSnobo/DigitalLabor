@@ -1,0 +1,9 @@
+takt  i
+reset  i
+rot  o
+gelb  o
+gruen  o
+zaehler[3]  o
+zaehler[2]  o
+zaehler[1]  o
+zaehler[0]  o

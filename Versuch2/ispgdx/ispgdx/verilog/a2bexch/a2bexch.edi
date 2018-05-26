@@ -1,0 +1,272 @@
+(edif a2bexch 
+ (edifVersion 2 0 0)
+ (edifLevel 0)
+ (keywordMap (keywordLevel 0))
+ (status 
+  (written 
+   (timestamp 2000 12 15 18 45 57)
+   (program "Leonardo Spectrum for Lattice" (version "v20001b_lattice.101"))
+   (author "Exemplar Logic Inc")))
+ (external PRIMITIVES 
+  (edifLevel 0)
+  (technology (numberDefinition )))
+ (external MACH 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell BUFTL (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port OE (direction INPUT))
+     (port I0 (direction INPUT))
+     (port O (direction OUTPUT)))
+    (property AREA (string "4.000000"))))
+  (cell BUFTH (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port OE (direction INPUT))
+     (port I0 (direction INPUT))
+     (port O (direction OUTPUT)))
+    (property AREA (string "4.000000")))))
+ (library work 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell a2bexch (cellType GENERIC)
+   (view INTERFACE  (viewType NETLIST)
+    (interface 
+     (port (array (rename busa "busa(15:0)") 16 )(direction INOUT)
+      (property SLOWSLEW (string "ON"))
+      (property PULLUP (string "ON"))
+      (property LOC (string "P4,P5,P6,P7,P9,P10,P11,P12,P13,P14,P15,P16,P20,P21,P22,P23")))
+     (port (array (rename busb "busb(15:0)") 16 )(direction INOUT)
+      (property SLOWSLEW (string "ON"))
+      (property PULLUP (string "ON")))
+     (port oe0 (direction INPUT)))
+    (contents 
+     (instance tri_busb0 (viewRef NETLIST  (cellRef BUFTL (libraryRef MACH ))))
+     (instance tri_busa0 (viewRef NETLIST  (cellRef BUFTH (libraryRef MACH ))))
+     (instance tri_busb1 (viewRef NETLIST  (cellRef BUFTL (libraryRef MACH ))))
+     (instance tri_busa1 (viewRef NETLIST  (cellRef BUFTH (libraryRef MACH ))))
+     (instance tri_busb2 (viewRef NETLIST  (cellRef BUFTL (libraryRef MACH ))))
+     (instance tri_busa2 (viewRef NETLIST  (cellRef BUFTH (libraryRef MACH ))))
+     (instance tri_busb3 (viewRef NETLIST  (cellRef BUFTL (libraryRef MACH ))))
+     (instance tri_busa3 (viewRef NETLIST  (cellRef BUFTH (libraryRef MACH ))))
+     (instance tri_busb4 (viewRef NETLIST  (cellRef BUFTL (libraryRef MACH ))))
+     (instance tri_busa4 (viewRef NETLIST  (cellRef BUFTH (libraryRef MACH ))))
+     (instance tri_busb5 (viewRef NETLIST  (cellRef BUFTL (libraryRef MACH ))))
+     (instance tri_busa5 (viewRef NETLIST  (cellRef BUFTH (libraryRef MACH ))))
+     (instance tri_busb6 (viewRef NETLIST  (cellRef BUFTL (libraryRef MACH ))))
+     (instance tri_busa6 (viewRef NETLIST  (cellRef BUFTH (libraryRef MACH ))))
+     (instance tri_busb7 (viewRef NETLIST  (cellRef BUFTL (libraryRef MACH ))))
+     (instance tri_busa7 (viewRef NETLIST  (cellRef BUFTH (libraryRef MACH ))))
+     (instance tri_busb8 (viewRef NETLIST  (cellRef BUFTL (libraryRef MACH ))))
+     (instance tri_busa8 (viewRef NETLIST  (cellRef BUFTH (libraryRef MACH ))))
+     (instance tri_busb9 (viewRef NETLIST  (cellRef BUFTL (libraryRef MACH ))))
+     (instance tri_busa9 (viewRef NETLIST  (cellRef BUFTH (libraryRef MACH ))))
+     (instance tri_busb10 (viewRef NETLIST  (cellRef BUFTL (libraryRef MACH ))))
+     (instance tri_busa10 (viewRef NETLIST  (cellRef BUFTH (libraryRef MACH ))))
+     (instance tri_busb11 (viewRef NETLIST  (cellRef BUFTL (libraryRef MACH ))))
+     (instance tri_busa11 (viewRef NETLIST  (cellRef BUFTH (libraryRef MACH ))))
+     (instance tri_busb12 (viewRef NETLIST  (cellRef BUFTL (libraryRef MACH ))))
+     (instance tri_busa12 (viewRef NETLIST  (cellRef BUFTH (libraryRef MACH ))))
+     (instance tri_busb13 (viewRef NETLIST  (cellRef BUFTL (libraryRef MACH ))))
+     (instance tri_busa13 (viewRef NETLIST  (cellRef BUFTH (libraryRef MACH ))))
+     (instance tri_busb14 (viewRef NETLIST  (cellRef BUFTL (libraryRef MACH ))))
+     (instance tri_busa14 (viewRef NETLIST  (cellRef BUFTH (libraryRef MACH ))))
+     (instance tri_busb15 (viewRef NETLIST  (cellRef BUFTL (libraryRef MACH ))))
+     (instance tri_busa15 (viewRef NETLIST  (cellRef BUFTH (libraryRef MACH ))))
+     (net busa15 
+      (joined 
+       (portRef (member busa 0))
+       (portRef O (instanceRef tri_busa15 ))
+       (portRef I0 (instanceRef tri_busb15 ))))
+     (net busa14 
+      (joined 
+       (portRef (member busa 1))
+       (portRef O (instanceRef tri_busa14 ))
+       (portRef I0 (instanceRef tri_busb14 ))))
+     (net busa13 
+      (joined 
+       (portRef (member busa 2))
+       (portRef O (instanceRef tri_busa13 ))
+       (portRef I0 (instanceRef tri_busb13 ))))
+     (net busa12 
+      (joined 
+       (portRef (member busa 3))
+       (portRef O (instanceRef tri_busa12 ))
+       (portRef I0 (instanceRef tri_busb12 ))))
+     (net busa11 
+      (joined 
+       (portRef (member busa 4))
+       (portRef O (instanceRef tri_busa11 ))
+       (portRef I0 (instanceRef tri_busb11 ))))
+     (net busa10 
+      (joined 
+       (portRef (member busa 5))
+       (portRef O (instanceRef tri_busa10 ))
+       (portRef I0 (instanceRef tri_busb10 ))))
+     (net busa9 
+      (joined 
+       (portRef (member busa 6))
+       (portRef O (instanceRef tri_busa9 ))
+       (portRef I0 (instanceRef tri_busb9 ))))
+     (net busa8 
+      (joined 
+       (portRef (member busa 7))
+       (portRef O (instanceRef tri_busa8 ))
+       (portRef I0 (instanceRef tri_busb8 ))))
+     (net busa7 
+      (joined 
+       (portRef (member busa 8))
+       (portRef O (instanceRef tri_busa7 ))
+       (portRef I0 (instanceRef tri_busb7 ))))
+     (net busa6 
+      (joined 
+       (portRef (member busa 9))
+       (portRef O (instanceRef tri_busa6 ))
+       (portRef I0 (instanceRef tri_busb6 ))))
+     (net busa5 
+      (joined 
+       (portRef (member busa 10))
+       (portRef O (instanceRef tri_busa5 ))
+       (portRef I0 (instanceRef tri_busb5 ))))
+     (net busa4 
+      (joined 
+       (portRef (member busa 11))
+       (portRef O (instanceRef tri_busa4 ))
+       (portRef I0 (instanceRef tri_busb4 ))))
+     (net busa3 
+      (joined 
+       (portRef (member busa 12))
+       (portRef O (instanceRef tri_busa3 ))
+       (portRef I0 (instanceRef tri_busb3 ))))
+     (net busa2 
+      (joined 
+       (portRef (member busa 13))
+       (portRef O (instanceRef tri_busa2 ))
+       (portRef I0 (instanceRef tri_busb2 ))))
+     (net busa1 
+      (joined 
+       (portRef (member busa 14))
+       (portRef O (instanceRef tri_busa1 ))
+       (portRef I0 (instanceRef tri_busb1 ))))
+     (net busa0 
+      (joined 
+       (portRef (member busa 15))
+       (portRef O (instanceRef tri_busa0 ))
+       (portRef I0 (instanceRef tri_busb0 ))))
+     (net busb15 
+      (joined 
+       (portRef (member busb 0))
+       (portRef O (instanceRef tri_busb15 ))
+       (portRef I0 (instanceRef tri_busa15 ))))
+     (net busb14 
+      (joined 
+       (portRef (member busb 1))
+       (portRef O (instanceRef tri_busb14 ))
+       (portRef I0 (instanceRef tri_busa14 ))))
+     (net busb13 
+      (joined 
+       (portRef (member busb 2))
+       (portRef O (instanceRef tri_busb13 ))
+       (portRef I0 (instanceRef tri_busa13 ))))
+     (net busb12 
+      (joined 
+       (portRef (member busb 3))
+       (portRef O (instanceRef tri_busb12 ))
+       (portRef I0 (instanceRef tri_busa12 ))))
+     (net busb11 
+      (joined 
+       (portRef (member busb 4))
+       (portRef O (instanceRef tri_busb11 ))
+       (portRef I0 (instanceRef tri_busa11 ))))
+     (net busb10 
+      (joined 
+       (portRef (member busb 5))
+       (portRef O (instanceRef tri_busb10 ))
+       (portRef I0 (instanceRef tri_busa10 ))))
+     (net busb9 
+      (joined 
+       (portRef (member busb 6))
+       (portRef O (instanceRef tri_busb9 ))
+       (portRef I0 (instanceRef tri_busa9 ))))
+     (net busb8 
+      (joined 
+       (portRef (member busb 7))
+       (portRef O (instanceRef tri_busb8 ))
+       (portRef I0 (instanceRef tri_busa8 ))))
+     (net busb7 
+      (joined 
+       (portRef (member busb 8))
+       (portRef O (instanceRef tri_busb7 ))
+       (portRef I0 (instanceRef tri_busa7 ))))
+     (net busb6 
+      (joined 
+       (portRef (member busb 9))
+       (portRef O (instanceRef tri_busb6 ))
+       (portRef I0 (instanceRef tri_busa6 ))))
+     (net busb5 
+      (joined 
+       (portRef (member busb 10))
+       (portRef O (instanceRef tri_busb5 ))
+       (portRef I0 (instanceRef tri_busa5 ))))
+     (net busb4 
+      (joined 
+       (portRef (member busb 11))
+       (portRef O (instanceRef tri_busb4 ))
+       (portRef I0 (instanceRef tri_busa4 ))))
+     (net busb3 
+      (joined 
+       (portRef (member busb 12))
+       (portRef O (instanceRef tri_busb3 ))
+       (portRef I0 (instanceRef tri_busa3 ))))
+     (net busb2 
+      (joined 
+       (portRef (member busb 13))
+       (portRef O (instanceRef tri_busb2 ))
+       (portRef I0 (instanceRef tri_busa2 ))))
+     (net busb1 
+      (joined 
+       (portRef (member busb 14))
+       (portRef O (instanceRef tri_busb1 ))
+       (portRef I0 (instanceRef tri_busa1 ))))
+     (net busb0 
+      (joined 
+       (portRef (member busb 15))
+       (portRef O (instanceRef tri_busb0 ))
+       (portRef I0 (instanceRef tri_busa0 ))))
+     (net oe0 
+      (joined 
+       (portRef oe0 )
+       (portRef OE (instanceRef tri_busb0 ))
+       (portRef OE (instanceRef tri_busa0 ))
+       (portRef OE (instanceRef tri_busb1 ))
+       (portRef OE (instanceRef tri_busa1 ))
+       (portRef OE (instanceRef tri_busb2 ))
+       (portRef OE (instanceRef tri_busa2 ))
+       (portRef OE (instanceRef tri_busb3 ))
+       (portRef OE (instanceRef tri_busa3 ))
+       (portRef OE (instanceRef tri_busb4 ))
+       (portRef OE (instanceRef tri_busa4 ))
+       (portRef OE (instanceRef tri_busb5 ))
+       (portRef OE (instanceRef tri_busa5 ))
+       (portRef OE (instanceRef tri_busb6 ))
+       (portRef OE (instanceRef tri_busa6 ))
+       (portRef OE (instanceRef tri_busb7 ))
+       (portRef OE (instanceRef tri_busa7 ))
+       (portRef OE (instanceRef tri_busb8 ))
+       (portRef OE (instanceRef tri_busa8 ))
+       (portRef OE (instanceRef tri_busb9 ))
+       (portRef OE (instanceRef tri_busa9 ))
+       (portRef OE (instanceRef tri_busb10 ))
+       (portRef OE (instanceRef tri_busa10 ))
+       (portRef OE (instanceRef tri_busb11 ))
+       (portRef OE (instanceRef tri_busa11 ))
+       (portRef OE (instanceRef tri_busb12 ))
+       (portRef OE (instanceRef tri_busa12 ))
+       (portRef OE (instanceRef tri_busb13 ))
+       (portRef OE (instanceRef tri_busa13 ))
+       (portRef OE (instanceRef tri_busb14 ))
+       (portRef OE (instanceRef tri_busa14 ))
+       (portRef OE (instanceRef tri_busb15 ))
+       (portRef OE (instanceRef tri_busa15 ))))))))
+ (design a2bexch (cellRef a2bexch (libraryRef work ))))

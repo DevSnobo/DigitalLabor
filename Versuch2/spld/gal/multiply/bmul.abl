@@ -1,0 +1,88 @@
+module bmul
+Title '4-bit Multiplier'
+library 'lattice';
+LAT_PULL_DEFAULT (HOLD); // PULL_DEFAULT: HOLD | UP | DOWN | OFF (default: up)
+LAT_SLEW (SLOW, p0);     // SLEW: FAST | SLOW  (default: fast)
+LAT_SLEW (FAST, p1);
+LAT_IO_TYPES (p2,LVCMOS33);
+LAT_IO_TYPES (p3,LVCMOS25);
+LAT_IO_TYPES (p4,LVCMOS18);
+// LVCMOS33_OD: VOLTAGE = VCC, OPENDRAIN = ON
+// LVCMOS33   : VOLTAGE = VCC, OPENDRAIN = OFF
+// LVCMOS25_OD: VOLTAGE = VCC, OPENDRAIN = ON
+// LVCMOS25   : VOLTAGE = VCC, OPENDRAIN = OFF
+// LVCMOS18_OD: VOLTAGE = VCCIO, OPENDRAIN = ON
+// LVCMOS18   : VOLTAGE = VCCIO, OPENDRAIN = OFF
+// default: LVCMOS18
+a2,a1,a0               pin 1,2,3;
+b2,b1,b0               pin 6,7,8;
+p5,p4,p3,p2,p1,p0      pin 15,16,17,18,19,22 istype 'com';
+aset = [a2,a1,a0];
+bset = [b2,b1,b0];
+product = [p5,p4,p3,p2,p1,p0];
+
+
+"Intermediate equations
+
+      sum00 = a0 & b0;
+
+      sum01 = a1 & b0;
+
+      sum02 = a2 & b0;
+
+
+      sum10 = ((a0 & b1) $ sum01);
+      carry10 = (a0 & b1 & sum01);
+
+      sum11 = ((a1 & b1) $ sum02);
+      carry11 = (a1 & b1 & sum02);
+
+      sum12 = (a2 & b1) $ carry11;
+      carry12 = (a2 & b1) & carry11;
+
+
+      sum20 = ((a0 & b2) $ sum11) $ carry10;
+      carry20 = (carry10 & a0 & b2) 
+              # (a0 & b2 & sum11) 
+              # (sum11 & carry10); 
+
+      sum21 = ((a1 & b2) $ sum12) $ carry20;
+      carry21 = (carry20 & a1 & b2) 
+              # (a1 & b2 & sum12) 
+              # (sum12 & carry20); 
+
+      sum22 = ((a2 & b2) $ carry12) $ carry21;
+      carry22 = (carry21 & a2 & b2) 
+              # (a2 & b2 & carry12) 
+              # (carry12 & carry21); 
+
+
+equations
+      p0 = sum00;
+      p1 = sum10;
+      p2 = sum20;
+      p3 = sum21;
+      p4 = sum22;
+      p5 = carry22;
+ 
+
+"Generates 64 test vectors to fully test the multiplier circuit.
+"
+test_vectors ([aset,bset] -> [product])  "test vector header line 
+@const i = 0;                            "set i to 0       
+@repeat 8                                "repeat the next block 8 times
+   {                                       "FIRST block level
+   @const j = 0;                           "set j to 0
+   @repeat 8                               "repeat the next block 8 times
+      {                                       "SECOND block level
+      @const yy = j;                          "yy from 0 to 7 fast
+      @const xx = i;                          "xx from 0 to 7 slow 
+      @const zz = i*j;                        "zz is their product
+      [ (xx),(yy) ] -> [ (zz) ];              "write test vector table with values
+      @const j = j + 1;                       "increment j
+      }                                   
+   @const i = i + 1;                       "increment i
+   }                                      
+
+
+end

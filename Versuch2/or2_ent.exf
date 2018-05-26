@@ -1,0 +1,11 @@
+Section Cross Reference File
+Design 'or2_ent' created Mon Apr 23 14:31:12 2018
+   Type              New Name                               Original Name
+// ----------------------------------------------------------------------
+End
+Section Type      Name
+// ----------------------------------------------------------------------
+        Input     a
+        Input     b
+        Output     y
+End

@@ -1,0 +1,32 @@
+#
+#
+#
+# Created by Synplify Verilog HDL Compiler version 6.1.0, Build 067R from Synplicity, Inc.
+# Copyright 1994-1999 Synplicity, Inc. , All rights reserved.
+# Synthesis Netlist written on Fri Dec 15 10:45:42 2000
+#
+#
+#OPTIONS:"|-top|a2bexch|-ram|-IC:\\DATA\\MAGMA_FILES\\S_MAGMA\\MAGMA10\\SYNPLIFY\\lib|-autosm|-fid2|-sharing|on|-encrypt|-ui"
+#CUR:"C:\\DATA\\MAGMA_FILES\\S_MAGMA\\MAGMA10\\SYNPLIFY\\bin\\c_ver.exe":972040542l
+#CUR:"c:\\data\\magma_files\\s_magma\\magma10\\synplify\\lib\\cpld\\lattice.v":957365092l
+#CUR:"c:\\data\\magma_files\\s_magma\\magma10\\ispcpld\\generic\\verilog\\synplify\\generic.v":976810442l
+#CUR:"c:\\data\\magma_~1\\s_magma\\magma10\\ispcpld\\examples\\ispgdx\\verilog\\a2bexch\\a2bexch.v":969014428l
+f "c:\data\magma_files\s_magma\magma10\synplify\lib\cpld\lattice.v"; # file 0
+f "c:\data\magma_files\s_magma\magma10\ispcpld\generic\verilog\synplify\generic.v"; # file 1
+f "c:\data\magma_~1\s_magma\magma10\ispcpld\examples\ispgdx\verilog\a2bexch\a2bexch.v"; # file 2
+@E@MR@g.::g(::R4dI	FsRLN.CEGORsPCHoDF;P
+NR#3HPHCsDRFo4N;
+PFR3shHoNRlC"LN.CEGO"L;
+R.@@::4j44d:jn:4R#LkN6r4:Rj9LNk#r:46j
+9;NuHRzzppumR"h
+";N1HRp1mWpR W""mh;R
+L@:@.444:d4:4:R4nLLk#r:46jL9Rkr#L4j6:9N;
+HmRpBuR"c6,u,,unuu(,g4,uj4,u44,u.4,ud4,uc4,u64,un.,uj.,u4.,u..,ud
+";H@R@..:4:4n:.R:UFRCjF;Cj
+@bR@4.:.::n4U.:RPHMR4kM_jFCR4kM_jFCRjFC;R
+b@:@j4::44R:.0CskRk0sCsR0k
+C;b@R@j::44::4.NRVDR#CV#NDCNRVD;#C
+@bR@..:jc:4::.jd0.RskHRMLd_k_#L04Lr69:jR#LkL6r4:Rj9LNk#r:46jk9RMF4_C;jR
+@bR@4.:gc:4::4gd04RskHRML._k_#N04Lr69:jR#LkN6r4:Rj9LLk#r:46jF9RC;jR
+
+C;

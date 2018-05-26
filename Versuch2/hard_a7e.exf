@@ -1,0 +1,93 @@
+Section Type   Array Num   Name                     Real Name          Base     Number     Increment
+// ------------------------------------------------------------------------------------------
+      Port          1      q(3:0)                        q                  3          4            -1
+End
+Section Member   Rename                   Array-Notation          Array Number     Index
+// -------------------------------------------------------------------------------------
+        Port      q_3_                        q[3]                       1            0            
+        Port      q_2_                        q[2]                       1            1            
+        Port      q_1_                        q[1]                       1            2            
+        Port      q_0_                        q[0]                       1            3            
+End
+Section Cross Reference File
+Design 'HARD_A7e' created Thu May 03 17:12:57 2018
+   Type              New Name                               Original Name
+// ----------------------------------------------------------------------
+   Inst            i2_z_tmp_1_                               i2.z.tmp[1]
+   Inst            i2_z_tmp_2_                               i2.z.tmp[2]
+   Inst            i2_z_tmp_3_                               i2.z.tmp[3]
+   Inst            i2_z_tmp_0_                               i2.z.tmp[0]
+   Inst                   q_0_                                      q[0]
+   Inst                   q_1_                                      q[1]
+   Inst                   q_2_                                      q[2]
+   Inst                   q_3_                                      q[3]
+   Inst      i2_ampel_un10_r_i                         i2.ampel.un10_r_i
+   Inst           i2_ampel_R_i                              i2.ampel.R_i
+   Inst          i2_mux_x_1_0_                             i2.mux.x_1[0]
+   Inst            i2_mux_x_0_                               i2.mux.x[0]
+   Inst            i2_z_tmp_n1                               i2.z.tmp_n1
+   Inst            i2_z_tmp_n2                               i2.z.tmp_n2
+   Inst            i2_z_tmp_n3                               i2.z.tmp_n3
+   Inst        i2_z_q_out_i_0_                           i2.z.q_out_i[0]
+   Inst        i2_z_q_out_i_1_                           i2.z.q_out_i[1]
+   Inst        i2_z_q_out_i_2_                           i2.z.q_out_i[2]
+   Inst        i2_z_q_out_i_3_                           i2.z.q_out_i[3]
+   Inst         i2_ampel_un2_r                            i2.ampel.un2_r
+   Inst        i2_ampel_un10_r                           i2.ampel.un10_r
+   Inst         i2_ampel_un2_y                            i2.ampel.un2_y
+   Inst             i2_ampel_R                                i2.ampel.R
+   Inst    i2_ampel_un3_y_0__r                       i2.ampel.un3_y_0_.r
+   Inst    i2_ampel_un3_y_0__m                       i2.ampel.un3_y_0_.m
+   Inst    i2_ampel_un3_y_0__n                       i2.ampel.un3_y_0_.n
+   Inst    i2_ampel_un3_y_0__p                       i2.ampel.un3_y_0_.p
+   Inst            i2_z_tmp_c1                               i2.z.tmp_c1
+   Inst            i2_z_tmp_c2                               i2.z.tmp_c2
+   Inst          i2_mux_x_1__r                             i2.mux.x_1_.r
+   Inst          i2_mux_x_1__m                             i2.mux.x_1_.m
+   Inst          i2_mux_x_1__n                             i2.mux.x_1_.n
+   Inst          i2_mux_x_1__p                             i2.mux.x_1_.p
+   Inst            i2_mux_x_2_                               i2.mux.x[2]
+   Net              q_out_0__n                                  q_out[0]
+   Net              q_out_1__n                                  q_out[1]
+   Net              q_out_2__n                                  q_out[2]
+   Net              q_out_3__n                                  q_out[3]
+   Net                 gnd_n_n                                       GND
+   Net           i2_z_tmp_n1_n                               i2.z.tmp_n1
+   Net           i2_z_tmp_n2_n                               i2.z.tmp_n2
+   Net           i2_z_tmp_n3_n                               i2.z.tmp_n3
+   Net        i2_ampel_un2_r_n                            i2.ampel.un2_r
+   Net       i2_ampel_un10_r_n                           i2.ampel.un10_r
+   Net        i2_ampel_un2_y_n                            i2.ampel.un2_y
+   Net        i2_ampelint_2__n                            i2.ampelInt[2]
+   Net        i2_ampelint_1__n                            i2.ampelInt[1]
+   Net           i2_z_tmp_c1_n                               i2.z.tmp_c1
+   Net           i2_z_tmp_c2_n                               i2.z.tmp_c2
+   Net            q_out_i_0__n                                q_out_i[0]
+   Net            q_out_i_1__n                                q_out_i[1]
+   Net            q_out_i_2__n                                q_out_i[2]
+   Net            q_out_i_3__n                                q_out_i[3]
+   Net                  q_0__n                                      q[0]
+   Net                  q_1__n                                      q[1]
+   Net                  q_2__n                                      q[2]
+   Net     i2_ampel_un10_r_i_n                         i2.ampel.un10_r_i
+   Net      i2_ampelint_0_2__n                          i2.ampelInt_0[2]
+   Net    i2_ampel_un3_y_0__un3_n                     i2.ampel.un3_y_0_.un3
+   Net    i2_ampel_un3_y_0__un1_n                     i2.ampel.un3_y_0_.un1
+   Net    i2_ampel_un3_y_0__un0_n                     i2.ampel.un3_y_0_.un0
+   Net       i2_mux_x_1__un3_n                           i2.mux.x_1_.un3
+   Net       i2_mux_x_1__un1_n                           i2.mux.x_1_.un1
+   Net       i2_mux_x_1__un0_n                           i2.mux.x_1_.un0
+End
+Section Type      Name
+// ----------------------------------------------------------------------
+        Input     S1
+        Input     S2
+        Input     T1
+        Output     q_3_
+        Output     rot
+        Output     gelb
+        Output     gruen
+        Output     q_2_
+        Output     q_1_
+        Output     q_0_
+End

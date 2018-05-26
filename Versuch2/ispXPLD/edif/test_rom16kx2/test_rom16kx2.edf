@@ -1,0 +1,234 @@
+(edif test_rom16kx2 
+ (edifVersion 2 0 0)
+ (edifLevel 0)
+ (keywordMap (keywordLevel 0))
+ (status 
+  (written 
+   (timestamp 2002 10 15 22 21 25)
+   (program "LeonardoSpectrum for Lattice" (version "2002d.0 af_OEM_Lattice"))
+   (author "Exemplar Logic Inc")))
+ (external PRIMITIVES 
+  (edifLevel 0)
+  (technology (numberDefinition )))
+ (external ispmach5000mx 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell OBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port O (direction OUTPUT)
+      (property pad (string "T"))))))
+  (cell IBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT)
+      (property pad (string "T")))
+     (port O (direction OUTPUT))))))
+ (library work 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell L_ROM_LPM_ROM_2_16384_14_REGISTERED_UNREGISTERED_UNUSED_ROM_init (cellType GENERIC)
+   (view INTERFACE  (viewType NETLIST)
+    (interface 
+     (port (array (rename Q "Q(1:0)") 2 )(direction OUTPUT))
+     (port (array (rename Address "Address(13:0)") 14 )(direction INPUT))
+     (port OutClock (direction INPUT))
+     (port OutClockEn (direction INPUT))
+     (port Reset (direction INPUT)))
+    (property lpm_type (string "LPM_ROM"))
+    (property lpm_width (string "2"))
+    (property lpm_numwords (string "16384"))
+    (property lpm_widthad (string "14"))
+    (property lpm_outdata (string "REGISTERED"))
+    (property lpm_address_control (string "UNREGISTERED"))
+    (property lpm_init_file (string "ROM_init"))))
+  (cell test_rom16kx2 (cellType GENERIC)
+   (view INTERFACE  (viewType NETLIST)
+    (interface 
+     (port (array (rename Q "Q(1:0)") 2 )(direction OUTPUT))
+     (port (array (rename Address "Address(13:0)") 14 )(direction INPUT))
+     (port OutClock (direction INPUT))
+     (port OutClockEn (direction INPUT))
+     (port Reset (direction INPUT)))
+    (contents 
+     (instance U0 (viewRef INTERFACE  (cellRef L_ROM_LPM_ROM_2_16384_14_REGISTERED_UNREGISTERED_UNUSED_ROM_init ))
+      (property lpm_type (string "LPM_ROM"))
+      (property lpm_width (string "2"))
+      (property lpm_numwords (string "16384"))
+      (property lpm_widthad (string "14"))
+      (property lpm_outdata (string "REGISTERED"))
+      (property lpm_address_control (string "UNREGISTERED"))
+      (property lpm_init_file (string "ROM_init")))
+     (instance (rename io_Q_1_ "io_Q(1)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispmach5000mx ))))
+     (instance (rename io_Q_0_ "io_Q(0)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispmach5000mx ))))
+     (instance (rename io_Address_13_ "io_Address(13)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispmach5000mx ))))
+     (instance (rename io_Address_12_ "io_Address(12)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispmach5000mx ))))
+     (instance (rename io_Address_11_ "io_Address(11)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispmach5000mx ))))
+     (instance (rename io_Address_10_ "io_Address(10)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispmach5000mx ))))
+     (instance (rename io_Address_9_ "io_Address(9)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispmach5000mx ))))
+     (instance (rename io_Address_8_ "io_Address(8)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispmach5000mx ))))
+     (instance (rename io_Address_7_ "io_Address(7)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispmach5000mx ))))
+     (instance (rename io_Address_6_ "io_Address(6)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispmach5000mx ))))
+     (instance (rename io_Address_5_ "io_Address(5)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispmach5000mx ))))
+     (instance (rename io_Address_4_ "io_Address(4)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispmach5000mx ))))
+     (instance (rename io_Address_3_ "io_Address(3)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispmach5000mx ))))
+     (instance (rename io_Address_2_ "io_Address(2)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispmach5000mx ))))
+     (instance (rename io_Address_1_ "io_Address(1)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispmach5000mx ))))
+     (instance (rename io_Address_0_ "io_Address(0)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispmach5000mx ))))
+     (instance io_OutClock (viewRef NETLIST  (cellRef IBUF (libraryRef ispmach5000mx ))))
+     (instance io_OutClockEn (viewRef NETLIST  (cellRef IBUF (libraryRef ispmach5000mx ))))
+     (instance io_Reset (viewRef NETLIST  (cellRef IBUF (libraryRef ispmach5000mx ))))
+     (net (rename int_Q_1_ "int_Q(1)") 
+      (joined 
+       (portRef (member Q 0)(instanceRef U0 ))
+       (portRef I0 (instanceRef io_Q_1_ ))))
+     (net (rename int_Q_0_ "int_Q(0)") 
+      (joined 
+       (portRef (member Q 1)(instanceRef U0 ))
+       (portRef I0 (instanceRef io_Q_0_ ))))
+     (net (rename int_Address_13_ "int_Address(13)") 
+      (joined 
+       (portRef O (instanceRef io_Address_13_ ))
+       (portRef (member Address 0)(instanceRef U0 ))))
+     (net (rename int_Address_12_ "int_Address(12)") 
+      (joined 
+       (portRef O (instanceRef io_Address_12_ ))
+       (portRef (member Address 1)(instanceRef U0 ))))
+     (net (rename int_Address_11_ "int_Address(11)") 
+      (joined 
+       (portRef O (instanceRef io_Address_11_ ))
+       (portRef (member Address 2)(instanceRef U0 ))))
+     (net (rename int_Address_10_ "int_Address(10)") 
+      (joined 
+       (portRef O (instanceRef io_Address_10_ ))
+       (portRef (member Address 3)(instanceRef U0 ))))
+     (net (rename int_Address_9_ "int_Address(9)") 
+      (joined 
+       (portRef O (instanceRef io_Address_9_ ))
+       (portRef (member Address 4)(instanceRef U0 ))))
+     (net (rename int_Address_8_ "int_Address(8)") 
+      (joined 
+       (portRef O (instanceRef io_Address_8_ ))
+       (portRef (member Address 5)(instanceRef U0 ))))
+     (net (rename int_Address_7_ "int_Address(7)") 
+      (joined 
+       (portRef O (instanceRef io_Address_7_ ))
+       (portRef (member Address 6)(instanceRef U0 ))))
+     (net (rename int_Address_6_ "int_Address(6)") 
+      (joined 
+       (portRef O (instanceRef io_Address_6_ ))
+       (portRef (member Address 7)(instanceRef U0 ))))
+     (net (rename int_Address_5_ "int_Address(5)") 
+      (joined 
+       (portRef O (instanceRef io_Address_5_ ))
+       (portRef (member Address 8)(instanceRef U0 ))))
+     (net (rename int_Address_4_ "int_Address(4)") 
+      (joined 
+       (portRef O (instanceRef io_Address_4_ ))
+       (portRef (member Address 9)(instanceRef U0 ))))
+     (net (rename int_Address_3_ "int_Address(3)") 
+      (joined 
+       (portRef O (instanceRef io_Address_3_ ))
+       (portRef (member Address 10)(instanceRef U0 ))))
+     (net (rename int_Address_2_ "int_Address(2)") 
+      (joined 
+       (portRef O (instanceRef io_Address_2_ ))
+       (portRef (member Address 11)(instanceRef U0 ))))
+     (net (rename int_Address_1_ "int_Address(1)") 
+      (joined 
+       (portRef O (instanceRef io_Address_1_ ))
+       (portRef (member Address 12)(instanceRef U0 ))))
+     (net (rename int_Address_0_ "int_Address(0)") 
+      (joined 
+       (portRef O (instanceRef io_Address_0_ ))
+       (portRef (member Address 13)(instanceRef U0 ))))
+     (net int_OutClock 
+      (joined 
+       (portRef O (instanceRef io_OutClock ))
+       (portRef OutClock (instanceRef U0 ))))
+     (net int_OutClockEn 
+      (joined 
+       (portRef O (instanceRef io_OutClockEn ))
+       (portRef OutClockEn (instanceRef U0 ))))
+     (net int_Reset 
+      (joined 
+       (portRef O (instanceRef io_Reset ))
+       (portRef Reset (instanceRef U0 ))))
+     (net (rename Q_1_ "Q(1)") 
+      (joined 
+       (portRef (member Q 0))
+       (portRef O (instanceRef io_Q_1_ ))))
+     (net (rename Q_0_ "Q(0)") 
+      (joined 
+       (portRef (member Q 1))
+       (portRef O (instanceRef io_Q_0_ ))))
+     (net (rename Address_13_ "Address(13)") 
+      (joined 
+       (portRef (member Address 0))
+       (portRef I0 (instanceRef io_Address_13_ ))))
+     (net (rename Address_12_ "Address(12)") 
+      (joined 
+       (portRef (member Address 1))
+       (portRef I0 (instanceRef io_Address_12_ ))))
+     (net (rename Address_11_ "Address(11)") 
+      (joined 
+       (portRef (member Address 2))
+       (portRef I0 (instanceRef io_Address_11_ ))))
+     (net (rename Address_10_ "Address(10)") 
+      (joined 
+       (portRef (member Address 3))
+       (portRef I0 (instanceRef io_Address_10_ ))))
+     (net (rename Address_9_ "Address(9)") 
+      (joined 
+       (portRef (member Address 4))
+       (portRef I0 (instanceRef io_Address_9_ ))))
+     (net (rename Address_8_ "Address(8)") 
+      (joined 
+       (portRef (member Address 5))
+       (portRef I0 (instanceRef io_Address_8_ ))))
+     (net (rename Address_7_ "Address(7)") 
+      (joined 
+       (portRef (member Address 6))
+       (portRef I0 (instanceRef io_Address_7_ ))))
+     (net (rename Address_6_ "Address(6)") 
+      (joined 
+       (portRef (member Address 7))
+       (portRef I0 (instanceRef io_Address_6_ ))))
+     (net (rename Address_5_ "Address(5)") 
+      (joined 
+       (portRef (member Address 8))
+       (portRef I0 (instanceRef io_Address_5_ ))))
+     (net (rename Address_4_ "Address(4)") 
+      (joined 
+       (portRef (member Address 9))
+       (portRef I0 (instanceRef io_Address_4_ ))))
+     (net (rename Address_3_ "Address(3)") 
+      (joined 
+       (portRef (member Address 10))
+       (portRef I0 (instanceRef io_Address_3_ ))))
+     (net (rename Address_2_ "Address(2)") 
+      (joined 
+       (portRef (member Address 11))
+       (portRef I0 (instanceRef io_Address_2_ ))))
+     (net (rename Address_1_ "Address(1)") 
+      (joined 
+       (portRef (member Address 12))
+       (portRef I0 (instanceRef io_Address_1_ ))))
+     (net (rename Address_0_ "Address(0)") 
+      (joined 
+       (portRef (member Address 13))
+       (portRef I0 (instanceRef io_Address_0_ ))))
+     (net OutClock 
+      (joined 
+       (portRef OutClock )
+       (portRef I0 (instanceRef io_OutClock ))))
+     (net OutClockEn 
+      (joined 
+       (portRef OutClockEn )
+       (portRef I0 (instanceRef io_OutClockEn ))))
+     (net Reset 
+      (joined 
+       (portRef Reset )
+       (portRef I0 (instanceRef io_Reset ))))))))
+ (design test_rom16kx2 (cellRef test_rom16kx2 (libraryRef work ))))

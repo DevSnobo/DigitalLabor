@@ -1,0 +1,81 @@
+#$ DATE Mon Apr 23 16:23:34 2018
+#$ TOOL EDIF2BLIF version IspLever 1.0 
+#$ MODULE cradd_ent
+#$ PINS 7 x_1_ y_1_ Sout_1_ Cfinal x_0_ y_0_ Sout_0_
+#$ NODES 29 sout_1_1__n N_2 N_3_0 fa2_c1ha_n fa2_ha1_un1_y_1_n fa2_ha1_un1_y_2_n fa2_s1ha_n fa2_c2ha_n fa2_ha2_un1_y_1_n fa2_ha2_un1_y_2_n \
+#  N_3_0_i x_i_0__n N_2_i y_i_1__n x_i_1__n x_c_0__n x_c_1__n y_c_0__n y_c_1__n Cfinal_c \
+#  fa2_c1ha_i_n fa2_c2ha_i_n Cfinal_c_0 fa2_ha2_un1_y_1_i_n fa2_ha2_un1_y_2_i_n sout_1_0_1__n fa2_ha1_un1_y_1_i_n fa2_ha1_un1_y_2_i_n fa2_s1ha_i_n 
+.model cradd_ent
+.inputs x_1_.BLIF y_1_.BLIF x_0_.BLIF y_0_.BLIF sout_1_1__n.BLIF N_2.BLIF N_3_0.BLIF fa2_c1ha_n.BLIF fa2_ha1_un1_y_1_n.BLIF \
+  fa2_ha1_un1_y_2_n.BLIF fa2_s1ha_n.BLIF fa2_c2ha_n.BLIF fa2_ha2_un1_y_1_n.BLIF fa2_ha2_un1_y_2_n.BLIF N_3_0_i.BLIF x_i_0__n.BLIF N_2_i.BLIF y_i_1__n.BLIF \
+  x_i_1__n.BLIF x_c_0__n.BLIF x_c_1__n.BLIF y_c_0__n.BLIF y_c_1__n.BLIF Cfinal_c.BLIF fa2_c1ha_i_n.BLIF fa2_c2ha_i_n.BLIF Cfinal_c_0.BLIF \
+  fa2_ha2_un1_y_1_i_n.BLIF fa2_ha2_un1_y_2_i_n.BLIF sout_1_0_1__n.BLIF fa2_ha1_un1_y_1_i_n.BLIF fa2_ha1_un1_y_2_i_n.BLIF fa2_s1ha_i_n.BLIF  
+.outputs Sout_1_ Cfinal Sout_0_ sout_1_1__n N_2 N_3_0 fa2_c1ha_n fa2_ha1_un1_y_1_n fa2_ha1_un1_y_2_n fa2_s1ha_n fa2_c2ha_n \
+  fa2_ha2_un1_y_1_n fa2_ha2_un1_y_2_n N_3_0_i x_i_0__n N_2_i y_i_1__n x_i_1__n x_c_0__n x_c_1__n y_c_0__n y_c_1__n \
+  Cfinal_c fa2_c1ha_i_n fa2_c2ha_i_n Cfinal_c_0 fa2_ha2_un1_y_1_i_n fa2_ha2_un1_y_2_i_n sout_1_0_1__n fa2_ha1_un1_y_1_i_n fa2_ha1_un1_y_2_i_n fa2_s1ha_i_n
+.names  x_0_.BLIF x_c_0__n
+1 1
+.names  x_1_.BLIF x_c_1__n
+1 1
+.names  y_0_.BLIF y_c_0__n
+1 1
+.names  y_1_.BLIF y_c_1__n
+1 1
+.names  N_3_0_i.BLIF Sout_0_
+1 1
+.names  sout_1_1__n.BLIF Sout_1_
+1 1
+.names  Cfinal_c.BLIF Cfinal
+1 1
+.names  fa2_ha1_un1_y_2_n.BLIF fa2_ha1_un1_y_2_i_n
+0 1
+.names  fa2_s1ha_i_n.BLIF fa2_s1ha_n
+0 1
+.names  N_3_0.BLIF N_3_0_i
+0 1
+.names  fa2_c1ha_n.BLIF fa2_c1ha_i_n
+0 1
+.names  fa2_c2ha_n.BLIF fa2_c2ha_i_n
+0 1
+.names  Cfinal_c_0.BLIF Cfinal_c
+0 1
+.names  fa2_ha2_un1_y_1_n.BLIF fa2_ha2_un1_y_1_i_n
+0 1
+.names  fa2_ha2_un1_y_2_n.BLIF fa2_ha2_un1_y_2_i_n
+0 1
+.names  sout_1_0_1__n.BLIF sout_1_1__n
+0 1
+.names  fa2_ha1_un1_y_1_n.BLIF fa2_ha1_un1_y_1_i_n
+0 1
+.names  x_c_1__n.BLIF y_c_1__n.BLIF fa2_c1ha_n
+11 1
+.names  x_c_1__n.BLIF x_i_1__n
+0 1
+.names  x_i_1__n.BLIF y_c_1__n.BLIF fa2_ha1_un1_y_1_n
+11 1
+.names  y_c_1__n.BLIF y_i_1__n
+0 1
+.names  x_c_1__n.BLIF y_i_1__n.BLIF fa2_ha1_un1_y_2_n
+11 1
+.names  fa2_ha1_un1_y_1_i_n.BLIF fa2_ha1_un1_y_2_i_n.BLIF fa2_s1ha_i_n
+11 1
+.names  fa2_s1ha_n.BLIF N_2.BLIF fa2_c2ha_n
+11 1
+.names  fa2_s1ha_i_n.BLIF N_2.BLIF fa2_ha2_un1_y_1_n
+11 1
+.names  N_2.BLIF N_2_i
+0 1
+.names  fa2_s1ha_n.BLIF N_2_i.BLIF fa2_ha2_un1_y_2_n
+11 1
+.names  fa2_ha2_un1_y_1_i_n.BLIF fa2_ha2_un1_y_2_i_n.BLIF sout_1_0_1__n
+11 1
+.names  fa2_c1ha_i_n.BLIF fa2_c2ha_i_n.BLIF Cfinal_c_0
+11 1
+.names  x_c_0__n.BLIF y_c_0__n.BLIF N_2
+11 1
+.names  x_c_0__n.BLIF x_i_0__n
+0 1
+.names  x_i_0__n.BLIF y_c_0__n.BLIF N_3_0
+01 1
+10 1
+.end

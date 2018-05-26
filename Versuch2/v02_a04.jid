@@ -1,0 +1,4 @@
+. HARD_A4e hard_a4.vhd "n:\digital labor\hard_a4.vhd"
+i2.z zaehler_e .\Versuch2-master\zaehler.vhd "n:\digital labor\Versuch2-master\zaehler.vhd"
+i2 zaehler_ampel_e zaehler_ampel.vhd "n:\digital labor\zaehler_ampel.vhd"
+i2.ampel Ampel_sn_e .\Versuch2-master\ampel_sn.vhd "n:\digital labor\Versuch2-master\ampel_sn.vhd"

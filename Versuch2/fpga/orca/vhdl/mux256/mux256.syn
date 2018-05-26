@@ -1,0 +1,9 @@
+JDF B
+// Created by Version 5.1 
+PROJECT Untitled
+DESIGN mux256 Normal
+DEVKIT or4e06-2BM680C
+ENTRY Schematic/VHDL
+MODULE mux256.vhd
+MODSTYLE mux256 Normal
+SYNTHESIS_TOOL Precision

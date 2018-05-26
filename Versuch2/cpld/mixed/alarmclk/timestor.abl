@@ -1,0 +1,39 @@
+MODULE timestor
+
+TITLE 'Loading the New Time or Incrementing the Time'
+
+DECLARATIONS
+
+// Inputs //
+     new_time3..new_time0		PIN ;
+     clk				PIN ;
+     rst				PIN ;
+     ldtime				PIN ;
+
+// Outputs //
+     cur_time3..cur_time0		PIN ISTYPE 'reg_d' ;
+
+
+EQUATIONS
+
+     [cur_time3..cur_time0].CLK = clk ;
+     [cur_time3..cur_time0].ACLR = rst ;
+
+     cur_time3.D = cur_time0 & cur_time1 & cur_time2 & !cur_time3 & !ldtime
+                 # !cur_time0 & cur_time3 & !ldtime
+                 # !cur_time1 & cur_time3 & !ldtime
+                 # ldtime & new_time3 ;
+
+     cur_time2.D = cur_time0 & cur_time1 & !cur_time2 & !cur_time3 & !ldtime
+                 # !cur_time0 & cur_time2 & !ldtime
+                 # !cur_time1 & cur_time2 & !ldtime
+                 # ldtime & new_time2 ;
+
+     cur_time1.D = cur_time0 & !cur_time1 & !ldtime
+                 # !cur_time0 & cur_time1 & !ldtime
+                 # ldtime & new_time1 ;
+
+     cur_time0.D = !cur_time0 & !ldtime
+                 # ldtime & new_time0 ;
+
+END

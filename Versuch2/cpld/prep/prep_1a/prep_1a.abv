@@ -1,0 +1,35 @@
+module p1_top	
+
+IPD0..IPD7	pin;
+ID0..ID23	pin;
+CLK, EXT_RESET, S_L, S0, S1		pin;
+Q_0..Q_7			pin;
+
+OUT = [Q_7,Q_6,Q_5,Q_4,Q_3,Q_2,Q_1,Q_0];
+IPDBUS = [IPD7,IPD6,IPD5,IPD4,IPD3,IPD2,IPD1,IPD0];
+IDBUS1 = [ID7,ID6,ID5,ID4,ID3,ID2,ID1,ID0];
+IDBUS2 = [ID15,ID14,ID13,ID12,ID11,ID10,ID9,ID8];
+IDBUS3 = [ID23,ID22,ID21,ID20,ID19,ID18,ID17,ID16];
+SELECT	= [S1,S0];
+c,x,k,z	=.c.,.x.,.k.,.z.;
+
+test_vectors
+	([CLK,EXT_RESET,IPDBUS,IDBUS3,IDBUS2,IDBUS1,SELECT,S_L] -> [OUT])
+	[0,0,x,x,x,x,0,0]	->	[x];
+	[c,1,x,x,x,x,0,0]	->	[x];
+	[c,0,1,x,x,x,0,0]	->	[x];
+	[c,0,x,x,x,x,x,0]	->	[x];
+	@repeat 3 {[c,0,x,x,x,x,x,1]	->	[x];}
+	[c,0,x,x,x,1,1,0]	->	[x];
+	[c,0,x,x,x,x,x,0]	->	[x];
+	@repeat 3 {[c,0,x,x,x,x,x,1]	->	[x];}
+	[c,0,x,x,1,x,2,0]	->	[x];
+	[c,0,x,x,x,x,x,0]	->	[x];
+	@repeat 3 {[c,0,x,x,x,x,x,1]	->	[x];}
+	[c,0,x,1,x,x,3,0]	->	[x];
+	[c,0,x,x,x,x,x,0]	->	[x];
+	@repeat 3 {[c,0,x,x,x,x,x,1]	->	[x];}
+	@repeat 3 {[c,0,x,x,x,x,x,0]	->	[x];}	
+end
+
+

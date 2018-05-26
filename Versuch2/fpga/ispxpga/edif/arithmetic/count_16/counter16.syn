@@ -1,0 +1,9 @@
+JDF B
+// Created by Version 5.0 
+PROJECT Untitled
+DESIGN counter16 Normal
+DEVKIT LFX125B-04F256CES/2X
+ENTRY EDIF
+MODULE counter16.edf
+MODSTYLE counter16 Normal
+SYNTHESIS_TOOL Precision

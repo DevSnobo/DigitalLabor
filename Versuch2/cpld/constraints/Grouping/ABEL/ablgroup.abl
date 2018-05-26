@@ -1,0 +1,69 @@
+"**************************************
+"* ABEL source constraint example
+"* 	Grouping Assignment
+"*	     2/02/2001 
+"* Lattice Semiconductor Corporation
+"**************************************
+
+"ABEL syntax for Group Assignment
+
+"LAT_GROUP([GrpName],[Seg#],[GLB#],[SigList]);
+"LAT_GROUP_GLB([GrpName],[GLB#],[SigList]);
+"LAT_GROUP_LOGICAL([GrpName],[SigList]);
+"	GrpName: 	Label of the group that you want to assign signals.	
+"	Seg#: 		The location of the segment that you want to assign the group to.
+"	GLB#: 		The location of the GLB that you want to assign the group to.
+"	SigList:	List of signals, separated by colons.
+"	* (star):	Means any segment or GLB.
+"	- (dash): 	Means not applicable.
+"
+"Note:  LAT_GROUP is a superset of other grouping macros.
+" 	LAT_GROUP_GLB(GrpName,GLB#,SigList) has the same effect as LAT_GROUP(GrpName,-,GLB#,SigList)
+" 	   and should be used for the device architecture without Segments.
+"	LAT_GROUP_LOGICAL is for the grouping without physical block assignment.	
+
+
+module ablgroup
+
+library 'lattice';
+
+din3..din0	pin;
+Din	= [din3..din0];
+
+"Channel A declaration
+inA3..inA0	pin;
+outA3..outA0	pin istype 'com';
+inA	= [inA3..inA0];
+outA	= [outA3..outA0];
+
+"Channel B declaration
+inB3..inB0	pin;
+outB3..outB0	pin istype 'com';
+inB	= [inB3..inB0];
+outB	= [outB3..outB0];
+
+"Channel C declaration
+inC3..inC0	pin;
+outC3..outC0	pin istype 'com';
+inC	= [inC3..inC0];
+outC	= [outC3..outC0];
+
+"Group constraints
+//GrpA will be placed in any Seg. GLB A. 
+LAT_GROUP(GrpA,-,A,inA3:inA2:inA1:inA0:outA3:outA2:outA1:outA0); 
+
+// GrpB will be placed in any Seg. any GLB
+LAT_GROUP(GrpB,-,*,inB3:inB2:inB1:inB0:outB3:outB2:outB1:outB0);
+
+// GrpC will be placed in any GLB in the device
+LAT_GROUP_LOGICAL(GrpC,inC3:inC2:inC1:inC0:outC3:outC2:outC1:outC0); 
+" = LAT_GROUP(GrpC,-,*,inC3:inC2:inC1:inC0:outC3:outC2:outC1:outC0); 
+
+equations
+
+outA	=	Din & inA;
+outB	=	Din & inB;
+outC	=	Din & inC;
+
+end;
+

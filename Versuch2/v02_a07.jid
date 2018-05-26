@@ -1,0 +1,6 @@
+. HARD_A7e hard_a7.vhd "n:\digital labor\hard_a7.vhd"
+i2.z zaehler_e .\Versuch2-master\zaehler.vhd "n:\digital labor\Versuch2-master\zaehler.vhd"
+i2 ampel_komplett_e ampel_komplett.vhd "n:\digital labor\ampel_komplett.vhd"
+i2.ampel Ampel_sn_e ampel_sn.vhd "n:\digital labor\ampel_sn.vhd"
+i2.mux multiplexer_e .\Versuch2-master\multiplexer.vhd "n:\digital labor\Versuch2-master\multiplexer.vhd"
+i2.blinken gelb_blinken_e gelb_blinken.vhd "n:\digital labor\gelb_blinken.vhd"

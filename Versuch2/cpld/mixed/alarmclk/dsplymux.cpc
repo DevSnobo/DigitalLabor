@@ -1,0 +1,25 @@
+;C:\SYNARIO\DEMO2\DSPLYMUX.cpc - Setup Data for Simulation
+
+
+[NameRules]
+Language=Verilog
+LeadingInstancePrefix=No
+InstanceSeparator=.
+BusParentheses=[:]
+
+[Controls]
+Mode=Typical
+
+[Times]
+Stop Time=40 ns
+Step Time=1,000 ns
+
+[BreakPoints]
+
+[Monitors]
+
+[Output]
+Interval=Periodic
+Step=1
+
+[OutputNets]

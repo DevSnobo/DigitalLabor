@@ -1,0 +1,36 @@
+module p2_top	
+
+data0_0..data0_7	pin;
+data1_0..data1_7	pin;
+data2_0..data2_7	pin;
+sel, ldpre, ext_reset, clk, ldcomp		pin;
+
+DATA1 = [data1_7,data1_6,data1_5,data1_4,data1_3,data1_2,data1_1,data1_0];
+DATA2 = [data2_7,data2_6,data2_5,data2_4,data2_3,data2_2,data2_1,data2_0];
+OUT = [data0_7,data0_6,data0_5,data0_4,data0_3,data0_2,data0_1,data0_0];
+
+c,x,k,z	=.c.,.x.,.k.,.z.;
+
+test_vectors
+	([clk,DATA1,DATA2,ldpre,sel,ldcomp,ext_reset] -> [OUT])
+	[0,x,x,0,0,0,1]	->	[x];
+	[c,x,x,0,0,0,1]	->	[x];
+	[c,x,x,0,0,0,0]	->	[x];
+	[c,x,^hF6,0,0,0,0]	->	[x];
+	[c,x,^hF6,0,0,0,0]	->	[x];
+	[c,x,^hF6,1,0,0,0]	->	[x];
+	[c,x,^hF6,0,0,0,0]	->	[x];
+	[c,x,^hFC,0,0,0,0]	->	[x];
+	[c,x,^hFC,0,0,0,0]	->	[x];
+	[c,x,^hFC,0,0,1,0]	->	[x];
+	[c,x,^hFC,0,0,0,0]	->	[x];
+	[c,x,x,0,0,0,0]	->	[x];
+	[c,x,x,0,0,0,0]	->	[x];
+	[c,x,x,0,0,0,0]	->	[x];
+	[c,^h13,x,0,1,0,0]	->	[x];
+	[c,^h13,x,0,1,0,0]	->	[x];
+	[c,^h13,x,0,1,0,0]	->	[x];
+	[c,^h13,x,0,1,0,0]	->	[x];
+end
+
+

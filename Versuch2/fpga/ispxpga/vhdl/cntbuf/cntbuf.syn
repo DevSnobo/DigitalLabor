@@ -1,0 +1,10 @@
+JDF B
+// Created by Version 3.0 
+PROJECT Untitled
+DESIGN cntbuf Normal
+DEVKIT LFX125B-04F256CES/2X
+ENTRY Schematic/VHDL
+STIMULUS cntbuftb.vhd
+MODULE cntbuf.vhd
+MODSTYLE cntbuf Normal
+SYNTHESIS_TOOL Synplify

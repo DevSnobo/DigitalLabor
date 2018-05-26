@@ -1,0 +1,11 @@
+JDF B
+// Created by Version 1.3 
+PROJECT Untitled
+DESIGN pinnodebga Normal
+DEVKIT LC4512C-10FT256I
+ENTRY ABEL/Schematic
+MODULE bgaassgn.abl
+MODSTYLE pinndBGA Normal
+SYNTHESIS_TOOL Synplify
+SIMULATOR_TOOL ActiveHDL
+TOPMODULE pinndBGA

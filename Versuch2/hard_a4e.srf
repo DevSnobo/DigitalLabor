@@ -1,0 +1,74 @@
+#Build: Synplify Pro F-2012.03LC , Build 063R, May 17 2012
+#install: C:\ispLEVER_Classic1_6\synpbase
+#OS: Windows 7 6.1
+#Hostname: LAT-DIG-03B
+
+#Implementation: digital labor
+
+$ Start of Compile
+#Thu May 03 16:00:19 2018
+
+Synopsys VHDL Compiler, version comp201203rcp1, Build 061R, built May 17 2012
+@N|Running in 64-bit mode
+Copyright (C) 1994-2012 Synopsys, Inc. This software the associated documentation are confidential and proprietary to Synopsys, Inc. Your use or disclosure of this software subject to the terms and conditions of a written license agreement between you, or your company, and Synopsys, Inc.
+
+@N: CD720 :"C:\ispLEVER_Classic1_6\synpbase\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ns
+@N:"N:\digital labor\hard_a4.vhd":9:7:9:14|Top entity is set to HARD_A4e.
+VHDL syntax check successful!
+File N:\digital labor\zaehler_ampel.vhd changed - recompiling
+@N: CD630 :"N:\digital labor\hard_a4.vhd":9:7:9:14|Synthesizing work.hard_a4e.hard_a4a 
+@W: CS140 :"C:\ispLEVER_Classic1_6\synpbase\lib\cpld\mach.vhd":41:3:41:11|black_box attribute has been renamed to syn_black_box. Change black_box usage to synthesis syn_black_box for upward compatibility.
+@N: CD630 :"C:\ispLEVER_Classic1_6\synpbase\lib\cpld\mach.vhd":827:10:827:17|Synthesizing mach.osctimer.syn_black_box 
+@W: CS140 :"C:\ispLEVER_Classic1_6\synpbase\lib\cpld\mach.vhd":41:3:41:11|black_box attribute has been renamed to syn_black_box. Change black_box usage to synthesis syn_black_box for upward compatibility.
+Post processing for mach.osctimer.syn_black_box
+@W: CD276 :"N:\digital labor\zaehler_ampel.vhd":11:1:11:7|Map for port zaehler of component zaehler_ampel_e not found
+@W: CD279 :"N:\digital labor\hard_a4.vhd":39:0:39:0|Port q of component zaehler_ampel_e not found on corresponding entity
+@W: CD326 :"N:\digital labor\hard_a4.vhd":55:1:55:2|Port zaehler of entity work.zaehler_ampel_e is unconnected
+@W: CD638 :"N:\digital labor\hard_a4.vhd":23:7:23:11|Signal q_out is undriven 
+@N: CD630 :"N:\digital labor\zaehler_ampel.vhd":7:7:7:21|Synthesizing work.zaehler_ampel_e.zaehler_ampel_a 
+@N: CD630 :"N:\digital labor\Versuch2-master\ampel_sn.vhd":6:7:6:16|Synthesizing work.ampel_sn_e.ampel_sn_a 
+Post processing for work.ampel_sn_e.ampel_sn_a
+@N: CD630 :"N:\digital labor\Versuch2-master\zaehler.vhd":6:7:6:15|Synthesizing work.zaehler_e.zaehler_a 
+Post processing for work.zaehler_e.zaehler_a
+Post processing for work.zaehler_ampel_e.zaehler_ampel_a
+Post processing for work.hard_a4e.hard_a4a
+@W: CL252 :"N:\digital labor\hard_a4.vhd":23:7:23:11|Bit 0 of signal q_out is floating -- simulation mismatch possible.
+@W: CL252 :"N:\digital labor\hard_a4.vhd":23:7:23:11|Bit 1 of signal q_out is floating -- simulation mismatch possible.
+@W: CL252 :"N:\digital labor\hard_a4.vhd":23:7:23:11|Bit 2 of signal q_out is floating -- simulation mismatch possible.
+@W: CL252 :"N:\digital labor\hard_a4.vhd":23:7:23:11|Bit 3 of signal q_out is floating -- simulation mismatch possible.
+@W: CL247 :"N:\digital labor\Versuch2-master\ampel_sn.vhd":7:7:7:7|Input port bit 0 of v(3 downto 0) is unused 
+@END
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+# Thu May 03 16:00:19 2018
+
+###########################################################]
+Map & Optimize Report
+
+Synopsys CPLD Technology Mapper, Version maplat, Build 396R, Built May 18 2012
+Copyright (C) 1994-2012, Synopsys Inc. This software the associated documentation are confidential and proprietary to Synopsys, Inc. Your use or disclosure of this software subject to the terms and conditions of a written license agreement between you, or your company, and Synopsys, Inc.
+Product Version F-2012.03LC 
+@N:"n:\digital labor\versuch2-master\zaehler.vhd":21:2:21:3|Found counter in view:work.HARD_A4e(hard_a4a) inst i2.z.tmp[3:0]
+---------------------------------------
+Resource Usage Report
+
+Simple gate primitives:
+OSCTIMER        1 use
+DFFRH           4 uses
+IBUF            2 uses
+OBUF            7 uses
+INV             7 uses
+AND2            9 uses
+OR2             1 use
+XOR2            3 uses
+
+
+@N: FC100 |Timing Report not generated for this device, please use place and route tools for timing analysis.
+F-2012.03LC 
+Mapper successful!
+
+At Mapper Exit (Time elapsed 0h:00m:00s; Memory used current: 17MB peak: 50MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+# Thu May 03 16:00:21 2018
+
+###########################################################]

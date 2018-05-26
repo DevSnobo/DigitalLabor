@@ -1,0 +1,36 @@
+"**************************************
+"* ABEL source constraint example
+"* 	Pin PULL Control
+"*	2/05/2001
+"* Lattice Semiconductor Corporation 
+"**************************************
+
+"ABEL syntax for Pin PULL Control
+
+"LAT_PULL ([TYPE],[PinList]);
+" Type: 	PULL type. This can be either UP, HOLD or OFF.
+" PinList:	Pin names separated by colons. i.e., pin1:pin2:pin3...
+
+MODULE pull
+
+library 'lattice';
+
+inA,inB,inC	pin; 
+
+pullup		pin istype 'com';
+pullhd		pin istype 'com';
+pullof		pin istype 'com';
+
+// ABEL Pin PULL Control
+LAT_PULL (UP,pullup:inA);
+LAT_PULL (HOLD,pullhd:inB);
+LAT_PULL (OFF,pullof:inC);
+
+equations
+
+pullup = !inA & inB & inC;
+pullhd = inA & inB & !inC;
+pullof = !inA & !inB & !inC;
+
+END 
+

@@ -1,0 +1,12 @@
+JDF B
+// Created by Version 1.3 
+PROJECT Multiplier and Accumulator
+DESIGN prep_5 Normal
+DEVKIT LC4256ZE-5TN100C
+ENTRY Schematic/Verilog HDL
+STIMULUS prep5.abv
+MODULE prep5.v
+MODSTYLE prep5 Normal
+SYNTHESIS_TOOL Synplify
+SIMULATOR_TOOL ActiveHDL
+TOPMODULE prep5

@@ -1,0 +1,43 @@
+module add8
+title '8 bit adder'
+"When input mac is high, two eight-bit input values are added and their sum is
+"immediately placed on the outputs s7 through s0. When mac is low, the input 
+"value on b7 through b0 is directly passed through on s7 through s0.
+
+
+@CARRY 1 ;   "This directive will cause ABEL-HDL to generate logic equations
+             "in the form of small logic blocks with carries, reducing each
+             "equations product term count to better fit into FPGA architectures.
+
+"Input / Output pins
+	a7..a0   pin;
+	b7..b0   pin;
+	mac      pin;
+	s7..s0   pin istype 'com';
+
+"Sets
+	  A = [a7..a0];
+	  B = [b7..b0];
+	SUM = [s7..s0];
+
+
+Equations
+
+     SUM =  mac & (A + B)    "Add A and B together when mac is high
+         # !mac & (B);       "Pass B through when mac is low
+
+
+
+Test_vectors 
+    ([ A,  B, mac ] -> SUM)
+     [ 1,  2,  0  ] ->  2 ;
+     [ 3,  5,  1  ] ->  8 ;
+     [ 5,  8,  0  ] ->  8 ;
+     [ 6, 12,  0  ] -> 12 ;
+     [ 9, 15,  1  ] -> 24 ;
+     [10,  7,  1  ] -> 17 ;
+     [12,  2,  0  ] ->  2 ;
+     [ 2,  1,  1  ] ->  3 ;
+ 
+    
+End add8

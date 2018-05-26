@@ -1,0 +1,15 @@
+
+
+MODULE ampel_komplett_e
+
+	SUBMODULE multiplexer_e
+		INSTANCE mux
+
+	SUBMODULE gelb_blinken_e
+		INSTANCE blinken
+
+	SUBMODULE Ampel_sn_e
+		INSTANCE ampel
+
+	SUBMODULE zaehler_e
+		INSTANCE z

@@ -1,0 +1,37 @@
+#-- Synplicity, Inc.
+#-- Synplify version 5.3.2
+#-- Project file C:\isptools\ispsys\examples\ispLSI_GAL\ispGDX\vhdl\dataexch\dataexch.tc_
+#-- Written on Wed Sep 20 16:52:17 2000
+
+#device options
+set_option -technology mach
+set_option -part M5-128
+
+#add_file options
+add_file -vhdl -lib work "dataexch.vhd"
+
+#compilation/mapping options
+set_option -default_enum_encoding onehot
+set_option -symbolic_fsm_compiler false
+set_option -resource_sharing true
+
+#map options
+set_option -frequency 0.000
+set_option -fanin_limit 20
+set_option -max_terms_per_macrocell 16
+set_option -map_logic false
+set_option -area_delay_percent 0
+set_option -top_module dataexch
+
+#simulation options
+set_option -write_verilog true
+set_option -write_vhdl true
+
+#automatic place and route (vendor) options
+set_option -write_apr_constraint true
+
+#MTI Cross Probe options
+set_option -mti_root ""
+
+#set result format/file last
+project -result_file "dataexch.edi"

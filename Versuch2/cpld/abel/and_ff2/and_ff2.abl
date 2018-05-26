@@ -1,0 +1,14 @@
+MODULE and_ff2
+
+TITLE 'And gate and flip-flop'
+
+input_1,input_2,Clk  pin;
+output_q             pin istype 'reg';
+
+Equations
+
+    output_q     := input_1 & input_2;
+    output_q.clk  = Clk;
+
+END
+

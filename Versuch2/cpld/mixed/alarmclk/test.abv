@@ -1,0 +1,51 @@
+module test
+
+clock,reset	pin;
+new_clk_time_0_,new_clk_time_1_,new_clk_time_2_,new_clk_time_3_	pin;
+ld_new_clk_time		pin;
+showalrm	pin;
+new_alrm_time_0_,new_alrm_time_1_,new_alrm_time_2_,new_alrm_time_3_	pin;
+ld_new_alrm_time	pin;
+"dummy		pin;
+sound_alrm	pin;
+display_3_,display_2_,display_1_,display_0_	pin;
+
+
+[X] = [.X.];
+
+
+new_clk = [new_clk_time_3_,new_clk_time_2_,new_clk_time_1_,new_clk_time_0_];
+new_alrm = [new_alrm_time_3_,new_alrm_time_2_,new_alrm_time_1_,new_alrm_time_0_];
+display = [display_3_,display_2_,display_1_,display_0_];
+
+test_vectors
+
+([clock,ld_new_alrm_time,ld_new_clk_time,new_alrm,new_clk,reset,showalrm] -> [sound_alrm,display]);
+
+[.x.,0,0,0,0,1,0]	->	[1,0];
+[.c.,0,0,0,0,0,0]	->	[0,1];
+[.c.,0,0,0,0,0,0]	->	[0,2];
+[.c.,0,0,0,0,0,0]	->	[0,3];
+[.c.,0,0,0,0,0,0]	->	[0,4];
+[.c.,0,0,0,0,0,0]	->	[0,5];
+[.c.,1,0,^hb,0,0,0]	->	[0,6];
+[.c.,0,0,^hb,0,0,1]	->	[0,11];
+[.c.,0,0,^hb,0,0,0]	->	[0,8];
+[.c.,0,0,^hb,0,0,0]	->	[0,9];
+[.c.,0,0,^hb,0,0,0]	->	[0,10];
+[.c.,0,0,^hb,0,0,0]	->	[1,11];
+[.c.,0,0,^hb,0,0,0]	->	[0,0];
+[.c.,0,0,^hb,0,0,0]	->	[0,1];
+[.c.,0,0,^hb,0,0,0]	->	[0,2];
+[.c.,0,0,^hb,0,0,0]	->	[0,3];
+[.c.,0,1,^hb,8,0,0]	->	[0,8];
+[.c.,0,0,^hb,8,0,0]	->	[0,9];
+[.c.,0,0,^hb,8,0,0]	->	[0,10];
+[.c.,0,0,^hb,8,0,0]	->	[1,11];
+[.c.,0,0,^hb,8,0,0]	->	[0,0];
+[.c.,0,0,^hb,8,0,0]	->	[0,1];
+[.c.,0,0,^hb,8,0,0]	->	[0,2];
+[.c.,0,0,^hb,8,0,0]	->	[0,3];
+[.c.,0,0,^hb,8,0,0]	->	[0,4];
+
+END

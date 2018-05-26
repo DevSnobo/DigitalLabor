@@ -1,0 +1,54 @@
+[Device]
+Family=LC5KVE;
+PartNumber=ispLSI5512VE-80LF256I;
+Package=256fpBGA;
+PartType=ispLSI5512VE;
+Speed=-80;
+Operating_condition=IND;
+Status=Production;
+
+[Revision]
+Parent=lc5kve512.lci;
+Design=;
+DATE=03/28/2001;
+TIME=15:26:30;
+Source_Format=EDIF;
+
+[IGNORE ASSIGNMENTS]
+
+[CLEAR ASSIGNMENTS]
+
+[BACKANNOTATE ASSIGNMENTS]
+
+[GLOBAL CONSTRAINTS]
+
+[LOCATION ASSIGNMENTS]
+Layer = Off;
+
+[GROUP ASSIGNMENTS]
+Layer = Off;
+
+[RESOURCE RESERVATIONS]
+Layer = Off;
+
+[FITTER REPORT FORMAT]
+
+[POWER]
+
+[SOURCE CONSTRAINT OPTION]
+
+[Fast Bypass]
+
+[OSM Bypass]
+
+[INPUT REGISTERS]
+
+[NETLIST/DELAY FORMAT]
+
+[IO TYPES]
+Layer = off;
+
+[PULLUP]
+
+[SLEWRATE]
+

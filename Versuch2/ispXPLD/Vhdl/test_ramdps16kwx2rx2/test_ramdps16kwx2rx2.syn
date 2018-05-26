@@ -1,0 +1,10 @@
+JDF B
+// Created by Version 2.1 
+PROJECT Untitled
+DESIGN test_ramdps16kwx2rx2 Normal
+DEVKIT LC5512MV-45F256C
+ENTRY Schematic/VHDL
+STIMULUS tb_test_ramdps16kwx2rx2.vhd
+MODULE test_ramdps16kwx2rx2.vhd
+MODSTYLE test_ramdps16kwx2rx2 Normal
+SYNTHESIS_TOOL Precision

@@ -1,0 +1,30 @@
+"**************************************
+"* ABEL source constraint example
+"* 	Node Preservation
+"*	    2/05/2001
+"* Lattice Semiconductor Corporation 
+"**************************************
+
+"Node preservation using ABEL language syntax
+"[NodeName(s)]	node istype 'com,keep'; or
+"[NodeName(s)]	node istype 'keep';
+
+
+MODULE preserve
+
+declarations
+inA,inB,inC,inD	pin;
+out		pin istype 'com';	
+
+"Node preservation using 'keep' property
+nodeA,nodeB	node istype 'keep';
+
+equations
+
+nodeA 	=  inA & inB;
+nodeB 	=  inC & inD;
+
+out 	=  nodeA & nodeB;
+
+END 
+

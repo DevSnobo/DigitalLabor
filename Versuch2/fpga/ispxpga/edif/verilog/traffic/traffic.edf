@@ -1,0 +1,269 @@
+(edif traffic 
+ (edifVersion 2 0 0)
+ (edifLevel 0)
+ (keywordMap (keywordLevel 0))
+ (status 
+  (written 
+   (timestamp 2002 09 09 17 11 18)
+   (program "LeonardoSpectrum for Lattice" (version "2002c.24_OEM_Lattice"))
+   (author "Mentor Graphics Corp")))
+ (external PRIMITIVES 
+  (edifLevel 0)
+  (technology (numberDefinition )))
+ (external ispXPGA 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell DFFCBRH (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port CE (direction INPUT))
+     (port D (direction INPUT))
+     (port CLK (direction INPUT)
+      (property clock_pin (string "T")))
+     (port R (direction INPUT))
+     (port Q (direction OUTPUT)))
+    (property dff (string "1"))
+    (property neg_edge_gate (string "DFFCBRH_1"))
+    (property AREA (string "1.000000"))))
+  (cell DFFRH (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port D (direction INPUT))
+     (port CLK (direction INPUT)
+      (property clock_pin (string "T")))
+     (port R (direction INPUT))
+     (port Q (direction OUTPUT)))
+    (property dff (string "1"))
+    (property neg_edge_gate (string "DFFRH_1"))
+    (property AREA (string "1.000000"))))
+  (cell IBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT)
+      (property pad (string "T")))
+     (port O (direction OUTPUT)))))
+  (cell OBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port O (direction OUTPUT)
+      (property pad (string "T"))))))
+  (cell INV (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port O (direction OUTPUT)))))
+  (cell GCLKBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port CI (direction INPUT)
+      (property pad (string "T")))
+     (port O (direction OUTPUT)))
+    (property NOMAP_GATE (string "1"))
+    (property pad_type (string "clock"))
+    (property same_tech_noopt (string "T"))))
+  (cell LUT3 (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port I1 (direction INPUT))
+     (port I2 (direction INPUT))
+     (port O (direction OUTPUT)))
+    (property IS_LUT (string "1"))
+    (property NOMAP_GATE (string "1"))
+    (property AREA (string "0.500000"))))
+  (cell LUT2 (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port I1 (direction INPUT))
+     (port O (direction OUTPUT)))
+    (property IS_LUT (string "1"))
+    (property NOMAP_GATE (string "1"))
+    (property AREA (string "0.250000")))))
+ (library work 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell traffic (cellType GENERIC)
+   (view INTERFACE  (viewType NETLIST)
+    (interface 
+     (port clock (direction INPUT))
+     (port reset (direction INPUT))
+     (port sensor1 (direction INPUT))
+     (port sensor2 (direction INPUT))
+     (port red1 (direction OUTPUT))
+     (port yellow1 (direction OUTPUT))
+     (port green1 (direction OUTPUT))
+     (port red2 (direction OUTPUT))
+     (port yellow2 (direction OUTPUT))
+     (port green2 (direction OUTPUT)))
+    (contents 
+     (instance (rename reg_state_2_ "reg_state(2)") (viewRef NETLIST  (cellRef DFFCBRH (libraryRef ispXPGA ))))
+     (instance (rename reg_state_1_ "reg_state(1)") (viewRef NETLIST  (cellRef DFFRH (libraryRef ispXPGA ))))
+     (instance (rename reg_state_0_ "reg_state(0)") (viewRef NETLIST  (cellRef DFFRH (libraryRef ispXPGA ))))
+     (instance reset_ibuf (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPGA ))))
+     (instance sensor1_ibuf (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPGA ))))
+     (instance sensor2_ibuf (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPGA ))))
+     (instance red1_obuf (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance yellow1_obuf (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance green1_obuf (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance red2_obuf (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance yellow2_obuf (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance green2_obuf (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance red2 (viewRef NETLIST  (cellRef INV (libraryRef ispXPGA ))))
+     (instance clock_ibuf (viewRef NETLIST  (cellRef GCLKBUF (libraryRef ispXPGA ))))
+     (instance ix183 (viewRef NETLIST  (cellRef LUT3 (libraryRef ispXPGA )))
+      (property lut_function (string "((!I0*I1)+(I0*!I1)+(!I0*I2))"))
+      (property (rename EX_use_modgen "$use_modgen") (string "false")))
+     (instance ix184 (viewRef NETLIST  (cellRef LUT3 (libraryRef ispXPGA )))
+      (property lut_function (string "((I0*!I1)+(!I1*!I2))"))
+      (property (rename EX_use_modgen "$use_modgen") (string "false")))
+     (instance ix185 (viewRef NETLIST  (cellRef LUT3 (libraryRef ispXPGA )))
+      (property lut_function (string "((I0*I1*!I2))")))
+     (instance ix186 (viewRef NETLIST  (cellRef LUT3 (libraryRef ispXPGA )))
+      (property lut_function (string "((!I0*!I2)+(!I1*!I2))")))
+     (instance ix187 (viewRef NETLIST  (cellRef LUT3 (libraryRef ispXPGA )))
+      (property lut_function (string "((I0*I1*I2))")))
+     (instance ix188 (viewRef NETLIST  (cellRef LUT3 (libraryRef ispXPGA )))
+      (property lut_function (string "((!I0*I2)+(!I1*I2))")))
+     (instance ix189 (viewRef NETLIST  (cellRef LUT2 (libraryRef ispXPGA )))
+      (property lut_function (string "((!I0)+(!I1))")))
+     (instance ix190 (viewRef NETLIST  (cellRef LUT3 (libraryRef ispXPGA )))
+      (property lut_function (string "((I0*I2)+(!I1*I2)+(I1*!I2))")))
+     (instance ix191 (viewRef NETLIST  (cellRef LUT3 (libraryRef ispXPGA )))
+      (property lut_function (string "((!I0*!I1*I2)+(I0*I1*!I2))")))
+     (net clock 
+      (joined 
+       (portRef clock )
+       (portRef CI (instanceRef clock_ibuf ))))
+     (net reset 
+      (joined 
+       (portRef reset )
+       (portRef I0 (instanceRef reset_ibuf ))))
+     (net sensor1 
+      (joined 
+       (portRef sensor1 )
+       (portRef I0 (instanceRef sensor1_ibuf ))))
+     (net sensor2 
+      (joined 
+       (portRef sensor2 )
+       (portRef I0 (instanceRef sensor2_ibuf ))))
+     (net red1_dup0 
+      (joined 
+       (portRef Q (instanceRef reg_state_2_ ))
+       (portRef I2 (instanceRef ix185 ))
+       (portRef I2 (instanceRef ix186 ))
+       (portRef I2 (instanceRef ix187 ))
+       (portRef I2 (instanceRef ix188 ))
+       (portRef I0 (instanceRef ix190 ))
+       (portRef I0 (instanceRef ix191 ))
+       (portRef I0 (instanceRef red1_obuf ))
+       (portRef I0 (instanceRef red2 ))))
+     (net (rename state_1_ "state(1)") 
+      (joined 
+       (portRef Q (instanceRef reg_state_1_ ))
+       (portRef I0 (instanceRef ix183 ))
+       (portRef I0 (instanceRef ix184 ))
+       (portRef I0 (instanceRef ix185 ))
+       (portRef I0 (instanceRef ix186 ))
+       (portRef I0 (instanceRef ix187 ))
+       (portRef I0 (instanceRef ix188 ))
+       (portRef I0 (instanceRef ix189 ))))
+     (net (rename state_0_ "state(0)") 
+      (joined 
+       (portRef Q (instanceRef reg_state_0_ ))
+       (portRef I1 (instanceRef ix183 ))
+       (portRef I1 (instanceRef ix184 ))
+       (portRef I1 (instanceRef ix185 ))
+       (portRef I1 (instanceRef ix186 ))
+       (portRef I1 (instanceRef ix187 ))
+       (portRef I1 (instanceRef ix188 ))
+       (portRef I1 (instanceRef ix189 ))))
+     (net clock_int 
+      (joined 
+       (portRef O (instanceRef clock_ibuf ))
+       (portRef CLK (instanceRef reg_state_2_ ))
+       (portRef CLK (instanceRef reg_state_1_ ))
+       (portRef CLK (instanceRef reg_state_0_ ))))
+     (net reset_int 
+      (joined 
+       (portRef O (instanceRef reset_ibuf ))
+       (portRef R (instanceRef reg_state_2_ ))
+       (portRef R (instanceRef reg_state_1_ ))
+       (portRef R (instanceRef reg_state_0_ ))))
+     (net sensor1_int 
+      (joined 
+       (portRef O (instanceRef sensor1_ibuf ))
+       (portRef I1 (instanceRef ix190 ))
+       (portRef I1 (instanceRef ix191 ))))
+     (net sensor2_int 
+      (joined 
+       (portRef O (instanceRef sensor2_ibuf ))
+       (portRef I2 (instanceRef ix190 ))
+       (portRef I2 (instanceRef ix191 ))))
+     (net red1 
+      (joined 
+       (portRef red1 )
+       (portRef O (instanceRef red1_obuf ))))
+     (net yellow1 
+      (joined 
+       (portRef yellow1 )
+       (portRef O (instanceRef yellow1_obuf ))))
+     (net green1 
+      (joined 
+       (portRef green1 )
+       (portRef O (instanceRef green1_obuf ))))
+     (net red2 
+      (joined 
+       (portRef red2 )
+       (portRef O (instanceRef red2_obuf ))))
+     (net yellow2 
+      (joined 
+       (portRef yellow2 )
+       (portRef O (instanceRef yellow2_obuf ))))
+     (net green2 
+      (joined 
+       (portRef green2 )
+       (portRef O (instanceRef green2_obuf ))))
+     (net red2_dup0 
+      (joined 
+       (portRef O (instanceRef red2 ))
+       (portRef D (instanceRef reg_state_2_ ))
+       (portRef I0 (instanceRef red2_obuf ))))
+     (net (rename nxstate_1_ "nxstate(1)") 
+      (joined 
+       (portRef O (instanceRef ix183 ))
+       (portRef D (instanceRef reg_state_1_ ))))
+     (net (rename nxstate_0_ "nxstate(0)") 
+      (joined 
+       (portRef O (instanceRef ix184 ))
+       (portRef D (instanceRef reg_state_0_ ))))
+     (net yellow1_dup0 
+      (joined 
+       (portRef O (instanceRef ix185 ))
+       (portRef I0 (instanceRef yellow1_obuf ))))
+     (net green1_dup0 
+      (joined 
+       (portRef O (instanceRef ix186 ))
+       (portRef I0 (instanceRef green1_obuf ))))
+     (net yellow2_dup0 
+      (joined 
+       (portRef O (instanceRef ix187 ))
+       (portRef I0 (instanceRef yellow2_obuf ))))
+     (net green2_dup0 
+      (joined 
+       (portRef O (instanceRef ix188 ))
+       (portRef I0 (instanceRef green2_obuf ))))
+     (net nx172 
+      (joined 
+       (portRef O (instanceRef ix189 ))
+       (portRef CE (instanceRef reg_state_2_ ))))
+     (net nx173 
+      (joined 
+       (portRef O (instanceRef ix190 ))
+       (portRef I2 (instanceRef ix184 ))))
+     (net nx174 
+      (joined 
+       (portRef O (instanceRef ix191 ))
+       (portRef I2 (instanceRef ix183 ))))))))
+ (design traffic (cellRef traffic (libraryRef work ))))

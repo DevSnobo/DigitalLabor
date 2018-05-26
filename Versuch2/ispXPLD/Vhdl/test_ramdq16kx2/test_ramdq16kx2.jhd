@@ -1,0 +1,6 @@
+
+
+MODULE test_ramdq16kx2
+
+	SUBMODULE L_RAMDQ
+		INSTANCE U0

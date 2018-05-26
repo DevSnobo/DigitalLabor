@@ -1,0 +1,36 @@
+#$ DATE Mon Mar 10 11:30:51 2003
+#$ TOOL EDIF2BLIF version IspLever 1.0 
+#$ PROPERTY LATTICE FIFO_FULL_FLAG RamBaseBlockInst0 8190
+#$ PROPERTY LATTICE FIFO_AMFULL_FLAG RamBaseBlockInst0 1
+#$ PROPERTY LATTICE FIFO_AMEMPTY_FLAG RamBaseBlockInst0 1
+#$ MODULE l_fifodcx_lpm_fifo_dcx_2_4_13_
+#$ PINS 16 Data0 Data1 WrClock WrEn RdClock RdEn Reset RPReset Q0 Q1 Q2 Q3 Full Empty AlmostFull AlmostEmpty
+#$ NODES 10  w_2  w_3  w_5 Empty0  w_E VCC_SIG  w_J GND_SIG  w_M Full0 
+
+#$ EXTERNAL RAMBFIFO16KA_WX2_RX4 20 WE'i' WCLK'i' RE'i' RCLK'i' FULLIN'i' EMPTYIN'i' RST'i' RPRST'i' DI0'i' DI1'i' DO0'o' DO1'o' DO2'o' DO3'o' FULL'o' AMFULL'o' EMPTY'o' AMEMPTY'o' FULLOUT'o' EMPTYOUT'o'
+#$ NODES 2 RamBaseBlockInst0>FULLOUT RamBaseBlockInst0>EMPTYOUT
+
+#$ INSTANCE RamBaseBlockInst0 RAMBFIFO16KA_WX2_RX4 20  w_2  w_E  w_3  w_5 GND_SIG VCC_SIG  w_J  w_M Data0 Data1 Q0 Q1 Q2 Q3 Full0 AlmostFull Empty0 AlmostEmpty RamBaseBlockInst0>FULLOUT RamBaseBlockInst0>EMPTYOUT
+.model l_fifodcx_lpm_fifo_dcx_2_4_13_
+.inputs WrClock.BLIF WrEn.BLIF RdClock.BLIF RdEn.BLIF Reset.BLIF RPReset.BLIF Empty0.BLIF Full0.BLIF   RamBaseBlockInst0>FULLOUT.BLIF RamBaseBlockInst0>EMPTYOUT.BLIF
+.outputs Full Empty  w_2  w_3  w_5  w_E VCC_SIG  w_J GND_SIG  w_M
+.names  Empty0.BLIF Empty
+1 1
+.names  VCC_SIG
+1
+.names  GND_SIG
+.names  Full0.BLIF Full
+1 1
+.names  WrClock.BLIF  w_E
+1 1
+.names  RPReset.BLIF  w_M
+1 1
+.names  WrEn.BLIF  w_2
+1 1
+.names  Reset.BLIF  w_J
+1 1
+.names  RdClock.BLIF  w_5
+1 1
+.names  RdEn.BLIF  w_3
+1 1
+.end

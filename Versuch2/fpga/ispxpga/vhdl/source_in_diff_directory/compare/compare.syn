@@ -1,0 +1,16 @@
+JDF B
+// Created by Version 5.0 
+PROJECT Untitled
+DESIGN compare Normal
+DEVKIT LFX1200B-03FE680CES/2X
+ENTRY Schematic/VHDL
+STIMULUS tb_top.vhd
+MODULE .\lt\lt.vhd
+MODSTYLE COMP_LT Normal
+MODULE top.vhd
+MODSTYLE TOP_SCHEMATIC Normal
+MODULE .\eq\eq.vhd
+MODSTYLE COMP_EQ Normal
+MODULE .\gt\gt.vhd
+MODSTYLE COMP_GT Normal
+SYNTHESIS_TOOL Precision

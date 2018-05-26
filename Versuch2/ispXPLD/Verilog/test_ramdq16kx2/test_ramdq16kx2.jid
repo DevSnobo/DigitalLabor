@@ -1,0 +1,2 @@
+. test_ramdq16kx2 test_ramdq16kx2.v c:\isptools\ispcpld\examples\ispxpld\verilog\test_ramdq16kx2\test_ramdq16kx2.v
+U0 L_RAMDQ test_ramdq16kx2.v c:\isptools\ispcpld\examples\ispxpld\verilog\test_ramdq16kx2\test_ramdq16kx2.v

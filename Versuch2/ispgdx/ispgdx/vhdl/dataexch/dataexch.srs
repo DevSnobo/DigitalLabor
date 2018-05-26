@@ -1,0 +1,42 @@
+#
+#
+#
+# Created by Synplify VHDL Compiler version 5.3.0 from Synplicity, Inc.
+# Copyright 1994-1999 Synplicity, Inc. , All rights reserved.
+# Synthesis Netlist written on Wed Sep 20 16:52:18 2000
+#
+#
+#OPTIONS:"|-ram|-sm|-fid2|-sharing|on|-encrypt|-top|dataexch|-ui|-lite|-lib|work"
+#CUR:"C:\\ISPTOOLS\\SYNPLIFY\\BIN\\C_VHDL.EXE":944590756l
+#CUR:"C:\\ISPTOOLS\\SYNPLIFY\\lib\\vhd\\location.map":941565902l
+#CUR:"C:\\ISPTOOLS\\SYNPLIFY\\lib\\vhd\\std.vhd":927468568l
+#CUR:"C:\\isptools\\ispsys\\examples\\ispLSI_GAL\\ispGDX\\vhdl\\dataexch\\dataexch.vhd":969018112l
+#CUR:"C:\\ISPTOOLS\\SYNPLIFY\\lib\\vhd\\std1164.vhd":927468568l
+f "C:\ISPTOOLS\SYNPLIFY\lib\vhd\std.vhd"; # file 0
+f "C:\isptools\ispsys\examples\ispLSI_GAL\ispGDX\vhdl\dataexch\dataexch.vhd"; # file 1
+f "C:\ISPTOOLS\SYNPLIFY\lib\vhd\std1164.vhd"; # file 2
+@E@MR@44:n::(44n:cFRIs8	RNC0NGROELNCEP
+C;N3PRHE#P84DR;R
+L@:@44((:::4(4LcRk8#qNr0Ndj4:9kRL#Nq80dNr49:j;H
+NRODFR."u,,uduuc,6(,u,,uUuug,4uj,4u4,4u.,4ud,4uc,4un,4uU,4ug,.uj,.u4,.u.,.ud,.uc,.un,.u(,.uU,.ug,duj,du4,du.,duc,dun,du(,duU,d;g"
+RNH#IDF#IDCRh"m"L;
+R4@@::4(44(:(c:.R#LkA08NN4rd:Rj9LAk#8NN0r:d4j
+9;NbHRkkDDbmR"h
+";L@R@4(:4::.(4d(:ckRL#NB80dNr49:jR#LkB08NN4rd:;j9
+RNH#IDF#IDCRh"m"L;
+R4@@::4(d4(:(c:cR#Lk708NN4rd:Rj9L7k#8NN0r:d4j
+9;N#HRD#FIDRCI""mh;R
+H@:@44UU:::4U4FjRCFjRC
+j;H@R@4U:4::4d44U:6CRF4CRF4b;
+R4@@::4UUU:4:R4jHRMPk_M4FRCjk_M4FRCjF;Cj
+@bR@44:Ud:4::4U4H6RMkPRMF4_Ck4RMF4_CF4RC
+4;b@R@j::44::4.sR0k0CRsRkC0Csk;R
+b@:@j4::44R:.V#NDCNRVDR#CV#NDCb;
+R4@@::dj4dg:jn:.RH0sR#LkN08NNL_0_d4r49:jR#Lkq08NN4rd:Rj9LAk#8NN0r:d4jF9RC;jR
+@bR@d4:.g:4::d..0nRsLHRk8#ON_0N04L_r:d4jL9Rk8#BNr0Ndj4:9kRL#N780dNr49:jR4FCRb;
+R4@@::d44dg:4n:.RH0sR#LkL08NNL_0_d4r49:jR#LkA08NN4rd:Rj9Lqk#8NN0r:d4jk9RMF4_C;jR
+@bR@d4:dg:4::dd.0nRsLHRk8#8N_0N04L_r:d4jL9Rk8#7Nr0Ndj4:9kRL#NB80dNr49:jR4kM_4FCRC;
+;
+
+
+

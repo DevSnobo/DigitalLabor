@@ -1,0 +1,2 @@
+. test_ramdq16kx2 test_ramdq16kx2.vhd c:\isptools\ispcpld\examples\ispxpld\vhdl\test_ramdq16kx2\test_ramdq16kx2.vhd
+U0 L_RAMDQ  c:\isptools\ispcpld\examples\ispxpld\vhdl\test_ramdq16kx2\

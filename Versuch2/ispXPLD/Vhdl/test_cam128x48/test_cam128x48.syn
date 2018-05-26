@@ -1,0 +1,10 @@
+JDF B
+// Created by Version 2.1 
+PROJECT Untitled
+DESIGN test_cam128x48 Normal
+DEVKIT LC5512MV-45F256C
+ENTRY Schematic/VHDL
+STIMULUS tb_test_cam128x48.vhd
+MODULE test_cam128x48.vhd
+MODSTYLE test_cam128x48 Normal
+SYNTHESIS_TOOL Precision

@@ -1,0 +1,11 @@
+JDF B
+// Created by Version 1.0 
+PROJECT DataExchange
+DESIGN dataexch Normal
+DEVKIT ispGDX160VA-5Q208
+ENTRY Schematic/Verilog HDL
+STIMULUS dataexch.abv
+TESTFIXTURE dexch.tf
+DOCUMENT dataexch.txt
+MODULE dataexch.v
+MODSTYLE dataexch Normal

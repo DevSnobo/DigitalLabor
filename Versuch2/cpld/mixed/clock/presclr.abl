@@ -1,0 +1,77 @@
+MODULE PRESCLR
+
+TITLE 'Prescaler function for Clock'
+
+
+"Inputs
+SYSCLK,  TEST              PIN ;
+
+
+"Outputs
+HZ128, HZ16, HZ8           PIN ISTYPE 'REG_D';
+HZ1                        PIN ISTYPE 'COM';
+
+"Counter nodes - HZ outputs make up missing 4 bits of counter.
+BC19, BC18, BC15, BC14, BC13, BC11, BC10, BC9,
+BC8, BC7, BC6, BC5, BC4, BC3, BC2, BC1, BC0    NODE ISTYPE 'REG_D';
+
+"Cascade nodes
+TCLO, TCMID   NODE;
+
+
+"Counter group
+CNTLOW = [BC7,BC6,BC5,BC4,BC3,BC2,BC1,BC0];
+CNTMID = [BC15,BC14,BC13,HZ128,BC11,BC10,BC9,BC8];
+CNTHI =  [BC19,BC18,HZ8,HZ16];
+
+TERMCNT     = [1,1,1,1,1,1,1,1];   "Terminal (Highest) count value
+PRELOAD_MID = [0,0,0,0,1,0,1,1];   "Middle Byte Counter preload value
+PRELOAD_LO  = [1,1,0,1,1,0,1,1];   "Low Byte Counter preload value
+TCHI        = [1,1,1,1];
+
+Equations
+
+        "Clock and Reset equations for all registers
+	CNTLOW.CLK = SYSCLK;
+        CNTMID.CLK = SYSCLK;
+        CNTHI.CLK = SYSCLK;
+
+
+	"Low Byte Counter equation. Count up if not at 16-bit terminal 
+        "count, or load counter with preload value if at 16-bit 
+        "terminal count.
+	CNTLOW.D = (CNTLOW.Q + 1) & !TCMID
+                 # (PRELOAD_LO)   &  TCMID;
+
+
+        "Summing node for low-byte terminal count.
+	TCLO = (CNTLOW.Q == TERMCNT);
+
+
+        "Mid Byte Counter equation. Count up if not at 16-bit terminal
+        "count, hold if not at low byte terminal count, load counter
+        "with preload value if at 16-bit terminal count.
+	CNTMID.D = ((CNTMID.Q + 1) & TCLO) & !TCMID
+                 # ((CNTMID.Q) & !TCLO)    & !TCMID
+                 #  (PRELOAD_MID)          &  TCMID;
+
+
+        "Summing node for mid-byte terminal count. Test input forces
+        "rollover state to occur immediately, effectively bypassing 
+        "most of the prescaler's counters for simulation efficiency.
+	TCMID = ((CNTMID.Q == TERMCNT) & TCLO) # TEST;	
+
+
+	"High nibble counter equation. Count up one with each 16-bit
+        "terminal count, hold in between.
+	CNTHI.D = (CNTHI.Q + 1) & TCMID
+                # (CNTHI.Q) & !TCMID;
+
+
+	"Final, one-second pulse output occurs when counter high byte
+        "reaches terminal count.
+	HZ1 = (CNTHI.Q == TCHI);
+
+
+END
+

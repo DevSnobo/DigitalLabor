@@ -1,0 +1,121 @@
+(edif pinassgn 
+ (edifVersion 2 0 0)
+ (edifLevel 0)
+ (keywordMap (keywordLevel 0))
+ (status 
+  (written 
+   (timestamp 2003 06 05 00 11 12)
+   (program "LeonardoSpectrum for Lattice" (version "2002e.14_OEM_Lattice"))
+   (author "Exemplar Logic Inc")))
+ (external PRIMITIVES 
+  (edifLevel 0)
+  (technology (numberDefinition )))
+ (external ispxpga 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell IBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT)
+      (property pad (string "T")))
+     (port O (direction OUTPUT)))))
+  (cell OBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port O (direction OUTPUT)
+      (property pad (string "T"))))))
+  (cell LUT2 (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port I1 (direction INPUT))
+     (port O (direction OUTPUT)))
+    (property IS_LUT (string "1"))
+    (property NOMAP_GATE (string "1"))
+    (property AREA (string "0.250000")))))
+ (library work 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell pinassgn (cellType GENERIC)
+   (view INTERFACE  (viewType NETLIST)
+    (interface 
+     (port inA10 (direction INPUT)
+      (property loc (string "A10")))
+     (port inA11 (direction INPUT)
+      (property loc (string "A11")))
+     (port inA6 (direction INPUT)
+      (property loc (string "A6")))
+     (port (array (rename oF4A9B4 "oF4A9B4(0:2)") 3 )(direction OUTPUT)
+      (property loc (string "F4,A9,B4"))))
+    (contents 
+     (instance inA10_ibuf (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga )))
+      (property loc (string "A10")))
+     (instance inA11_ibuf (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga )))
+      (property loc (string "A11")))
+     (instance inA6_ibuf (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga )))
+      (property loc (string "A6")))
+     (instance (rename oF4A9B4_obuf_0_ "oF4A9B4_obuf(0)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga )))
+      (property loc (string "F4,A9,B4")))
+     (instance (rename oF4A9B4_obuf_1_ "oF4A9B4_obuf(1)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga )))
+      (property loc (string "F4,A9,B4")))
+     (instance (rename oF4A9B4_obuf_2_ "oF4A9B4_obuf(2)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga )))
+      (property loc (string "F4,A9,B4")))
+     (instance ix79 (viewRef NETLIST  (cellRef LUT2 (libraryRef ispxpga )))
+      (property lut_function (string "((I0*I1))")))
+     (instance ix80 (viewRef NETLIST  (cellRef LUT2 (libraryRef ispxpga )))
+      (property lut_function (string "((I0*I1))")))
+     (instance ix81 (viewRef NETLIST  (cellRef LUT2 (libraryRef ispxpga )))
+      (property lut_function (string "((I0*I1))")))
+     (net inA10 
+      (joined 
+       (portRef inA10 )
+       (portRef I0 (instanceRef inA10_ibuf ))))
+     (net inA11 
+      (joined 
+       (portRef inA11 )
+       (portRef I0 (instanceRef inA11_ibuf ))))
+     (net inA6 
+      (joined 
+       (portRef inA6 )
+       (portRef I0 (instanceRef inA6_ibuf ))))
+     (net inA10_int 
+      (joined 
+       (portRef O (instanceRef inA10_ibuf ))
+       (portRef I0 (instanceRef ix79 ))
+       (portRef I0 (instanceRef ix81 ))))
+     (net inA11_int 
+      (joined 
+       (portRef O (instanceRef inA11_ibuf ))
+       (portRef I1 (instanceRef ix79 ))
+       (portRef I0 (instanceRef ix80 ))))
+     (net inA6_int 
+      (joined 
+       (portRef O (instanceRef inA6_ibuf ))
+       (portRef I1 (instanceRef ix80 ))
+       (portRef I1 (instanceRef ix81 ))))
+     (net (rename oF4A9B4_0_ "oF4A9B4(0)") 
+      (joined 
+       (portRef (member oF4A9B4 0))
+       (portRef O (instanceRef oF4A9B4_obuf_0_ ))))
+     (net (rename oF4A9B4_1_ "oF4A9B4(1)") 
+      (joined 
+       (portRef (member oF4A9B4 1))
+       (portRef O (instanceRef oF4A9B4_obuf_1_ ))))
+     (net (rename oF4A9B4_2_ "oF4A9B4(2)") 
+      (joined 
+       (portRef (member oF4A9B4 2))
+       (portRef O (instanceRef oF4A9B4_obuf_2_ ))))
+     (net (rename oF4A9B4_dup0_0_ "oF4A9B4_dup0(0)") 
+      (joined 
+       (portRef O (instanceRef ix79 ))
+       (portRef I0 (instanceRef oF4A9B4_obuf_0_ ))))
+     (net (rename oF4A9B4_dup0_1_ "oF4A9B4_dup0(1)") 
+      (joined 
+       (portRef O (instanceRef ix80 ))
+       (portRef I0 (instanceRef oF4A9B4_obuf_1_ ))))
+     (net (rename oF4A9B4_dup0_2_ "oF4A9B4_dup0(2)") 
+      (joined 
+       (portRef O (instanceRef ix81 ))
+       (portRef I0 (instanceRef oF4A9B4_obuf_2_ ))))))))
+ (design pinassgn (cellRef pinassgn (libraryRef work ))))

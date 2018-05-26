@@ -1,0 +1,6 @@
+
+
+MODULE test_fifo4kx4
+
+	SUBMODULE L_FIFO
+		INSTANCE U0

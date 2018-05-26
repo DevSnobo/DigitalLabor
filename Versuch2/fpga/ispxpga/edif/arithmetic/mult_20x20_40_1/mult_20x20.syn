@@ -1,0 +1,9 @@
+JDF B
+// Created by Version 5.0 
+PROJECT Untitled
+DESIGN mult_20x20 Normal
+DEVKIT LFX125B-04F256CES/2X
+ENTRY EDIF
+MODULE mult_20x20_40_SIGNED_1_Aclr.edf
+MODSTYLE mult_20x20_40_SIGNED_1_Aclr Normal
+SYNTHESIS_TOOL Precision

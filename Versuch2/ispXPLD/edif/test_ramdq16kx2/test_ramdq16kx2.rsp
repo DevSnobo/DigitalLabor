@@ -1,0 +1,1 @@
+-i test_ramdq16kx2.tt4 -lib "C:\ispTOOLS\ispcpld/dat/lc5kmx" -strategy top -sdfmdl "C:\ispTOOLS\ispcpld/dat/sdf.mdl" -pla test_ramdq16kx2.tt4 -lci test_ramdq16kx2.lct -prj test_ramdq16kx2 -dir "c:\isptools\ispcpld\examples\ispxpld\edif\test_ramdq16kx2" -err automake.err -log test_ramdq16kx2.nrp -exf test_ramdq16kx2.exf -gui

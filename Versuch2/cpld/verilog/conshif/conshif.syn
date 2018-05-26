@@ -1,0 +1,28 @@
+JDF B
+// Created by Version 1.3 
+PROJECT shift and count
+DESIGN conshif Normal
+DEVKIT LC4256ZE-5TN100C
+ENTRY Schematic/Verilog HDL
+STIMULUS conshif.abv
+TESTFIXTURE consf_t.tf
+DOCUMENT conshif.wri
+MODULE count.v
+MODSTYLE count Normal
+TESTFIXTURE count ct.tf
+MODULE conshif.sch
+MODSTYLE conshif Normal
+MODULE shift.v
+MODSTYLE shift Normal
+TESTFIXTURE shift sf.tf
+MODULE user_and2.v
+MODSTYLE user_and2 Normal
+STIMULUS user_and2 user_and.wdl
+MODULE user_nor2.v
+MODSTYLE user_nor2 Normal
+STIMULUS user_nor2 user_nor.wdl
+MODULE logic1.v
+MODSTYLE logic1 Normal
+SYNTHESIS_TOOL Synplify
+SIMULATOR_TOOL ActiveHDL
+TOPMODULE conshif

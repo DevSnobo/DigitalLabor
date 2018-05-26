@@ -1,0 +1,43 @@
+MODULE seccntr
+
+TITLE 'Seconds Counter with Carry Output'
+
+
+"Inputs
+CLK,HOLD               PIN ;
+
+"Outputs
+COUT                   PIN istype 'COM';
+
+"Nodes
+SC5, SC4, SC3, SC2, SC1, SC0       NODE istype 'REG_D';
+
+"Sets
+COUNTER = [SC5,SC4,SC3,SC2,SC1,SC0];
+
+"Magic numbers
+TERMCNT = (COUNTER.Q == 59);      "Terminal count reached when counter is 59
+
+
+Equations
+
+	"Increment count if not terminal count. 
+        "If terminal count, implied return to zero.
+        "If HOLD, reset counter and keep it there until not HOLD.
+
+        WHEN TERMCNT THEN COUNTER.D = 0
+        ELSE              COUNTER.D = (COUNTER.Q + 1);
+
+	COUNTER.CLK = CLK;
+        COUNTER.AR = HOLD;
+
+
+	"Carry out equation. Issue a carry out pulse when counter
+        "is at terminal count of 59 (causes minutes counter to increment
+        "once). Or, allow higher stages to continue counting while
+        "the seconds counter is held at zero (during fast or slow set). 
+
+	COUT = TERMCNT # HOLD;
+
+END
+

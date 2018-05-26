@@ -1,0 +1,234 @@
+(edif counter16 
+ (edifVersion 2 0 0)
+ (edifLevel 0)
+ (keywordMap (keywordLevel 0))
+ (status 
+  (written 
+   (timestamp 2002 09 09 17 03 35)
+   (program "LeonardoSpectrum for Lattice" (version "2002c.24_OEM_Lattice"))
+   (author "Mentor Graphics Corp")))
+ (external PRIMITIVES 
+  (edifLevel 0)
+  (technology (numberDefinition )))
+ (external ispXPGA 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell IBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT)
+      (property pad (string "T")))
+     (port O (direction OUTPUT)))))
+  (cell OBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port O (direction OUTPUT)
+      (property pad (string "T")))))))
+ (library work 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell test (cellType GENERIC)
+   (view INTERFACE  (viewType NETLIST)
+    (interface 
+     (port (array (rename Q "Q(15:0)") 16 )(direction OUTPUT))
+     (port (array (rename Data "Data(15:0)") 16 )(direction INPUT))
+     (port Clock (direction INPUT))
+     (port Cnt_En (direction INPUT))
+     (port UpDown (direction INPUT))
+     (port Sclr (direction INPUT)))
+    (property lpm_type (string "LPM_COUNTER"))
+    (property lpm_width (string "16"))))
+  (cell counter16 (cellType GENERIC)
+   (view INTERFACE  (viewType NETLIST)
+    (interface 
+     (port Sclr (direction INPUT))
+     (port Cnt_En (direction INPUT))
+     (port UpDown (direction INPUT))
+     (port (array (rename Q "Q(15:0)") 16 )(direction OUTPUT))
+     (port Clock (direction INPUT)))
+    (contents 
+     (instance U0 (viewRef INTERFACE  (cellRef test ))
+      (property lpm_type (string "LPM_COUNTER"))
+      (property lpm_width (string "16")))
+     (instance Sclr_ibuf (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPGA ))))
+     (instance Cnt_En_ibuf (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPGA ))))
+     (instance UpDown_ibuf (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPGA ))))
+     (instance Clock_ibuf (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPGA ))))
+     (instance (rename Q_obuf_15_ "Q_obuf(15)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance (rename Q_obuf_14_ "Q_obuf(14)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance (rename Q_obuf_13_ "Q_obuf(13)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance (rename Q_obuf_12_ "Q_obuf(12)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance (rename Q_obuf_11_ "Q_obuf(11)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance (rename Q_obuf_10_ "Q_obuf(10)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance (rename Q_obuf_9_ "Q_obuf(9)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance (rename Q_obuf_8_ "Q_obuf(8)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance (rename Q_obuf_7_ "Q_obuf(7)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance (rename Q_obuf_6_ "Q_obuf(6)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance (rename Q_obuf_5_ "Q_obuf(5)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance (rename Q_obuf_4_ "Q_obuf(4)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance (rename Q_obuf_3_ "Q_obuf(3)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance (rename Q_obuf_2_ "Q_obuf(2)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance (rename Q_obuf_1_ "Q_obuf(1)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance (rename Q_obuf_0_ "Q_obuf(0)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (net Sclr 
+      (joined 
+       (portRef Sclr )
+       (portRef I0 (instanceRef Sclr_ibuf ))))
+     (net Cnt_En 
+      (joined 
+       (portRef Cnt_En )
+       (portRef I0 (instanceRef Cnt_En_ibuf ))))
+     (net UpDown 
+      (joined 
+       (portRef UpDown )
+       (portRef I0 (instanceRef UpDown_ibuf ))))
+     (net (rename Q_dup0_15_ "Q_dup0(15)") 
+      (joined 
+       (portRef (member Q 0)(instanceRef U0 ))
+       (portRef I0 (instanceRef Q_obuf_15_ ))))
+     (net (rename Q_dup0_14_ "Q_dup0(14)") 
+      (joined 
+       (portRef (member Q 1)(instanceRef U0 ))
+       (portRef I0 (instanceRef Q_obuf_14_ ))))
+     (net (rename Q_dup0_13_ "Q_dup0(13)") 
+      (joined 
+       (portRef (member Q 2)(instanceRef U0 ))
+       (portRef I0 (instanceRef Q_obuf_13_ ))))
+     (net (rename Q_dup0_12_ "Q_dup0(12)") 
+      (joined 
+       (portRef (member Q 3)(instanceRef U0 ))
+       (portRef I0 (instanceRef Q_obuf_12_ ))))
+     (net (rename Q_dup0_11_ "Q_dup0(11)") 
+      (joined 
+       (portRef (member Q 4)(instanceRef U0 ))
+       (portRef I0 (instanceRef Q_obuf_11_ ))))
+     (net (rename Q_dup0_10_ "Q_dup0(10)") 
+      (joined 
+       (portRef (member Q 5)(instanceRef U0 ))
+       (portRef I0 (instanceRef Q_obuf_10_ ))))
+     (net (rename Q_dup0_9_ "Q_dup0(9)") 
+      (joined 
+       (portRef (member Q 6)(instanceRef U0 ))
+       (portRef I0 (instanceRef Q_obuf_9_ ))))
+     (net (rename Q_dup0_8_ "Q_dup0(8)") 
+      (joined 
+       (portRef (member Q 7)(instanceRef U0 ))
+       (portRef I0 (instanceRef Q_obuf_8_ ))))
+     (net (rename Q_dup0_7_ "Q_dup0(7)") 
+      (joined 
+       (portRef (member Q 8)(instanceRef U0 ))
+       (portRef I0 (instanceRef Q_obuf_7_ ))))
+     (net (rename Q_dup0_6_ "Q_dup0(6)") 
+      (joined 
+       (portRef (member Q 9)(instanceRef U0 ))
+       (portRef I0 (instanceRef Q_obuf_6_ ))))
+     (net (rename Q_dup0_5_ "Q_dup0(5)") 
+      (joined 
+       (portRef (member Q 10)(instanceRef U0 ))
+       (portRef I0 (instanceRef Q_obuf_5_ ))))
+     (net (rename Q_dup0_4_ "Q_dup0(4)") 
+      (joined 
+       (portRef (member Q 11)(instanceRef U0 ))
+       (portRef I0 (instanceRef Q_obuf_4_ ))))
+     (net (rename Q_dup0_3_ "Q_dup0(3)") 
+      (joined 
+       (portRef (member Q 12)(instanceRef U0 ))
+       (portRef I0 (instanceRef Q_obuf_3_ ))))
+     (net (rename Q_dup0_2_ "Q_dup0(2)") 
+      (joined 
+       (portRef (member Q 13)(instanceRef U0 ))
+       (portRef I0 (instanceRef Q_obuf_2_ ))))
+     (net (rename Q_dup0_1_ "Q_dup0(1)") 
+      (joined 
+       (portRef (member Q 14)(instanceRef U0 ))
+       (portRef I0 (instanceRef Q_obuf_1_ ))))
+     (net (rename Q_dup0_0_ "Q_dup0(0)") 
+      (joined 
+       (portRef (member Q 15)(instanceRef U0 ))
+       (portRef I0 (instanceRef Q_obuf_0_ ))))
+     (net Clock 
+      (joined 
+       (portRef Clock )
+       (portRef I0 (instanceRef Clock_ibuf ))))
+     (net Sclr_int 
+      (joined 
+       (portRef O (instanceRef Sclr_ibuf ))
+       (portRef Sclr (instanceRef U0 ))))
+     (net Cnt_En_int 
+      (joined 
+       (portRef O (instanceRef Cnt_En_ibuf ))
+       (portRef Cnt_En (instanceRef U0 ))))
+     (net UpDown_int 
+      (joined 
+       (portRef O (instanceRef UpDown_ibuf ))
+       (portRef UpDown (instanceRef U0 ))))
+     (net Clock_int 
+      (joined 
+       (portRef O (instanceRef Clock_ibuf ))
+       (portRef Clock (instanceRef U0 ))))
+     (net (rename Q_15_ "Q(15)") 
+      (joined 
+       (portRef (member Q 0))
+       (portRef O (instanceRef Q_obuf_15_ ))))
+     (net (rename Q_14_ "Q(14)") 
+      (joined 
+       (portRef (member Q 1))
+       (portRef O (instanceRef Q_obuf_14_ ))))
+     (net (rename Q_13_ "Q(13)") 
+      (joined 
+       (portRef (member Q 2))
+       (portRef O (instanceRef Q_obuf_13_ ))))
+     (net (rename Q_12_ "Q(12)") 
+      (joined 
+       (portRef (member Q 3))
+       (portRef O (instanceRef Q_obuf_12_ ))))
+     (net (rename Q_11_ "Q(11)") 
+      (joined 
+       (portRef (member Q 4))
+       (portRef O (instanceRef Q_obuf_11_ ))))
+     (net (rename Q_10_ "Q(10)") 
+      (joined 
+       (portRef (member Q 5))
+       (portRef O (instanceRef Q_obuf_10_ ))))
+     (net (rename Q_9_ "Q(9)") 
+      (joined 
+       (portRef (member Q 6))
+       (portRef O (instanceRef Q_obuf_9_ ))))
+     (net (rename Q_8_ "Q(8)") 
+      (joined 
+       (portRef (member Q 7))
+       (portRef O (instanceRef Q_obuf_8_ ))))
+     (net (rename Q_7_ "Q(7)") 
+      (joined 
+       (portRef (member Q 8))
+       (portRef O (instanceRef Q_obuf_7_ ))))
+     (net (rename Q_6_ "Q(6)") 
+      (joined 
+       (portRef (member Q 9))
+       (portRef O (instanceRef Q_obuf_6_ ))))
+     (net (rename Q_5_ "Q(5)") 
+      (joined 
+       (portRef (member Q 10))
+       (portRef O (instanceRef Q_obuf_5_ ))))
+     (net (rename Q_4_ "Q(4)") 
+      (joined 
+       (portRef (member Q 11))
+       (portRef O (instanceRef Q_obuf_4_ ))))
+     (net (rename Q_3_ "Q(3)") 
+      (joined 
+       (portRef (member Q 12))
+       (portRef O (instanceRef Q_obuf_3_ ))))
+     (net (rename Q_2_ "Q(2)") 
+      (joined 
+       (portRef (member Q 13))
+       (portRef O (instanceRef Q_obuf_2_ ))))
+     (net (rename Q_1_ "Q(1)") 
+      (joined 
+       (portRef (member Q 14))
+       (portRef O (instanceRef Q_obuf_1_ ))))
+     (net (rename Q_0_ "Q(0)") 
+      (joined 
+       (portRef (member Q 15))
+       (portRef O (instanceRef Q_obuf_0_ ))))))))
+ (design counter16 (cellRef counter16 (libraryRef work ))))

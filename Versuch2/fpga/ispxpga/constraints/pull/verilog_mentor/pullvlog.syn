@@ -1,0 +1,9 @@
+JDF B
+// Created by Version 5.0 
+PROJECT Untitled
+DESIGN pullvlog Normal
+DEVKIT LFX125B-04F256CES/2X
+ENTRY Schematic/Verilog HDL
+MODULE vlogpull.v
+MODSTYLE vlogpull Normal
+SYNTHESIS_TOOL Precision

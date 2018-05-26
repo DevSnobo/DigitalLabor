@@ -1,0 +1,9 @@
+JDF B
+// Created by Version 5.1 
+PROJECT Untitled
+DESIGN aligner Normal
+DEVKIT or4e02-2BM680C
+ENTRY Schematic/Verilog HDL
+MODULE aligner.v
+MODSTYLE aligner Normal
+SYNTHESIS_TOOL Precision

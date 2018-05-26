@@ -1,0 +1,21 @@
+JDF B
+// Created by Version 1.3 
+PROJECT SCHEMATIC EXAMPLE 1
+DESIGN schem Normal
+DEVKIT LC4256ZE-5TN100C
+ENTRY ABEL/Schematic
+STIMULUS schemex.wdl
+STIMULUS schem.abv
+DOCUMENT schem.wri
+DOCUMENT schempar.par
+MODULE ioreg.sch
+MODSTYLE ioreg Normal
+MODULE logic.sch
+MODSTYLE logic Normal
+MODULE counter.sch
+MODSTYLE counter Normal
+MODULE top.sch
+MODSTYLE top Normal
+SYNTHESIS_TOOL Synplify
+SIMULATOR_TOOL ActiveHDL
+TOPMODULE top

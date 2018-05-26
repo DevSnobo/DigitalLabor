@@ -1,0 +1,12 @@
+JDF B
+//$Header: G:/synario/lev110/examples/cpld/pll/Verilog/Vlog_synplify/ExtendedPLL/rcs/extpll.syn 1.3 2005/06/14 02:49:07Z xqzhou Exp xqzhou $
+// Created by Version 9.0 
+PROJECT Untitled
+DESIGN extpll Normal
+DEVKIT LC51024MV-52F672C
+ENTRY Schematic/Verilog HDL
+TESTFIXTURE tb_stdpllx.tf
+MODULE ext_pll.v
+MODSTYLE extendedpll Normal
+MODSTYLE STDPLLX Normal
+SYNTHESIS_TOOL Synplify

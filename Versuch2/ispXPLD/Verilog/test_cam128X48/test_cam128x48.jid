@@ -1,0 +1,2 @@
+. test_cam128x48 test_cam128x48.v c:\isptools\ispcpld\examples\ispxpld\verilog\test_cam128x48\test_cam128x48.v
+U0 L_CAM test_cam128x48.v c:\isptools\ispcpld\examples\ispxpld\verilog\test_cam128x48\test_cam128x48.v

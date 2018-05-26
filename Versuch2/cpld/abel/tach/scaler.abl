@@ -1,0 +1,83 @@
+MODULE SCALER
+
+TITLE 'Clock divider and gate circuitry'
+
+"Constants
+        C,X,P = .c.,.x.,.p.;
+
+"Inputs
+        CLK,P0                     pin 1,2;
+
+"Outputs
+        !DIVX10, !CRST             pin 18,17        istype 'reg';
+        !CLE                       pin 12           istype 'com';
+"Unused outputs
+        !P0DLY, !DB0, !DB1, !DB2   pin 16,15,14,13  istype 'reg';
+ 
+
+Equations
+        
+        P0DLY := P0;        "P0 delayed one clock cycle.
+  
+        CLE = !P0DLY & P0;  "Count Latch enable pulse occurs on P0 rising edge.
+             
+        CRST := CLE;        "Count reset pulse occurs right after latch enable.
+        
+        
+        DIVX10 := !DIVX10 &  DB2 & !DB1 & !DB0    "These registered equations 
+                #  DIVX10 & !DB2 & !DB1 & !DB0    "creates a clock divider.  
+                #  DIVX10 & !DB2 & !DB1 &  DB0    "The output toggles after  
+                #  DIVX10 & !DB2 &  DB1 & !DB0    "every fifth clock edge, 
+                #  DIVX10 & !DB2 &  DB1 &  DB0;   "creating a divide-by-ten
+                                                  "clock output. 
+           DB2 := !DIVX10 & !DB2 &  DB1 &  DB0
+                #  DIVX10 & !DB2 &  DB1 &  DB0;
+
+           DB1 := !DIVX10 & !DB2 & !DB1 &  DB0
+                # !DIVX10 & !DB2 &  DB1 & !DB0
+                #  DIVX10 & !DB2 & !DB1 &  DB0
+                #  DIVX10 & !DB2 &  DB1 & !DB0;
+
+           DB0 := !DIVX10 & !DB2 & !DB1 & !DB0
+                # !DIVX10 & !DB2 &  DB1 & !DB0
+                #  DIVX10 & !DB2 & !DB1 & !DB0
+                #  DIVX10 & !DB2 &  DB1 & !DB0;
+ 
+
+  	   [P0DLY.C,CRST.C,DIVX10.C,DB2.C,DB1.C,DB0.C] = CLK;
+
+
+Test_Vectors  ([CLK,P0] -> [DIVX10,CLE,CRST])
+               [ 0 , 0] -> [  X   , X ,  X ];
+               [ 0 , 0] -> [  0   , 0 ,  0 ];
+               [ C , 0] -> [  0   , 0 ,  0 ];
+               [ C , 0] -> [  0   , 0 ,  0 ];
+               [ C , 0] -> [  0   , 0 ,  0 ];
+               [ C , 0] -> [  0   , 0 ,  0 ];
+               [ C , 0] -> [  1   , 0 ,  0 ];
+               [ C , 0] -> [  1   , 0 ,  0 ];
+               [ C , 0] -> [  1   , 0 ,  0 ];
+               [ C , 0] -> [  1   , 0 ,  0 ];
+               [ C , 0] -> [  1   , 0 ,  0 ];
+               [ C , 0] -> [  0   , 0 ,  0 ];
+               [ C , 0] -> [  0   , 0 ,  0 ];
+               [ C , 0] -> [  0   , 0 ,  0 ];
+               [ C , 0] -> [  0   , 0 ,  0 ];
+               [ C , 0] -> [  0   , 0 ,  0 ];
+               [ C , 0] -> [  1   , 0 ,  0 ];
+               [ C , 0] -> [  1   , 0 ,  0 ];
+               [ C , 0] -> [  1   , 0 ,  0 ];
+               [ C , 0] -> [  1   , 0 ,  0 ];
+               [ C , 0] -> [  1   , 0 ,  0 ];
+               [ C , 0] -> [  0   , 0 ,  0 ];
+               [ C , 0] -> [  0   , 0 ,  0 ];
+               [ C , 0] -> [  0   , 0 ,  0 ];
+               [ C , 0] -> [  0   , 0 ,  0 ];
+               [ C , 0] -> [  0   , 0 ,  0 ];
+               [ C , 0] -> [  1   , 0 ,  0 ];
+               [ C , 0] -> [  1   , 0 ,  0 ];
+               [ C , 0] -> [  1   , 0 ,  0 ];
+                                 
+
+END
+

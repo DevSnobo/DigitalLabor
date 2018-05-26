@@ -1,0 +1,10 @@
+JDF B
+// Created by Version 4.2 
+PROJECT Untitled
+DESIGN tx_10b12b Normal
+DEVKIT LX256V-35F484C
+ENTRY Schematic/Verilog HDL
+TESTFIXTURE tb_tx10b12b.tf
+MODULE tx_10b12b.v
+MODSTYLE tx_10b12b_vlog Normal
+SYNTHESIS_TOOL Synplify

@@ -1,0 +1,11 @@
+JDF B
+// Created by Version 1.4 
+PROJECT And_ff2.syn
+DESIGN and_ff2 Normal
+DEVKIT LC4256V-5T176C
+ENTRY ABEL/Schematic
+MODULE and_ff2.abl
+MODSTYLE and_ff2 Normal
+SYNTHESIS_TOOL Synplify
+SIMULATOR_TOOL ActiveHDL
+TOPMODULE and_ff2

@@ -1,0 +1,34 @@
+module p5_top	
+
+a0..a3	pin;
+b0..b3	pin;
+q_0..q_7	pin;
+clk, ext_reset, mac	pin;
+
+A = [a3,a2,a1,a0];
+B = [b3,b2,b1,b0];
+OUT = [q_7,q_6,q_5,q_4,q_3,q_2,q_1,q_0];
+
+c,x,k,z	=.c.,.x.,.k.,.z.;
+
+test_vectors
+	([clk,ext_reset,mac,A,B] -> [OUT])
+	[0,1,x,x,x]	->	[x];
+	[c,1,x,x,x]	->	[x];
+	[c,0,x,x,x]	->	[x];
+	[c,0,0,2,1]	->	[x];
+	[c,0,x,x,x]	->	[x];
+	[c,0,x,x,x]	->	[x];
+	[c,0,x,x,x]	->	[x];
+	[c,0,0,2,3]	->	[x];
+	[c,0,x,x,x]	->	[x];
+	[c,0,x,x,x]	->	[x];
+	[c,0,x,x,x]	->	[x];
+	[c,0,1,3,5]	->	[x];
+	[c,0,x,x,x]	->	[x];
+	[c,0,x,x,x]	->	[x];
+	[c,0,x,x,x]	->	[x];
+end
+
+
+

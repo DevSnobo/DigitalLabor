@@ -1,0 +1,70 @@
+
+[Device]
+Family = lc5kmx;
+PartNumber = LC51024MV-52F672C;
+Package = 672fpBGA;
+PartType = LC51024MV;
+Speed = -5.2;
+Operating_condition = COM;
+Status = Production;
+
+[Revision]
+Parent = lc5kmx1024.lci;
+Design = ;
+DATE = 2001;
+TIME = 0:00:00;
+Source_Format = Schematic_Verilog_HDL;
+
+[IGNORE ASSIGNMENTS]
+
+[CLEAR ASSIGNMENTS]
+
+[BACKANNOTATE ASSIGNMENTS]
+
+[GLOBAL CONSTRAINTS]
+
+[LOCATION ASSIGNMENTS]
+layer = OFF;
+
+[GROUP ASSIGNMENTS]
+layer = OFF;
+
+[RESOURCE RESERVATIONS]
+layer = OFF;
+
+[FITTER REPORT FORMAT]
+
+[POWER]
+
+[SOURCE CONSTRAINT OPTION]
+
+[Fast Bypass]
+
+[OSM Bypass]
+
+[INPUT REGISTERS]
+
+[NETLIST/DELAY FORMAT]
+NetList = VERILOG;
+Delay_File = SDF;
+VCC_GND = Cell;
+
+[IO TYPES]
+layer = OFF;
+
+[PULLUP]
+
+[SLEWRATE]
+
+[LOCATION ASSIGNMENTS LIST]
+
+[RESOURCE RESERVATIONS LIST]
+
+[Pin attributes list]
+
+[Timing Analyzer]
+
+[PLL Assignments]
+clk = STDPLL, 100.0000, pllclk, -, off, 1, 5, 8, 1, -, -, -, lock, 2.0;
+
+[global constraints list]

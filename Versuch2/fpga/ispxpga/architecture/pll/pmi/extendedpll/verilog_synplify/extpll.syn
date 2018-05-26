@@ -1,0 +1,9 @@
+JDF B
+// Created by Version 6.0 
+PROJECT Untitled
+DESIGN extpll Normal
+DEVKIT LFX125B-04F256CES/2X
+ENTRY Schematic/Verilog HDL
+TESTFIXTURE tb_stdpllx.tf
+MODULE ext_pll.v
+SYNTHESIS_TOOL Synplify

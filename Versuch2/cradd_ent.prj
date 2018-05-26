@@ -1,0 +1,36 @@
+#-- Lattice Semiconductor Corporation Ltd.
+#-- Synplify OEM project file n:/digital labor\cradd_ent.prj
+#-- Written on Mon Apr 23 16:23:27 2018
+
+
+#device options
+set_option -technology ispGAL
+
+#compilation/mapping options
+
+#map options
+
+#simulation options
+set_option -write_verilog false
+set_option -write_vhdl false
+
+#timing analysis options
+set_option -synthesis_onoff_pragma false
+
+#-- add_file options
+add_file -vhdl -lib work "or2.vhd"
+add_file -vhdl -lib work "halfadd.vhd"
+add_file -vhdl -lib work "fulladd.vhd"
+add_file -vhdl -lib work "cradd.vhd"
+
+#-- top module name
+set_option -top_module cradd_ent
+
+#-- set result format/file last
+project -result_file "cradd_ent.edi"
+
+#-- error message log file
+project -log_file cradd_ent.srf
+
+#-- run Synplify with 'arrange VHDL file'
+project -run

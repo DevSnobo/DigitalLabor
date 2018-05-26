@@ -1,0 +1,204 @@
+(edif simplepll 
+ (edifVersion 2 0 0)
+ (edifLevel 0)
+ (keywordMap (keywordLevel 0))
+ (status 
+  (written 
+   (timestamp 2004 04 29 23 13 26)
+   (program "LeonardoSpectrum for Lattice" (version "2004a.25_OEM_Lattice"))
+   (author "Mentor Graphics")))
+ (external PRIMITIVES 
+  (edifLevel 0)
+  (technology (numberDefinition )))
+ (external ispxpga 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell INV (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port O (direction OUTPUT)))))
+  (cell CCU_UCP (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port D (direction INPUT))
+     (port SD (direction INPUT))
+     (port LOAD (direction INPUT))
+     (port CIN (direction INPUT))
+     (port S0 (direction OUTPUT))
+     (port COUT (direction OUTPUT)))))
+  (cell DFFRH (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port D (direction INPUT))
+     (port CLK (direction INPUT))
+     (port R (direction INPUT))
+     (port Q (direction OUTPUT)))))
+  (cell IBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port O (direction OUTPUT)))))
+  (cell OBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port O (direction OUTPUT)))))
+  (cell GND (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port X (direction OUTPUT)))))
+  (cell VCC (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port X (direction OUTPUT))))))
+ (library work 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell SPLL (cellType GENERIC)
+   (view INTERFACE  (viewType NETLIST)
+    (interface 
+     (port CLK_IN (direction INPUT))
+     (port CLK_OUT (direction OUTPUT)))))
+  (cell simplepll (cellType GENERIC)
+   (view INTERFACE  (viewType NETLIST)
+    (interface 
+     (port clk (direction INPUT))
+     (port rst (direction INPUT))
+     (port (array (rename qout "qout(3:0)") 4 )(direction OUTPUT)))
+    (property attx0 (string ""))
+    (contents 
+     (instance I1 (viewRef INTERFACE  (cellRef SPLL ))
+      (property in_freq (string "160.0")))
+     (instance qout_ix13 (viewRef NETLIST  (cellRef INV (libraryRef ispxpga )))
+      (property EXMPLR_DONT_CHANGE (string "")))
+     (instance qout_ix23 (viewRef NETLIST  (cellRef CCU_UCP (libraryRef ispxpga )))
+      (property EXMPLR_DONT_CHANGE (string "")))
+     (instance qout_ix30 (viewRef NETLIST  (cellRef CCU_UCP (libraryRef ispxpga )))
+      (property EXMPLR_DONT_CHANGE (string "")))
+     (instance qout_ix37 (viewRef NETLIST  (cellRef CCU_UCP (libraryRef ispxpga )))
+      (property EXMPLR_DONT_CHANGE (string "")))
+     (instance qout_ix44 (viewRef NETLIST  (cellRef CCU_UCP (libraryRef ispxpga )))
+      (property EXMPLR_DONT_CHANGE (string "")))
+     (instance qout_ix18 (viewRef NETLIST  (cellRef DFFRH (libraryRef ispxpga ))))
+     (instance qout_ix27 (viewRef NETLIST  (cellRef DFFRH (libraryRef ispxpga ))))
+     (instance qout_ix34 (viewRef NETLIST  (cellRef DFFRH (libraryRef ispxpga ))))
+     (instance qout_ix41 (viewRef NETLIST  (cellRef DFFRH (libraryRef ispxpga ))))
+     (instance clk_ibuf (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance rst_ibuf (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename qout_obuf_3_ "qout_obuf(3)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename qout_obuf_2_ "qout_obuf(2)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename qout_obuf_1_ "qout_obuf(1)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename qout_obuf_0_ "qout_obuf(0)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance GND (viewRef NETLIST  (cellRef GND (libraryRef ispxpga ))))
+     (instance PWR (viewRef NETLIST  (cellRef VCC (libraryRef ispxpga ))))
+     (net clk 
+      (joined 
+       (portRef clk )
+       (portRef I0 (instanceRef clk_ibuf ))))
+     (net rst 
+      (joined 
+       (portRef rst )
+       (portRef I0 (instanceRef rst_ibuf ))))
+     (net pllclk 
+      (joined 
+       (portRef CLK_OUT (instanceRef I1 ))
+       (portRef CLK (instanceRef qout_ix18 ))
+       (portRef CLK (instanceRef qout_ix27 ))
+       (portRef CLK (instanceRef qout_ix34 ))
+       (portRef CLK (instanceRef qout_ix41 ))))
+     (net qout_nx12 
+      (joined 
+       (portRef O (instanceRef qout_ix13 ))
+       (portRef CIN (instanceRef qout_ix23 ))))
+     (net qout_nx15 
+      (joined 
+       (portRef COUT (instanceRef qout_ix23 ))
+       (portRef CIN (instanceRef qout_ix30 ))))
+     (net qout_nx16 
+      (joined 
+       (portRef S0 (instanceRef qout_ix23 ))
+       (portRef D (instanceRef qout_ix18 ))))
+     (net qout_nx24 
+      (joined 
+       (portRef COUT (instanceRef qout_ix30 ))
+       (portRef CIN (instanceRef qout_ix37 ))))
+     (net qout_nx25 
+      (joined 
+       (portRef S0 (instanceRef qout_ix30 ))
+       (portRef D (instanceRef qout_ix27 ))))
+     (net qout_nx31 
+      (joined 
+       (portRef COUT (instanceRef qout_ix37 ))
+       (portRef CIN (instanceRef qout_ix44 ))))
+     (net qout_nx32 
+      (joined 
+       (portRef S0 (instanceRef qout_ix37 ))
+       (portRef D (instanceRef qout_ix34 ))))
+     (net qout_nx39 
+      (joined 
+       (portRef S0 (instanceRef qout_ix44 ))
+       (portRef D (instanceRef qout_ix41 ))))
+     (net (rename qout_dup0_0_ "qout_dup0(0)") 
+      (joined 
+       (portRef Q (instanceRef qout_ix18 ))
+       (portRef D (instanceRef qout_ix23 ))
+       (portRef I0 (instanceRef qout_obuf_0_ ))))
+     (net (rename qout_dup0_1_ "qout_dup0(1)") 
+      (joined 
+       (portRef Q (instanceRef qout_ix27 ))
+       (portRef D (instanceRef qout_ix30 ))
+       (portRef I0 (instanceRef qout_obuf_1_ ))))
+     (net (rename qout_dup0_2_ "qout_dup0(2)") 
+      (joined 
+       (portRef Q (instanceRef qout_ix34 ))
+       (portRef D (instanceRef qout_ix37 ))
+       (portRef I0 (instanceRef qout_obuf_2_ ))))
+     (net (rename qout_dup0_3_ "qout_dup0(3)") 
+      (joined 
+       (portRef Q (instanceRef qout_ix41 ))
+       (portRef D (instanceRef qout_ix44 ))
+       (portRef I0 (instanceRef qout_obuf_3_ ))))
+     (net clk_int 
+      (joined 
+       (portRef O (instanceRef clk_ibuf ))
+       (portRef CLK_IN (instanceRef I1 ))))
+     (net rst_int 
+      (joined 
+       (portRef O (instanceRef rst_ibuf ))
+       (portRef R (instanceRef qout_ix18 ))
+       (portRef R (instanceRef qout_ix27 ))
+       (portRef R (instanceRef qout_ix34 ))
+       (portRef R (instanceRef qout_ix41 ))))
+     (net (rename qout_3_ "qout(3)") 
+      (joined 
+       (portRef (member qout 0))
+       (portRef O (instanceRef qout_obuf_3_ ))))
+     (net (rename qout_2_ "qout(2)") 
+      (joined 
+       (portRef (member qout 1))
+       (portRef O (instanceRef qout_obuf_2_ ))))
+     (net (rename qout_1_ "qout(1)") 
+      (joined 
+       (portRef (member qout 2))
+       (portRef O (instanceRef qout_obuf_1_ ))))
+     (net (rename qout_0_ "qout(0)") 
+      (joined 
+       (portRef (member qout 3))
+       (portRef O (instanceRef qout_obuf_0_ ))))
+     (net GND 
+      (joined 
+       (portRef X (instanceRef GND ))
+       (portRef I0 (instanceRef qout_ix13 ))
+       (portRef LOAD (instanceRef qout_ix23 ))
+       (portRef LOAD (instanceRef qout_ix30 ))
+       (portRef LOAD (instanceRef qout_ix37 ))
+       (portRef LOAD (instanceRef qout_ix44 ))))
+     (net PWR 
+      (joined 
+       (portRef X (instanceRef PWR ))
+       (portRef SD (instanceRef qout_ix23 ))
+       (portRef SD (instanceRef qout_ix30 ))
+       (portRef SD (instanceRef qout_ix37 ))
+       (portRef SD (instanceRef qout_ix44 ))))))))
+ (design simplepll (cellRef simplepll (libraryRef work ))))

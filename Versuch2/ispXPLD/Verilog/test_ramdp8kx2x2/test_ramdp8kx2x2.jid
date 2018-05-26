@@ -1,0 +1,2 @@
+. test_ramdp8kx2x2 test_ramdp8kx2x2.v c:\isptools\ispcpld\examples\ispxpld\verilog\test_ramdp8kx2x2\test_ramdp8kx2x2.v
+U0 L_RAMDP test_ramdp8kx2x2.v c:\isptools\ispcpld\examples\ispxpld\verilog\test_ramdp8kx2x2\test_ramdp8kx2x2.v

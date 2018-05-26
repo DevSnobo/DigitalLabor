@@ -1,0 +1,9 @@
+JDF B
+// Created by Version 9.0 
+PROJECT COUNT with OUTPUT
+DESIGN count16a Normal
+DEVKIT ispLSI5512VE-80LF256I
+ENTRY EDIF
+STIMULUS count16a.abv
+MODULE count16a.edf
+MODSTYLE count16a Normal

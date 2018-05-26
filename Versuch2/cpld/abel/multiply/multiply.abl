@@ -1,0 +1,112 @@
+MODULE multiply
+
+TITLE '3 bit multiplier'
+"Takes two sets of three bits, provides 6 bit product.
+"Demonstrates use of default values for a lower-level
+"module. Default values allow the user to use
+"a lower level module without specifying signal levels
+"or inputs for all of the module's input ports.
+
+
+"Inputs
+	a2, a1, a0, b2, b1, b0        pin ;
+
+
+"Outputs
+	p5, p4, p3, p2, p1, p0        pin istype 'com,invert';
+
+
+"Set declarations
+	aset = [a2,a1,a0];
+	bset = [b2,b1,b0];
+	product = [p5,p4,p3,p2,p1,p0];
+
+
+"Sub-module declarations, with default input values
+"In this case, all inputs default to 0 if not used.
+	adder interface (a=0, b=0, sin=0, cin=0 -> sum, carry);
+
+"Sub-module instances
+	ablk1 functional_block adder;
+	ablk2 functional_block adder;
+	ablk3 functional_block adder;
+	ablk4 functional_block adder;
+	ablk5 functional_block adder;
+	ablk6 functional_block adder;
+	ablk7 functional_block adder;
+	ablk8 functional_block adder;
+	ablk9 functional_block adder;
+
+
+Equations
+	
+" This multiplier circuit is constructed of 9 adder blocks 
+" connected in a CRAY-type array. Each block as two 
+" data bit inputs, plus carry and sum inputs, though the
+" carry and sum inputs are not always used. In those 
+" cases, the default value is assumed.
+
+	p5 = ablk9.carry;     " Product output bit 5
+	p4 = ablk9.sum;       " bit 4 
+	p3 = ablk7.sum;       " bit 3
+	p2 = ablk4.sum;       " bit 2
+	p1 = ablk2.sum;       " bit 1
+	p0 = ablk1.sum;       " bit 0
+
+	ablk9.cin = ablk7.carry;
+	ablk9.sin = ablk8.carry;
+	ablk9.a = a2;
+	ablk9.b = b2;
+
+	ablk8.cin = ablk5.carry;
+	ablk8.a = a2;
+	ablk8.b = b1;
+
+	ablk7.cin = ablk4.carry;
+	ablk7.sin = ablk8.sum;
+	ablk7.a = a1;
+	ablk7.b = b2;
+
+	ablk6.a = a2;              "Assume default values
+	ablk6.b = b0;              "for carry and sum inputs
+
+	ablk5.sin = ablk6.sum;
+	ablk5.cin = ablk3.carry;
+	ablk5.a = a1;
+	ablk5.b = b1;
+
+	ablk4.sin = ablk5.sum;
+	ablk4.cin = ablk2.carry;
+	ablk4.a = a0;
+	ablk4.b = b2;
+
+	ablk3.a = a1;
+	ablk3.b = b0;
+
+	ablk2.sin = ablk3.sum;
+	ablk2.cin = ablk1.carry;
+	ablk2.a = a0;
+	ablk2.b = b1;
+
+	ablk1.a = a0;
+	ablk1.b = b0;
+
+	
+Test_vectors 
+       ([aset, bset] -> product)
+        [  0 ,   0 ] ->    0;
+	[  0 ,   1 ] ->    0;
+	[  1 ,   2 ] ->    2;
+	[  2 ,   3 ] ->    6;
+	[  3 ,   4 ] ->   12;
+	[  3 ,   5 ] ->   15;
+	[  4 ,   5 ] ->   20;
+	[  4 ,   6 ] ->   24;
+	[  5 ,   6 ] ->   30;
+	[  5 ,   7 ] ->   35;
+	[  6 ,   7 ] ->   42;
+	[  7 ,   7 ] ->   49;
+
+
+END
+

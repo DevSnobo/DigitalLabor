@@ -1,0 +1,2 @@
+-blif -inp test_cam128x48.bl4 -out test_cam128x48.bl5
+-err automake.err -log test_cam128x48.log -mod test_cam128x48 -sc

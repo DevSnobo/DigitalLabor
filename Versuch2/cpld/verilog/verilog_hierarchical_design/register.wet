@@ -1,0 +1,4 @@
+Wave rst
+Wave clk
+Wave data[7:0]
+Wave q[7:0]

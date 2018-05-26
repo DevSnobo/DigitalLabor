@@ -1,0 +1,82 @@
+
+[Device]
+Family = lc5kmx;
+PartNumber = LC5512MV-45F256C;
+Package = 256fpBGA;
+PartType = LC5512MV;
+Speed = -4.5;
+Operating_condition = COM;
+Status = Controlled;
+
+[Revision]
+Parent = lc5kmx512.lci;
+DATE = 10/09/2002;
+TIME = 10:25:01;
+Source_Format = Schematic_VHDL;
+Synthesis = Precision;
+
+[Ignore Assignments]
+
+[Clear Assignments]
+
+[Backannotate Assignments]
+
+[Global Constraints]
+
+[Location Assignments]
+layer = OFF;
+
+[Group Assignments]
+layer = OFF;
+
+[Resource Reservations]
+layer = OFF;
+
+[Fitter Report Format]
+
+[Power]
+
+[Source Constraint Option]
+
+[Fast Bypass]
+
+[OSM Bypass]
+
+[Input Registers]
+
+[Netlist/Delay Format]
+
+[IO Types]
+layer = OFF;
+
+[Pullup]
+
+[Slewrate]
+
+[Region]
+
+[Timing Constraints]
+
+[HSI Attributes]
+
+[Input Delay]
+
+[LOCATION ASSIGNMENTS LIST]
+
+[RESOURCE RESERVATIONS LIST]
+
+[Pin attributes list]
+
+[Timing Analyzer]
+
+[PLL Assignments]
+
+[Dual Function Macrocell]
+
+[global constraints list]
+
+[Global Constraints Process Update]
+
+[Explorer Results]
+
+[Explorer User Settings]

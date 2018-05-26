@@ -1,0 +1,6 @@
+
+
+MODULE test_ramdp8kx2x2
+
+	SUBMODULE L_RAMDP
+		INSTANCE U0

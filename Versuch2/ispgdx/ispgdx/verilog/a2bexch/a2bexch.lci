@@ -1,0 +1,107 @@
+
+[Device]
+Family = gdx;
+PartNumber = ispGDX160VA-5Q208;
+Package = 208PQFP;
+PartType = ispGDX160VA;
+Speed = -5;
+Operating_condition = COM;
+Status = Production;
+
+[Revision]
+Parent = gdxva.lci;
+DATE = 05/27/2010;
+TIME = 09:26:46;
+Source_Format = Schematic_Verilog_HDL;
+Synthesis = Synplify;
+
+[Ignore Assignments]
+
+[Clear Assignments]
+
+[Backannotate Assignments]
+
+[Global Constraints]
+
+[Location Assignments]
+layer = OFF;
+busb_5_ = pin,2,-,-,-;
+busb_4_ = pin,16,-,-,-;
+busb_3_ = pin,20,-,-,-;
+busb_2_ = pin,21,-,-,-;
+busb_15_ = pin,4,-,-,-;
+busb_1_ = pin,22,-,-,-;
+busb_0_ = pin,23,-,-,-;
+busb_14_ = pin,5,-,-,-;
+busb_13_ = pin,3,-,-,-;
+busb_12_ = pin,7,-,-,-;
+busb_11_ = pin,9,-,-,-;
+busb_10_ = pin,10,-,-,-;
+busb_9_ = pin,11,-,-,-;
+busb_8_ = pin,12,-,-,-;
+busb_7_ = pin,13,-,-,-;
+busb_6_ = pin,14,-,-,-;
+
+[Group Assignments]
+layer = OFF;
+
+[Resource Reservations]
+layer = OFF;
+
+[Fitter Report Format]
+
+[Power]
+
+[Source Constraint Option]
+
+[Fast Bypass]
+
+[OSM Bypass]
+
+[Input Registers]
+
+[Netlist/Delay Format]
+
+[IO Types]
+layer = OFF;
+
+[Pullup]
+UP = busa_0_, busa_1_, busa_2_, busa_3_, busa_4_, busa_5_, busa_6_, busa_7_, busa_8_, busa_9_, busa_10_, busa_11_, busa_12_, busa_13_, busa_14_, busa_15_;
+
+[Slewrate]
+
+[Region]
+
+[Timing Constraints]
+
+[HSI Attributes]
+
+[Input Delay]
+
+[GLOBAL PROJECT OPTIMIZATION]
+
+[OPTIMIZATION OPTIONS]
+
+[FITTER GLOBAL OPTIONS]
+
+[LOCATION ASSIGNMENT]
+
+[GROUP ASSIGNMENT]
+
+[SPACE RESERVATIONS]
+
+[PIN RESERVATIONS]
+
+[Pin Attributes List]
+
+[Pull]
+
+[Hardware Device Options]
+
+[Timing Analyzer]
+
+[Backannotate Netlist]
+
+[global constraints list]
+
+[Global Constraints Process Update]

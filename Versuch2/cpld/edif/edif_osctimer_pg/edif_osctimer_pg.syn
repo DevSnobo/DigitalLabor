@@ -1,0 +1,11 @@
+JDF B
+// Created by Version 2.1 
+PROJECT edif_osctimer_pg
+DESIGN edif_osctimer_pg Normal
+DEVKIT LC4128ZE-5TN100C
+ENTRY EDIF
+STIMULUS osc_pguard.abv
+MODULE osc_pguard.edf
+MODSTYLE OSC_PGUARD Normal
+SYNTHESIS_TOOL Synplify
+TOPMODULE OSC_PGUARD

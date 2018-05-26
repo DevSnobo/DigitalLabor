@@ -1,0 +1,9 @@
+
+
+MODULE zaehler_ampel_e
+
+	SUBMODULE Ampel_sn_e
+		INSTANCE ampel
+
+	SUBMODULE zaehler_e
+		INSTANCE z

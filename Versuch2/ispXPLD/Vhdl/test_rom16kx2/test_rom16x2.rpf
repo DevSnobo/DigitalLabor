@@ -1,0 +1,2 @@
+-blif -inp test_rom16x2.bl4 -out test_rom16x2.bl5
+-err automake.err -log test_rom16x2.log -mod test_rom16kx2 -sc

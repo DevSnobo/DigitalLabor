@@ -1,0 +1,42 @@
+module mx8w4d
+interface (id23..id0,ipd7..ipd0,s0,s1 -> y7..y0);
+title '8 bit by 4 deep multiplexer
+       T. Bowns  Data I/O Corporation  May 7th, 1993'
+
+"Constants
+    X,C = .x.,.c.;
+    
+"Inputs
+    id23..id0, ipd7..ipd0             pin;
+    s0,s1                             pin;
+
+"Outputs
+    y7..y0    pin  istype 'com';
+    
+"Sets
+    IND  = [id23..id16];
+    INC  = [id15..id8];
+    INB  = [id7..id0];
+    INA  = [ipd7..ipd0];
+    YSET = [y7..y0];
+    SEL  = [s1,s0];
+
+
+Equations
+    YSET = IND & (SEL == 3)
+         # INC & (SEL == 2)
+         # INB & (SEL == 1)
+         # INA & (SEL == 0);
+
+
+
+test_vectors ([ IND , INC , INB , INA , SEL ]  ->  YSET )
+              [  0  ,  0  ,  0  ,  1  ,  0  ]  ->   1   ;
+              [  0  ,  0  ,  0  ,  2  ,  0  ]  ->   2   ;
+              [  0  ,  0  ,  0  ,  3  ,  0  ]  ->   3   ;
+              [  0  ,  0  ,  4  ,  0  ,  1  ]  ->   4   ;
+              [  0  ,  5  ,  0  ,  0  ,  2  ]  ->   5   ;
+              [  6  ,  0  ,  0  ,  0  ,  3  ]  ->   6   ;
+              
+              
+end

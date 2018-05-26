@@ -1,0 +1,22 @@
+JDF B
+// Created by Version 1.3 
+PROJECT Verilog Hierarchical Design
+DESIGN verilog_hierarchical_design Normal
+DEVKIT LC4128ZE-5TN100C
+ENTRY Schematic/Verilog HDL
+STIMULUS timingsim.wdl
+STIMULUS verilog_hierarchical_design.abv
+MODULE verilog_hierarchical_design.v
+MODSTYLE rotate Normal
+STIMULUS rotate rotation.wdl
+TESTFIXTURE rotate rotate_t.tf
+MODSTYLE verilog_hierarchical_design Normal
+MODSTYLE mux Normal
+STIMULUS mux muxer.wdl
+TESTFIXTURE mux mux_t.tf
+MODSTYLE reg8 Normal
+STIMULUS reg8 register.wdl
+TESTFIXTURE reg8 reg8_t.tf
+SYNTHESIS_TOOL Synplify
+SIMULATOR_TOOL ActiveHDL
+TOPMODULE verilog_hierarchical_design

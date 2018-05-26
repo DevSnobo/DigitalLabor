@@ -1,0 +1,7 @@
+Wave clock
+Wave ld_new_alrm_time
+Wave ld_new_clk_time
+Wave new_alrm_time[3:0]
+Wave new_clk_time[3:0]
+Wave reset
+Wave showalrm

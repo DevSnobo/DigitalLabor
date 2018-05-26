@@ -1,0 +1,45 @@
+|--------------------------------------------------- ----------|
+|- ispLEVER Classic 1.6.00.07.29.12 Equations File            -|
+|- Copyright(C), 1992-2012, Lattice Semiconductor Corporation -|
+|- All Rights Reserved.                                       -|
+|--------------------------------------------------------------|
+
+
+Equations:
+
+
+T1_i = !T1 ; (1 pterm, 1 signal)
+
+gelb = !q_3_.Q & S2 & !q_2_.Q & !q_1_.Q
+    # q_3_.Q & !q_2_.Q & q_1_.Q
+    # !S2 & q_1_.Q ; (3 pterms, 4 signals)
+
+gnd_n_n = 0 ; (0 pterm, 0 signal)
+
+gruen = q_3_.Q & S2 & q_2_.Q ; (1 pterm, 3 signals)
+
+q_0_.D = !q_0_.Q ; (1 pterm, 1 signal)
+q_0_.C = takt ; (1 pterm, 1 signal)
+q_0_.AP = S1 ; (1 pterm, 1 signal)
+
+q_1_.D = q_1_.Q & q_0_.Q
+    # !q_1_.Q & !q_0_.Q ; (2 pterms, 2 signals)
+q_1_.C = takt ; (1 pterm, 1 signal)
+q_1_.AP = S1 ; (1 pterm, 1 signal)
+
+q_2_.D = !q_2_.Q & !q_1_.Q & !q_0_.Q
+    # q_2_.Q & q_1_.Q
+    # q_2_.Q & q_0_.Q ; (3 pterms, 3 signals)
+q_2_.C = takt ; (1 pterm, 1 signal)
+q_2_.AP = S1 ; (1 pterm, 1 signal)
+
+q_3_.D = !q_3_.Q & !q_2_.Q & !q_1_.Q & !q_0_.Q
+    # q_3_.Q & q_2_.Q
+    # q_3_.Q & q_1_.Q
+    # q_3_.Q & q_0_.Q ; (4 pterms, 4 signals)
+q_3_.C = takt ; (1 pterm, 1 signal)
+q_3_.AP = S1 ; (1 pterm, 1 signal)
+
+rot = S2 & !q_2_.Q & !q_1_.Q
+    # !q_3_.Q & S2 ; (2 pterms, 4 signals)
+

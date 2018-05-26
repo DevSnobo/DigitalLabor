@@ -1,0 +1,2 @@
+. test_cam128x48 test_cam128x48.vhd c:\isptools\ispcpld\examples\ispxpld\vhdl\test_cam128x48\test_cam128x48.vhd
+U0 L_CAM  c:\isptools\ispcpld\examples\ispxpld\vhdl\test_cam128x48\

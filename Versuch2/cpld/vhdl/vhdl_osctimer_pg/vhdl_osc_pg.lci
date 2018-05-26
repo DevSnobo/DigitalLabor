@@ -1,0 +1,141 @@
+
+[Device]
+Family = lc4k;
+PartNumber = LC4128ZE-5TN100C;
+Package = 100TQFP;
+PartType = LC4128ZE;
+Speed = -5.8;
+Operating_condition = AUTO;
+Status = Production;
+EN_PinGLB = yes;
+EN_PinMacrocell = yes;
+
+[Revision]
+Parent = lc4k128e.lci;
+DATE = 11/29/2007;
+TIME = 16:37:49;
+Source_Format = Schematic_VHDL;
+Synthesis = Synplify;
+
+[Ignore Assignments]
+
+[Clear Assignments]
+
+[Backannotate Assignments]
+Pin_Block = NO;
+Pin_Macrocell_Block = YES;
+Pin_Assignments = NO;
+IO_Types = YES;
+
+[Global Constraints]
+Zero_hold_time = Yes;
+User_max_glb_fanin = 28;
+
+[Location Assignments]
+layer = OFF;
+
+[Group Assignments]
+layer = OFF;
+
+[Resource Reservations]
+layer = OFF;
+
+[Fitter Report Format]
+
+[Power]
+
+[Source Constraint Option]
+
+[Fast Bypass]
+
+[OSM Bypass]
+
+[Input Registers]
+
+[Netlist/Delay Format]
+
+[IO Types]
+layer = OFF;
+RST = LVCMOS18, PIN, 0, -;
+RST2 = LVCMOS18, PIN, 0, -;
+PG_D = LVCMOS18, PIN, 0, -;
+PG_E = LVCMOS18, PIN, 1, -;
+TOUT = LVCMOS18, PIN, 1, -;
+QOUT = LVCMOS18, PIN, 1, -;
+XOUT_3_ = LVCMOS18, PIN, 1, -;
+XOUT_2_ = LVCMOS18, PIN, 1, -;
+XOUT_1_ = LVCMOS18, PIN, 1, -;
+XOUT_0_ = LVCMOS18, PIN, 1, -;
+
+[Pullup]
+
+[Slewrate]
+SLOW = TOUT;
+
+[Region]
+
+[Timing Constraints]
+layer = OFF;
+
+[HSI Attributes]
+
+[Input Delay]
+
+[Pin attributes list]
+
+[Attributes list setting]
+
+[Power Guard]
+
+[opt global constraints list]
+
+[Explorer User Settings]
+
+[LOCATION ASSIGNMENTS LIST]
+
+[RESOURCE RESERVATIONS LIST]
+
+[individual constraints list]
+
+[Timing Analyzer]
+
+[ORP Bypass]
+
+[PLL Assignments]
+
+[Register Powerup]
+
+[global constraints list]
+
+[Global Constraints Process Update]
+
+[Explorer Results]
+
+[VHDL synplify constraints]
+
+[VHDL spectrum constraints]
+
+[verilog synplify constraints]
+
+[verilog spectrum constraints]
+
+[VHDL synplify constraints list]
+
+[VHDL spectrum constraints list]
+
+[verilog synplify constraints list]
+
+[verilog spectrum constraints list]
+
+[OSCTIMER Assignments]
+layer = OFF;
+OSCTIMER = int_RST, int_RST2, int_TOUT, -, 128;
+
+[Constraint Version]
+version = 1.0;
+
+[Node attribute]
+layer = OFF;
+
+[SYMBOL/MODULE attribute]
+layer = OFF;

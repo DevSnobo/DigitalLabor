@@ -1,0 +1,56 @@
+"**************************************
+"* ABEL source constraint example
+"* 	Pin/Node Assignment
+"*	     2/01/2001
+"* Lattice Semiconductor Corporation 
+"**************************************
+
+"ABEL syntax for Pin/Node Assignment
+
+"LAT_LOC([PinName],[Pin#],[Seg#],[GLB#],[MC#]);
+"LAT_PIN([PinName],[Pin#]);
+"LAT_NODE([PinName],[Seg#],[GLB#],[MC#]);
+"	PinName: 	The signal name of the pin to be assigned	
+"	Pin#: 		The location of the pin that you want to assign the group to
+"	Seg#: 		The location of the Segment that you want to assign
+"	GLB#: 		The location of the GLB that you want to assign
+"	MC#: 		The location of the macrocell that you want to assign.
+"	- (dash): 	Means not applicable
+
+
+"Target device = LC51024MV-52F672C
+"For PLCC/QFP type syntax, see pinnodeQFP.syn
+
+MODULE pinndBGA
+
+library 'lattice';
+
+"Pin assignment using ABEL language syntax
+inA3,inB4,inC5	pin A3,B4,C5;
+outB3,outC4 	pin B3,C4 istype 'com';
+
+outF8,outA2	pin istype 'com';
+clk		pin;
+nodeB12		node istype 'reg';
+
+"Pin assignment using LAT_LOC
+LAT_LOC(outF8,pin,F8,-,-,-);
+
+"Pin assignment using LAT_PIN
+LAT_PIN(outA2,A2);
+
+"Node assignment using LAT_NODE
+LAT_NODE(nodeB12,-,B,12);
+
+equations
+
+outB3 =  inA3 & inB4;
+outC4 =  inC5 & nodeB12;
+outF8 =  !inA3 & inB4;
+outA2 =  !inA3 & inC5;
+
+nodeB12 :=  inA3 $ inB4;
+nodeB12.clk = clk;
+
+END 
+

@@ -1,0 +1,25 @@
+;C:\SYNARIO\DEMO2\COMPTIME.cpc - Setup Data for Simulation
+
+
+[NameRules]
+Language=Verilog
+LeadingInstancePrefix=No
+InstanceSeparator=.
+BusParentheses=[:]
+
+[Controls]
+Mode=Typical
+
+[Times]
+Stop Time=50.0 ns
+Step Time=10.0 ns
+
+[BreakPoints]
+
+[Monitors]
+
+[Output]
+Interval=Periodic
+Step=1
+
+[OutputNets]

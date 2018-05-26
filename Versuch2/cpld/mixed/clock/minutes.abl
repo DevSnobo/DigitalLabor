@@ -1,0 +1,130 @@
+MODULE MINUTES
+
+TITLE 'Minutes counter with Seven Segment Outputs'
+
+"Inputs
+ CLK,RST,CIN              PIN;
+
+"Outputs
+ COUT                     PIN istype 'COM';
+ TG,TF,TE,TD,TC,TB,TA     PIN istype 'COM';
+ MG,MF,ME,MD,MC,MB,MA     PIN istype 'COM';
+
+"Nodes
+ MINCAR                   NODE istype 'COM,KEEP';
+ T2,T1,T0,M3,M2,M1,M0     NODE istype 'REG_D,BUFFER';
+
+"Submodule declarations
+ SSEG interface (D3=0,D2=0,D1=0,D0=0 -> G,F,E,D,C,B,A);
+ TENSDISP functional_block SSEG;
+ ONESDISP functional_block SSEG;
+
+"Sets
+MINTEN = [T2,T1,T0];      "Tens of minutes count set
+MINONE = [M3,M2,M1,M0];   "Unit minutes count set
+
+
+
+Equations
+
+        "Carry to tens counter when minutes counter equals nine.
+
+	MINCAR = (MINONE.Q == 9);
+
+
+        "Carry out to next stage when at 59 minutes, and the Carry In
+        "signal is true.
+
+	COUT = (MINTEN.Q == 5) & (MINONE.Q == 9) & (CIN);
+
+
+	MINTEN.CLK = CLK;
+        MINTEN.AR = RST;
+
+	MINONE.CLK = CLK;
+	MINONE.AR = RST;
+
+
+State_Diagram MINTEN
+
+	State 0: IF CIN & MINCAR THEN 1
+                 ELSE 0;
+
+	State 1: IF CIN & MINCAR THEN 2
+                 ELSE 1;
+
+        State 2: IF CIN & MINCAR THEN 3
+                 ELSE 2;
+	
+	State 3: IF CIN & MINCAR THEN 4
+                 ELSE 3;
+
+	State 4: IF CIN & MINCAR THEN 5
+                 ELSE 4;
+
+	State 5: IF CIN & MINCAR THEN 0
+                 ELSE 5;
+
+
+
+
+State_Diagram MINONE
+
+	State 0: IF CIN THEN 1
+                 ELSE 0;
+
+	State 1: IF CIN THEN 2
+                 ELSE 1;
+
+	State 2: IF CIN THEN 3
+                 ELSE 2;
+
+	State 3: IF CIN THEN 4
+                 ELSE 3;
+
+	State 4: IF CIN THEN 5
+                 ELSE 4;
+
+	State 5: IF CIN THEN 6
+                 ELSE 5;
+
+	State 6: IF CIN THEN 7
+                 ELSE 6;
+
+	State 7: IF CIN THEN 8
+                 ELSE 7;
+
+	State 8: IF CIN THEN 9
+                 ELSE 8;
+
+	State 9: IF CIN THEN 0
+                 ELSE 9;
+
+
+Equations
+	
+	TENSDISP.D2 = T2.Q;
+	TENSDISP.D1 = T1.Q;
+	TENSDISP.D0 = T0.Q;
+	TG = TENSDISP.G;
+	TF = TENSDISP.F;
+	TE = TENSDISP.E;
+	TD = TENSDISP.D;
+	TC = TENSDISP.C;
+	TB = TENSDISP.B;
+	TA = TENSDISP.A;
+	
+	ONESDISP.D3 = M3.Q;
+	ONESDISP.D2 = M2.Q;
+	ONESDISP.D1 = M1.Q;
+	ONESDISP.D0 = M0.Q;
+	MG = ONESDISP.G;
+	MF = ONESDISP.F;
+	ME = ONESDISP.E;
+	MD = ONESDISP.D;
+	MC = ONESDISP.C;
+	MB = ONESDISP.B;
+	MA = ONESDISP.A;
+
+END
+

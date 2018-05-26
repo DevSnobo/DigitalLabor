@@ -1,0 +1,12 @@
+JDF B
+// Created by Version 5.0 
+PROJECT VHDL Hierarchical Design
+DESIGN vhdl_hierarchical_design Normal
+DEVKIT LFX125B-04F256CES/2X
+ENTRY Schematic/VHDL
+MODULE vhdl_hierarchical_design.vhd
+MODSTYLE rotate Normal
+MODSTYLE top_lev Normal
+MODSTYLE reg8 Normal
+MODSTYLE muxhier Normal
+SYNTHESIS_TOOL Precision

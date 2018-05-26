@@ -1,0 +1,53 @@
+[Device]
+Family=gdx;
+PartNumber=ispGDX160VA-5Q208;
+Package=208PQFP;
+PartType=ispGDX160VA;
+Speed=-5;
+Operating_condition=COM;
+Status=Production;
+
+[Revision]
+Parent=gdxbase.lci;
+Design=;
+DATE=01/04/2001;
+TIME=18:13:20;
+
+[IGNORE ASSIGNMENTS]
+
+[CLEAR ASSIGNMENTS]
+
+[BACKANNOTATE ASSIGNMENTS]
+
+[GLOBAL CONSTRAINTS]
+
+[LOCATION ASSIGNMENTS]
+Layer = Off;
+
+[GROUP ASSIGNMENTS]
+Layer = Off;
+
+[RESOURCE RESERVATIONS]
+Layer = Off;
+
+[FITTER REPORT FORMAT]
+
+[POWER]
+
+[SOURCE CONSTRAINT OPTION]
+
+[FAST BYPASS]
+
+[OSM BYPASS]
+
+[INPUT REGISTERS]
+
+[NETLIST/DELAY FORMAT]
+
+[IO TYPES]
+Layer = off;
+
+[PULLUP]
+
+[SLEWRATE]
+

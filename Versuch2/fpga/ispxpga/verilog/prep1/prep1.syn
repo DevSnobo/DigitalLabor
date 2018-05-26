@@ -1,0 +1,10 @@
+JDF B
+// Created by Version 5.0 
+PROJECT Untitled
+DESIGN prep1 Normal
+DEVKIT LFX125B-04F256CES/2X
+ENTRY Schematic/Verilog HDL
+TESTFIXTURE prep1_tb.tf
+MODULE prep1.v
+MODSTYLE prep1 Normal
+SYNTHESIS_TOOL Precision

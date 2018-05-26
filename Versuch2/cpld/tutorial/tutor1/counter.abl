@@ -1,0 +1,26 @@
+MODULE counter 
+INTERFACE (clk, rst, ld -> q3, q2, q1, q0);
+
+TITLE '4 bit counter circuit'
+
+DECLARATIONS 
+    clk      pin ;                "Clock input
+    rst      pin ;                "Asynchronous reset
+    ld       pin ;                "high value sets count = 1
+
+    q3..q0   pin istype 'reg';    "Counter outputs
+
+    count = [q3..q0];             "Creating output bus
+
+
+EQUATIONS
+
+    count.clk = clk;              "Counter clock input
+    count.ar  = rst;              "Counter reset input
+
+    when  ld then 
+	count := 1                "count = 1 when ld high
+    else when !ld then
+	count := count + 1;       "Counting when ld low
+
+END

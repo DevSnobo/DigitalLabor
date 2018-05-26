@@ -1,0 +1,11 @@
+JDF B
+//$Header: G:/synario/lev110/examples/cpld/ispGDX2/vhdl/mux4to1/rcs/mux4to1.syn 1.7 2003/11/26 02:04:11Z xqzhou Exp xqzhou $
+// Created by Version 2.0 
+PROJECT Multiplexer
+DESIGN mux4to1 Normal
+DEVKIT LX256V-5F484C2R
+ENTRY Schematic/VHDL
+STIMULUS mux4to1_tb.vhd
+MODULE mux4to1.vhd
+MODSTYLE mux4to1 Normal
+SYNTHESIS_TOOL Synplify

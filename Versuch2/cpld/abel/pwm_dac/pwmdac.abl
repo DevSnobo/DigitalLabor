@@ -1,0 +1,62 @@
+MODULE pwmdac
+
+TITLE 'Pulse width modulated Digital to Analog converter'
+
+@CARRY 2; 
+
+"Constants
+	c,x = .c.,.x.;
+
+"Inputs
+	clk,rclk,clr,d7..d0  pin;
+
+"Outputs
+	pwm                  pin istype 'com';
+	load	             pin istype 'com';
+
+"Nodes
+	r7..r0               node istype 'reg,buffer';
+
+"Sub-module declarations
+	counter interface (clk,rst -> q7..q0);
+
+"Sub-module instances
+	cntr1 functional_block counter;
+
+"Sets
+    count = cntr1.[q7..q0];
+    store = [r7..r0];
+
+
+Equations
+
+    pwm = (count > store);     " Pulse Width Modulated
+                               " output is low until
+                               " count goes beyond data.
+
+    cntr1.clk = clk;           "
+    cntr1.rst = clr;           " Clear counter on clr
+
+    load = (count == 250);     " Time for next data byte.
+                               " Externally connect load
+                               " output to rclk input.
+    store.clk = rclk;          " Load data when count
+    store := [d7..d0];         " reaches appropriate point.
+
+declarations
+
+    testPWM macro (i) {
+test_vectors   ([clk,clr,rclk,[d7..d0]] -> [pwm,load])
+                [ 0 , 1 , .c.,   ?i   ] -> [ 0 ,  0 ];         
+@repeat ?i     {[.c., 0 ,  0 ,    0   ] -> [ 0 ,  0 ];}
+@repeat 248-?i {[.c., 0 ,  0 ,    0   ] -> [ 1 ,  0 ];}
+                [.c., 0 ,  0 ,    0   ] -> [ 1 ,  0 ];
+                [.c., 0 ,  1 ,    0   ] -> [ 1 ,  1 ];
+                [.c., 1 ,  0 ,    0   ] -> [ 0 ,  0 ];
+    }
+testPWM(12);
+testPWM(151);
+testPWM(81);
+testPWM(9);
+
+END

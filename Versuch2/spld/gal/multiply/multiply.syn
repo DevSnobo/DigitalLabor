@@ -1,0 +1,10 @@
+JDF B
+// Created by Version 6.0 
+PROJECT 4 bit multiplier
+DESIGN multiply Normal
+DEVKIT ispGAL22V10AC-23LN
+ENTRY ABEL/Schematic
+MODULE bmul.abl
+MODSTYLE bmul Normal
+SYNTHESIS_TOOL Precision
+TOPMODULE bmul

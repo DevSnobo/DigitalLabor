@@ -1,0 +1,2 @@
+. test_fifo_dcx_wx32_rx16 test_fifo_dcx_wx32_rx16.vhd c:\isptools\ispcpld\examples\ispxpld\vhdl\test_fifodcx_wx32_rx16\test_fifo_dcx_wx32_rx16.vhd
+U0 L_FIFODCX  c:\isptools\ispcpld\examples\ispxpld\vhdl\test_fifodcx_wx32_rx16\

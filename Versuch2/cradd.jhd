@@ -1,0 +1,7 @@
+
+
+MODULE cradd_ent
+
+	SUBMODULE fulladd_ent
+		INSTANCE FA1
+		INSTANCE FA2

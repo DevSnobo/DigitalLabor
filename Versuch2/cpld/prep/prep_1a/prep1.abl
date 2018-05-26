@@ -1,0 +1,82 @@
+module prep1
+title 'Data path circuit
+       T. Bowns   Data I/O Corporation   May 7th, 1993'
+
+"Constants
+	C,X = .c.,.x.;
+
+"Inputs
+	id23..id0           pin; "id inputs
+	ipd7..ipd0          pin; "ipd inputs
+	s0,s1,s_l,clk,rst   pin; "control inputs
+
+"Outputs
+	q7..q0              pin; "final outputs
+
+"Sets
+	IDC  = [id23..id16];
+	IDB  = [id15..id8];
+	IDA  = [id7..id0];
+	IPD  = [ipd7..ipd0];
+	QSET = [q7..q0];
+	SEL  = [s1,s0];
+
+"Sub-module declarations
+	MX8W4D interface (id23..id16,id15..id8,id7..id0,ipd7..ipd0,s0,s1 -> y7..y0);
+	REG8W interface (d7..d0,clk,rst -> q7..q0);
+	SREG8W interface (d7..d0,clk,rst,si,s_l -> q7..q0);
+
+"Sub-module instances
+	MUX1 functional_block MX8W4D;
+	BREG1 functional_block REG8W;
+	SREG1 functional_block SREG8W;
+
+
+Equations
+    	MUX1.[id23..id16] = IDC;
+    	MUX1.[id15..id8]  = IDB;
+    	MUX1.[id7..id0]   = IDA;
+    	MUX1.[ipd7..ipd0] = IPD;
+    	MUX1.[s1,s0]      = SEL;
+
+    	BREG1.[d7..d0] = MUX1.[y7..y0];
+    	BREG1.clk = clk;
+    	BREG1.rst = rst;
+
+    	SREG1.[d7..d0] = BREG1.[q7..q0];
+    	SREG1.clk = clk;
+    	SREG1.rst = rst;
+    	SREG1.s_l = s_l;
+    	SREG1.si = SREG1.q7;
+
+    	QSET = SREG1.[q7..q0];
+
+
+
+
+Test_vectors ([IDC,IDB,IDA,IPD,SEL,s_l,clk,rst] -> QSET)
+"reset"       [ 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 ] ->   X ;
+              [ 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 ] ->   X ;
+              [ 0 , 0 , 0 , 0 , 0 , 1 , C , 0 ] ->   X ;
+              [ 0 , 0 , 0 , 5 , 0 , 1 , C , 1 ] ->   0 ;
+"load value"  [ 0 , 0 , 0 , 5 , 0 , 1 , C , 0 ] -> ^h00 ;
+              [ 0 , 0 , 0 , 5 , 0 , 0 , C , 0 ] -> ^h05 ;
+"shift"       [ 0 , 0 , 0 , 0 , 0 , 1 , C , 0 ] -> ^h0A ;
+              [ 0 , 0 , 0 , 0 , 0 , 1 , C , 0 ] -> ^h14 ;
+              [ 0 , 0 , 0 , 0 , 0 , 1 , C , 0 ] -> ^h28 ;
+              [ 0 , 0 , 0 , 0 , 0 , 1 , C , 0 ] -> ^h50 ;
+              [ 0 , 0 , 0 , 0 , 0 , 1 , C , 0 ] -> ^hA0 ;
+              [ 0 , 0 , 0 , 0 , 0 , 1 , C , 0 ] -> ^h41 ;
+              [ 0 , 0 , 0 , 0 , 0 , 1 , C , 0 ] -> ^h82 ;
+              [ 0 , 0 , 0 , 0 , 0 , 1 , C , 0 ] -> ^h05 ;
+"load ipd"    [ 9 , 8 , 7 , 6 , 0 , 0 , C , 0 ] -> ^h00 ;
+              [ 9 , 8 , 7 , 6 , 0 , 0 , C , 0 ] -> ^h06 ;
+"id7..id0"    [ 9 , 8 , 7 , 6 , 1 , 0 , C , 0 ] -> ^h06 ;
+              [ 9 , 8 , 7 , 6 , 1 , 0 , C , 0 ] -> ^h07 ;
+"id15..id8"   [ 9 , 8 , 7 , 6 , 2 , 0 , C , 0 ] -> ^h07 ;
+              [ 9 , 8 , 7 , 6 , 2 , 0 , C , 0 ] -> ^h08 ;
+"id23..id16"  [ 9 , 8 , 7 , 6 , 3 , 0 , C , 0 ] -> ^h08 ;
+              [ 9 , 8 , 7 , 6 , 3 , 0 , C , 0 ] -> ^h09 ;
+
+
+end prep1

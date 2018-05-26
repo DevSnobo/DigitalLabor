@@ -1,0 +1,77 @@
+MODULE p9_top (arg)
+// This is the top level module for the  PREP 9 design.
+// By passing a numeric argument (from the compile properties
+// menu), one can easily specify the number of instances
+// of this prep design to place in the target device. Note that
+// a default value is used when no argument is passed.
+
+@ifb (?arg) 
+   {
+   @message 'No argument specified, substituting 1'
+   @const val = 1;
+   }
+@ifnb (?arg)
+   {
+   @const val = ?arg;
+   }
+
+//-------------------------------------------------------------------
+// This section creates the title block, global inputs and outputs, 
+// and declares the prep9 module.
+//
+TITLE 'PREP Benchmark 9'
+prep9 interface (A15..A0, CLK, RST, AS -> A,B,C,D,E,F,G,H,BE);
+
+"Inputs
+    A15..A0 pin;
+    A,B,C,D,E,F,G,H pin;
+    BE, AS, CLK, EXT_RESET pin;
+
+"Register set
+    Q = [A,B,C,D,E,F,G,H];
+
+
+//-------------------------------------------------------------------
+// This section creates the number of instances specified by the
+// argument passed to the compiler via the properties dialog.
+//
+PREP9 macro (i)   { @expr {PREP9_}?i; }    "Macro to instantiate prep9
+
+@const N = val - 1;                  
+
+@const i = 0;                         
+@repeat val                          
+  {
+  PREP9(i) functional_block prep9;    "
+  @const i = i + 1;                   "increment i
+  }
+
+//-------------------------------------------------------------------
+// This section creates the equations interconnecting the instances.
+//
+equations
+
+  PREP9_0.[A7..A0] = [A7..A0];		"Connect 1st instance to global inputs.
+  PREP9_0.AS = AS;
+
+@const i = 0;                         
+@repeat val                          
+  {
+  PREP9(i).[CLK, RST] = [CLK, EXT_RESET];	"Connect all to the global control pins.
+  PREP9(i).[A15..A8] = [A15..A8];       
+  @const i = i+1;                       
+  }
+
+@const i = 0;                         
+@repeat val-1                         
+  {
+  PREP9(i+1).AS = PREP9(i).BE;		"Daisy chain the instance I/Os
+  PREP9(i+1).[A7..A0] = PREP9(i).[A,B,C,D,E,F,G,H];
+  @const i = i+1;
+  }
+
+  Q = PREP9(N).[A,B,C,D,E,F,G,H];	"Connect last to the global outputs.
+  BE = PREP9(N).BE;
+
+END
+

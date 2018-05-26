@@ -1,0 +1,30 @@
+#$ TOOL   ispLEVER Classic 1.6.00.07.29.12
+#$ DATE   Thu May 03 14:51:50 2018
+#$ MODULE   HARD_A2e
+#$ PROPERTY   LATTICE OSCTIMER i1= -, T1_i, -, takt, 1048576; 
+#$ PINS 6 q_3_ S1 T1 q_2_ q_1_ q_0_
+#$ NODES 4 takt gnd_n_n T1_i M0_OSCOUT
+#$ EXTERNAL osctimer 4 DYNOSCDIS'i' TIMERRES'i' OSCOUT'o' TIMEROUT'o'
+#$ INSTANCE i1 OSCTIMER 4 gnd_n_n T1_i M0_OSCOUT takt
+.type f
+.i 8
+.o 14
+.ilb S1 T1 takt M0_OSCOUT q_3_.Q q_2_.Q q_1_.Q q_0_.Q
+.ob q_3_.D q_3_.C q_3_.AP q_2_.D q_2_.C q_2_.AP q_1_.D q_1_.C q_1_.AP q_0_.D
+ q_0_.C q_0_.AP gnd_n_n T1_i
+.phase 11111111111111
+.p 13
+----0000 10000000000000
+----11-- 10000000000000
+----1-1- 10000000000000
+----1--1 10000000000000
+--1----- 01001001001000
+1------- 00100100100100
+-----000 00010000000000
+-----11- 00010000000000
+-----1-1 00010000000000
+------11 00000010000000
+------00 00000010000000
+-------0 00000000010000
+-0------ 00000000000001
+.end

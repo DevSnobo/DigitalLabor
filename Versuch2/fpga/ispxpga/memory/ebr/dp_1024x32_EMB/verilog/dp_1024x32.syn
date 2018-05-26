@@ -1,0 +1,10 @@
+JDF B
+// Created by Version 5.0 
+PROJECT Untitled
+DESIGN dp_1024x32 Normal
+DEVKIT LFX125B-04F256CES/2X
+ENTRY Schematic/Verilog HDL
+MODULE dp_1024x32_EMB.v
+MODSTYLE test Normal
+MODSTYLE dp_1024x32_EMB Normal
+SYNTHESIS_TOOL Precision

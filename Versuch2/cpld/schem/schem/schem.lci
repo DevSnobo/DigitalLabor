@@ -1,0 +1,114 @@
+
+[Device]
+Family = lc4k;
+PartNumber = LC4256ZE-5TN100C;
+Package = 100TQFP;
+PartType = LC4256ZE;
+Speed = -5.8;
+Operating_condition = COM;
+Status = Production;
+
+[Revision]
+Parent = lc4k256e.lci;
+DATE = 05/10/2010;
+TIME = 14:48:05;
+Source_Format = ABEL_Schematic;
+Synthesis = Synplify;
+
+[Ignore Assignments]
+
+[Clear Assignments]
+
+[Backannotate Assignments]
+
+[Global Constraints]
+
+[Location Assignments]
+layer = OFF;
+clka = pin,11,-,-,-;
+bit0 = pin,36,-,-,-;
+
+[Group Assignments]
+layer = OFF;
+bitmap_l = -, *, Q_0_, Q_1_, Q_2_, Q_3_;
+bitmap_m = -, *, Q_4_, Q_5_, Q_6_, Q_7_;
+bitmap_h = -, *, Q_8_, Q_9_, Q_10_, Q_11_;
+
+[Resource Reservations]
+layer = OFF;
+
+[Fitter Report Format]
+
+[Power]
+
+[Source Constraint Option]
+
+[Fast Bypass]
+
+[OSM Bypass]
+
+[Input Registers]
+
+[Netlist/Delay Format]
+
+[IO Types]
+layer = OFF;
+
+[Pullup]
+
+[Slewrate]
+SLOW = bit0, bit1, bit2, bit3, bit4, bit5, bit6, bit7, bit8, bit9, bit10, bit11;
+
+[Region]
+
+[Timing Constraints]
+
+[HSI Attributes]
+
+[Input Delay]
+
+[Pin attributes list]
+
+[Attributes list setting]
+
+[Power Guard]
+
+[opt global constraints list]
+
+[Explorer User Settings]
+
+[LOCATION ASSIGNMENTS LIST]
+
+[RESOURCE RESERVATIONS LIST]
+
+[individual constraints list]
+
+[Timing Analyzer]
+
+[ORP Bypass]
+
+[PLL Assignments]
+
+[Register Powerup]
+
+[global constraints list]
+
+[Global Constraints Process Update]
+
+[Explorer Results]
+
+[VHDL synplify constraints]
+
+[VHDL spectrum constraints]
+
+[verilog synplify constraints]
+
+[verilog spectrum constraints]
+
+[VHDL synplify constraints list]
+
+[VHDL spectrum constraints list]
+
+[verilog synplify constraints list]
+
+[verilog spectrum constraints list]

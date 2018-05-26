@@ -1,0 +1,12 @@
+JDF B
+// Created by Version 2.1 
+PROJECT Untitled
+DESIGN vhdl_osc_pg Normal
+DEVKIT LC4128ZE-5TN100C
+ENTRY Schematic/VHDL
+STIMULUS osc_pguard.abv
+STIMULUS tb_osc_pguard.vhd
+MODULE osc_pguard.vhd
+MODSTYLE OSC_PGUARD Normal
+SYNTHESIS_TOOL Synplify
+TOPMODULE OSC_PGUARD

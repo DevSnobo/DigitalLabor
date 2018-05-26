@@ -1,0 +1,21 @@
+MODULE comptime
+
+TITLE 'Compare alrm_time and cur_time'
+
+// Inputs //
+     alrm_time3..alrm_time0		PIN ;
+     cur_time3..cur_time0		PIN ;
+
+// Outputs //
+     sound				PIN ISTYPE 'com' ;
+
+
+EQUATIONS
+
+     WHEN [alrm_time3..alrm_time0] == [cur_time3..cur_time0] THEN
+          sound = 1 ;
+     ELSE
+          sound = 0 ;
+
+END
+

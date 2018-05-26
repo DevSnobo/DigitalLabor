@@ -1,0 +1,140 @@
+1. Frage zu μVision
+
+Arbeiten Sie die Bedienungsanleitung zu μVision durch und beantworten Sie
+folgende Fragen:
+
+a) In welchen Dateien finden Sie das Listing der Übersetzung und das Listing des
+Linkers?
+
+-> Listing *.lst und Linker *.m66
+
+b) Unter „L166 Locate“ machen Sie Eintragungen für „Programme“ und
+„Datenspeicher“. Suchen Sie diese Namen in der Vorlage.A66. Wie wirken diese
+beiden Eintragungen zusammen und was bewirken Sie mit der Eintragung in
+L166 Locate?
+
+-> Hier werde die Start Adressen für denn Datenspeicher (Variablen, Konstanten, etc) und den Programmspeicher (Programme) festgelegt.
+
+----------------------------------------------------------------------------------
+
+2.Flags
+
+a) Welcher Dezimalzahl entspricht die 16 Bit Hex Zahl 0xAFFE in Signed und
+Unsigned Darstellung.
+-> 1010111111111110 -> 45054    unsigned
+-> 0101000000000001 -> -20481   einer
+-> 0101000000000010 -> -20482   zweier
+
+
+b) Ist die Dezimalzahl 55555 in 16 Bit Darstellung eine Signed oder eine Unsigned
+Zahl?
+-> unsinged
+
+c) Berechnen Sie den Hex Wert von 55555. Welche Zahl erhalten Sie, wenn Sie
+diesen Wert als Signed Zahl interpretieren?
+-> 1101100100000011 -> 55555 -> 0xD903
+-> 0010011011111100 -> -9980 -> 0x26FC
+-> 0010011011111101 -> -9981 -> 0x26FD
+
+d) Addieren Sie 0x4798 und 0xA075 und geben Sie das Resultat hexadezimal an.
+Welchen Rechenoperationen entspricht dies, wenn Sie die Hexzahlen einmal
+Signed und einmal Unsigned interpretieren?
+
+-> 0x4798 -> 100011110011000 -> 18328 -> 
+-> 0x4798 -> 011100001100111 -> 14439 -> 0x3867
+-> 0x4798 -> 011100001101000 -> 14440 -> 0x3868
+
+-> 0xA075 -> 1010000001110101 -> 41077 -> 
+-> 0xA075 -> 0101111110001010 -> 24458 -> 0x5F8A
+-> 0xA075 -> 0101111110001011 -> 24459 -> 0x5F8B
+
+-> 0xE80D -> 1110100000001101 -> 59405 -> 
+-> 0xA075 -> 0001011111110010 -> 6130 -> 0x17F2
+-> 0xA075 -> 0001011111110011 -> 6131 -> 0x17F3
+
+----------------------------------------------------------------------------------
+
+3. Hugo sei eine 16 Bit Variable. Geben Sie den Befehl an, mit dem Sie
+
+a) Den Inhalt von Hugo nach R0 laden
+mov R0,Hugo
+
+b) Die Adresse von Hugo nach R0 laden
+mov R0,# Hugo
+
+c) Den Inhalt von Hugo nach R1 laden, wenn sich in R0 die Adresse befindet.
+mov R1, [R0#Hugo]
+
+-----------------------------------------------------------------------------------
+
+Aufgabe 1: work 1
+
+Vereinbaren Sie Konstanten mit folgenden Namen und Werten:
+op1 = 30000, op2 = 5000, op3 = 40000, op4 = 4999, op5 = -30000
+Im Hauptprogramm laden Sie dann einfach die Register R1 bis R5 mit den Konstanten
+op1 bis op5. Assemblieren und binden Sie Ihr Programm und debuggen Sie im Einzel-
+schritt. Öffnen Sie ggf. das "Register-Window", falls es nicht offen ist. Werden die
+richtigen Werte in die Register geladen? Welche Adressierungsart mussten Sie
+verwenden, und an welcher Stelle im übersetzten Programmcode tauchen die Konstanten
+auf? Schauen Sie zur Beantwortung dieser Frage im Assembler-Listing und mit Hilfe des Debuggers direkt im Programmspeicher nach.
+
+Immidiate Addressing, Die Konstanten werden direkt in den Code eingebettet -> #define in c - benötigen daher keinen Speicher
+
+Aufgabe 2: work 2
+
+Kopieren Sie Ihr Programm aus Aufgabe 1 in eine neue Datei und übernehmen Sie diese
+in Ihr Projekt. Löschen Sie die Konstanten aus Ihrem Programm und vereinbaren Sie
+stattdessen gleichnamige 16 Bit-Variablen, die mit den Werten aus Aufgabe 1 initialisiert sind.
+Im Hauptprogramm laden Sie dann wiederum die Register R1 bis R5 mit den Werten der
+Variablen op1 bis op5. Debuggen Sie erneut und verifizieren Sie, dass die richtigen Werte geladen werden. Welche Adressierungsart wurde diesmal verwendet, und was taucht nun im übersetzten Programmcode an Stelle der Konstanten auf? Ermitteln Sie mit Hilfe des Assembler- und des Linker-Listings die Adresse der Variablen und zeigen Sie den entsprechenden Speicher im "Memory-Window" an. Was fällt auf.
+
+direct Addressing, DPP (DataPagePointer) auf die Adresse der Variable
+unterschiedliche Darstellungen bei Singend und UNsingend, owerflow, little endian
+
+Aufgabe 3: work 2
+
+Erweitern Sie das Programm aus Aufgabe 2, indem Sie nach dem Laden der Register R1
+bis R5 folgende Rechenoperationen mit den Register-Operanden und den Ziel-Registern
+R10 bis R14 durchführen:
+R10 = op1 + op2; R11 = op1 + op3; R12 = op4 - op2; R13 = op1 + op5, R14 = op3 + op5;
+Debuggen Sie Ihr Programm im Single Step. Stimmen die Rechenergebnisse? Notieren
+Sie nach jeder Rechenoperation die Werte der Flags C, Z, V und N. Wie kommen diese
+Werte zustande und was bedeuten sie?
+
+R10 = op1 + op2 -> 30000 + 5000  = 35000 -> n1 v1
+HEX                7530  + 1388  = 88b8
+R11 = op1 + op3 -> 30000 + 40000 = 70000 -> c1
+HEX                7530  + 9c40  = 1170(DEZ 4464)
+R12 = op4 - op2 -> 40000 - 5000  = 35000 -> n1 c1
+HEX                1387  - 1387  = ffff(DEZ 65535)
+R13 = op1 + op5 -> 30000 + -30000= 0     -> z1
+HEX                7530  + 8ad0  = 0000
+R14 = op3 + op5 -> 40000 + -30000= 10000 -> c1 v1
+                   9c40  + 8ad0  = 2710
+Register Adressierung 
+overflows
+n -> negativ
+c -> carrybit
+v -> owerflow
+z -> zero
+
+Aufgabe 4: work 3
+
+Schreiben Sie ein Unterprogramm, das zwei 16 Bit Zahlen addiert. Die Zahlen stehen
+direkt im Speicher. Das Unterprogramm soll beim Aufruf in R0 einen Pointer auf den
+ersten Operanden, in R1 einen Pointer auf den zweiten Operanden erhalten. Das Resultat wird als Wert in R2 zurückgeliefert. Ausser R2 und den Flags soll das UP keine Register zerstören.Nutzen Sie Ihr Programm 4 mal, um die Werte in R10, R11, R13 und R14 zu berechnen.
+
+Aufgabe 5 : work4
+
+Unterprogramme für 32 Bit Arithmetik erstellen. Dazu legen Sie zunächst zwei 32 Bit Variablen an, die Sie auf die Werte 120000 und 75000 initialisieren.
+Hier legen Sie eben einfach zwei 16 Bit Werte hintereinander in den Speicher. Ganz little Endian mäßig kommen zuerst die unteren 16 Bit, dann die oberen. Das sieht dann so aus:
+MyVar32 DW  (120000 AND 0xFFFF) ;untere 16 Bit
+        DW  (120000 SHR 16)     ;obere 16 Bit
+
+Schreiben Sie ein Unterprogramm "add32", das zwei 32 Bit Zahlen addiert. Es erhält die Pointer wie in Aufgabe 4 und liefert das Resultat in R2 (untere 16 Bit) und R3 (obere 16Bit) zurück. Ausser R2, R3 und den Flags soll es ebenfalls keine Register zerstören.
+Rufen Sie das UP mit den beiden Variablen auf und berechnen Sie 120000 + 75000.
+Abschliessend kopieren Sie Ihr UP und modifizieren die Kopie zu "sub32", das zwei 32 BitZahlen, bei gleicher Aufruf-Struktur subtrahiert.
+Berechnen Sie zusätzlich 120000 - 75000 und 75000 - 120000 und geben Sie die Hex-
+Resultate der 3 Rechnungen in der Ausarbeitung an.
+
+

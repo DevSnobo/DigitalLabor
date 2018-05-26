@@ -1,0 +1,18 @@
+@carry 2;
+
+module compare
+
+title '8 bit bus interface magnitude comparator';
+
+    a7..a0    pin;
+    b7..b0    pin;
+    aeqb      pin istype 'com';
+
+    a = [a7..a0];
+    b = [b7..b0];
+
+Equations
+
+    aeqb = (a == b);
+
+END

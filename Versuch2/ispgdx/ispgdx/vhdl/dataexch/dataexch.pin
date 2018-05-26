@@ -1,0 +1,262 @@
+Signal Name                               I/O cell Name 
+
+busDdata_31_                              C0
+
+busDdata_30_                              D0
+
+busDdata_29_                              A32
+
+busDdata_28_                              B0
+
+busDdata_27_                              C1
+
+busDdata_26_                              D1
+
+busDdata_25_                              A33
+
+busDdata_24_                              B1
+
+busDdata_23_                              C2
+
+busDdata_22_                              D2
+
+busDdata_21_                              A34
+
+busDdata_20_                              B2
+
+busDdata_19_                              C3
+
+busDdata_18_                              D3
+
+busDdata_17_                              A35
+
+busDdata_16_                              B3
+
+busDdata_15_                              C4
+
+busDdata_14_                              D4
+
+busDdata_13_                              A36
+
+busDdata_12_                              B4
+
+busDdata_11_                              C5
+
+busDdata_10_                              D5
+
+busDdata_9_                               A37
+
+busDdata_8_                               B5
+
+busDdata_7_                               C6
+
+busDdata_6_                               D6
+
+busDdata_5_                               A38
+
+busDdata_4_                               B6
+
+busDdata_3_                               C7
+
+busDdata_2_                               D7
+
+busDdata_1_                               A39
+
+busDdata_0_                               B7
+
+busCdata_31_                              C8
+
+busCdata_30_                              D8
+
+busCdata_29_                              B8
+
+busCdata_28_                              B9
+
+busCdata_27_                              C9
+
+busCdata_26_                              D9
+
+busCdata_25_                              B10
+
+busCdata_24_                              B11
+
+busCdata_23_                              C10
+
+busCdata_22_                              D10
+
+busCdata_21_                              B12
+
+busCdata_20_                              B13
+
+busCdata_19_                              C11
+
+busCdata_18_                              D11
+
+busCdata_17_                              B14
+
+busCdata_16_                              B15
+
+busCdata_15_                              C12
+
+busCdata_14_                              D12
+
+busCdata_13_                              B16
+
+busCdata_12_                              B17
+
+busCdata_11_                              C13
+
+busCdata_10_                              D13
+
+busCdata_9_                               B18
+
+busCdata_8_                               B19
+
+busCdata_7_                               C14
+
+busCdata_6_                               D14
+
+busCdata_5_                               B20
+
+busCdata_4_                               B21
+
+busCdata_3_                               C15
+
+busCdata_2_                               D15
+
+busCdata_1_                               B22
+
+busCdata_0_                               B23
+
+busBdata_31_                              C16
+
+busBdata_30_                              D16
+
+busBdata_29_                              B24
+
+busBdata_28_                              B25
+
+busBdata_27_                              C17
+
+busBdata_26_                              D17
+
+busBdata_25_                              B26
+
+busBdata_24_                              B27
+
+busBdata_23_                              C18
+
+busBdata_22_                              D18
+
+busBdata_21_                              B28
+
+busBdata_20_                              B29
+
+busBdata_19_                              C19
+
+busBdata_18_                              D19
+
+busBdata_17_                              B30
+
+busBdata_16_                              B31
+
+busBdata_15_                              C20
+
+busBdata_14_                              D20
+
+busBdata_13_                              B32
+
+busBdata_12_                              B33
+
+busBdata_11_                              C21
+
+busBdata_10_                              D21
+
+busBdata_9_                               B34
+
+busBdata_8_                               B35
+
+busBdata_7_                               C22
+
+busBdata_6_                               D22
+
+busBdata_5_                               B36
+
+busBdata_4_                               B37
+
+busBdata_3_                               C23
+
+busBdata_2_                               D23
+
+busBdata_1_                               B38
+
+busBdata_0_                               B39
+
+busAdata_31_                              A0
+
+busAdata_30_                              A1
+
+busAdata_29_                              A2
+
+busAdata_28_                              A3
+
+busAdata_27_                              A4
+
+busAdata_26_                              A5
+
+busAdata_25_                              A6
+
+busAdata_24_                              A7
+
+busAdata_23_                              A8
+
+busAdata_22_                              A9
+
+busAdata_21_                              A10
+
+busAdata_20_                              A11
+
+busAdata_19_                              A12
+
+busAdata_18_                              A13
+
+busAdata_17_                              A14
+
+busAdata_16_                              A15
+
+busAdata_15_                              A16
+
+busAdata_14_                              A17
+
+busAdata_13_                              A18
+
+busAdata_12_                              A19
+
+busAdata_11_                              A20
+
+busAdata_10_                              A21
+
+busAdata_9_                               A22
+
+busAdata_8_                               A23
+
+busAdata_7_                               A24
+
+busAdata_6_                               A25
+
+busAdata_5_                               A26
+
+busAdata_4_                               A27
+
+busAdata_3_                               A28
+
+busAdata_2_                               A29
+
+busAdata_1_                               A30
+
+busAdata_0_                               A31
+
+oe1                                       C25
+
+oe0                                       D25
+

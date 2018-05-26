@@ -1,0 +1,26 @@
+;C:\isptools\ispsys\examples\gal\braklite\CONTROL.wav - Save data for Waveform Viewer
+
+
+[NameRules]
+Language=VHDL
+LeadingInstancePrefix=No
+InstanceSeparator=^
+BusParentheses=[:]
+
+[Waves]
+Count=12
+Net0=CLK
+Net1=OE
+Net2=RBI
+Net3=LBI
+Net4=LB0
+Net5=LB1
+Net6=LB2
+Net7=LB3
+Net8=RB0
+Net9=RB1
+Net10=RB2
+Net11=RB3
+
+[Triggers]
+Count=0

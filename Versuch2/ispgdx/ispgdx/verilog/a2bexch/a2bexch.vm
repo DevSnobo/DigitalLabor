@@ -1,0 +1,285 @@
+//
+// Written by Synplify
+// Fri Dec 15 10:45:43 2000
+//
+// Source file index table:
+// Object locations will have the form <file>:<line>
+// file 0 "noname"
+// file 1 "\c:\data\magma_files\s_magma\magma10\synplify\lib\cpld\lattice.v "
+// file 2 "\c:\data\magma_files\s_magma\magma10\ispcpld\generic\verilog\synplify\generic.v "
+// file 3 "\c:\data\magma_~1\s_magma\magma10\ispcpld\examples\ispgdx\verilog\a2bexch\a2bexch.v "
+
+`timescale 100 ps/100 ps
+module BI_DIR (
+  O,
+  I0,
+  IO,
+  OE
+);
+output O;
+input I0;
+inout IO;
+input OE;
+wire O ;
+wire I0 ;
+wire IO ;
+wire OE ;
+wire true ;
+wire false ;
+  assign true = 1'b1;
+  assign false = 1'b0;
+  assign #(1)  IO = OE ? I0 : 1'bz;
+  assign #(1)  O = IO;
+endmodule /* BI_DIR */
+
+module IBUF (
+  O,
+  I0
+);
+output O;
+input I0;
+wire O ;
+wire I0 ;
+wire true ;
+wire false ;
+  assign #(1)  O = I0;
+  assign true = 1'b1;
+  assign false = 1'b0;
+endmodule /* IBUF */
+
+module INV (
+  O,
+  I0
+);
+output O;
+input I0;
+wire O ;
+wire I0 ;
+wire true ;
+wire false ;
+  assign #(1)  O = ~ I0;
+  assign true = 1'b1;
+  assign false = 1'b0;
+endmodule /* INV */
+
+module a2bexch (
+  busa,
+  busb,
+  oe0
+);
+inout [15:0] busa;
+inout [15:0] busb;
+input oe0;
+wire [15:0] busa;
+wire [15:0] busb;
+wire oe0 ;
+wire [15:0] busa_c;
+wire [15:0] busb_c;
+wire oe0_i_0 ;
+wire oe0_c ;
+wire GND ;
+wire VCC ;
+  BI_DIR \busa_Z[0]  (
+	.O(busa_c[0]),
+	.I0(busb_c[0]),
+	.IO(busa[0]),
+	.OE(oe0_c)
+);
+  BI_DIR \busa_Z[1]  (
+	.O(busa_c[1]),
+	.I0(busb_c[1]),
+	.IO(busa[1]),
+	.OE(oe0_c)
+);
+  BI_DIR \busa_Z[2]  (
+	.O(busa_c[2]),
+	.I0(busb_c[2]),
+	.IO(busa[2]),
+	.OE(oe0_c)
+);
+  BI_DIR \busa_Z[3]  (
+	.O(busa_c[3]),
+	.I0(busb_c[3]),
+	.IO(busa[3]),
+	.OE(oe0_c)
+);
+  BI_DIR \busa_Z[4]  (
+	.O(busa_c[4]),
+	.I0(busb_c[4]),
+	.IO(busa[4]),
+	.OE(oe0_c)
+);
+  BI_DIR \busa_Z[5]  (
+	.O(busa_c[5]),
+	.I0(busb_c[5]),
+	.IO(busa[5]),
+	.OE(oe0_c)
+);
+  BI_DIR \busa_Z[6]  (
+	.O(busa_c[6]),
+	.I0(busb_c[6]),
+	.IO(busa[6]),
+	.OE(oe0_c)
+);
+  BI_DIR \busa_Z[7]  (
+	.O(busa_c[7]),
+	.I0(busb_c[7]),
+	.IO(busa[7]),
+	.OE(oe0_c)
+);
+  BI_DIR \busa_Z[8]  (
+	.O(busa_c[8]),
+	.I0(busb_c[8]),
+	.IO(busa[8]),
+	.OE(oe0_c)
+);
+  BI_DIR \busa_Z[9]  (
+	.O(busa_c[9]),
+	.I0(busb_c[9]),
+	.IO(busa[9]),
+	.OE(oe0_c)
+);
+  BI_DIR \busa_Z[10]  (
+	.O(busa_c[10]),
+	.I0(busb_c[10]),
+	.IO(busa[10]),
+	.OE(oe0_c)
+);
+  BI_DIR \busa_Z[11]  (
+	.O(busa_c[11]),
+	.I0(busb_c[11]),
+	.IO(busa[11]),
+	.OE(oe0_c)
+);
+  BI_DIR \busa_Z[12]  (
+	.O(busa_c[12]),
+	.I0(busb_c[12]),
+	.IO(busa[12]),
+	.OE(oe0_c)
+);
+  BI_DIR \busa_Z[13]  (
+	.O(busa_c[13]),
+	.I0(busb_c[13]),
+	.IO(busa[13]),
+	.OE(oe0_c)
+);
+  BI_DIR \busa_Z[14]  (
+	.O(busa_c[14]),
+	.I0(busb_c[14]),
+	.IO(busa[14]),
+	.OE(oe0_c)
+);
+  BI_DIR \busa_Z[15]  (
+	.O(busa_c[15]),
+	.I0(busb_c[15]),
+	.IO(busa[15]),
+	.OE(oe0_c)
+);
+  BI_DIR \busb_Z[0]  (
+	.O(busb_c[0]),
+	.I0(busa_c[0]),
+	.IO(busb[0]),
+	.OE(oe0_i_0)
+);
+  BI_DIR \busb_Z[1]  (
+	.O(busb_c[1]),
+	.I0(busa_c[1]),
+	.IO(busb[1]),
+	.OE(oe0_i_0)
+);
+  BI_DIR \busb_Z[2]  (
+	.O(busb_c[2]),
+	.I0(busa_c[2]),
+	.IO(busb[2]),
+	.OE(oe0_i_0)
+);
+  BI_DIR \busb_Z[3]  (
+	.O(busb_c[3]),
+	.I0(busa_c[3]),
+	.IO(busb[3]),
+	.OE(oe0_i_0)
+);
+  BI_DIR \busb_Z[4]  (
+	.O(busb_c[4]),
+	.I0(busa_c[4]),
+	.IO(busb[4]),
+	.OE(oe0_i_0)
+);
+  BI_DIR \busb_Z[5]  (
+	.O(busb_c[5]),
+	.I0(busa_c[5]),
+	.IO(busb[5]),
+	.OE(oe0_i_0)
+);
+  BI_DIR \busb_Z[6]  (
+	.O(busb_c[6]),
+	.I0(busa_c[6]),
+	.IO(busb[6]),
+	.OE(oe0_i_0)
+);
+  BI_DIR \busb_Z[7]  (
+	.O(busb_c[7]),
+	.I0(busa_c[7]),
+	.IO(busb[7]),
+	.OE(oe0_i_0)
+);
+  BI_DIR \busb_Z[8]  (
+	.O(busb_c[8]),
+	.I0(busa_c[8]),
+	.IO(busb[8]),
+	.OE(oe0_i_0)
+);
+  BI_DIR \busb_Z[9]  (
+	.O(busb_c[9]),
+	.I0(busa_c[9]),
+	.IO(busb[9]),
+	.OE(oe0_i_0)
+);
+  BI_DIR \busb_Z[10]  (
+	.O(busb_c[10]),
+	.I0(busa_c[10]),
+	.IO(busb[10]),
+	.OE(oe0_i_0)
+);
+  BI_DIR \busb_Z[11]  (
+	.O(busb_c[11]),
+	.I0(busa_c[11]),
+	.IO(busb[11]),
+	.OE(oe0_i_0)
+);
+  BI_DIR \busb_Z[12]  (
+	.O(busb_c[12]),
+	.I0(busa_c[12]),
+	.IO(busb[12]),
+	.OE(oe0_i_0)
+);
+  BI_DIR \busb_Z[13]  (
+	.O(busb_c[13]),
+	.I0(busa_c[13]),
+	.IO(busb[13]),
+	.OE(oe0_i_0)
+);
+  BI_DIR \busb_Z[14]  (
+	.O(busb_c[14]),
+	.I0(busa_c[14]),
+	.IO(busb[14]),
+	.OE(oe0_i_0)
+);
+  BI_DIR \busb_Z[15]  (
+	.O(busb_c[15]),
+	.I0(busa_c[15]),
+	.IO(busb[15]),
+	.OE(oe0_i_0)
+);
+  IBUF oe0_Z (
+	.O(oe0_c),
+	.I0(oe0)
+);
+  INV oe0_i (
+	.O(oe0_i_0),
+	.I0(oe0_c)
+);
+  assign GND = 1'b0;
+  assign VCC = 1'b1;
+endmodule /* a2bexch */
+

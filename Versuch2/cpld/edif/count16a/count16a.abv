@@ -1,0 +1,46 @@
+Module count16a
+
+clock pin;
+reset pin;
+
+COUNT_0_ pin; " COUNT<0>
+COUNT_1_ pin; " COUNT<1>
+COUNT_2_ pin; " COUNT<2>
+COUNT_3_ pin; " COUNT<3>
+
+count = [COUNT_3_,COUNT_2_,COUNT_1_,COUNT_0_];
+
+C = .C.;
+
+Test_vectors
+
+([clock, reset] -> count);
+ [  0  ,   1  ] ->   0;
+ [  C  ,   0  ] ->   1;
+ [  C  ,   0  ] ->   2;
+ [  C  ,   0  ] ->   3;
+ [  C  ,   0  ] ->   4;
+ [  C  ,   0  ] ->   5;
+ [  C  ,   0  ] ->   6;
+ [  C  ,   0  ] ->   7;
+ [  C  ,   0  ] ->   8;
+ [  C  ,   0  ] ->   9;
+ [  C  ,   0  ] ->  10;
+ [  C  ,   0  ] ->  11;
+ [  C  ,   0  ] ->  12;
+ [  C  ,   0  ] ->  13;
+ [  C  ,   0  ] ->  14;
+ [  C  ,   0  ] ->  15;
+ [  C  ,   0  ] ->   0;
+ [  C  ,   0  ] ->   1;
+ [  C  ,   0  ] ->   2;
+ [  C  ,   0  ] ->   3;
+ [  C  ,   0  ] ->   4;
+ [  C  ,   0  ] ->   5;
+ [  C  ,   0  ] ->   6;
+ [  C  ,   1  ] ->   0;
+ [  C  ,   0  ] ->   1;
+ [  C  ,   0  ] ->   2;
+
+
+end;

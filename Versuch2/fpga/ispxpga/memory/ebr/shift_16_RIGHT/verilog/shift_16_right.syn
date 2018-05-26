@@ -1,0 +1,10 @@
+JDF B
+// Created by Version 5.0 
+PROJECT Untitled
+DESIGN shift_16_right Normal
+DEVKIT LFX125B-04F256CES/2X
+ENTRY Schematic/Verilog HDL
+MODULE shiftreg_16_RIGHT_Aclr_ALL.v
+MODSTYLE test Normal
+MODSTYLE shiftreg_16_RIGHT_Aclr_ALL Normal
+SYNTHESIS_TOOL Precision

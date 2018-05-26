@@ -1,0 +1,107 @@
+
+[Device]
+Family = lc4k;
+PartNumber = LC4256ZE-7TN100C;
+Package = 100TQFP;
+PartType = LC4256ZE;
+Speed = -7.5;
+Operating_condition = COM;
+Status = Production;
+
+[Revision]
+Parent = lc4k256e.lci;
+Design = ;
+DATE = 05/10/2010;
+TIME = 13:50:43;
+Source_Format = Schematic_VHDL;
+Synthesis = Synplify;
+
+[IGNORE ASSIGNMENTS]
+
+[CLEAR ASSIGNMENTS]
+
+[BACKANNOTATE ASSIGNMENTS]
+
+[GLOBAL CONSTRAINTS]
+
+[LOCATION ASSIGNMENTS]
+layer = OFF;
+
+[GROUP ASSIGNMENTS]
+layer = OFF;
+
+[RESOURCE RESERVATIONS]
+layer = OFF;
+
+[FITTER REPORT FORMAT]
+
+[POWER]
+
+[SOURCE CONSTRAINT OPTION]
+
+[Fast Bypass]
+
+[OSM Bypass]
+
+[INPUT REGISTERS]
+
+[NETLIST/DELAY FORMAT]
+
+[IO TYPES]
+layer = OFF;
+
+[PULLUP]
+
+[SLEWRATE]
+
+[opt global constraints list]
+
+[Explorer User Settings]
+
+[Pin attributes list]
+
+[individual constraints list]
+
+[global constraints list]
+
+[WAKEUP CONSTRAINTS LIST]
+
+[Attributes list setting]
+
+[Global Constraints Process Update]
+
+[pin lock limitation]
+
+[VHDL synplify constraints]
+
+[VHDL spectrum constraints]
+
+[verilog synplify constraints]
+
+[verilog spectrum constraints]
+
+[VHDL synplify constraints list]
+
+[VHDL spectrum constraints list]
+
+[verilog synplify constraints list]
+
+[verilog spectrum constraints list]
+
+[LOCATION ASSIGNMENTS LIST]
+
+[RESOURCE RESERVATIONS LIST]
+
+[Timing Analyzer]
+
+[PLL Assignments]
+
+[Dual Function Macrocell]
+
+[Explorer Results]
+
+[Power Guard]
+
+[ORP Bypass]
+
+[Register Powerup]

@@ -1,0 +1,56 @@
+#$ TOOL  ispLEVER Classic 1.6.00.07.29.12
+#$ DATE  Thu May 03 17:12:57 2018
+#$ MODULE  HARD_A7e
+#$ PROPERTY  LATTICE OSCTIMER i1= -, T1_i, -, takt, 1048576; 
+#$ PINS 10 q_3_ S1 S2 T1 rot gelb gruen q_2_ q_1_ q_0_
+#$ NODES 4 takt gnd_n_n T1_i M0_OSCOUT
+#$ EXTERNAL osctimer 4 DYNOSCDIS'i' TIMERRES'i' OSCOUT'o' TIMEROUT'o'
+#$ INSTANCE i1 OSCTIMER 4 gnd_n_n T1_i M0_OSCOUT takt
+.model hard_a7e 
+.inputs S1.BLIF S2.BLIF T1.BLIF takt.BLIF M0_OSCOUT.BLIF q_3_.Q q_2_.Q q_1_.Q \
+ q_0_.Q
+.outputs q_3_.D q_3_.C q_3_.AP rot gelb gruen q_2_.D q_2_.C q_2_.AP q_1_.D \
+ q_1_.C q_1_.AP q_0_.D q_0_.C q_0_.AP gnd_n_n T1_i
+.names q_3_.Q q_2_.Q q_1_.Q q_0_.Q q_3_.D
+0000 1
+11-- 1
+1-1- 1
+1--1 1
+.names takt.BLIF q_3_.C
+1 1
+.names S1.BLIF q_3_.AP
+1 1
+.names S2.BLIF q_3_.Q q_2_.Q q_1_.Q rot
+1-00 1
+10-- 1
+.names S2.BLIF q_3_.Q q_2_.Q q_1_.Q gelb
+1000 1
+-101 1
+0--1 1
+.names S2.BLIF q_3_.Q q_2_.Q gruen
+111 1
+.names q_2_.Q q_1_.Q q_0_.Q q_2_.D
+000 1
+11- 1
+1-1 1
+.names takt.BLIF q_2_.C
+1 1
+.names S1.BLIF q_2_.AP
+1 1
+.names q_1_.Q q_0_.Q q_1_.D
+11 1
+00 1
+.names takt.BLIF q_1_.C
+1 1
+.names S1.BLIF q_1_.AP
+1 1
+.names q_0_.Q q_0_.D
+0 1
+.names takt.BLIF q_0_.C
+1 1
+.names S1.BLIF q_0_.AP
+1 1
+.names gnd_n_n
+.names T1.BLIF T1_i
+0 1
+.end

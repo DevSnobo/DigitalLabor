@@ -1,0 +1,11 @@
+JDF B
+// Created by Version 5.0 
+PROJECT Untitled
+DESIGN pll Normal
+DEVKIT LFX125B-04F256CES/2X
+ENTRY Schematic/VHDL
+MODULE standardpll.vhd
+MODSTYLE standardpll Normal
+MODULE top.vhd
+MODSTYLE top Normal
+SYNTHESIS_TOOL Precision

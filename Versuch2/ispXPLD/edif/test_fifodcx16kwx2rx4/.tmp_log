@@ -1,0 +1,12 @@
+Memory Configuration: 1X1 RAMBFIFO16KA_WX2_RX4
+Start logic expansion on design l_fifodcx_lpm_fifo_dcx_2_4_13_ .....
+Logic expansion on design l_fifodcx_lpm_fifo_dcx_2_4_13_ is successfully done.
+
+
+    Output file : l_fifodcx_lpm_fifo_dcx_2_4_13_.edif
+
+    Output file : lpm_module.include
+
+    Output file : l_fifodcx_lpm_fifo_dcx_2_4_13_.v
+
+    Output testbench : l_fifodcx_lpm_fifo_dcx_2_4_13__Tb.v

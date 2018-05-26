@@ -1,0 +1,6 @@
+
+
+MODULE test_ramdps16kwx2rx2
+
+	SUBMODULE L_RAMDPS
+		INSTANCE U0

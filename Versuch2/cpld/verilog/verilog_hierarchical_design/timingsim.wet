@@ -1,0 +1,7 @@
+Wave sel
+Wave r_l
+Wave clk
+Wave rst
+Wave a[7:0]
+Wave b[7:0]
+Wave q[7:0]

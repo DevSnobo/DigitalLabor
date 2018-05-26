@@ -1,0 +1,9 @@
+ 16-bit Data Exchange from A-bus to B-bus;
+
+ dataA0 to dataA15 are A-bus bidirectional signals;
+ dataB0 to dataB15 are B-bus bidirectional signals;
+
+ oe0 is an enable signal that controls A-bus and B-bus;
+
+ Data goes from A-bus to B-bus if oe0 is low (0);
+ Data goes from B-bus to A-bus if oe0 is high (1);

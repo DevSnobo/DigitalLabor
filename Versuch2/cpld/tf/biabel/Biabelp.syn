@@ -1,0 +1,13 @@
+JDF B
+// Created by Version 1.3 
+PROJECT Bidirectional ABEL file
+DESIGN biabelp Normal
+DEVKIT LC4256ZE-5TN100C
+ENTRY ABEL/Schematic
+TESTFIXTURE ver_sim.tf
+DOCUMENT drawing.doc
+MODULE biabel.abl
+MODSTYLE biabel Normal
+SYNTHESIS_TOOL Synplify
+SIMULATOR_TOOL ActiveHDL
+TOPMODULE biabel

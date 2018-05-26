@@ -1,0 +1,765 @@
+--
+-- Written by Synplicity
+-- Wed Sep 20 16:52:19 2000
+--
+
+--
+library ieee;
+use ieee.std_logic_1164.all;
+library synplify;
+use synplify.components.all;
+entity BI_DIR is
+port(
+  O :  out std_logic;
+  I0 :  in std_logic;
+  IO :  inout std_logic;
+  OE :  in std_logic);
+end BI_DIR;
+
+architecture beh of BI_DIR is
+  signal NN_1 : std_logic ;
+  signal NN_2 : std_logic ;
+begin
+  NN_1 <= '1';
+  NN_2 <= '0';
+  IO <= I0 after 100 ps when OE = '1' else 'Z' after 100 ps;
+  O <= IO;
+end beh;
+
+--
+library ieee;
+use ieee.std_logic_1164.all;
+library synplify;
+use synplify.components.all;
+entity IBUF is
+port(
+  O :  out std_logic;
+  I0 :  in std_logic);
+end IBUF;
+
+architecture beh of IBUF is
+  signal NN_1 : std_logic ;
+  signal NN_2 : std_logic ;
+begin
+  O <= I0;
+  NN_1 <= '1';
+  NN_2 <= '0';
+end beh;
+
+--
+library ieee;
+use ieee.std_logic_1164.all;
+library synplify;
+use synplify.components.all;
+entity INV is
+port(
+  O :  out std_logic;
+  I0 :  in std_logic);
+end INV;
+
+architecture beh of INV is
+  signal NN_1 : std_logic ;
+  signal NN_2 : std_logic ;
+begin
+  O <= not I0;
+  NN_1 <= '1';
+  NN_2 <= '0';
+end beh;
+
+--
+library ieee;
+use ieee.std_logic_1164.all;
+library synplify;
+use synplify.components.all;
+entity dataexch is
+port(
+  busAdata : inout std_logic_vector(31 downto 0);
+  busBdata : inout std_logic_vector(31 downto 0);
+  busCdata : inout std_logic_vector(31 downto 0);
+  busDdata : inout std_logic_vector(31 downto 0);
+  oe0 :  in std_logic;
+  oe1 :  in std_logic);
+end dataexch;
+
+architecture beh of dataexch is
+  signal BUSADATA_C : std_logic_vector(31 downto 0);
+  signal BUSBDATA_C : std_logic_vector(31 downto 0);
+  signal BUSCDATA_C : std_logic_vector(31 downto 0);
+  signal BUSDDATA_C : std_logic_vector(31 downto 0);
+  signal OE1_I : std_logic ;
+  signal OE0_I : std_logic ;
+  signal OE0_C : std_logic ;
+  signal OE1_C : std_logic ;
+  signal GND : std_logic ;
+  signal VCC : std_logic ;
+  component BI_DIR
+    port(O :  out std_logic;
+    I0 :  in std_logic;
+    IO :  inout std_logic;
+    OE :  in std_logic  );
+  end component;
+  component IBUF
+    port(O :  out std_logic;
+    I0 :  in std_logic  );
+  end component;
+  component INV
+    port(O :  out std_logic;
+    I0 :  in std_logic  );
+  end component;
+begin
+  \II_BUSADATA[0]\: BI_DIR port map (
+    O => BUSADATA_C(0),
+    I0 => BUSBDATA_C(0),
+    IO => busAdata(0),
+    OE => OE0_C);
+  \II_BUSADATA[1]\: BI_DIR port map (
+    O => BUSADATA_C(1),
+    I0 => BUSBDATA_C(1),
+    IO => busAdata(1),
+    OE => OE0_C);
+  \II_BUSADATA[2]\: BI_DIR port map (
+    O => BUSADATA_C(2),
+    I0 => BUSBDATA_C(2),
+    IO => busAdata(2),
+    OE => OE0_C);
+  \II_BUSADATA[3]\: BI_DIR port map (
+    O => BUSADATA_C(3),
+    I0 => BUSBDATA_C(3),
+    IO => busAdata(3),
+    OE => OE0_C);
+  \II_BUSADATA[4]\: BI_DIR port map (
+    O => BUSADATA_C(4),
+    I0 => BUSBDATA_C(4),
+    IO => busAdata(4),
+    OE => OE0_C);
+  \II_BUSADATA[5]\: BI_DIR port map (
+    O => BUSADATA_C(5),
+    I0 => BUSBDATA_C(5),
+    IO => busAdata(5),
+    OE => OE0_C);
+  \II_BUSADATA[6]\: BI_DIR port map (
+    O => BUSADATA_C(6),
+    I0 => BUSBDATA_C(6),
+    IO => busAdata(6),
+    OE => OE0_C);
+  \II_BUSADATA[7]\: BI_DIR port map (
+    O => BUSADATA_C(7),
+    I0 => BUSBDATA_C(7),
+    IO => busAdata(7),
+    OE => OE0_C);
+  \II_BUSADATA[8]\: BI_DIR port map (
+    O => BUSADATA_C(8),
+    I0 => BUSBDATA_C(8),
+    IO => busAdata(8),
+    OE => OE0_C);
+  \II_BUSADATA[9]\: BI_DIR port map (
+    O => BUSADATA_C(9),
+    I0 => BUSBDATA_C(9),
+    IO => busAdata(9),
+    OE => OE0_C);
+  \II_BUSADATA[10]\: BI_DIR port map (
+    O => BUSADATA_C(10),
+    I0 => BUSBDATA_C(10),
+    IO => busAdata(10),
+    OE => OE0_C);
+  \II_BUSADATA[11]\: BI_DIR port map (
+    O => BUSADATA_C(11),
+    I0 => BUSBDATA_C(11),
+    IO => busAdata(11),
+    OE => OE0_C);
+  \II_BUSADATA[12]\: BI_DIR port map (
+    O => BUSADATA_C(12),
+    I0 => BUSBDATA_C(12),
+    IO => busAdata(12),
+    OE => OE0_C);
+  \II_BUSADATA[13]\: BI_DIR port map (
+    O => BUSADATA_C(13),
+    I0 => BUSBDATA_C(13),
+    IO => busAdata(13),
+    OE => OE0_C);
+  \II_BUSADATA[14]\: BI_DIR port map (
+    O => BUSADATA_C(14),
+    I0 => BUSBDATA_C(14),
+    IO => busAdata(14),
+    OE => OE0_C);
+  \II_BUSADATA[15]\: BI_DIR port map (
+    O => BUSADATA_C(15),
+    I0 => BUSBDATA_C(15),
+    IO => busAdata(15),
+    OE => OE0_C);
+  \II_BUSADATA[16]\: BI_DIR port map (
+    O => BUSADATA_C(16),
+    I0 => BUSBDATA_C(16),
+    IO => busAdata(16),
+    OE => OE0_C);
+  \II_BUSADATA[17]\: BI_DIR port map (
+    O => BUSADATA_C(17),
+    I0 => BUSBDATA_C(17),
+    IO => busAdata(17),
+    OE => OE0_C);
+  \II_BUSADATA[18]\: BI_DIR port map (
+    O => BUSADATA_C(18),
+    I0 => BUSBDATA_C(18),
+    IO => busAdata(18),
+    OE => OE0_C);
+  \II_BUSADATA[19]\: BI_DIR port map (
+    O => BUSADATA_C(19),
+    I0 => BUSBDATA_C(19),
+    IO => busAdata(19),
+    OE => OE0_C);
+  \II_BUSADATA[20]\: BI_DIR port map (
+    O => BUSADATA_C(20),
+    I0 => BUSBDATA_C(20),
+    IO => busAdata(20),
+    OE => OE0_C);
+  \II_BUSADATA[21]\: BI_DIR port map (
+    O => BUSADATA_C(21),
+    I0 => BUSBDATA_C(21),
+    IO => busAdata(21),
+    OE => OE0_C);
+  \II_BUSADATA[22]\: BI_DIR port map (
+    O => BUSADATA_C(22),
+    I0 => BUSBDATA_C(22),
+    IO => busAdata(22),
+    OE => OE0_C);
+  \II_BUSADATA[23]\: BI_DIR port map (
+    O => BUSADATA_C(23),
+    I0 => BUSBDATA_C(23),
+    IO => busAdata(23),
+    OE => OE0_C);
+  \II_BUSADATA[24]\: BI_DIR port map (
+    O => BUSADATA_C(24),
+    I0 => BUSBDATA_C(24),
+    IO => busAdata(24),
+    OE => OE0_C);
+  \II_BUSADATA[25]\: BI_DIR port map (
+    O => BUSADATA_C(25),
+    I0 => BUSBDATA_C(25),
+    IO => busAdata(25),
+    OE => OE0_C);
+  \II_BUSADATA[26]\: BI_DIR port map (
+    O => BUSADATA_C(26),
+    I0 => BUSBDATA_C(26),
+    IO => busAdata(26),
+    OE => OE0_C);
+  \II_BUSADATA[27]\: BI_DIR port map (
+    O => BUSADATA_C(27),
+    I0 => BUSBDATA_C(27),
+    IO => busAdata(27),
+    OE => OE0_C);
+  \II_BUSADATA[28]\: BI_DIR port map (
+    O => BUSADATA_C(28),
+    I0 => BUSBDATA_C(28),
+    IO => busAdata(28),
+    OE => OE0_C);
+  \II_BUSADATA[29]\: BI_DIR port map (
+    O => BUSADATA_C(29),
+    I0 => BUSBDATA_C(29),
+    IO => busAdata(29),
+    OE => OE0_C);
+  \II_BUSADATA[30]\: BI_DIR port map (
+    O => BUSADATA_C(30),
+    I0 => BUSBDATA_C(30),
+    IO => busAdata(30),
+    OE => OE0_C);
+  \II_BUSADATA[31]\: BI_DIR port map (
+    O => BUSADATA_C(31),
+    I0 => BUSBDATA_C(31),
+    IO => busAdata(31),
+    OE => OE0_C);
+  \II_BUSBDATA[0]\: BI_DIR port map (
+    O => BUSBDATA_C(0),
+    I0 => BUSADATA_C(0),
+    IO => busBdata(0),
+    OE => OE0_I);
+  \II_BUSBDATA[1]\: BI_DIR port map (
+    O => BUSBDATA_C(1),
+    I0 => BUSADATA_C(1),
+    IO => busBdata(1),
+    OE => OE0_I);
+  \II_BUSBDATA[2]\: BI_DIR port map (
+    O => BUSBDATA_C(2),
+    I0 => BUSADATA_C(2),
+    IO => busBdata(2),
+    OE => OE0_I);
+  \II_BUSBDATA[3]\: BI_DIR port map (
+    O => BUSBDATA_C(3),
+    I0 => BUSADATA_C(3),
+    IO => busBdata(3),
+    OE => OE0_I);
+  \II_BUSBDATA[4]\: BI_DIR port map (
+    O => BUSBDATA_C(4),
+    I0 => BUSADATA_C(4),
+    IO => busBdata(4),
+    OE => OE0_I);
+  \II_BUSBDATA[5]\: BI_DIR port map (
+    O => BUSBDATA_C(5),
+    I0 => BUSADATA_C(5),
+    IO => busBdata(5),
+    OE => OE0_I);
+  \II_BUSBDATA[6]\: BI_DIR port map (
+    O => BUSBDATA_C(6),
+    I0 => BUSADATA_C(6),
+    IO => busBdata(6),
+    OE => OE0_I);
+  \II_BUSBDATA[7]\: BI_DIR port map (
+    O => BUSBDATA_C(7),
+    I0 => BUSADATA_C(7),
+    IO => busBdata(7),
+    OE => OE0_I);
+  \II_BUSBDATA[8]\: BI_DIR port map (
+    O => BUSBDATA_C(8),
+    I0 => BUSADATA_C(8),
+    IO => busBdata(8),
+    OE => OE0_I);
+  \II_BUSBDATA[9]\: BI_DIR port map (
+    O => BUSBDATA_C(9),
+    I0 => BUSADATA_C(9),
+    IO => busBdata(9),
+    OE => OE0_I);
+  \II_BUSBDATA[10]\: BI_DIR port map (
+    O => BUSBDATA_C(10),
+    I0 => BUSADATA_C(10),
+    IO => busBdata(10),
+    OE => OE0_I);
+  \II_BUSBDATA[11]\: BI_DIR port map (
+    O => BUSBDATA_C(11),
+    I0 => BUSADATA_C(11),
+    IO => busBdata(11),
+    OE => OE0_I);
+  \II_BUSBDATA[12]\: BI_DIR port map (
+    O => BUSBDATA_C(12),
+    I0 => BUSADATA_C(12),
+    IO => busBdata(12),
+    OE => OE0_I);
+  \II_BUSBDATA[13]\: BI_DIR port map (
+    O => BUSBDATA_C(13),
+    I0 => BUSADATA_C(13),
+    IO => busBdata(13),
+    OE => OE0_I);
+  \II_BUSBDATA[14]\: BI_DIR port map (
+    O => BUSBDATA_C(14),
+    I0 => BUSADATA_C(14),
+    IO => busBdata(14),
+    OE => OE0_I);
+  \II_BUSBDATA[15]\: BI_DIR port map (
+    O => BUSBDATA_C(15),
+    I0 => BUSADATA_C(15),
+    IO => busBdata(15),
+    OE => OE0_I);
+  \II_BUSBDATA[16]\: BI_DIR port map (
+    O => BUSBDATA_C(16),
+    I0 => BUSADATA_C(16),
+    IO => busBdata(16),
+    OE => OE0_I);
+  \II_BUSBDATA[17]\: BI_DIR port map (
+    O => BUSBDATA_C(17),
+    I0 => BUSADATA_C(17),
+    IO => busBdata(17),
+    OE => OE0_I);
+  \II_BUSBDATA[18]\: BI_DIR port map (
+    O => BUSBDATA_C(18),
+    I0 => BUSADATA_C(18),
+    IO => busBdata(18),
+    OE => OE0_I);
+  \II_BUSBDATA[19]\: BI_DIR port map (
+    O => BUSBDATA_C(19),
+    I0 => BUSADATA_C(19),
+    IO => busBdata(19),
+    OE => OE0_I);
+  \II_BUSBDATA[20]\: BI_DIR port map (
+    O => BUSBDATA_C(20),
+    I0 => BUSADATA_C(20),
+    IO => busBdata(20),
+    OE => OE0_I);
+  \II_BUSBDATA[21]\: BI_DIR port map (
+    O => BUSBDATA_C(21),
+    I0 => BUSADATA_C(21),
+    IO => busBdata(21),
+    OE => OE0_I);
+  \II_BUSBDATA[22]\: BI_DIR port map (
+    O => BUSBDATA_C(22),
+    I0 => BUSADATA_C(22),
+    IO => busBdata(22),
+    OE => OE0_I);
+  \II_BUSBDATA[23]\: BI_DIR port map (
+    O => BUSBDATA_C(23),
+    I0 => BUSADATA_C(23),
+    IO => busBdata(23),
+    OE => OE0_I);
+  \II_BUSBDATA[24]\: BI_DIR port map (
+    O => BUSBDATA_C(24),
+    I0 => BUSADATA_C(24),
+    IO => busBdata(24),
+    OE => OE0_I);
+  \II_BUSBDATA[25]\: BI_DIR port map (
+    O => BUSBDATA_C(25),
+    I0 => BUSADATA_C(25),
+    IO => busBdata(25),
+    OE => OE0_I);
+  \II_BUSBDATA[26]\: BI_DIR port map (
+    O => BUSBDATA_C(26),
+    I0 => BUSADATA_C(26),
+    IO => busBdata(26),
+    OE => OE0_I);
+  \II_BUSBDATA[27]\: BI_DIR port map (
+    O => BUSBDATA_C(27),
+    I0 => BUSADATA_C(27),
+    IO => busBdata(27),
+    OE => OE0_I);
+  \II_BUSBDATA[28]\: BI_DIR port map (
+    O => BUSBDATA_C(28),
+    I0 => BUSADATA_C(28),
+    IO => busBdata(28),
+    OE => OE0_I);
+  \II_BUSBDATA[29]\: BI_DIR port map (
+    O => BUSBDATA_C(29),
+    I0 => BUSADATA_C(29),
+    IO => busBdata(29),
+    OE => OE0_I);
+  \II_BUSBDATA[30]\: BI_DIR port map (
+    O => BUSBDATA_C(30),
+    I0 => BUSADATA_C(30),
+    IO => busBdata(30),
+    OE => OE0_I);
+  \II_BUSBDATA[31]\: BI_DIR port map (
+    O => BUSBDATA_C(31),
+    I0 => BUSADATA_C(31),
+    IO => busBdata(31),
+    OE => OE0_I);
+  \II_BUSCDATA[0]\: BI_DIR port map (
+    O => BUSCDATA_C(0),
+    I0 => BUSDDATA_C(0),
+    IO => busCdata(0),
+    OE => OE1_C);
+  \II_BUSCDATA[1]\: BI_DIR port map (
+    O => BUSCDATA_C(1),
+    I0 => BUSDDATA_C(1),
+    IO => busCdata(1),
+    OE => OE1_C);
+  \II_BUSCDATA[2]\: BI_DIR port map (
+    O => BUSCDATA_C(2),
+    I0 => BUSDDATA_C(2),
+    IO => busCdata(2),
+    OE => OE1_C);
+  \II_BUSCDATA[3]\: BI_DIR port map (
+    O => BUSCDATA_C(3),
+    I0 => BUSDDATA_C(3),
+    IO => busCdata(3),
+    OE => OE1_C);
+  \II_BUSCDATA[4]\: BI_DIR port map (
+    O => BUSCDATA_C(4),
+    I0 => BUSDDATA_C(4),
+    IO => busCdata(4),
+    OE => OE1_C);
+  \II_BUSCDATA[5]\: BI_DIR port map (
+    O => BUSCDATA_C(5),
+    I0 => BUSDDATA_C(5),
+    IO => busCdata(5),
+    OE => OE1_C);
+  \II_BUSCDATA[6]\: BI_DIR port map (
+    O => BUSCDATA_C(6),
+    I0 => BUSDDATA_C(6),
+    IO => busCdata(6),
+    OE => OE1_C);
+  \II_BUSCDATA[7]\: BI_DIR port map (
+    O => BUSCDATA_C(7),
+    I0 => BUSDDATA_C(7),
+    IO => busCdata(7),
+    OE => OE1_C);
+  \II_BUSCDATA[8]\: BI_DIR port map (
+    O => BUSCDATA_C(8),
+    I0 => BUSDDATA_C(8),
+    IO => busCdata(8),
+    OE => OE1_C);
+  \II_BUSCDATA[9]\: BI_DIR port map (
+    O => BUSCDATA_C(9),
+    I0 => BUSDDATA_C(9),
+    IO => busCdata(9),
+    OE => OE1_C);
+  \II_BUSCDATA[10]\: BI_DIR port map (
+    O => BUSCDATA_C(10),
+    I0 => BUSDDATA_C(10),
+    IO => busCdata(10),
+    OE => OE1_C);
+  \II_BUSCDATA[11]\: BI_DIR port map (
+    O => BUSCDATA_C(11),
+    I0 => BUSDDATA_C(11),
+    IO => busCdata(11),
+    OE => OE1_C);
+  \II_BUSCDATA[12]\: BI_DIR port map (
+    O => BUSCDATA_C(12),
+    I0 => BUSDDATA_C(12),
+    IO => busCdata(12),
+    OE => OE1_C);
+  \II_BUSCDATA[13]\: BI_DIR port map (
+    O => BUSCDATA_C(13),
+    I0 => BUSDDATA_C(13),
+    IO => busCdata(13),
+    OE => OE1_C);
+  \II_BUSCDATA[14]\: BI_DIR port map (
+    O => BUSCDATA_C(14),
+    I0 => BUSDDATA_C(14),
+    IO => busCdata(14),
+    OE => OE1_C);
+  \II_BUSCDATA[15]\: BI_DIR port map (
+    O => BUSCDATA_C(15),
+    I0 => BUSDDATA_C(15),
+    IO => busCdata(15),
+    OE => OE1_C);
+  \II_BUSCDATA[16]\: BI_DIR port map (
+    O => BUSCDATA_C(16),
+    I0 => BUSDDATA_C(16),
+    IO => busCdata(16),
+    OE => OE1_C);
+  \II_BUSCDATA[17]\: BI_DIR port map (
+    O => BUSCDATA_C(17),
+    I0 => BUSDDATA_C(17),
+    IO => busCdata(17),
+    OE => OE1_C);
+  \II_BUSCDATA[18]\: BI_DIR port map (
+    O => BUSCDATA_C(18),
+    I0 => BUSDDATA_C(18),
+    IO => busCdata(18),
+    OE => OE1_C);
+  \II_BUSCDATA[19]\: BI_DIR port map (
+    O => BUSCDATA_C(19),
+    I0 => BUSDDATA_C(19),
+    IO => busCdata(19),
+    OE => OE1_C);
+  \II_BUSCDATA[20]\: BI_DIR port map (
+    O => BUSCDATA_C(20),
+    I0 => BUSDDATA_C(20),
+    IO => busCdata(20),
+    OE => OE1_C);
+  \II_BUSCDATA[21]\: BI_DIR port map (
+    O => BUSCDATA_C(21),
+    I0 => BUSDDATA_C(21),
+    IO => busCdata(21),
+    OE => OE1_C);
+  \II_BUSCDATA[22]\: BI_DIR port map (
+    O => BUSCDATA_C(22),
+    I0 => BUSDDATA_C(22),
+    IO => busCdata(22),
+    OE => OE1_C);
+  \II_BUSCDATA[23]\: BI_DIR port map (
+    O => BUSCDATA_C(23),
+    I0 => BUSDDATA_C(23),
+    IO => busCdata(23),
+    OE => OE1_C);
+  \II_BUSCDATA[24]\: BI_DIR port map (
+    O => BUSCDATA_C(24),
+    I0 => BUSDDATA_C(24),
+    IO => busCdata(24),
+    OE => OE1_C);
+  \II_BUSCDATA[25]\: BI_DIR port map (
+    O => BUSCDATA_C(25),
+    I0 => BUSDDATA_C(25),
+    IO => busCdata(25),
+    OE => OE1_C);
+  \II_BUSCDATA[26]\: BI_DIR port map (
+    O => BUSCDATA_C(26),
+    I0 => BUSDDATA_C(26),
+    IO => busCdata(26),
+    OE => OE1_C);
+  \II_BUSCDATA[27]\: BI_DIR port map (
+    O => BUSCDATA_C(27),
+    I0 => BUSDDATA_C(27),
+    IO => busCdata(27),
+    OE => OE1_C);
+  \II_BUSCDATA[28]\: BI_DIR port map (
+    O => BUSCDATA_C(28),
+    I0 => BUSDDATA_C(28),
+    IO => busCdata(28),
+    OE => OE1_C);
+  \II_BUSCDATA[29]\: BI_DIR port map (
+    O => BUSCDATA_C(29),
+    I0 => BUSDDATA_C(29),
+    IO => busCdata(29),
+    OE => OE1_C);
+  \II_BUSCDATA[30]\: BI_DIR port map (
+    O => BUSCDATA_C(30),
+    I0 => BUSDDATA_C(30),
+    IO => busCdata(30),
+    OE => OE1_C);
+  \II_BUSCDATA[31]\: BI_DIR port map (
+    O => BUSCDATA_C(31),
+    I0 => BUSDDATA_C(31),
+    IO => busCdata(31),
+    OE => OE1_C);
+  \II_BUSDDATA[0]\: BI_DIR port map (
+    O => BUSDDATA_C(0),
+    I0 => BUSCDATA_C(0),
+    IO => busDdata(0),
+    OE => OE1_I);
+  \II_BUSDDATA[1]\: BI_DIR port map (
+    O => BUSDDATA_C(1),
+    I0 => BUSCDATA_C(1),
+    IO => busDdata(1),
+    OE => OE1_I);
+  \II_BUSDDATA[2]\: BI_DIR port map (
+    O => BUSDDATA_C(2),
+    I0 => BUSCDATA_C(2),
+    IO => busDdata(2),
+    OE => OE1_I);
+  \II_BUSDDATA[3]\: BI_DIR port map (
+    O => BUSDDATA_C(3),
+    I0 => BUSCDATA_C(3),
+    IO => busDdata(3),
+    OE => OE1_I);
+  \II_BUSDDATA[4]\: BI_DIR port map (
+    O => BUSDDATA_C(4),
+    I0 => BUSCDATA_C(4),
+    IO => busDdata(4),
+    OE => OE1_I);
+  \II_BUSDDATA[5]\: BI_DIR port map (
+    O => BUSDDATA_C(5),
+    I0 => BUSCDATA_C(5),
+    IO => busDdata(5),
+    OE => OE1_I);
+  \II_BUSDDATA[6]\: BI_DIR port map (
+    O => BUSDDATA_C(6),
+    I0 => BUSCDATA_C(6),
+    IO => busDdata(6),
+    OE => OE1_I);
+  \II_BUSDDATA[7]\: BI_DIR port map (
+    O => BUSDDATA_C(7),
+    I0 => BUSCDATA_C(7),
+    IO => busDdata(7),
+    OE => OE1_I);
+  \II_BUSDDATA[8]\: BI_DIR port map (
+    O => BUSDDATA_C(8),
+    I0 => BUSCDATA_C(8),
+    IO => busDdata(8),
+    OE => OE1_I);
+  \II_BUSDDATA[9]\: BI_DIR port map (
+    O => BUSDDATA_C(9),
+    I0 => BUSCDATA_C(9),
+    IO => busDdata(9),
+    OE => OE1_I);
+  \II_BUSDDATA[10]\: BI_DIR port map (
+    O => BUSDDATA_C(10),
+    I0 => BUSCDATA_C(10),
+    IO => busDdata(10),
+    OE => OE1_I);
+  \II_BUSDDATA[11]\: BI_DIR port map (
+    O => BUSDDATA_C(11),
+    I0 => BUSCDATA_C(11),
+    IO => busDdata(11),
+    OE => OE1_I);
+  \II_BUSDDATA[12]\: BI_DIR port map (
+    O => BUSDDATA_C(12),
+    I0 => BUSCDATA_C(12),
+    IO => busDdata(12),
+    OE => OE1_I);
+  \II_BUSDDATA[13]\: BI_DIR port map (
+    O => BUSDDATA_C(13),
+    I0 => BUSCDATA_C(13),
+    IO => busDdata(13),
+    OE => OE1_I);
+  \II_BUSDDATA[14]\: BI_DIR port map (
+    O => BUSDDATA_C(14),
+    I0 => BUSCDATA_C(14),
+    IO => busDdata(14),
+    OE => OE1_I);
+  \II_BUSDDATA[15]\: BI_DIR port map (
+    O => BUSDDATA_C(15),
+    I0 => BUSCDATA_C(15),
+    IO => busDdata(15),
+    OE => OE1_I);
+  \II_BUSDDATA[16]\: BI_DIR port map (
+    O => BUSDDATA_C(16),
+    I0 => BUSCDATA_C(16),
+    IO => busDdata(16),
+    OE => OE1_I);
+  \II_BUSDDATA[17]\: BI_DIR port map (
+    O => BUSDDATA_C(17),
+    I0 => BUSCDATA_C(17),
+    IO => busDdata(17),
+    OE => OE1_I);
+  \II_BUSDDATA[18]\: BI_DIR port map (
+    O => BUSDDATA_C(18),
+    I0 => BUSCDATA_C(18),
+    IO => busDdata(18),
+    OE => OE1_I);
+  \II_BUSDDATA[19]\: BI_DIR port map (
+    O => BUSDDATA_C(19),
+    I0 => BUSCDATA_C(19),
+    IO => busDdata(19),
+    OE => OE1_I);
+  \II_BUSDDATA[20]\: BI_DIR port map (
+    O => BUSDDATA_C(20),
+    I0 => BUSCDATA_C(20),
+    IO => busDdata(20),
+    OE => OE1_I);
+  \II_BUSDDATA[21]\: BI_DIR port map (
+    O => BUSDDATA_C(21),
+    I0 => BUSCDATA_C(21),
+    IO => busDdata(21),
+    OE => OE1_I);
+  \II_BUSDDATA[22]\: BI_DIR port map (
+    O => BUSDDATA_C(22),
+    I0 => BUSCDATA_C(22),
+    IO => busDdata(22),
+    OE => OE1_I);
+  \II_BUSDDATA[23]\: BI_DIR port map (
+    O => BUSDDATA_C(23),
+    I0 => BUSCDATA_C(23),
+    IO => busDdata(23),
+    OE => OE1_I);
+  \II_BUSDDATA[24]\: BI_DIR port map (
+    O => BUSDDATA_C(24),
+    I0 => BUSCDATA_C(24),
+    IO => busDdata(24),
+    OE => OE1_I);
+  \II_BUSDDATA[25]\: BI_DIR port map (
+    O => BUSDDATA_C(25),
+    I0 => BUSCDATA_C(25),
+    IO => busDdata(25),
+    OE => OE1_I);
+  \II_BUSDDATA[26]\: BI_DIR port map (
+    O => BUSDDATA_C(26),
+    I0 => BUSCDATA_C(26),
+    IO => busDdata(26),
+    OE => OE1_I);
+  \II_BUSDDATA[27]\: BI_DIR port map (
+    O => BUSDDATA_C(27),
+    I0 => BUSCDATA_C(27),
+    IO => busDdata(27),
+    OE => OE1_I);
+  \II_BUSDDATA[28]\: BI_DIR port map (
+    O => BUSDDATA_C(28),
+    I0 => BUSCDATA_C(28),
+    IO => busDdata(28),
+    OE => OE1_I);
+  \II_BUSDDATA[29]\: BI_DIR port map (
+    O => BUSDDATA_C(29),
+    I0 => BUSCDATA_C(29),
+    IO => busDdata(29),
+    OE => OE1_I);
+  \II_BUSDDATA[30]\: BI_DIR port map (
+    O => BUSDDATA_C(30),
+    I0 => BUSCDATA_C(30),
+    IO => busDdata(30),
+    OE => OE1_I);
+  \II_BUSDDATA[31]\: BI_DIR port map (
+    O => BUSDDATA_C(31),
+    I0 => BUSCDATA_C(31),
+    IO => busDdata(31),
+    OE => OE1_I);
+  II_OE0: IBUF port map (
+    O => OE0_C,
+    I0 => oe0);
+  II_OE1: IBUF port map (
+    O => OE1_C,
+    I0 => oe1);
+  II_OE1_I: INV port map (
+    O => OE1_I,
+    I0 => OE1_C);
+  II_OE0_I: INV port map (
+    O => OE0_I,
+    I0 => OE0_C);
+  GND <= '0';
+  VCC <= '1';
+end beh;
+

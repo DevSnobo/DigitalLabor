@@ -1,0 +1,170 @@
+// Node Statistic Information File
+// Tool:  ispLEVER Classic 1.6.00.07.29.12
+// Design 'hard_a2e' created   Thu May 03 14:34:01 2018
+
+// Fmax Logic Level: 1.
+
+// Path: q_3_.Q
+//    -> q_3_.D
+
+// Signal Name: q_3_.D
+// Type: Output_reg
+BEGIN q_3_.D
+Fanin Number		4
+Pterm Number		4
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		1
+Fanin Output    	q_3_.Q              	4
+Fanin Output    	q_2_.Q              	3
+Fanin Output    	q_1_.Q              	2
+Fanin Output    	q_0_.Q              	1
+END
+
+// Signal Name: q_3_.C
+// Type: Output_reg
+BEGIN q_3_.C
+Fanin Number		1
+Pterm Number		1
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		N/A
+Fanin Input     	takt.BLIF           	0
+END
+
+// Signal Name: q_3_.AP
+// Type: Output_reg
+BEGIN q_3_.AP
+Fanin Number		1
+Pterm Number		1
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		N/A
+Fanin Input     	S1.BLIF             	0
+END
+
+// Signal Name: q_2_.D
+// Type: Output_reg
+BEGIN q_2_.D
+Fanin Number		3
+Pterm Number		3
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		1
+Fanin Output    	q_2_.Q              	3
+Fanin Output    	q_1_.Q              	2
+Fanin Output    	q_0_.Q              	1
+END
+
+// Signal Name: q_2_.C
+// Type: Output_reg
+BEGIN q_2_.C
+Fanin Number		1
+Pterm Number		1
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		N/A
+Fanin Input     	takt.BLIF           	0
+END
+
+// Signal Name: q_2_.AP
+// Type: Output_reg
+BEGIN q_2_.AP
+Fanin Number		1
+Pterm Number		1
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		N/A
+Fanin Input     	S1.BLIF             	0
+END
+
+// Signal Name: q_1_.D
+// Type: Output_reg
+BEGIN q_1_.D
+Fanin Number		2
+Pterm Number		2
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		1
+Fanin Output    	q_1_.Q              	2
+Fanin Output    	q_0_.Q              	1
+END
+
+// Signal Name: q_1_.C
+// Type: Output_reg
+BEGIN q_1_.C
+Fanin Number		1
+Pterm Number		1
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		N/A
+Fanin Input     	takt.BLIF           	0
+END
+
+// Signal Name: q_1_.AP
+// Type: Output_reg
+BEGIN q_1_.AP
+Fanin Number		1
+Pterm Number		1
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		N/A
+Fanin Input     	S1.BLIF             	0
+END
+
+// Signal Name: q_0_.D
+// Type: Output_reg
+BEGIN q_0_.D
+Fanin Number		1
+Pterm Number		1
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		1
+Fanin Output    	q_0_.Q              	1
+END
+
+// Signal Name: q_0_.C
+// Type: Output_reg
+BEGIN q_0_.C
+Fanin Number		1
+Pterm Number		1
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		N/A
+Fanin Input     	takt.BLIF           	0
+END
+
+// Signal Name: q_0_.AP
+// Type: Output_reg
+BEGIN q_0_.AP
+Fanin Number		1
+Pterm Number		1
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		N/A
+Fanin Input     	S1.BLIF             	0
+END
+
+// Signal Name: gnd_n_n
+// Type: Node
+BEGIN gnd_n_n
+Fanin Number		0
+Pterm Number		0
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		N/A
+END
+
+// Signal Name: T1_i
+// Type: Node
+BEGIN T1_i
+Fanin Number		1
+Pterm Number		1
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		N/A
+Fanin Input     	T1.BLIF             	0
+END
+
+// Design 'hard_a2e' used clock signal list:
+

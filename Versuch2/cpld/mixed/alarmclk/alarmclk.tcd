@@ -1,0 +1,8 @@
+//This is a sample batch command file fir the "alarmclk" design.
+
+showset pi
+longest pi po
+longest showalrm display_0_
+report alarmclk.trp
+showset clock
+quit

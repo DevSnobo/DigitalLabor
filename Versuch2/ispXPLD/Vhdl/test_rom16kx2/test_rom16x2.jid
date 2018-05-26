@@ -1,0 +1,2 @@
+. test_rom16kx2 test_rom16kx2.vhd c:\isptools\ispcpld\examples\ispxpld\vhdl\test_rom16kx2\test_rom16kx2.vhd
+U0 L_ROM  c:\isptools\ispcpld\examples\ispxpld\vhdl\test_rom16kx2\

@@ -1,0 +1,12 @@
+CAM Configuration: 1X1 CAM128X48C
+Start logic expansion on design l_cam_lpm_cam_48_128_7_cam_ini .....
+Logic expansion on design l_cam_lpm_cam_48_128_7_cam_ini is successfully done.
+
+
+    Output file : l_cam_lpm_cam_48_128_7_cam_ini.edif
+
+    Output file : lpm_module.include
+
+    Output file : l_cam_lpm_cam_48_128_7_cam_ini.v
+
+    Output testbench : l_cam_lpm_cam_48_128_7_cam_ini_Tb.v

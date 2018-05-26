@@ -1,0 +1,9 @@
+JDF B
+// Created by Version 5.0 
+PROJECT Untitled
+DESIGN stdpll Normal
+DEVKIT LFX125B-04F256CES/2X
+ENTRY EDIF
+MODULE standardpll.edf
+MODSTYLE standardpll Normal
+SYNTHESIS_TOOL Precision

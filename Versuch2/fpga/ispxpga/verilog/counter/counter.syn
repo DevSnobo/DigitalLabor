@@ -1,0 +1,10 @@
+JDF B
+// Created by Version 5.0 
+PROJECT Untitled
+DESIGN counter Normal
+DEVKIT LFX125B-04F256CES/2X
+ENTRY Schematic/Verilog HDL
+TESTFIXTURE count_tb.tf
+MODULE count.v
+MODSTYLE count Normal
+SYNTHESIS_TOOL Precision

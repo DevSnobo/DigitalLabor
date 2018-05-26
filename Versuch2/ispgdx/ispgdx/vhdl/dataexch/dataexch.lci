@@ -1,0 +1,80 @@
+
+[Device]
+Family = gdx;
+PartNumber = ispGDX160VA-5Q208;
+Package = 208PQFP;
+PartType = ispGDX160VA;
+Speed = -5;
+Operating_condition = COM;
+Status = Production;
+
+[Revision]
+Parent = gdxbase.lci;
+Design = ;
+DATE = 01/04/2001;
+TIME = 18:08:32;
+Source_Format = Schematic_VHDL;
+
+[IGNORE ASSIGNMENTS]
+
+[CLEAR ASSIGNMENTS]
+
+[BACKANNOTATE ASSIGNMENTS]
+
+[GLOBAL CONSTRAINTS]
+
+[LOCATION ASSIGNMENTS]
+layer = OFF;
+
+[GROUP ASSIGNMENTS]
+layer = OFF;
+
+[RESOURCE RESERVATIONS]
+layer = OFF;
+
+[FITTER REPORT FORMAT]
+
+[POWER]
+
+[SOURCE CONSTRAINT OPTION]
+
+[FAST BYPASS]
+
+[OSM BYPASS]
+
+[INPUT REGISTERS]
+
+[NETLIST/DELAY FORMAT]
+
+[IO TYPES]
+layer = OFF;
+
+[PULLUP]
+
+[SLEWRATE]
+
+[GLOBAL PROJECT OPTIMIZATION]
+
+[OPTIMIZATION OPTIONS]
+
+[FITTER GLOBAL OPTIONS]
+
+[LOCATION ASSIGNMENT]
+
+[GROUP ASSIGNMENT]
+
+[SPACE RESERVATIONS]
+
+[PIN RESERVATIONS]
+
+[Pin Attributes List]
+
+[Pull]
+
+[Hardware Device Options]
+
+[Timing Analyzer]
+
+[Backannotate Netlist]
+
+[global constraints list]

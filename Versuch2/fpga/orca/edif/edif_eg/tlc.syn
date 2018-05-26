@@ -1,0 +1,9 @@
+JDF B
+// Created by Version 5.1 
+PROJECT Untitled
+DESIGN tlc Normal
+DEVKIT or4e04-3BA352C
+ENTRY EDIF
+MODULE tlc.edn
+MODSTYLE top Normal
+SYNTHESIS_TOOL Precision

@@ -1,0 +1,6 @@
+
+
+MODULE test_cam128x48
+
+	SUBMODULE L_CAM
+		INSTANCE U0

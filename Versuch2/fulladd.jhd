@@ -1,0 +1,10 @@
+
+
+MODULE fulladd_ent
+
+	SUBMODULE or2_ent
+		INSTANCE or2
+
+	SUBMODULE halfadd_ent
+		INSTANCE ha1
+		INSTANCE ha2

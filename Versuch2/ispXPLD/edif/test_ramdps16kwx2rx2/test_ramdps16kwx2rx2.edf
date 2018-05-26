@@ -1,0 +1,425 @@
+(edif test_ramdps16kwx2rx2 
+ (edifVersion 2 0 0)
+ (edifLevel 0)
+ (keywordMap (keywordLevel 0))
+ (status 
+  (written 
+   (timestamp 2002 11 08 02 13 03)
+   (program "LeonardoSpectrum for Lattice" (version "2002e.14_OEM_Lattice"))
+   (author "Exemplar Logic Inc")))
+ (external PRIMITIVES 
+  (edifLevel 0)
+  (technology (numberDefinition )))
+ (external ispXPLD5000MX 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell OBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port O (direction OUTPUT)
+      (property pad (string "T"))))))
+  (cell IBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT)
+      (property pad (string "T")))
+     (port O (direction OUTPUT))))))
+ (library work 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell L_RAMDPS_LPM_RAM_DP_PSEUDO_2_2_16384_14_14_16384_REGISTERED_UNREGISTERED_REGISTERED_REGISTERED_UNUSED_RAM_init (cellType GENERIC)
+   (view INTERFACE  (viewType NETLIST)
+    (interface 
+     (port (array (rename Q "Q(1:0)") 2 )(direction OUTPUT))
+     (port (array (rename Data "Data(1:0)") 2 )(direction INPUT))
+     (port (array (rename WrAddress "WrAddress(13:0)") 14 )(direction INPUT))
+     (port (array (rename RdAddress "RdAddress(13:0)") 14 )(direction INPUT))
+     (port WrClock (direction INPUT))
+     (port WrClockEn (direction INPUT))
+     (port RdClock (direction INPUT))
+     (port RdClockEn (direction INPUT))
+     (port WE (direction INPUT))
+     (port Reset (direction INPUT)))
+    (property lpm_type (string "LPM_RAM_DP_PSEUDO"))
+    (property lpm_widthw (string "2"))
+    (property lpm_widthr (string "2"))
+    (property lpm_numwordsw (string "16384"))
+    (property lpm_widthadw (string "14"))
+    (property lpm_widthadr (string "14"))
+    (property lpm_numwordsr (string "16384"))
+    (property lpm_indata (string "REGISTERED"))
+    (property lpm_outdata (string "UNREGISTERED"))
+    (property lpm_addressw_control (string "REGISTERED"))
+    (property lpm_addressr_control (string "REGISTERED"))
+    (property lpm_init_file (string "RAM_init"))))
+  (cell test_ramdps16kwx2rx2 (cellType GENERIC)
+   (view INTERFACE  (viewType NETLIST)
+    (interface 
+     (port (array (rename Q "Q(1:0)") 2 )(direction OUTPUT))
+     (port (array (rename Data "Data(1:0)") 2 )(direction INPUT))
+     (port (array (rename WrAddress "WrAddress(13:0)") 14 )(direction INPUT))
+     (port (array (rename RdAddress "RdAddress(13:0)") 14 )(direction INPUT))
+     (port WrClock (direction INPUT))
+     (port WrClockEn (direction INPUT))
+     (port RdClock (direction INPUT))
+     (port RdClockEn (direction INPUT))
+     (port WE (direction INPUT))
+     (port Reset (direction INPUT)))
+    (contents 
+     (instance U0 (viewRef INTERFACE  (cellRef L_RAMDPS_LPM_RAM_DP_PSEUDO_2_2_16384_14_14_16384_REGISTERED_UNREGISTERED_REGISTERED_REGISTERED_UNUSED_RAM_init ))
+      (property lpm_type (string "LPM_RAM_DP_PSEUDO"))
+      (property lpm_widthw (string "2"))
+      (property lpm_widthr (string "2"))
+      (property lpm_numwordsw (string "16384"))
+      (property lpm_widthadw (string "14"))
+      (property lpm_widthadr (string "14"))
+      (property lpm_numwordsr (string "16384"))
+      (property lpm_indata (string "REGISTERED"))
+      (property lpm_outdata (string "UNREGISTERED"))
+      (property lpm_addressw_control (string "REGISTERED"))
+      (property lpm_addressr_control (string "REGISTERED"))
+      (property lpm_init_file (string "RAM_init")))
+     (instance (rename io_Q_1_ "io_Q(1)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_Q_0_ "io_Q(0)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_Data_1_ "io_Data(1)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_Data_0_ "io_Data(0)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_WrAddress_13_ "io_WrAddress(13)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_WrAddress_12_ "io_WrAddress(12)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_WrAddress_11_ "io_WrAddress(11)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_WrAddress_10_ "io_WrAddress(10)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_WrAddress_9_ "io_WrAddress(9)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_WrAddress_8_ "io_WrAddress(8)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_WrAddress_7_ "io_WrAddress(7)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_WrAddress_6_ "io_WrAddress(6)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_WrAddress_5_ "io_WrAddress(5)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_WrAddress_4_ "io_WrAddress(4)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_WrAddress_3_ "io_WrAddress(3)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_WrAddress_2_ "io_WrAddress(2)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_WrAddress_1_ "io_WrAddress(1)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_WrAddress_0_ "io_WrAddress(0)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_RdAddress_13_ "io_RdAddress(13)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_RdAddress_12_ "io_RdAddress(12)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_RdAddress_11_ "io_RdAddress(11)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_RdAddress_10_ "io_RdAddress(10)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_RdAddress_9_ "io_RdAddress(9)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_RdAddress_8_ "io_RdAddress(8)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_RdAddress_7_ "io_RdAddress(7)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_RdAddress_6_ "io_RdAddress(6)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_RdAddress_5_ "io_RdAddress(5)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_RdAddress_4_ "io_RdAddress(4)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_RdAddress_3_ "io_RdAddress(3)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_RdAddress_2_ "io_RdAddress(2)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_RdAddress_1_ "io_RdAddress(1)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_RdAddress_0_ "io_RdAddress(0)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance io_WrClock (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance io_WrClockEn (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance io_RdClock (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance io_RdClockEn (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance io_WE (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance io_Reset (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (net (rename int_Q_1_ "int_Q(1)") 
+      (joined 
+       (portRef (member Q 0)(instanceRef U0 ))
+       (portRef I0 (instanceRef io_Q_1_ ))))
+     (net (rename int_Q_0_ "int_Q(0)") 
+      (joined 
+       (portRef (member Q 1)(instanceRef U0 ))
+       (portRef I0 (instanceRef io_Q_0_ ))))
+     (net (rename int_Data_1_ "int_Data(1)") 
+      (joined 
+       (portRef O (instanceRef io_Data_1_ ))
+       (portRef (member Data 0)(instanceRef U0 ))))
+     (net (rename int_Data_0_ "int_Data(0)") 
+      (joined 
+       (portRef O (instanceRef io_Data_0_ ))
+       (portRef (member Data 1)(instanceRef U0 ))))
+     (net (rename int_WrAddress_13_ "int_WrAddress(13)") 
+      (joined 
+       (portRef O (instanceRef io_WrAddress_13_ ))
+       (portRef (member WrAddress 0)(instanceRef U0 ))))
+     (net (rename int_WrAddress_12_ "int_WrAddress(12)") 
+      (joined 
+       (portRef O (instanceRef io_WrAddress_12_ ))
+       (portRef (member WrAddress 1)(instanceRef U0 ))))
+     (net (rename int_WrAddress_11_ "int_WrAddress(11)") 
+      (joined 
+       (portRef O (instanceRef io_WrAddress_11_ ))
+       (portRef (member WrAddress 2)(instanceRef U0 ))))
+     (net (rename int_WrAddress_10_ "int_WrAddress(10)") 
+      (joined 
+       (portRef O (instanceRef io_WrAddress_10_ ))
+       (portRef (member WrAddress 3)(instanceRef U0 ))))
+     (net (rename int_WrAddress_9_ "int_WrAddress(9)") 
+      (joined 
+       (portRef O (instanceRef io_WrAddress_9_ ))
+       (portRef (member WrAddress 4)(instanceRef U0 ))))
+     (net (rename int_WrAddress_8_ "int_WrAddress(8)") 
+      (joined 
+       (portRef O (instanceRef io_WrAddress_8_ ))
+       (portRef (member WrAddress 5)(instanceRef U0 ))))
+     (net (rename int_WrAddress_7_ "int_WrAddress(7)") 
+      (joined 
+       (portRef O (instanceRef io_WrAddress_7_ ))
+       (portRef (member WrAddress 6)(instanceRef U0 ))))
+     (net (rename int_WrAddress_6_ "int_WrAddress(6)") 
+      (joined 
+       (portRef O (instanceRef io_WrAddress_6_ ))
+       (portRef (member WrAddress 7)(instanceRef U0 ))))
+     (net (rename int_WrAddress_5_ "int_WrAddress(5)") 
+      (joined 
+       (portRef O (instanceRef io_WrAddress_5_ ))
+       (portRef (member WrAddress 8)(instanceRef U0 ))))
+     (net (rename int_WrAddress_4_ "int_WrAddress(4)") 
+      (joined 
+       (portRef O (instanceRef io_WrAddress_4_ ))
+       (portRef (member WrAddress 9)(instanceRef U0 ))))
+     (net (rename int_WrAddress_3_ "int_WrAddress(3)") 
+      (joined 
+       (portRef O (instanceRef io_WrAddress_3_ ))
+       (portRef (member WrAddress 10)(instanceRef U0 ))))
+     (net (rename int_WrAddress_2_ "int_WrAddress(2)") 
+      (joined 
+       (portRef O (instanceRef io_WrAddress_2_ ))
+       (portRef (member WrAddress 11)(instanceRef U0 ))))
+     (net (rename int_WrAddress_1_ "int_WrAddress(1)") 
+      (joined 
+       (portRef O (instanceRef io_WrAddress_1_ ))
+       (portRef (member WrAddress 12)(instanceRef U0 ))))
+     (net (rename int_WrAddress_0_ "int_WrAddress(0)") 
+      (joined 
+       (portRef O (instanceRef io_WrAddress_0_ ))
+       (portRef (member WrAddress 13)(instanceRef U0 ))))
+     (net (rename int_RdAddress_13_ "int_RdAddress(13)") 
+      (joined 
+       (portRef O (instanceRef io_RdAddress_13_ ))
+       (portRef (member RdAddress 0)(instanceRef U0 ))))
+     (net (rename int_RdAddress_12_ "int_RdAddress(12)") 
+      (joined 
+       (portRef O (instanceRef io_RdAddress_12_ ))
+       (portRef (member RdAddress 1)(instanceRef U0 ))))
+     (net (rename int_RdAddress_11_ "int_RdAddress(11)") 
+      (joined 
+       (portRef O (instanceRef io_RdAddress_11_ ))
+       (portRef (member RdAddress 2)(instanceRef U0 ))))
+     (net (rename int_RdAddress_10_ "int_RdAddress(10)") 
+      (joined 
+       (portRef O (instanceRef io_RdAddress_10_ ))
+       (portRef (member RdAddress 3)(instanceRef U0 ))))
+     (net (rename int_RdAddress_9_ "int_RdAddress(9)") 
+      (joined 
+       (portRef O (instanceRef io_RdAddress_9_ ))
+       (portRef (member RdAddress 4)(instanceRef U0 ))))
+     (net (rename int_RdAddress_8_ "int_RdAddress(8)") 
+      (joined 
+       (portRef O (instanceRef io_RdAddress_8_ ))
+       (portRef (member RdAddress 5)(instanceRef U0 ))))
+     (net (rename int_RdAddress_7_ "int_RdAddress(7)") 
+      (joined 
+       (portRef O (instanceRef io_RdAddress_7_ ))
+       (portRef (member RdAddress 6)(instanceRef U0 ))))
+     (net (rename int_RdAddress_6_ "int_RdAddress(6)") 
+      (joined 
+       (portRef O (instanceRef io_RdAddress_6_ ))
+       (portRef (member RdAddress 7)(instanceRef U0 ))))
+     (net (rename int_RdAddress_5_ "int_RdAddress(5)") 
+      (joined 
+       (portRef O (instanceRef io_RdAddress_5_ ))
+       (portRef (member RdAddress 8)(instanceRef U0 ))))
+     (net (rename int_RdAddress_4_ "int_RdAddress(4)") 
+      (joined 
+       (portRef O (instanceRef io_RdAddress_4_ ))
+       (portRef (member RdAddress 9)(instanceRef U0 ))))
+     (net (rename int_RdAddress_3_ "int_RdAddress(3)") 
+      (joined 
+       (portRef O (instanceRef io_RdAddress_3_ ))
+       (portRef (member RdAddress 10)(instanceRef U0 ))))
+     (net (rename int_RdAddress_2_ "int_RdAddress(2)") 
+      (joined 
+       (portRef O (instanceRef io_RdAddress_2_ ))
+       (portRef (member RdAddress 11)(instanceRef U0 ))))
+     (net (rename int_RdAddress_1_ "int_RdAddress(1)") 
+      (joined 
+       (portRef O (instanceRef io_RdAddress_1_ ))
+       (portRef (member RdAddress 12)(instanceRef U0 ))))
+     (net (rename int_RdAddress_0_ "int_RdAddress(0)") 
+      (joined 
+       (portRef O (instanceRef io_RdAddress_0_ ))
+       (portRef (member RdAddress 13)(instanceRef U0 ))))
+     (net int_WrClock 
+      (joined 
+       (portRef O (instanceRef io_WrClock ))
+       (portRef WrClock (instanceRef U0 ))))
+     (net int_WrClockEn 
+      (joined 
+       (portRef O (instanceRef io_WrClockEn ))
+       (portRef WrClockEn (instanceRef U0 ))))
+     (net int_RdClock 
+      (joined 
+       (portRef O (instanceRef io_RdClock ))
+       (portRef RdClock (instanceRef U0 ))))
+     (net int_RdClockEn 
+      (joined 
+       (portRef O (instanceRef io_RdClockEn ))
+       (portRef RdClockEn (instanceRef U0 ))))
+     (net int_WE 
+      (joined 
+       (portRef O (instanceRef io_WE ))
+       (portRef WE (instanceRef U0 ))))
+     (net int_Reset 
+      (joined 
+       (portRef O (instanceRef io_Reset ))
+       (portRef Reset (instanceRef U0 ))))
+     (net (rename Q_1_ "Q(1)") 
+      (joined 
+       (portRef (member Q 0))
+       (portRef O (instanceRef io_Q_1_ ))))
+     (net (rename Q_0_ "Q(0)") 
+      (joined 
+       (portRef (member Q 1))
+       (portRef O (instanceRef io_Q_0_ ))))
+     (net (rename Data_1_ "Data(1)") 
+      (joined 
+       (portRef (member Data 0))
+       (portRef I0 (instanceRef io_Data_1_ ))))
+     (net (rename Data_0_ "Data(0)") 
+      (joined 
+       (portRef (member Data 1))
+       (portRef I0 (instanceRef io_Data_0_ ))))
+     (net (rename WrAddress_13_ "WrAddress(13)") 
+      (joined 
+       (portRef (member WrAddress 0))
+       (portRef I0 (instanceRef io_WrAddress_13_ ))))
+     (net (rename WrAddress_12_ "WrAddress(12)") 
+      (joined 
+       (portRef (member WrAddress 1))
+       (portRef I0 (instanceRef io_WrAddress_12_ ))))
+     (net (rename WrAddress_11_ "WrAddress(11)") 
+      (joined 
+       (portRef (member WrAddress 2))
+       (portRef I0 (instanceRef io_WrAddress_11_ ))))
+     (net (rename WrAddress_10_ "WrAddress(10)") 
+      (joined 
+       (portRef (member WrAddress 3))
+       (portRef I0 (instanceRef io_WrAddress_10_ ))))
+     (net (rename WrAddress_9_ "WrAddress(9)") 
+      (joined 
+       (portRef (member WrAddress 4))
+       (portRef I0 (instanceRef io_WrAddress_9_ ))))
+     (net (rename WrAddress_8_ "WrAddress(8)") 
+      (joined 
+       (portRef (member WrAddress 5))
+       (portRef I0 (instanceRef io_WrAddress_8_ ))))
+     (net (rename WrAddress_7_ "WrAddress(7)") 
+      (joined 
+       (portRef (member WrAddress 6))
+       (portRef I0 (instanceRef io_WrAddress_7_ ))))
+     (net (rename WrAddress_6_ "WrAddress(6)") 
+      (joined 
+       (portRef (member WrAddress 7))
+       (portRef I0 (instanceRef io_WrAddress_6_ ))))
+     (net (rename WrAddress_5_ "WrAddress(5)") 
+      (joined 
+       (portRef (member WrAddress 8))
+       (portRef I0 (instanceRef io_WrAddress_5_ ))))
+     (net (rename WrAddress_4_ "WrAddress(4)") 
+      (joined 
+       (portRef (member WrAddress 9))
+       (portRef I0 (instanceRef io_WrAddress_4_ ))))
+     (net (rename WrAddress_3_ "WrAddress(3)") 
+      (joined 
+       (portRef (member WrAddress 10))
+       (portRef I0 (instanceRef io_WrAddress_3_ ))))
+     (net (rename WrAddress_2_ "WrAddress(2)") 
+      (joined 
+       (portRef (member WrAddress 11))
+       (portRef I0 (instanceRef io_WrAddress_2_ ))))
+     (net (rename WrAddress_1_ "WrAddress(1)") 
+      (joined 
+       (portRef (member WrAddress 12))
+       (portRef I0 (instanceRef io_WrAddress_1_ ))))
+     (net (rename WrAddress_0_ "WrAddress(0)") 
+      (joined 
+       (portRef (member WrAddress 13))
+       (portRef I0 (instanceRef io_WrAddress_0_ ))))
+     (net (rename RdAddress_13_ "RdAddress(13)") 
+      (joined 
+       (portRef (member RdAddress 0))
+       (portRef I0 (instanceRef io_RdAddress_13_ ))))
+     (net (rename RdAddress_12_ "RdAddress(12)") 
+      (joined 
+       (portRef (member RdAddress 1))
+       (portRef I0 (instanceRef io_RdAddress_12_ ))))
+     (net (rename RdAddress_11_ "RdAddress(11)") 
+      (joined 
+       (portRef (member RdAddress 2))
+       (portRef I0 (instanceRef io_RdAddress_11_ ))))
+     (net (rename RdAddress_10_ "RdAddress(10)") 
+      (joined 
+       (portRef (member RdAddress 3))
+       (portRef I0 (instanceRef io_RdAddress_10_ ))))
+     (net (rename RdAddress_9_ "RdAddress(9)") 
+      (joined 
+       (portRef (member RdAddress 4))
+       (portRef I0 (instanceRef io_RdAddress_9_ ))))
+     (net (rename RdAddress_8_ "RdAddress(8)") 
+      (joined 
+       (portRef (member RdAddress 5))
+       (portRef I0 (instanceRef io_RdAddress_8_ ))))
+     (net (rename RdAddress_7_ "RdAddress(7)") 
+      (joined 
+       (portRef (member RdAddress 6))
+       (portRef I0 (instanceRef io_RdAddress_7_ ))))
+     (net (rename RdAddress_6_ "RdAddress(6)") 
+      (joined 
+       (portRef (member RdAddress 7))
+       (portRef I0 (instanceRef io_RdAddress_6_ ))))
+     (net (rename RdAddress_5_ "RdAddress(5)") 
+      (joined 
+       (portRef (member RdAddress 8))
+       (portRef I0 (instanceRef io_RdAddress_5_ ))))
+     (net (rename RdAddress_4_ "RdAddress(4)") 
+      (joined 
+       (portRef (member RdAddress 9))
+       (portRef I0 (instanceRef io_RdAddress_4_ ))))
+     (net (rename RdAddress_3_ "RdAddress(3)") 
+      (joined 
+       (portRef (member RdAddress 10))
+       (portRef I0 (instanceRef io_RdAddress_3_ ))))
+     (net (rename RdAddress_2_ "RdAddress(2)") 
+      (joined 
+       (portRef (member RdAddress 11))
+       (portRef I0 (instanceRef io_RdAddress_2_ ))))
+     (net (rename RdAddress_1_ "RdAddress(1)") 
+      (joined 
+       (portRef (member RdAddress 12))
+       (portRef I0 (instanceRef io_RdAddress_1_ ))))
+     (net (rename RdAddress_0_ "RdAddress(0)") 
+      (joined 
+       (portRef (member RdAddress 13))
+       (portRef I0 (instanceRef io_RdAddress_0_ ))))
+     (net WrClock 
+      (joined 
+       (portRef WrClock )
+       (portRef I0 (instanceRef io_WrClock ))))
+     (net WrClockEn 
+      (joined 
+       (portRef WrClockEn )
+       (portRef I0 (instanceRef io_WrClockEn ))))
+     (net RdClock 
+      (joined 
+       (portRef RdClock )
+       (portRef I0 (instanceRef io_RdClock ))))
+     (net RdClockEn 
+      (joined 
+       (portRef RdClockEn )
+       (portRef I0 (instanceRef io_RdClockEn ))))
+     (net WE 
+      (joined 
+       (portRef WE )
+       (portRef I0 (instanceRef io_WE ))))
+     (net Reset 
+      (joined 
+       (portRef Reset )
+       (portRef I0 (instanceRef io_Reset ))))))))
+ (design test_ramdps16kwx2rx2 (cellRef test_ramdps16kwx2rx2 (libraryRef work ))))

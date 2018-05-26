@@ -1,0 +1,16 @@
+JDF B
+// Created by Version 1.3 
+PROJECT Simple 4x1 MUX - Mixed Sch/VHDL Design
+DESIGN mux4x1_mixed Normal
+DEVKIT LC4256ZE-5TN100C
+ENTRY Schematic/VHDL
+STIMULUS mux4x1.abv
+MODULE mux2x1.sch
+MODSTYLE mux2x1 Normal
+MODULE mux2x1vhd.vhd
+MODSTYLE mux2x1vhd Normal
+MODULE mux4x1.sch
+MODSTYLE mux4x1 Normal
+SYNTHESIS_TOOL Synplify
+SIMULATOR_TOOL ActiveHDL
+TOPMODULE mux4x1

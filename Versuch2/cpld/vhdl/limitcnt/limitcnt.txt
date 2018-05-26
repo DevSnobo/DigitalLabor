@@ -1,0 +1,20 @@
+LIMIT COUNTER
+
+This example is an extension of one  of the PREP benchmark circuits, PREP #2. The
+primary pieces of the design are a 4-bit  loadable counter, a comparator, and a 
+bidirectional bus interface. The bidirectional interface is implemented in the block
+called BUSIFC, and includes a 4-bit register to hold the value endo.  A new  value 
+can be written into the endo register by setting the csn and wen inputs low, and 
+placing the new value on the bidirectional bus.  The current value of endo can be 
+read back by setting csn low and wen high. This interface is capable of operating 
+asynchronously from the clock.The aeqb output of the COMPARE block will go high each
+ time that the value loaded into endo matches the current output of the counter, 
+causing the counter to reload it’s initial value, which is 1.
+
+Design Considerations illustrated by this example include:
+1. How to combine VHDL sources and schematic sources in a design hierarchy.
+2. How to implement both latch and register structures in synthesizable VHDL.
+3. Using both module-level and device-level testbenches in a design.
+4. How to handle bidirectional interfaces in VHDL testbenches.
+5. A very simple VHDL testbench (counttb.vhd).
+6. A complex, self-checking VHDL testbench (stimulus.vhd).

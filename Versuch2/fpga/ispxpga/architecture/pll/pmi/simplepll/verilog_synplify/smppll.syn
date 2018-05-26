@@ -1,0 +1,9 @@
+JDF B
+// Created by Version 6.0 
+PROJECT Untitled
+DESIGN smppll Normal
+DEVKIT LFX125B-04F256CES/2X
+ENTRY Schematic/Verilog HDL
+TESTFIXTURE tb_simpll.tf
+MODULE smp_pll.v
+SYNTHESIS_TOOL Synplify

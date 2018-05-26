@@ -1,0 +1,53 @@
+#-- Lattice Semiconductor Corporation Ltd.
+#-- Synplify OEM project file n:/digital labor\HARD_A4e.prj
+#-- Written on Thu May 03 16:00:17 2018
+
+
+#device options
+set_option -technology ispmach4000b
+
+#compilation/mapping options
+set_option -default_enum_encoding default
+set_option -symbolic_fsm_compiler true
+set_option -map_logic false
+set_option -max_terms_per_macrocell 16
+set_option -resource_sharing true
+
+#map options
+set_option -frequency 200
+set_option -fanin_limit 20
+set_option -auto_constrain_io true
+set_option -disable_io_insertion false
+set_option -compiler_compatible true
+
+#simulation options
+set_option -write_verilog false
+set_option -write_vhdl false
+
+#timing analysis options
+set_option -num_critical_paths 3
+set_option -num_startend_points 0
+
+#automatic place and route (vendor) options
+set_option -write_apr_constraint 1
+set_option -areadelay 0
+set_option -synthesis_onoff_pragma false
+
+#-- add_file options
+add_file -vhdl -lib work "./Versuch2-master/ampel_sn.vhd"
+add_file -vhdl -lib work "./Versuch2-master/zaehler.vhd"
+add_file -vhdl -lib work "zaehler_ampel.vhd"
+add_file -vhdl -lib work "hard_a4.vhd"
+
+#-- top module name
+set_option -top_module HARD_A4e
+
+#-- set result format/file last
+project -result_file "HARD_A4e.edi"
+
+#-- error message log file
+project -log_file hard_a4e.srf
+
+#-- run Synplify with 'arrange VHDL file'
+project -run hdl_info_gen -fileorder
+project -run

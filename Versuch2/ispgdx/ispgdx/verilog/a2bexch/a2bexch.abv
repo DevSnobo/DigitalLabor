@@ -1,0 +1,30 @@
+
+MODULE a2bexch
+
+" Inputs
+    oe0 pin;
+
+" Bidirs
+    busa_15_, busa_14_, busa_13_, busa_12_, busa_11_, busa_10_, busa_9_, busa_8_ pin;
+    busa_7_,  busa_6_,  busa_5_,  busa_4_,  busa_3_,  busa_2_,  busa_1_, busa_0_ pin;
+    busb_15_, busb_14_, busb_13_, busb_12_, busb_11_, busb_10_, busb_9_, busb_8_ pin;
+    busb_7_,  busb_6_,  busb_5_,  busb_4_,  busb_3_,  busb_2_,  busb_1_, busb_0_ pin;
+
+"set declaration
+     busA = [busa_15_,busa_14_,busa_13_,busa_12_,busa_11_,busa_10_,busa_9_,busa_8_,
+             busa_7_, busa_6_, busa_5_, busa_4_, busa_3_, busa_2_, busa_1_,busa_0_];
+     busB = [busb_15_,busb_14_,busb_13_,busb_12_,busb_11_,busb_10_,busb_9_,busb_8_,
+             busb_7_, busb_6_, busb_5_, busb_4_, busb_3_, busb_2_, busb_1_,busb_0_];
+"constant declaration
+     X = .X.;
+
+Test_vectors
+    ([oe0,   busA,   busB] -> [  busA,   busB])
+     [  0, ^h1234,      X] -> [     X, ^h1234];
+     [  0, ^hABCD,      X] -> [     X, ^hABCD];
+     [  1,      X, ^h9876] -> [^h9876,      X];
+     [  1,      X, ^h2468] -> [^h2468,      X];
+     [  0, ^h1F2D,      X] -> [     X, ^h1F2D];
+     [  1,      X, ^hEF54] -> [^hEF54,      X];
+     [  0, ^h8CD7,      X] -> [     X, ^h8CD7];
+End

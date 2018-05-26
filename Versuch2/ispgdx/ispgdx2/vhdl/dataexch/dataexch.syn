@@ -1,0 +1,11 @@
+JDF B
+//$Header: G:/synario/lev110/examples/cpld/ispGDX2/vhdl/dataexch/rcs/dataexch.syn 1.7 2003/11/26 02:04:09Z xqzhou Exp xqzhou $
+// Created by Version 2.0 
+PROJECT Dataexch
+DESIGN dataexch Normal
+DEVKIT LX256V-5F484C2R
+ENTRY Schematic/VHDL
+STIMULUS dataexch_tb.vhd
+MODULE dataexch.vhd
+MODSTYLE dataexch Normal
+SYNTHESIS_TOOL Synplify

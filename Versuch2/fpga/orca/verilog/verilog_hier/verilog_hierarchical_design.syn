@@ -1,0 +1,13 @@
+JDF B
+// Created by Version 4.0 
+PROJECT Untitled
+DESIGN verilog_hierarchical_design Normal
+DEVKIT OR4E02-1BA352C
+ENTRY Schematic/Verilog HDL
+TESTFIXTURE verilog_hierarchical_design_tb.tf
+MODULE verilog_hierarchical_design.v
+MODSTYLE rotate Normal
+MODSTYLE verilog_hierarchical_design Normal
+MODSTYLE mux Normal
+MODSTYLE reg8 Normal
+SYNTHESIS_TOOL Synplify

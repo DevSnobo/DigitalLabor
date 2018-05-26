@@ -1,0 +1,2 @@
+. test_ramdp8kx2x2 test_ramdp8kx2x2.edf c:\isptools\ispcpld\examples\ispxpld\edif\test_ramdp8kx2x2\test_ramdp8kx2x2.edf
+U0 L_RAMDP_LPM_RAM_DP_2_13_8192_2_13_8192_REGISTERED_UNREGISTERED_REGISTERED_REGISTERED_UNUSED_RAM_init  c:\isptools\ispcpld\examples\ispxpld\edif\test_ramdp8kx2x2\

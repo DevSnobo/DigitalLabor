@@ -1,0 +1,18 @@
+JDF B
+// Created by Version 1.3 
+PROJECT Prep-5 Arithmetic Circuit
+DESIGN prep_5 Normal
+DEVKIT LC4256ZE-5TN100C
+ENTRY ABEL/Schematic
+STIMULUS prep_5.abv
+MODULE mult4x4.abl
+MODSTYLE mult4x4 Normal
+MODULE prep5.sch
+MODSTYLE prep5 Normal
+MODULE add8.abl
+MODSTYLE add8 Normal
+MODULE p5_top.sch
+MODSTYLE p5_top Normal
+SYNTHESIS_TOOL Synplify
+SIMULATOR_TOOL ActiveHDL
+TOPMODULE p5_top

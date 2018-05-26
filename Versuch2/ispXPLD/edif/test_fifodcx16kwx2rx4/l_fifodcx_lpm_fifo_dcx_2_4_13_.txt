@@ -1,0 +1,44 @@
+l_fifodcx_lpm_fifo_dcx_2_4_13_ {
+   Input {
+        Data0;
+        Data1;
+        WrClock;
+        WrEn;
+        RdClock;
+        RdEn;
+        Reset;
+        RPReset;
+   }
+
+   Output {
+        Q0;
+        Q1;
+        Q2;
+        Q3;
+        Full;
+        Empty;
+        AlmostFull;
+        AlmostEmpty;
+   }
+
+   Attribute {
+
+     CellAttribute {
+     SC_WWidth : 2;
+     SC_WNumWords : 8192;
+     SC_RWidth : 4;
+     SC_RNumWords : 4096;
+     SC_FIFO_FULL_FLAG : 8191;
+     SC_FIFO_AMFULL_FLAG : 1;
+     SC_FIFO_AMEMPTY_FLAG : 1;
+   }
+
+     PinAttribute {
+        WrClock : Clock;
+        RdClock : Clock;
+   }
+
+  }
+
+ }
+

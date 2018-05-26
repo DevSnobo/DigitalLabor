@@ -1,0 +1,48 @@
+module prep1
+
+CLK, RST, S_L pin;
+S1,S0 pin;	//: in std_logic_vector (1 downto 0);
+
+// d0, d1, d2, d3 : in std_logic_vector (7 downto 0);
+d0_7_,d0_6_,d0_5_,d0_4_,d0_3_,d0_2_,d0_1_,d0_0_  pin;
+d1_7_,d1_6_,d1_5_,d1_4_,d1_3_,d1_2_,d1_1_,d1_0_  pin;
+d2_7_,d2_6_,d2_5_,d2_4_,d2_3_,d2_2_,d2_1_,d2_0_  pin;
+d3_7_,d3_6_,d3_5_,d3_4_,d3_3_,d3_2_,d3_1_,d3_0_  pin;
+
+"input set definition
+d0 = [d0_7_,d0_6_,d0_5_,d0_4_,d0_3_,d0_2_,d0_1_,d0_0_];
+d1 = [d1_7_,d1_6_,d1_5_,d1_4_,d1_3_,d1_2_,d1_1_,d1_0_];
+d2 = [d2_7_,d2_6_,d2_5_,d2_4_,d2_3_,d2_2_,d2_1_,d2_0_];
+d3 = [d3_7_,d3_6_,d3_5_,d3_4_,d3_3_,d3_2_,d3_1_,d3_0_];
+S  = [S1, S0];
+
+//q : out std_logic_vector (7 downto 0) 
+Q_7_,Q_6_,Q_5_,Q_4_,Q_3_,Q_2_,Q_1_,Q_0_  pin;
+
+"Output set definition
+Q = [Q_7_,Q_6_,Q_5_,Q_4_,Q_3_,Q_2_,Q_1_,Q_0_];
+
+test_vectors([S,[RST,S_L],d0,d1,d2,d3]->Q)
+cycle CLK (0, 500)(1,500);
+	   [^b00,^b10,^h00,^h00,^h00,^h00]->^h00;
+wait 1000; [^b00,^b10,^h00,^h00,^h00,^h00]->^h00;
+wait 1000; [^b00,^b10,^h11,^h22,^haa,^hff]->^h00;
+wait 1000; [^b01,^b00,^h11,^h22,^haa,^hff]->^h00; 
+wait 1000; [^b10,^b00,^h11,^h22,^haa,^hff]->^h00; 
+wait 1000; [^b11,^b00,^h11,^h22,^haa,^hff]->^h22; 
+wait 1000; [^b11,^b00,^hff,^h22,^haa,^hff]->^haa; 
+wait 1000; [^b00,^b00,^h11,^h22,^haa,^h01]->^hff;
+wait 1000; [^b00,^b00,^h01,^h22,^haa,^hff]->^hff; 
+wait 1000; [^b00,^b00,^h00,^h22,^haa,^hff]->^h11; 
+wait 1000; [^b11,^b01,^h11,^h22,^haa,^hff]->^h01; 
+wait 1000; [^b11,^b01,^h11,^h22,^haa,^hff]->^h02; 
+wait 1000; [^b11,^b01,^h11,^h22,^haa,^hff]->^h04; 
+wait 1000; [^b11,^b01,^h11,^h22,^haa,^hff]->^h08; 
+wait 1000; [^b11,^b01,^h11,^h22,^haa,^hff]->^h10; 
+wait 1000; [^b11,^b01,^h11,^h22,^haa,^hff]->^h20; 
+wait 1000; [^b11,^b01,^h11,^h22,^haa,^hff]->^h40; 
+wait 1000; [^b11,^b01,^h11,^h22,^haa,^hff]->^h80; 
+wait 1000; [^b11,^b01,^h11,^h22,^haa,^hff]->^h01; 
+wait 1000; [^b11,^b11,^h11,^h22,^haa,^hff]->^h00; 
+wait 1000;
+end;

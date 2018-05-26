@@ -1,0 +1,12 @@
+JDF B
+// Created by Version 1.3 
+PROJECT 4to1 mux & 8-bit register
+DESIGN prep_1 Normal
+DEVKIT LC4256ZE-5TN100C
+ENTRY Schematic/Verilog HDL
+STIMULUS prep1.abv
+MODULE prep1.v
+MODSTYLE prep1 Normal
+SYNTHESIS_TOOL Synplify
+SIMULATOR_TOOL ActiveHDL
+TOPMODULE prep1

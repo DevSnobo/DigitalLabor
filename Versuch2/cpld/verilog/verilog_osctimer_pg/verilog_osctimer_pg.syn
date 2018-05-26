@@ -1,0 +1,13 @@
+JDF B
+// Created by Version 2.1 
+PROJECT osctimer
+DESIGN verilog_osctimer_pg Normal
+DEVKIT LC4064ZE-4TN48C
+ENTRY Schematic/Verilog HDL
+STIMULUS tv_osc_pg.abv
+TESTFIXTURE tb_osc_pg.tf
+MODULE 4kze_osc_pg.v
+MODSTYLE pg_bus Normal
+MODSTYLE osc_pg_vlog Normal
+SYNTHESIS_TOOL Synplify
+TOPMODULE osc_pg_vlog

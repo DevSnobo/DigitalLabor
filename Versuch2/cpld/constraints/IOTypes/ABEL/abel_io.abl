@@ -1,0 +1,121 @@
+"**************************************
+"* ABEL source constraint example
+"* 	IO_Types Configuration
+"* Lattice Semiconductor Corporation
+"**************************************
+
+"ABEL syntax for Pin IO Type Configuration
+
+"LAT_IOTYPES([PinName],[Type],[DriveCurrent]);
+"
+"   TYPE: The following IO types are available
+"	---------------------------------------------
+"	IO_Type Names		VCCIO
+"	---------------------------------------------
+" 	** For IO pins **
+"	PCI,			3.3
+"	PCI-X,			3.3
+"	AGP_1X,			3.3
+"	SSTL3_I,		3.3
+"	SSTL3_II,		3.3
+"	SSTL2_I,		2.5
+"	SSTL2_II,		2.5
+"	HSTL_I,			1.5
+" 	HSTL_III,		1.5
+"	CTT33,			3.3
+"	CTT25,			2.5
+" 	GTL+,		        3.3, 2.5, 1.8, 1.5
+"	LVTTL,			3.3
+"	LVCMOS33,		3.3
+" 	LVCMOS33_OD,		3.3, 2.5, 1.8, 1.5
+"	LVCMOS25,		2.5
+" 	LVCMOS25_OD,		3.3, 2.5, 1.8, 1.5
+" 	LVCMOS18,		1.8
+"	LVCMOS18_OD,		3.3, 2.5, 1.8, 1.5
+" 	** For Clock Pins **
+"	LVDS,			3.3, 2.5, 1.8, 1.5
+"	LVPECL_S,		3.3, 2.5, 1.8, 1.5
+"	LVPECL_D,		3.3, 2.5, 1.8, 1.5
+
+"   DriveCurrent(mA) = 20, 16, 12, 8, 5, 4 or NONE(or -);
+"	NONE(or -): default setting or not applicable
+
+
+MODULE abel_io
+
+library 'lattice';
+
+md1..md0	pin;
+Din4..Din0	pin;
+Clk3..Clk0	pin;
+
+port19..port0	pin istype 'reg';
+
+Din = [Din4..Din0];
+portA = [port4..port0];
+portB = [port9..port5];
+portC = [port14..port10];
+portD = [port19..port15];
+Mode = [md1..md0];
+
+//-- The following IO types can not all be implemented at the same time
+//-- because all Banks (total 2) have already been used.
+//-- The default type (LVCMOS33) will be applied.
+
+// IO Types for input pins
+"LAT_IOTYPES(md0,PCI,NONE);
+"LAT_IOTYPES(md1,PCI_5V,-);
+"LAT_IOTYPES(Din0,LVTTL,NONE);
+"LAT_IOTYPES(Din1,LVTTL_5V,-);
+"LAT_IOTYPES(Din2,LVCMOS33,NONE);
+"LAT_IOTYPES(Din3,LVCMOS33_5V,-);
+"LAT_IOTYPES(Clk0,LVCMOS25,NONE);
+"LAT_IOTYPES(Clk1,LVCMOS25,-);
+"LAT_IOTYPES(Clk2,LVCMOS18,NONE);
+"LAT_IOTYPES(Clk3,LVCMOS18,-);
+
+// IO Types for output pins
+"LAT_IOTYPES(port0,PCI,NONE);
+"LAT_IOTYPES(port1,PCI,NONE);
+"LAT_IOTYPES(port2,PCI,NONE);
+"LAT_IOTYPES(port3,LVTTL,NONE);
+"LAT_IOTYPES(port4,LVTTL,NONE);
+"LAT_IOTYPES(port5,LVTTL,NONE);
+"LAT_IOTYPES(port6,LVTTL,NONE);
+LAT_IOTYPES(port7,LVCMOS33,-);
+LAT_IOTYPES(port8,LVCMOS33_OD,-);
+"LAT_IOTYPES(port9,LVCMOS25,-);
+"LAT_IOTYPES(port10,LVCMOS25_OD,-);
+"LAT_IOTYPES(port11,LVCMOS18_OD,-); 
+
+"LAT_IOTYPES(port12,PCI,NONE);
+"LAT_IOTYPES(port13,AGP_1X,NONE);
+"LAT_IOTYPES(port14,SSTL3_I,NONE);
+"LAT_IOTYPES(port15,SSTL3_II,NONE);
+"LAT_IOTYPES(port16,CTT33,NONE);
+"LAT_IOTYPES(port17,HSTL_III,NONE);
+"LAT_IOTYPES(port18,CTT25,NONE);
+"LAT_IOTYPES(port19,GTL+,NONE);
+
+
+equations
+
+when (Mode =='00') then
+	portA		= Din;
+	portA.clk	= Clk0;
+
+when (Mode =='01') then 
+	portB		= Din;
+	portB.clk	= Clk1;
+
+when (Mode =='10') then 
+	portC		= Din;
+	portC.clk	= Clk2;
+
+when (Mode =='11') then 
+	portD		= Din;
+	portD.clk	= Clk3;
+
+END 
+
+

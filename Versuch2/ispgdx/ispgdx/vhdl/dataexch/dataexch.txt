@@ -1,0 +1,14 @@
+ 32-bit Data Exchange from A-bus/C-bus to B-bus/D-bus;
+
+ dataA0 to dataA31 are A-bus bidirectional signals;
+ dataB0 to dataB31 are B-bus bidirectional signals;
+ dataC0 to dataC31 are C-bus bidirectional signals;
+ dataD0 to dataD31 are D-bus bidirectional signals;
+
+ oe0 is an enable signal that controls A-bus and B-bus;
+ oe1 is an enable signal that controls C-bus and D-bus;
+
+ Data goes from A-bus to B-bus if oe0 is low (0);
+ Data goes from B-bus to A-bus if oe0 is high (1);
+ Data goes from C-bus to D-bus if oe1 is low (0);
+ Data goes from D-bus to C-bus if oe1 is high (1);

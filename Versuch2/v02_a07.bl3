@@ -1,0 +1,102 @@
+#$ TOOL ispLEVER Classic 1.6.00.07.29.12
+#$ DATE Thu May 03 17:12:57 2018
+#$ PROPERTY LATTICE OSCTIMER i1= -, T1_i, -, takt, 1048576; 
+#$ MODULE v02_a07
+#$ PINS 10 q_3_ S1 S2 T1 rot gelb gruen q_2_ q_1_ q_0_
+#$ NODES 8 takt i2_z_tmp_0_ i2_z_tmp_1_ i2_z_tmp_2_ i2_z_tmp_3_ gnd_n_n T1_i \
+#  i1>OSCOUT
+#$ EXTERNAL osctimer  4 DYNOSCDIS'i'  TIMERRES'i'  OSCOUT'o'  TIMEROUT'o' 
+#$ INSTANCE i1 OSCTIMER 4 gnd_n_n T1_i i1>OSCOUT takt
+.model hard_a7e
+.inputs S1.BLIF S2.BLIF T1.BLIF takt.BLIF i2_z_tmp_0_.BLIF i2_z_tmp_1_.BLIF \
+i2_z_tmp_2_.BLIF i2_z_tmp_3_.BLIF i1>OSCOUT.BLIF
+.outputs q_3_ rot gelb gruen q_2_ q_1_ q_0_ i2_z_tmp_1_.D i2_z_tmp_1_.C \
+i2_z_tmp_1_.AR i2_z_tmp_2_.D i2_z_tmp_2_.C i2_z_tmp_2_.AR i2_z_tmp_3_.D \
+i2_z_tmp_3_.C i2_z_tmp_3_.AR i2_z_tmp_0_.D i2_z_tmp_0_.C i2_z_tmp_0_.AR \
+gnd_n_n T1_i
+.names gnd_n_n
+ 0
+.names T1.BLIF T1_i
+0 1
+1 0
+.names i2_z_tmp_3_.BLIF q_3_
+0 1
+1 0
+.names S2.BLIF i2_z_tmp_1_.BLIF i2_z_tmp_2_.BLIF i2_z_tmp_3_.BLIF rot
+111- 1
+1--1 1
+0--- 0
+--00 0
+-0-0 0
+.names S2.BLIF i2_z_tmp_1_.BLIF i2_z_tmp_2_.BLIF i2_z_tmp_3_.BLIF gelb
+1111 1
+-010 1
+00-- 1
+01-- 0
+1-0- 0
+10-1 0
+-1-0 0
+.names S2.BLIF i2_z_tmp_2_.BLIF i2_z_tmp_3_.BLIF gruen
+100 1
+-1- 0
+0-- 0
+--1 0
+.names i2_z_tmp_2_.BLIF q_2_
+0 1
+1 0
+.names i2_z_tmp_1_.BLIF q_1_
+0 1
+1 0
+.names i2_z_tmp_0_.BLIF q_0_
+0 1
+1 0
+.names i2_z_tmp_0_.BLIF i2_z_tmp_1_.BLIF i2_z_tmp_1_.D
+10 1
+01 1
+00 0
+11 0
+.names takt.BLIF i2_z_tmp_1_.C
+1 1
+0 0
+.names S1.BLIF i2_z_tmp_1_.AR
+1 1
+0 0
+.names i2_z_tmp_0_.BLIF i2_z_tmp_1_.BLIF i2_z_tmp_2_.BLIF i2_z_tmp_2_.D
+110 1
+-01 1
+0-1 1
+111 0
+-00 0
+0-0 0
+.names takt.BLIF i2_z_tmp_2_.C
+1 1
+0 0
+.names S1.BLIF i2_z_tmp_2_.AR
+1 1
+0 0
+.names i2_z_tmp_0_.BLIF i2_z_tmp_1_.BLIF i2_z_tmp_2_.BLIF i2_z_tmp_3_.BLIF \
+i2_z_tmp_3_.D
+1110 1
+--01 1
+-0-1 1
+0--1 1
+1111 0
+--00 0
+-0-0 0
+0--0 0
+.names takt.BLIF i2_z_tmp_3_.C
+1 1
+0 0
+.names S1.BLIF i2_z_tmp_3_.AR
+1 1
+0 0
+.names i2_z_tmp_0_.BLIF i2_z_tmp_0_.D
+0 1
+1 0
+.names takt.BLIF i2_z_tmp_0_.C
+1 1
+0 0
+.names S1.BLIF i2_z_tmp_0_.AR
+1 1
+0 0
+.end

@@ -1,0 +1,49 @@
+module sreg8w;
+interface (d7..d0,clk,rst,si,s_l -> q7..q0);
+title '8 bit wide shift register.
+       Tom Bowns   Data I/O Corporation  May 7th, 1993'
+
+"Constants
+    C,X = .c.,.x.;
+    
+"Inputs
+    d7..d0, clk, rst, s_l, si   pin;
+
+"Outputs
+    q7..q0  pin istype 'reg';
+
+"Sets
+    DATIN = [d7..d0];          "data input group
+    SHIFTDAT = [q6..q0,si];    "output data shifted left, with serial input
+    DATOUT = [q7..q0];         "output data group
+
+"Intermediate equations
+    LOAD = (s_l == 0);         "LOAD is when s_l is low
+    SHIFT = (s_l == 1);        "SHIFT is when s_l is high
+
+
+Equations
+
+    DATOUT :=  DATIN    &  LOAD     "Load in value if LOAD mode.
+            #  SHIFTDAT &  SHIFT;   "Shift data if SHIFT mode.
+
+    DATOUT.clk = clk;
+    DATOUT.ar = rst;
+
+
+   
+Test_vectors ([DATIN, clk , rst , s_l , si ] ->    DATOUT)
+              [  0  ,  0  ,  0  ,  0  ,  0 ] -> ^b00000000;
+              [  0  ,  C  ,  1  ,  0  ,  0 ] -> ^b00000000;
+              [  5  ,  C  ,  0  ,  0  ,  0 ] -> ^b00000101;
+              [  6  ,  C  ,  0  ,  0  ,  0 ] -> ^b00000110;
+              [  0  ,  C  ,  0  ,  1  ,  0 ] -> ^b00001100;
+              [  0  ,  C  ,  0  ,  1  ,  0 ] -> ^b00011000;
+              [  0  ,  C  ,  0  ,  1  ,  0 ] -> ^b00110000;
+              [  0  ,  C  ,  0  ,  1  ,  0 ] -> ^b01100000;
+              [  0  ,  C  ,  0  ,  1  ,  1 ] -> ^b11000001;
+              [  0  ,  C  ,  0  ,  1  ,  1 ] -> ^b10000011;
+              [  0  ,  C  ,  0  ,  1  ,  1 ] -> ^b00000111;
+
+
+End sreg8w

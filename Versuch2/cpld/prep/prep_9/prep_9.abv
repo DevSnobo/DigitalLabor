@@ -1,0 +1,34 @@
+module p9_top	
+
+A0..A15	pin;
+A, B, C, D, E, F, G, H	pin;
+AS, CLK, BE, EXT_RESET	pin;
+
+OUT = [A,B,C,D,E,F,G,H,BE];
+ADD = [A15,A14,A13,A12,A11,A10,A9,A8,A7,A6,A5,A4,A3,A2,A1,A0];
+
+c,x,k,z	=.c.,.x.,.k.,.z.;
+
+test_vectors
+	([EXT_RESET,ADD,AS,CLK] -> [OUT])
+	[1,^hF000,0,c]	->	[x];
+	[0,^hF000,1,c]	->	[x];
+	[0,^hEFFF,0,c]	->	[x];
+	[0,^hEFFF,1,c]	->	[x];
+	[0,^hE7FF,0,c]	->	[x];
+	[0,^hE7FF,1,c]	->	[x];
+	[0,^hE3FF,0,c]	->	[x];
+	[0,^hE3FF,1,c]	->	[x];
+	[0,^hE2FF,0,c]	->	[x];
+	[0,^hE2FF,1,c]	->	[x];
+	[0,^hE2BF,0,c]	->	[x];
+	[0,^hE2BF,1,c]	->	[x];
+	[0,^hE2AF,0,c]	->	[x];
+	[0,^hE2AF,1,c]	->	[x];
+	[0,^hE2AB,0,c]	->	[x];
+	[0,^hE2AB,1,c]	->	[x];
+	[0,^hE2AA,0,c]	->	[x];
+	[0,^hE2AA,1,c]	->	[x];
+end
+
+

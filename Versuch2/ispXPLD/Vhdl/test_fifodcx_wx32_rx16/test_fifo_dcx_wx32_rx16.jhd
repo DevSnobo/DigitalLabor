@@ -1,0 +1,6 @@
+
+
+MODULE test_fifo_dcx_wx32_rx16
+
+	SUBMODULE L_FIFODCX
+		INSTANCE U0

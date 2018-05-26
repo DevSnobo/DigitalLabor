@@ -1,0 +1,19 @@
+JDF B
+// Created by Version 1.3 
+PROJECT Prep-2 Counter/Timer (Bused Version)
+DESIGN prep_2b Normal
+DEVKIT LC4256ZE-5TN100C
+ENTRY ABEL/Schematic
+STIMULUS prep_2b.abv
+DOCUMENT prep2.wri
+MODULE prep2b.sch
+MODSTYLE prep2b Normal
+MODULE counter.abl
+MODSTYLE counter Normal
+MODULE compare.abl
+MODSTYLE compare Normal
+MODULE p2_top.sch
+MODSTYLE p2_top Normal
+SYNTHESIS_TOOL Synplify
+SIMULATOR_TOOL ActiveHDL
+TOPMODULE p2_top

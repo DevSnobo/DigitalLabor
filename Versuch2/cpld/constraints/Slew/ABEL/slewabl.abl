@@ -1,0 +1,37 @@
+"**************************************
+"* ABEL source constraint example
+"* 	Slew Rate Control
+"*	2/05/2001
+"* Lattice Semiconductor Corporation 
+"**************************************
+
+"ABEL syntax for Slew Rate Control
+
+"LAT_SLEW ([TYPE],[PinList]);
+"Type: 		Slew type. This can be either SLOW or FAST.
+"PinList:	Pin names separated by colons. i.e., pin1:pin2:pin3...
+
+MODULE slewabl
+
+library 'lattice';
+
+inA3..inA0	pin;
+inB,inC		pin;
+slewS3..slewS0	pin istype 'com'; 
+slewF		pin istype 'com';
+
+inA   = [inA3..inA0];
+slewS = [slewS3..slewS0];
+
+//----- Constraining Slew in ABEL ----------- 
+LAT_SLEW (SLOW,slewS3:slewS2:slewS1:slewS0);
+LAT_SLEW (FAST,slewF);
+
+equations
+
+slewS = inA & inB & inC;
+
+slewF = !inB & inC;
+
+END 
+

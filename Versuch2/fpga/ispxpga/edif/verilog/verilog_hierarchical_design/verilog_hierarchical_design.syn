@@ -1,0 +1,9 @@
+JDF B
+// Created by Version 5.0 
+PROJECT Untitled
+DESIGN verilog_hierarchical_design Normal
+DEVKIT LFX125B-04F256CES/2X
+ENTRY EDIF
+MODULE verilog_hierarchical_design.edf
+MODSTYLE verilog_hierarchical_design Normal
+SYNTHESIS_TOOL Precision

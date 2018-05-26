@@ -1,0 +1,106 @@
+A166 MACRO ASSEMBLER  WORK1                                                               05/25/2018 16:26:17 PAGE     1
+
+
+MACRO ASSEMBLER A166 V5.30
+OBJECT MODULE PLACED IN work1.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C166\BIN\A166.EXE work1.a66 MODV2 SEGMENTED MODV2 SET(SMALL) DEBUG NOSYMBOLS EP
+
+LOC      OBJ             LINE     SOURCE
+
+                            1     ;$NONSEGMENTED              ; Nur Tiny Model möglich
+                            2     $MODV2                 ; Code fuer 161/163/164/165/167
+                          598     $LIST
+                          599     ;
+                          600     ;       TITLE <Mein Text>
+                          601     ;
+                          602     ;       Prozessor Definitionen
+                          603     ;
+                          604     ;------------------------------------------------------------
+                          605     ; Hier folgen Ihre Konstanten Definitionen
+                          606     ;
+ 0000                     607     Ora             EQU     0       ;Portbit für Ora
+ 7530                     608     op1             EQU 30000;
+ 1388                     609     op2             EQU 5000;
+ 9C40                     610     op3             EQU 40000;
+ 1387                     611     op4             EQU 4999;
+ FFFFFFFFFFFF8AD0         612     op5             EQU -30000;
+                          613     
+--------                  614     Datenspeicher   SECTION Data
+                          615     ;------------------------------------------------------------
+                          616     ; Hier folgen Ihre Speicher Vereinbarungen
+                          617     ;
+00000000 0C               618     Mein_Speicher           DB      12      ;Byte Initialisiert
+00000002 4100             619     Mein_Speicher1          DW      65      ;Word Initialisiert
+00000004 67120000         620     Mein_Speicher2          DD      4711
+00000008 41534349         621     Mein_Text               DB      'ASCII Text'
+0000000C 49205465                 
+00000010 7874             621     
+                          622     
+--------                  623     Datenspeicher   ENDS
+                          624     ;
+                          625     ;
+--------                  626     Programme       Section Code
+                          627     ASSUME  DPP3:SYSTEM
+                          628     ASSUME  DPP0:Datenspeicher
+                          629     ;------------------------------------------------------------
+                          630     ; Hier stehen Ihre Unterprogramme
+                          631     ;
+                          632     ;
+                          633     ;PInit  Initialisiert den Port Px
+                          634     ;=====
+                          635     ;       I: nix
+                          636     ;       O: nix
+                          637     ;       Z: Register, die zerstört werden.
+                          638     ;
+                          639     MyUp1   PROC NEAR
+                          640     
+00000000 CB00             641             Ret
+                          642     MyUp1   EndP;
+                          643     
+                          644     ;------------------------------------------------------------
+                          645     ; Hier startet das Hauptprogramm
+                          646     ;
+                          647     A_RESET PROC TASK STARTUP INTNO RESET = 0
+00000002 F2F00CFF         648             mov     r0,BUSCON0
+00000006 66F000FF         649             and     r0,#0xFF00
+0000000A F6F00CFF         650             mov     BUSCON0,r0
+0000000E E600???? R       651             mov     dpp0,#PAG Datenspeicher         ;Page von Datenspeicher => DPP0
+A166 MACRO ASSEMBLER  WORK1                                                               05/25/2018 16:26:17 PAGE     2
+
+00000012 E60E0300         652             mov     KSCCFG,#0x0003;                 ;Module Enable
+00000016 F2F01CFE         653             mov     R0,KSCCFG                       ;wieder ruecklesen
+0000001A 0D00             654             JMP     Main    
+                          655     A_RESET EndP
+                          656     
+                          657     MAIN    Proc
+                          658     ;------------------------------------------------------------
+                          659     ;Hier geht Ihr Hauptprogramm los
+                          660     ;
+                          661     
+0000001C E6F13075         662             MOV R1, #op1
+00000020 E6F28813         663             MOV R2, #op2
+00000024 E6F3409C         664             MOV R3, #op3
+00000028 E6F48713         665             MOV R4, #op4
+0000002C E6F5D08A         666             MOV R5, #op5
+                          667     
+00000030 BBE7             668             Call    MyUp1   
+                          669     
+                          670     Forever:
+                          671     
+                          672     
+00000032 0DFF             673             jmp             Forever
+                          674     ;
+                          675     ;  Notstop
+                          676     ;
+00000034 0DFF             677     StopJetzt:      JMP     StopJetzt
+                          678     
+                          679     Main            ENDP
+                          680     
+--------                  681     Programme       ENDS
+                          682     ;
+                          683     
+                          684             END
+
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

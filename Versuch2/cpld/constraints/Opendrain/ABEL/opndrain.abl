@@ -1,0 +1,51 @@
+"**************************************
+"* ABEL source constraint example
+"* 	OpenDrain Output
+"* Lattice Semiconductor Corporation 
+"**************************************
+
+"ABEL syntax for OpenDrain Output assignment
+
+"LAT_IOTYPES([PinName],LVCMOS33_OD,[DriveCurrent]); or
+"LAT_IOTYPES([PinName],LVCMOS25_OD,[DriveCurrent]); or
+"LAT_IOTYPES([PinName],LVCMOS18_OD,[DriveCurrent]); 
+
+"Alternative ABEL syntax
+
+"LAT_OPENDRAIN33 ([PinName],[DriveCurrent]); or
+"LAT_OPENDRAIN25 ([PinName],[DriveCurrent]); or
+"LAT_OPENDRAIN18 ([PinName],[DriveCurrent]);
+
+" PinName:	Output pin name
+" DriveCurrent:	Driving current 20,16,12,8,5,4 or NONE(-)
+"		
+
+"Note 1. Do not use LAT_OPENDRAINxx along with LAT_IOTYPES on the same pin.
+"	 Only the LVCMOS type allows Opendrain capability.
+"     2. The devices without the multi-driving capability must take NONE(-).
+
+
+MODULE opndrain
+
+library 'lattice';
+
+inA3..inA0	pin;
+inB3..inB0	pin;
+outOD3..outOD0	pin istype 'com'; 
+
+inA   = [inA3..inA0];
+inB   = [inB3..inB0];
+outOD = [outOD3..outOD0];
+
+//----- Constraining OpenDrain output in ABEL ----------- 
+LAT_IOTYPES (outOD3,LVCMOS33_OD,-);	"3.3V Opendrain
+LAT_IOTYPES (outOD2,LVCMOS25_OD,-);	"2.5V Opendrain
+LAT_IOTYPES (outOD1,LVCMOS18_OD,-);	"1.8V Opendrain
+LAT_IOTYPES (outOD0,LVCMOS18_OD,-);	"1.8V Opendrain
+
+equations
+
+outOD = inA & inB;
+
+END 
+

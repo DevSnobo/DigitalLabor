@@ -1,0 +1,2 @@
+. test_ramdps16kwx2rx2 test_ramdps16kwx2rx2.v c:\isptools\ispcpld\examples\ispxpld\verilog\test_ramdps16kwx2rx2\test_ramdps16kwx2rx2.v
+U0 L_RAMDPS test_ramdps16kwx2rx2.v c:\isptools\ispcpld\examples\ispxpld\verilog\test_ramdps16kwx2rx2\test_ramdps16kwx2rx2.v

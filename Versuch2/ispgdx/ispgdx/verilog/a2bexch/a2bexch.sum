@@ -1,0 +1,21 @@
+
+*******************************************************
+
+Cell: a2bexch    View: INTERFACE    Library: work
+
+*******************************************************
+
+Total accumulated area : 
+ Number of gates :                     128
+
+ Number of ports :                      33
+ Number of nets :                       33
+ Number of instances :                  32
+ Number of references to this view :     0
+
+
+             Cell          Library  References     Total Area
+
+            BUFTH             MACH    16 x      4     64 gates
+            BUFTL             MACH    16 x      4     64 gates
+

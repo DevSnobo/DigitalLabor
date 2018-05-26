@@ -1,0 +1,339 @@
+(edif Lattice_edif (edifVersion 2 0 0) (edifLevel 0)
+  (keywordMap (keywordLevel 0))
+  (status
+    (written (timeStamp 2003 3 10 11 30 51)
+      (program "Lattice Module Compiler" (Version "00"))
+      (dataOrigin "company") (author "designer")
+    )
+  )
+  (external ispMACH5000MX  (edifLevel 0) (technology (numberDefinition))
+    (cell BUFF (cellType GENERIC)
+      (view Netlist_representation (viewType NETLIST)
+        (interface 
+            (port I0 (direction INPUT)
+            )
+            (port O (direction OUTPUT)
+            )
+        )
+      )
+    )
+    (cell RAMBFIFO16KA_WX2_RX4 (cellType GENERIC)
+      (view Netlist_representation (viewType NETLIST)
+        (interface 
+            (port WE (direction INPUT)
+            )
+            (port WCLK (direction INPUT)
+            )
+            (port RE (direction INPUT)
+            )
+            (port RCLK (direction INPUT)
+            )
+            (port FULLIN (direction INPUT)
+            )
+            (port EMPTYIN (direction INPUT)
+            )
+            (port RST (direction INPUT)
+            )
+            (port RPRST (direction INPUT)
+            )
+            (port DI0 (direction INPUT)
+            )
+            (port DI1 (direction INPUT)
+            )
+            (port DO0 (direction OUTPUT)
+            )
+            (port DO1 (direction OUTPUT)
+            )
+            (port DO2 (direction OUTPUT)
+            )
+            (port DO3 (direction OUTPUT)
+            )
+            (port FULL (direction OUTPUT)
+            )
+            (port AMFULL (direction OUTPUT)
+            )
+            (port EMPTY (direction OUTPUT)
+            )
+            (port AMEMPTY (direction OUTPUT)
+            )
+            (port FULLOUT (direction OUTPUT)
+            )
+            (port EMPTYOUT (direction OUTPUT)
+            )
+        )
+      )
+    )
+    (cell GND (cellType GENERIC)
+      (view Netlist_representation (viewType NETLIST)
+        (interface 
+            (port X (direction OUTPUT)
+            )
+        )
+      )
+    )
+    (cell VCC (cellType GENERIC)
+      (view Netlist_representation (viewType NETLIST)
+        (interface 
+            (port X (direction OUTPUT)
+            )
+        )
+      )
+    )
+  )
+  (library DESIGNS (edifLevel 0) (technology (numberDefinition))
+    (cell l_fifodcx_lpm_fifo_dcx_2_4_13_ (cellType GENERIC)
+      (view Netlist_representation (viewType NETLIST)
+        (interface 
+            (port Data0 (direction INPUT)
+            )
+            (port Data1 (direction INPUT)
+            )
+            (port WrClock (direction INPUT)
+            )
+            (port WrEn (direction INPUT)
+            )
+            (port RdClock (direction INPUT)
+            )
+            (port RdEn (direction INPUT)
+            )
+            (port Reset (direction INPUT)
+            )
+            (port RPReset (direction INPUT)
+            )
+            (port Q0 (direction OUTPUT)
+            )
+            (port Q1 (direction OUTPUT)
+            )
+            (port Q2 (direction OUTPUT)
+            )
+            (port Q3 (direction OUTPUT)
+            )
+            (port Full (direction OUTPUT)
+            )
+            (port Empty (direction OUTPUT)
+            )
+            (port AlmostFull (direction OUTPUT)
+            )
+            (port AlmostEmpty (direction OUTPUT)
+            )
+        )
+        (property LATTICE_SC_TYPE (string "1"))
+        (property SC_WWIDTH (string "2"))
+        (property SC_WNUMWORDS (string "8192"))
+        (property SC_FIFO_AMFULL_FLAG (string "1"))
+        (property SC_RNUMWORDS (string "4096"))
+        (property SC_FIFO_FULL_FLAG (string "8191"))
+        (property SC_RWIDTH (string "4"))
+        (property SC_FIFO_AMEMPTY_FLAG (string "1"))
+        (contents
+            (instance BufEInst0
+                (viewRef Netlist_representation (cellRef BUFF (libraryRef ispMACH5000MX)))
+            )
+            (instance I000000
+                (viewRef Netlist_representation (cellRef VCC (libraryRef ispMACH5000MX)))
+            )
+            (instance I000001
+                (viewRef Netlist_representation (cellRef GND (libraryRef ispMACH5000MX)))
+            )
+            (instance BufFInst0
+                (viewRef Netlist_representation (cellRef BUFF (libraryRef ispMACH5000MX)))
+            )
+            (instance BufWCInst
+                (viewRef Netlist_representation (cellRef BUFF (libraryRef ispMACH5000MX)))
+            )
+            (instance BufRPRInst
+                (viewRef Netlist_representation (cellRef BUFF (libraryRef ispMACH5000MX)))
+            )
+            (instance BufWEInst
+                (viewRef Netlist_representation (cellRef BUFF (libraryRef ispMACH5000MX)))
+            )
+            (instance BufRSTInst
+                (viewRef Netlist_representation (cellRef BUFF (libraryRef ispMACH5000MX)))
+            )
+            (instance BufRCInst
+                (viewRef Netlist_representation (cellRef BUFF (libraryRef ispMACH5000MX)))
+            )
+            (instance RamBaseBlockInst0
+                (viewRef Netlist_representation (cellRef RAMBFIFO16KA_WX2_RX4 (libraryRef ispMACH5000MX)))
+                (property AMEMPTY_FLAG (string "1"))
+                (property AMFULL_FLAG (string "1"))
+                (property FULL_FLAG (string "8190"))
+                (property MEM_INIT_Y1 (string "4095"))
+                (property MEM_INIT_Y0 (string "0"))
+                (property MEM_INIT_X1 (string "3"))
+                (property MEM_INIT_X0 (string "0"))
+                (property RB_NUMBER (string "0"))
+            )
+            (instance BufREInst
+                (viewRef Netlist_representation (cellRef BUFF (libraryRef ispMACH5000MX)))
+            )
+            (net Full0_SIG
+              (joined
+                (portRef Full)
+                (portRef O (instanceRef BufFInst0 ))
+              )
+            )
+            (net Full
+              (joined
+              )
+            )
+            (net WrEn
+              (joined
+                (portRef WE (instanceRef RamBaseBlockInst0 ))
+                (portRef O (instanceRef BufWEInst ))
+              )
+            )
+            (net RdEn
+              (joined
+                (portRef RE (instanceRef RamBaseBlockInst0 ))
+                (portRef O (instanceRef BufREInst ))
+              )
+            )
+            (net Q0
+              (joined
+                (portRef Q0)
+                (portRef DO0 (instanceRef RamBaseBlockInst0 ))
+              )
+            )
+            (net RdClock
+              (joined
+                (portRef RCLK (instanceRef RamBaseBlockInst0 ))
+                (portRef O (instanceRef BufRCInst ))
+              )
+            )
+            (net Q1
+              (joined
+                (portRef Q1)
+                (portRef DO1 (instanceRef RamBaseBlockInst0 ))
+              )
+            )
+            (net WrEn_SIG
+              (joined
+                (portRef WrEn)
+                (portRef I0 (instanceRef BufWEInst ))
+              )
+            )
+            (net Q2
+              (joined
+                (portRef Q2)
+                (portRef DO2 (instanceRef RamBaseBlockInst0 ))
+              )
+            )
+            (net AlmostFull
+              (joined
+                (portRef AlmostFull)
+                (portRef AMFULL (instanceRef RamBaseBlockInst0 ))
+              )
+            )
+            (net RdEn_SIG
+              (joined
+                (portRef RdEn)
+                (portRef I0 (instanceRef BufREInst ))
+              )
+            )
+            (net Empty0
+              (joined
+                (portRef EMPTY (instanceRef RamBaseBlockInst0 ))
+                (portRef I0 (instanceRef BufEInst0 ))
+              )
+            )
+            (net Q3
+              (joined
+                (portRef Q3)
+                (portRef DO3 (instanceRef RamBaseBlockInst0 ))
+              )
+            )
+            (net RdClock_SIG
+              (joined
+                (portRef RdClock)
+                (portRef I0 (instanceRef BufRCInst ))
+              )
+            )
+            (net WrClock
+              (joined
+                (portRef WCLK (instanceRef RamBaseBlockInst0 ))
+                (portRef O (instanceRef BufWCInst ))
+              )
+            )
+            (net Empty0_SIG
+              (joined
+                (portRef Empty)
+                (portRef O (instanceRef BufEInst0 ))
+              )
+            )
+            (net Data0
+              (joined
+                (portRef Data0)
+                (portRef DI0 (instanceRef RamBaseBlockInst0 ))
+              )
+            )
+            (net VCC_SIG
+              (joined
+                (portRef EMPTYIN (instanceRef RamBaseBlockInst0 ))
+                (portRef X (instanceRef I000000 ))
+              )
+            )
+            (net Data1
+              (joined
+                (portRef Data1)
+                (portRef DI1 (instanceRef RamBaseBlockInst0 ))
+              )
+            )
+            (net Reset
+              (joined
+                (portRef RST (instanceRef RamBaseBlockInst0 ))
+                (portRef O (instanceRef BufRSTInst ))
+              )
+            )
+            (net Empty
+              (joined
+              )
+            )
+            (net WrClock_SIG
+              (joined
+                (portRef WrClock)
+                (portRef I0 (instanceRef BufWCInst ))
+              )
+            )
+            (net GND_SIG
+              (joined
+                (portRef X (instanceRef I000001 ))
+                (portRef FULLIN (instanceRef RamBaseBlockInst0 ))
+              )
+            )
+            (net RPReset
+              (joined
+                (portRef RPRST (instanceRef RamBaseBlockInst0 ))
+                (portRef O (instanceRef BufRPRInst ))
+              )
+            )
+            (net Reset_SIG
+              (joined
+                (portRef Reset)
+                (portRef I0 (instanceRef BufRSTInst ))
+              )
+            )
+            (net AlmostEmpty
+              (joined
+                (portRef AlmostEmpty)
+                (portRef AMEMPTY (instanceRef RamBaseBlockInst0 ))
+              )
+            )
+            (net RPReset_SIG
+              (joined
+                (portRef RPReset)
+                (portRef I0 (instanceRef BufRPRInst ))
+              )
+            )
+            (net Full0
+              (joined
+                (portRef FULL (instanceRef RamBaseBlockInst0 ))
+                (portRef I0 (instanceRef BufFInst0 ))
+              )
+            )
+        )
+      )
+    )
+ )
+ (design Lattice_edif (cellRef l_fifodcx_lpm_fifo_dcx_2_4_13_ (libraryRef DESIGNS)))
+)

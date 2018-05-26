@@ -1,0 +1,2 @@
+Hello
+edif2blf.exe -edf test_fifodcx16kwx2rx4.edf -jhd test_fifodcx16kwx2rx4.jhd -err automake.err -log test_fifodcx16kwx2rx4.log -lib C:\ispTOOLS\ispcpld/dat/mach.edn -nbx

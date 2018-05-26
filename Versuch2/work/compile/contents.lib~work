@@ -1,0 +1,5 @@
+10
+~E 1 "./../../multiplexer.vhd" 6 multiplexer_e
+~A 1 "./../../multiplexer.vhd" 15 multiplexer_a
+~E 1 "./../../multiplexer_e_tb.vhd" 22 testbench
+~A 1 "./../../multiplexer_e_tb.vhd" 25 behavior

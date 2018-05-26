@@ -1,0 +1,18 @@
+JDF B
+// Created by Version 5.0 
+PROJECT Verilog Hierarchical Design
+DESIGN verilog_hierarchical_design Normal
+DEVKIT LFX1200B-03FE680C
+ENTRY Schematic/Verilog HDL
+TESTFIXTURE verilog_hierarchical_design_tb.tf
+MODULE verilog_hierarchical_design.v
+MODSTYLE verilog_hierarchical_design Normal
+MODSTYLE mux Normal
+TESTFIXTURE mux .\mux\mux_t.tf
+MODULE .\rotate\rotate.v
+MODSTYLE rotate Normal
+TESTFIXTURE rotate .\rotate\rotate_t.tf
+MODULE .\reg8\reg8.v
+MODSTYLE reg8 Normal
+TESTFIXTURE reg8 .\reg8\reg8_t.tf
+SYNTHESIS_TOOL Precision

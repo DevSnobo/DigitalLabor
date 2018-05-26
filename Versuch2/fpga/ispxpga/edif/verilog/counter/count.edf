@@ -1,0 +1,157 @@
+(edif count 
+ (edifVersion 2 0 0)
+ (edifLevel 0)
+ (keywordMap (keywordLevel 0))
+ (status 
+  (written 
+   (timestamp 2002 09 09 17 05 55)
+   (program "LeonardoSpectrum for Lattice" (version "2002c.24_OEM_Lattice"))
+   (author "Mentor Graphics Corp")))
+ (external PRIMITIVES 
+  (edifLevel 0)
+  (technology (numberDefinition )))
+ (external ispXPGA 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell DFFRH (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port D (direction INPUT))
+     (port CLK (direction INPUT)
+      (property clock_pin (string "T")))
+     (port R (direction INPUT))
+     (port Q (direction OUTPUT)))
+    (property dff (string "1"))
+    (property neg_edge_gate (string "DFFRH_1"))
+    (property AREA (string "1.000000"))))
+  (cell IBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT)
+      (property pad (string "T")))
+     (port O (direction OUTPUT)))))
+  (cell OBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port O (direction OUTPUT)
+      (property pad (string "T"))))))
+  (cell INV (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port O (direction OUTPUT)))))
+  (cell GCLKBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port CI (direction INPUT)
+      (property pad (string "T")))
+     (port O (direction OUTPUT)))
+    (property NOMAP_GATE (string "1"))
+    (property pad_type (string "clock"))
+    (property same_tech_noopt (string "T"))))
+  (cell LUT3 (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port I1 (direction INPUT))
+     (port I2 (direction INPUT))
+     (port O (direction OUTPUT)))
+    (property IS_LUT (string "1"))
+    (property NOMAP_GATE (string "1"))
+    (property AREA (string "0.500000"))))
+  (cell LUT2 (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port I1 (direction INPUT))
+     (port O (direction OUTPUT)))
+    (property IS_LUT (string "1"))
+    (property NOMAP_GATE (string "1"))
+    (property AREA (string "0.250000")))))
+ (library work 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell count (cellType GENERIC)
+   (view INTERFACE  (viewType NETLIST)
+    (interface 
+     (port (array (rename c "c(2:0)") 3 )(direction OUTPUT))
+     (port clk (direction INPUT))
+     (port rst (direction INPUT)))
+    (contents 
+     (instance (rename c_2_ "c(2)") (viewRef NETLIST  (cellRef DFFRH (libraryRef ispXPGA ))))
+     (instance (rename c_1_ "c(1)") (viewRef NETLIST  (cellRef DFFRH (libraryRef ispXPGA ))))
+     (instance (rename c_0_ "c(0)") (viewRef NETLIST  (cellRef DFFRH (libraryRef ispXPGA ))))
+     (instance rst_ibuf (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPGA ))))
+     (instance (rename c_obuf_2_ "c_obuf(2)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance (rename c_obuf_1_ "c_obuf(1)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance (rename c_obuf_0_ "c_obuf(0)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance (rename c_NOT_a_0_ "c_NOT_a(0)") (viewRef NETLIST  (cellRef INV (libraryRef ispXPGA ))))
+     (instance clk_ibuf (viewRef NETLIST  (cellRef GCLKBUF (libraryRef ispXPGA ))))
+     (instance ix48 (viewRef NETLIST  (cellRef LUT3 (libraryRef ispXPGA )))
+      (property lut_function (string "((I0*!I1)+(I0*!I2)+(!I0*I1*I2))")))
+     (instance ix49 (viewRef NETLIST  (cellRef LUT2 (libraryRef ispXPGA )))
+      (property lut_function (string "((!I0*I1)+(I0*!I1))")))
+     (net clk 
+      (joined 
+       (portRef clk )
+       (portRef CI (instanceRef clk_ibuf ))))
+     (net rst 
+      (joined 
+       (portRef rst )
+       (portRef I0 (instanceRef rst_ibuf ))))
+     (net (rename c_dup0_2_ "c_dup0(2)") 
+      (joined 
+       (portRef Q (instanceRef c_2_ ))
+       (portRef I0 (instanceRef ix48 ))
+       (portRef I0 (instanceRef c_obuf_2_ ))))
+     (net (rename c_dup0_1_ "c_dup0(1)") 
+      (joined 
+       (portRef Q (instanceRef c_1_ ))
+       (portRef I1 (instanceRef ix48 ))
+       (portRef I0 (instanceRef ix49 ))
+       (portRef I0 (instanceRef c_obuf_1_ ))))
+     (net (rename c_dup0_0_ "c_dup0(0)") 
+      (joined 
+       (portRef Q (instanceRef c_0_ ))
+       (portRef I2 (instanceRef ix48 ))
+       (portRef I1 (instanceRef ix49 ))
+       (portRef I0 (instanceRef c_obuf_0_ ))
+       (portRef I0 (instanceRef c_NOT_a_0_ ))))
+     (net clk_int 
+      (joined 
+       (portRef O (instanceRef clk_ibuf ))
+       (portRef CLK (instanceRef c_2_ ))
+       (portRef CLK (instanceRef c_1_ ))
+       (portRef CLK (instanceRef c_0_ ))))
+     (net rst_int 
+      (joined 
+       (portRef O (instanceRef rst_ibuf ))
+       (portRef R (instanceRef c_2_ ))
+       (portRef R (instanceRef c_1_ ))
+       (portRef R (instanceRef c_0_ ))))
+     (net (rename c_2_ "c(2)") 
+      (joined 
+       (portRef (member c 0))
+       (portRef O (instanceRef c_obuf_2_ ))))
+     (net (rename c_1_ "c(1)") 
+      (joined 
+       (portRef (member c 1))
+       (portRef O (instanceRef c_obuf_1_ ))))
+     (net (rename c_0_ "c(0)") 
+      (joined 
+       (portRef (member c 2))
+       (portRef O (instanceRef c_obuf_0_ ))))
+     (net (rename c_NOT_a_0_ "c_NOT_a(0)") 
+      (joined 
+       (portRef O (instanceRef c_NOT_a_0_ ))
+       (portRef D (instanceRef c_0_ ))))
+     (net c_nx4 
+      (joined 
+       (portRef O (instanceRef ix48 ))
+       (portRef D (instanceRef c_2_ ))))
+     (net c_nx7 
+      (joined 
+       (portRef O (instanceRef ix49 ))
+       (portRef D (instanceRef c_1_ ))))))))
+ (design count (cellRef count (libraryRef work ))))

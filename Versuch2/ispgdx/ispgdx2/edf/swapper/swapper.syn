@@ -1,0 +1,9 @@
+JDF B
+// Created by Version 3.1 
+PROJECT Untitled
+DESIGN swapper Normal
+DEVKIT LX256V-5F484C2R
+ENTRY EDIF
+MODULE swapper.edf
+MODSTYLE swapper Normal
+SYNTHESIS_TOOL Exemplar

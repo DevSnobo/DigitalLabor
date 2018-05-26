@@ -1,0 +1,79 @@
+#$ TOOL ispLEVER Classic 1.6.00.07.29.12
+#$ DATE Thu May 03 14:34:01 2018
+#$ PROPERTY LATTICE OSCTIMER i1= -, T1_i, -, takt, 1048576; 
+#$ MODULE versuch2
+#$ PINS 6 q_3_ S1 T1 q_2_ q_1_ q_0_
+#$ NODES 8 takt i2_tmp_0_ i2_tmp_1_ i2_tmp_2_ i2_tmp_3_ gnd_n_n T1_i M0_OSCOUT
+#$ EXTERNAL osctimer  4 DYNOSCDIS'i'  TIMERRES'i'  OSCOUT'o'  TIMEROUT'o' 
+#$ INSTANCE i1 OSCTIMER 4 gnd_n_n T1_i M0_OSCOUT takt
+.model hard_a2e
+.inputs S1.BLIF T1.BLIF takt.BLIF i2_tmp_0_.Q i2_tmp_1_.Q i2_tmp_2_.Q \
+i2_tmp_3_.Q M0_OSCOUT.BLIF
+.outputs q_3_ q_2_ q_1_ q_0_ i2_tmp_0_.C i2_tmp_0_.AR i2_tmp_1_.C i2_tmp_1_.AR \
+i2_tmp_2_.C i2_tmp_2_.AR i2_tmp_3_.C i2_tmp_3_.AR gnd_n_n T1_i i2_tmp_0_.D \
+i2_tmp_1_.D i2_tmp_2_.D i2_tmp_3_.D
+.names i2_tmp_3_.Q q_3_
+0 1
+1 0
+.names i2_tmp_2_.Q q_2_
+0 1
+1 0
+.names i2_tmp_1_.Q q_1_
+0 1
+1 0
+.names i2_tmp_0_.Q q_0_
+0 1
+1 0
+.names gnd_n_n
+.names T1.BLIF T1_i
+0 1
+1 0
+.names takt.BLIF i2_tmp_0_.C
+1 1
+0 0
+.names S1.BLIF i2_tmp_0_.AR
+1 1
+0 0
+.names takt.BLIF i2_tmp_1_.C
+1 1
+0 0
+.names S1.BLIF i2_tmp_1_.AR
+1 1
+0 0
+.names takt.BLIF i2_tmp_2_.C
+1 1
+0 0
+.names S1.BLIF i2_tmp_2_.AR
+1 1
+0 0
+.names takt.BLIF i2_tmp_3_.C
+1 1
+0 0
+.names S1.BLIF i2_tmp_3_.AR
+1 1
+0 0
+.names i2_tmp_0_.Q i2_tmp_0_.D
+0 1
+1 0
+.names i2_tmp_0_.Q i2_tmp_1_.Q i2_tmp_1_.D
+10 1
+01 1
+00 0
+11 0
+.names i2_tmp_0_.Q i2_tmp_1_.Q i2_tmp_2_.Q i2_tmp_2_.D
+110 1
+-01 1
+0-1 1
+111 0
+-00 0
+0-0 0
+.names i2_tmp_0_.Q i2_tmp_1_.Q i2_tmp_2_.Q i2_tmp_3_.Q i2_tmp_3_.D
+1110 1
+--01 1
+-0-1 1
+0--1 1
+1111 0
+--00 0
+-0-0 0
+0--0 0
+.end

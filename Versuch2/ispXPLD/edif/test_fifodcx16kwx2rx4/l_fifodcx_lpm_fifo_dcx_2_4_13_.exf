@@ -1,0 +1,30 @@
+Section Cross Reference File
+Design 'l_fifodcx_lpm_fifo_dcx_2_4_13_' created Mon Mar 10 11:30:51 2003
+   Type              New Name                               Original Name
+// ----------------------------------------------------------------------
+   Net                    w_E                                 WrClock
+   Net                    w_2                                    WrEn
+   Net                    w_5                                 RdClock
+   Net                    w_3                                    RdEn
+   Net                    w_J                                   Reset
+   Net                    w_M                                 RPReset
+End
+Section Type      Name
+// ----------------------------------------------------------------------
+        Input     Data0
+        Input     Data1
+        Input     WrClock
+        Input     WrEn
+        Input     RdClock
+        Input     RdEn
+        Input     Reset
+        Input     RPReset
+        Output     Q0
+        Output     Q1
+        Output     Q2
+        Output     Q3
+        Output     Full
+        Output     Empty
+        Output     AlmostFull
+        Output     AlmostEmpty
+End

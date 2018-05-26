@@ -1,0 +1,243 @@
+(edif standardpll 
+ (edifVersion 2 0 0)
+ (edifLevel 0)
+ (keywordMap (keywordLevel 0))
+ (status 
+  (written 
+   (timestamp 2004 04 29 23 14 06)
+   (program "LeonardoSpectrum for Lattice" (version "2004a.25_OEM_Lattice"))
+   (author "Mentor Graphics")))
+ (external PRIMITIVES 
+  (edifLevel 0)
+  (technology (numberDefinition )))
+ (external ispxpga 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell INV (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port O (direction OUTPUT)))))
+  (cell CCU_UCP (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port D (direction INPUT))
+     (port SD (direction INPUT))
+     (port LOAD (direction INPUT))
+     (port CIN (direction INPUT))
+     (port S0 (direction OUTPUT))
+     (port COUT (direction OUTPUT)))))
+  (cell DFFRH (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port D (direction INPUT))
+     (port CLK (direction INPUT))
+     (port R (direction INPUT))
+     (port Q (direction OUTPUT)))))
+  (cell DFFCBRH (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port CE (direction INPUT))
+     (port D (direction INPUT))
+     (port CLK (direction INPUT))
+     (port R (direction INPUT))
+     (port Q (direction OUTPUT)))))
+  (cell IBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port O (direction OUTPUT)))))
+  (cell OBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port O (direction OUTPUT)))))
+  (cell GND (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port X (direction OUTPUT)))))
+  (cell VCC (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port X (direction OUTPUT))))))
+ (library work 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell STDPLL_1000_off_off_4_1_8_6_2 (cellType GENERIC)
+   (view INTERFACE  (viewType NETLIST)
+    (interface 
+     (port CLK_IN (direction INPUT))
+     (port CLK_OUT (direction OUTPUT))
+     (port PLL_LOCK (direction OUTPUT)))))
+  (cell standardpll (cellType GENERIC)
+   (view INTERFACE  (viewType NETLIST)
+    (interface 
+     (port clk (direction INPUT))
+     (port rst (direction INPUT))
+     (port clken (direction INPUT))
+     (port (array (rename qa "qa(3:0)") 4 )(direction OUTPUT)))
+    (property attx0 (string ""))
+    (contents 
+     (instance I1 (viewRef INTERFACE  (cellRef STDPLL_1000_off_off_4_1_8_6_2 ))
+      (property clk_out_to_pin (string "OFF"))
+      (property pll_dly (string "6"))
+      (property post (string "2"))
+      (property div (string "5"))
+      (property mult (string "8"))
+      (property in_freq (string "100.0000")))
+     (instance qa_ix14 (viewRef NETLIST  (cellRef INV (libraryRef ispxpga )))
+      (property EXMPLR_DONT_CHANGE (string "")))
+     (instance qa_ix20 (viewRef NETLIST  (cellRef CCU_UCP (libraryRef ispxpga )))
+      (property EXMPLR_DONT_CHANGE (string "")))
+     (instance qa_ix26 (viewRef NETLIST  (cellRef CCU_UCP (libraryRef ispxpga )))
+      (property EXMPLR_DONT_CHANGE (string "")))
+     (instance qa_ix31 (viewRef NETLIST  (cellRef CCU_UCP (libraryRef ispxpga )))
+      (property EXMPLR_DONT_CHANGE (string "")))
+     (instance qa_ix36 (viewRef NETLIST  (cellRef CCU_UCP (libraryRef ispxpga )))
+      (property EXMPLR_DONT_CHANGE (string "")))
+     (instance reg_scken (viewRef NETLIST  (cellRef DFFRH (libraryRef ispxpga ))))
+     (instance qa_ix19 (viewRef NETLIST  (cellRef DFFCBRH (libraryRef ispxpga ))))
+     (instance qa_ix25 (viewRef NETLIST  (cellRef DFFCBRH (libraryRef ispxpga ))))
+     (instance qa_ix30 (viewRef NETLIST  (cellRef DFFCBRH (libraryRef ispxpga ))))
+     (instance qa_ix35 (viewRef NETLIST  (cellRef DFFCBRH (libraryRef ispxpga ))))
+     (instance clk_ibuf (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance rst_ibuf (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance clken_ibuf (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename qa_obuf_3_ "qa_obuf(3)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename qa_obuf_2_ "qa_obuf(2)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename qa_obuf_1_ "qa_obuf(1)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename qa_obuf_0_ "qa_obuf(0)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance GND (viewRef NETLIST  (cellRef GND (libraryRef ispxpga ))))
+     (instance PWR (viewRef NETLIST  (cellRef VCC (libraryRef ispxpga ))))
+     (instance ix82 (viewRef NETLIST  (cellRef INV (libraryRef ispxpga ))))
+     (net clk 
+      (joined 
+       (portRef clk )
+       (portRef I0 (instanceRef clk_ibuf ))))
+     (net rst 
+      (joined 
+       (portRef rst )
+       (portRef I0 (instanceRef rst_ibuf ))))
+     (net clken 
+      (joined 
+       (portRef clken )
+       (portRef I0 (instanceRef clken_ibuf ))))
+     (net pllclk 
+      (joined 
+       (portRef CLK_OUT (instanceRef I1 ))
+       (portRef CLK (instanceRef reg_scken ))
+       (portRef CLK (instanceRef qa_ix19 ))
+       (portRef CLK (instanceRef qa_ix25 ))
+       (portRef CLK (instanceRef qa_ix30 ))
+       (portRef CLK (instanceRef qa_ix35 ))))
+     (net qa_nx13 
+      (joined 
+       (portRef O (instanceRef qa_ix14 ))
+       (portRef CIN (instanceRef qa_ix20 ))))
+     (net qa_nx16 
+      (joined 
+       (portRef COUT (instanceRef qa_ix20 ))
+       (portRef CIN (instanceRef qa_ix26 ))))
+     (net qa_nx17 
+      (joined 
+       (portRef S0 (instanceRef qa_ix20 ))
+       (portRef D (instanceRef qa_ix19 ))))
+     (net qa_nx21 
+      (joined 
+       (portRef COUT (instanceRef qa_ix26 ))
+       (portRef CIN (instanceRef qa_ix31 ))))
+     (net qa_nx23 
+      (joined 
+       (portRef S0 (instanceRef qa_ix26 ))
+       (portRef D (instanceRef qa_ix25 ))))
+     (net qa_nx27 
+      (joined 
+       (portRef COUT (instanceRef qa_ix31 ))
+       (portRef CIN (instanceRef qa_ix36 ))))
+     (net qa_nx28 
+      (joined 
+       (portRef S0 (instanceRef qa_ix31 ))
+       (portRef D (instanceRef qa_ix30 ))))
+     (net qa_nx33 
+      (joined 
+       (portRef S0 (instanceRef qa_ix36 ))
+       (portRef D (instanceRef qa_ix35 ))))
+     (net scken 
+      (joined 
+       (portRef Q (instanceRef reg_scken ))
+       (portRef I0 (instanceRef ix82 ))))
+     (net (rename qa_dup0_0_ "qa_dup0(0)") 
+      (joined 
+       (portRef Q (instanceRef qa_ix19 ))
+       (portRef D (instanceRef qa_ix20 ))
+       (portRef I0 (instanceRef qa_obuf_0_ ))))
+     (net (rename qa_dup0_1_ "qa_dup0(1)") 
+      (joined 
+       (portRef Q (instanceRef qa_ix25 ))
+       (portRef D (instanceRef qa_ix26 ))
+       (portRef I0 (instanceRef qa_obuf_1_ ))))
+     (net (rename qa_dup0_2_ "qa_dup0(2)") 
+      (joined 
+       (portRef Q (instanceRef qa_ix30 ))
+       (portRef D (instanceRef qa_ix31 ))
+       (portRef I0 (instanceRef qa_obuf_2_ ))))
+     (net (rename qa_dup0_3_ "qa_dup0(3)") 
+      (joined 
+       (portRef Q (instanceRef qa_ix35 ))
+       (portRef D (instanceRef qa_ix36 ))
+       (portRef I0 (instanceRef qa_obuf_3_ ))))
+     (net clk_int 
+      (joined 
+       (portRef O (instanceRef clk_ibuf ))
+       (portRef CLK_IN (instanceRef I1 ))))
+     (net rst_int 
+      (joined 
+       (portRef O (instanceRef rst_ibuf ))
+       (portRef R (instanceRef reg_scken ))
+       (portRef R (instanceRef qa_ix19 ))
+       (portRef R (instanceRef qa_ix25 ))
+       (portRef R (instanceRef qa_ix30 ))
+       (portRef R (instanceRef qa_ix35 ))))
+     (net clken_int 
+      (joined 
+       (portRef O (instanceRef clken_ibuf ))
+       (portRef D (instanceRef reg_scken ))))
+     (net (rename qa_3_ "qa(3)") 
+      (joined 
+       (portRef (member qa 0))
+       (portRef O (instanceRef qa_obuf_3_ ))))
+     (net (rename qa_2_ "qa(2)") 
+      (joined 
+       (portRef (member qa 1))
+       (portRef O (instanceRef qa_obuf_2_ ))))
+     (net (rename qa_1_ "qa(1)") 
+      (joined 
+       (portRef (member qa 2))
+       (portRef O (instanceRef qa_obuf_1_ ))))
+     (net (rename qa_0_ "qa(0)") 
+      (joined 
+       (portRef (member qa 3))
+       (portRef O (instanceRef qa_obuf_0_ ))))
+     (net GND 
+      (joined 
+       (portRef X (instanceRef GND ))
+       (portRef I0 (instanceRef qa_ix14 ))
+       (portRef LOAD (instanceRef qa_ix20 ))
+       (portRef LOAD (instanceRef qa_ix26 ))
+       (portRef LOAD (instanceRef qa_ix31 ))
+       (portRef LOAD (instanceRef qa_ix36 ))))
+     (net PWR 
+      (joined 
+       (portRef X (instanceRef PWR ))
+       (portRef SD (instanceRef qa_ix20 ))
+       (portRef SD (instanceRef qa_ix26 ))
+       (portRef SD (instanceRef qa_ix31 ))
+       (portRef SD (instanceRef qa_ix36 ))))
+     (net nx81 
+      (joined 
+       (portRef O (instanceRef ix82 ))
+       (portRef CE (instanceRef qa_ix19 ))
+       (portRef CE (instanceRef qa_ix25 ))
+       (portRef CE (instanceRef qa_ix30 ))
+       (portRef CE (instanceRef qa_ix35 ))))))))
+ (design standardpll (cellRef standardpll (libraryRef work ))))

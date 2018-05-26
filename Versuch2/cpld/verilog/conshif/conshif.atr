@@ -1,0 +1,15 @@
+I SynarioPin       .I21          96
+I SynarioPin       .I23          44
+I SynarioPin       .I22          69
+I SynarioPin       .I24          87
+N PLSI_NetAttr     .-LD          32
+N PLSI_NetAttr     .-CLK         11
+N PLSI_NetAttr     .-XRST        82
+I SynarioPin       .I20          70
+I SynarioPin       .I19          73
+I SynarioPin       .I18          68
+I SynarioPin       .I17          67
+I SynarioPin       .I27          92
+I SynarioPin       .I26          90
+I SynarioPin       .I25          91
+

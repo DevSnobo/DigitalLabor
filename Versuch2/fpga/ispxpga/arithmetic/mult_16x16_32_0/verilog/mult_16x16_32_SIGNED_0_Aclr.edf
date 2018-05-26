@@ -1,0 +1,631 @@
+(edif mult_16x16_32_SIGNED_0_Aclr 
+ (edifVersion 2 0 0)
+ (edifLevel 0)
+ (keywordMap (keywordLevel 0))
+ (status 
+  (written 
+   (timestamp 2004 07 29 20 46 55)
+   (program "LeonardoSpectrum for Lattice" (version "2004a.53_OEM_Lattice"))
+   (author "Mentor Graphics")))
+ (external PRIMITIVES 
+  (edifLevel 0)
+  (technology (numberDefinition )))
+ (external ispxpga 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell IBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port O (direction OUTPUT)))))
+  (cell OBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port O (direction OUTPUT))))))
+ (library work 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell test (cellType GENERIC)
+   (view INTERFACE  (viewType NETLIST)
+    (interface 
+     (port (array (rename Result "Result(31:0)") 32 )(direction OUTPUT))
+     (port (array (rename DataA_ "DataA_(15:0)") 16 )(direction INPUT))
+     (port (array (rename DataB_ "DataB_(15:0)") 16 )(direction INPUT)))
+    (property lpm_type (string "LPM_MULT"))
+    (property lpm_widtha (string "16"))
+    (property lpm_widthb (string "16"))
+    (property lpm_widthp (string "32"))
+    (property lpm_representation (string "SIGNED"))
+    (property lpm_pipeline (string "0"))))
+  (cell mult_16x16_32_SIGNED_0_Aclr (cellType GENERIC)
+   (view INTERFACE  (viewType NETLIST)
+    (interface 
+     (port (array (rename Result "Result(31:0)") 32 )(direction OUTPUT))
+     (port (array (rename DataA_ "DataA_(15:0)") 16 )(direction INPUT))
+     (port (array (rename DataB_ "DataB_(15:0)") 16 )(direction INPUT)))
+    (contents 
+     (instance U0 (viewRef INTERFACE  (cellRef test ))
+      (property lpm_type (string "LPM_MULT"))
+      (property lpm_widtha (string "16"))
+      (property lpm_widthb (string "16"))
+      (property lpm_widthp (string "32"))
+      (property lpm_representation (string "SIGNED"))
+      (property lpm_pipeline (string "0")))
+     (instance (rename DataA__ibuf_15_ "DataA__ibuf(15)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataA__ibuf_14_ "DataA__ibuf(14)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataA__ibuf_13_ "DataA__ibuf(13)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataA__ibuf_12_ "DataA__ibuf(12)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataA__ibuf_11_ "DataA__ibuf(11)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataA__ibuf_10_ "DataA__ibuf(10)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataA__ibuf_9_ "DataA__ibuf(9)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataA__ibuf_8_ "DataA__ibuf(8)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataA__ibuf_7_ "DataA__ibuf(7)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataA__ibuf_6_ "DataA__ibuf(6)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataA__ibuf_5_ "DataA__ibuf(5)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataA__ibuf_4_ "DataA__ibuf(4)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataA__ibuf_3_ "DataA__ibuf(3)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataA__ibuf_2_ "DataA__ibuf(2)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataA__ibuf_1_ "DataA__ibuf(1)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataA__ibuf_0_ "DataA__ibuf(0)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataB__ibuf_15_ "DataB__ibuf(15)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataB__ibuf_14_ "DataB__ibuf(14)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataB__ibuf_13_ "DataB__ibuf(13)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataB__ibuf_12_ "DataB__ibuf(12)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataB__ibuf_11_ "DataB__ibuf(11)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataB__ibuf_10_ "DataB__ibuf(10)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataB__ibuf_9_ "DataB__ibuf(9)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataB__ibuf_8_ "DataB__ibuf(8)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataB__ibuf_7_ "DataB__ibuf(7)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataB__ibuf_6_ "DataB__ibuf(6)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataB__ibuf_5_ "DataB__ibuf(5)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataB__ibuf_4_ "DataB__ibuf(4)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataB__ibuf_3_ "DataB__ibuf(3)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataB__ibuf_2_ "DataB__ibuf(2)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataB__ibuf_1_ "DataB__ibuf(1)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename DataB__ibuf_0_ "DataB__ibuf(0)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_31_ "Result_obuf(31)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_30_ "Result_obuf(30)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_29_ "Result_obuf(29)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_28_ "Result_obuf(28)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_27_ "Result_obuf(27)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_26_ "Result_obuf(26)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_25_ "Result_obuf(25)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_24_ "Result_obuf(24)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_23_ "Result_obuf(23)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_22_ "Result_obuf(22)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_21_ "Result_obuf(21)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_20_ "Result_obuf(20)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_19_ "Result_obuf(19)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_18_ "Result_obuf(18)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_17_ "Result_obuf(17)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_16_ "Result_obuf(16)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_15_ "Result_obuf(15)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_14_ "Result_obuf(14)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_13_ "Result_obuf(13)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_12_ "Result_obuf(12)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_11_ "Result_obuf(11)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_10_ "Result_obuf(10)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_9_ "Result_obuf(9)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_8_ "Result_obuf(8)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_7_ "Result_obuf(7)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_6_ "Result_obuf(6)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_5_ "Result_obuf(5)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_4_ "Result_obuf(4)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_3_ "Result_obuf(3)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_2_ "Result_obuf(2)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_1_ "Result_obuf(1)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename Result_obuf_0_ "Result_obuf(0)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (net (rename Result_dup0_31_ "Result_dup0(31)") 
+      (joined 
+       (portRef (member Result 0)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_31_ ))))
+     (net (rename Result_dup0_30_ "Result_dup0(30)") 
+      (joined 
+       (portRef (member Result 1)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_30_ ))))
+     (net (rename Result_dup0_29_ "Result_dup0(29)") 
+      (joined 
+       (portRef (member Result 2)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_29_ ))))
+     (net (rename Result_dup0_28_ "Result_dup0(28)") 
+      (joined 
+       (portRef (member Result 3)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_28_ ))))
+     (net (rename Result_dup0_27_ "Result_dup0(27)") 
+      (joined 
+       (portRef (member Result 4)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_27_ ))))
+     (net (rename Result_dup0_26_ "Result_dup0(26)") 
+      (joined 
+       (portRef (member Result 5)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_26_ ))))
+     (net (rename Result_dup0_25_ "Result_dup0(25)") 
+      (joined 
+       (portRef (member Result 6)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_25_ ))))
+     (net (rename Result_dup0_24_ "Result_dup0(24)") 
+      (joined 
+       (portRef (member Result 7)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_24_ ))))
+     (net (rename Result_dup0_23_ "Result_dup0(23)") 
+      (joined 
+       (portRef (member Result 8)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_23_ ))))
+     (net (rename Result_dup0_22_ "Result_dup0(22)") 
+      (joined 
+       (portRef (member Result 9)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_22_ ))))
+     (net (rename Result_dup0_21_ "Result_dup0(21)") 
+      (joined 
+       (portRef (member Result 10)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_21_ ))))
+     (net (rename Result_dup0_20_ "Result_dup0(20)") 
+      (joined 
+       (portRef (member Result 11)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_20_ ))))
+     (net (rename Result_dup0_19_ "Result_dup0(19)") 
+      (joined 
+       (portRef (member Result 12)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_19_ ))))
+     (net (rename Result_dup0_18_ "Result_dup0(18)") 
+      (joined 
+       (portRef (member Result 13)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_18_ ))))
+     (net (rename Result_dup0_17_ "Result_dup0(17)") 
+      (joined 
+       (portRef (member Result 14)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_17_ ))))
+     (net (rename Result_dup0_16_ "Result_dup0(16)") 
+      (joined 
+       (portRef (member Result 15)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_16_ ))))
+     (net (rename Result_dup0_15_ "Result_dup0(15)") 
+      (joined 
+       (portRef (member Result 16)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_15_ ))))
+     (net (rename Result_dup0_14_ "Result_dup0(14)") 
+      (joined 
+       (portRef (member Result 17)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_14_ ))))
+     (net (rename Result_dup0_13_ "Result_dup0(13)") 
+      (joined 
+       (portRef (member Result 18)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_13_ ))))
+     (net (rename Result_dup0_12_ "Result_dup0(12)") 
+      (joined 
+       (portRef (member Result 19)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_12_ ))))
+     (net (rename Result_dup0_11_ "Result_dup0(11)") 
+      (joined 
+       (portRef (member Result 20)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_11_ ))))
+     (net (rename Result_dup0_10_ "Result_dup0(10)") 
+      (joined 
+       (portRef (member Result 21)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_10_ ))))
+     (net (rename Result_dup0_9_ "Result_dup0(9)") 
+      (joined 
+       (portRef (member Result 22)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_9_ ))))
+     (net (rename Result_dup0_8_ "Result_dup0(8)") 
+      (joined 
+       (portRef (member Result 23)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_8_ ))))
+     (net (rename Result_dup0_7_ "Result_dup0(7)") 
+      (joined 
+       (portRef (member Result 24)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_7_ ))))
+     (net (rename Result_dup0_6_ "Result_dup0(6)") 
+      (joined 
+       (portRef (member Result 25)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_6_ ))))
+     (net (rename Result_dup0_5_ "Result_dup0(5)") 
+      (joined 
+       (portRef (member Result 26)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_5_ ))))
+     (net (rename Result_dup0_4_ "Result_dup0(4)") 
+      (joined 
+       (portRef (member Result 27)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_4_ ))))
+     (net (rename Result_dup0_3_ "Result_dup0(3)") 
+      (joined 
+       (portRef (member Result 28)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_3_ ))))
+     (net (rename Result_dup0_2_ "Result_dup0(2)") 
+      (joined 
+       (portRef (member Result 29)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_2_ ))))
+     (net (rename Result_dup0_1_ "Result_dup0(1)") 
+      (joined 
+       (portRef (member Result 30)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_1_ ))))
+     (net (rename Result_dup0_0_ "Result_dup0(0)") 
+      (joined 
+       (portRef (member Result 31)(instanceRef U0 ))
+       (portRef I0 (instanceRef Result_obuf_0_ ))))
+     (net (rename DataA__15_ "DataA_(15)") 
+      (joined 
+       (portRef (member DataA_ 0))
+       (portRef I0 (instanceRef DataA__ibuf_15_ ))))
+     (net (rename DataA__14_ "DataA_(14)") 
+      (joined 
+       (portRef (member DataA_ 1))
+       (portRef I0 (instanceRef DataA__ibuf_14_ ))))
+     (net (rename DataA__13_ "DataA_(13)") 
+      (joined 
+       (portRef (member DataA_ 2))
+       (portRef I0 (instanceRef DataA__ibuf_13_ ))))
+     (net (rename DataA__12_ "DataA_(12)") 
+      (joined 
+       (portRef (member DataA_ 3))
+       (portRef I0 (instanceRef DataA__ibuf_12_ ))))
+     (net (rename DataA__11_ "DataA_(11)") 
+      (joined 
+       (portRef (member DataA_ 4))
+       (portRef I0 (instanceRef DataA__ibuf_11_ ))))
+     (net (rename DataA__10_ "DataA_(10)") 
+      (joined 
+       (portRef (member DataA_ 5))
+       (portRef I0 (instanceRef DataA__ibuf_10_ ))))
+     (net (rename DataA__9_ "DataA_(9)") 
+      (joined 
+       (portRef (member DataA_ 6))
+       (portRef I0 (instanceRef DataA__ibuf_9_ ))))
+     (net (rename DataA__8_ "DataA_(8)") 
+      (joined 
+       (portRef (member DataA_ 7))
+       (portRef I0 (instanceRef DataA__ibuf_8_ ))))
+     (net (rename DataA__7_ "DataA_(7)") 
+      (joined 
+       (portRef (member DataA_ 8))
+       (portRef I0 (instanceRef DataA__ibuf_7_ ))))
+     (net (rename DataA__6_ "DataA_(6)") 
+      (joined 
+       (portRef (member DataA_ 9))
+       (portRef I0 (instanceRef DataA__ibuf_6_ ))))
+     (net (rename DataA__5_ "DataA_(5)") 
+      (joined 
+       (portRef (member DataA_ 10))
+       (portRef I0 (instanceRef DataA__ibuf_5_ ))))
+     (net (rename DataA__4_ "DataA_(4)") 
+      (joined 
+       (portRef (member DataA_ 11))
+       (portRef I0 (instanceRef DataA__ibuf_4_ ))))
+     (net (rename DataA__3_ "DataA_(3)") 
+      (joined 
+       (portRef (member DataA_ 12))
+       (portRef I0 (instanceRef DataA__ibuf_3_ ))))
+     (net (rename DataA__2_ "DataA_(2)") 
+      (joined 
+       (portRef (member DataA_ 13))
+       (portRef I0 (instanceRef DataA__ibuf_2_ ))))
+     (net (rename DataA__1_ "DataA_(1)") 
+      (joined 
+       (portRef (member DataA_ 14))
+       (portRef I0 (instanceRef DataA__ibuf_1_ ))))
+     (net (rename DataA__0_ "DataA_(0)") 
+      (joined 
+       (portRef (member DataA_ 15))
+       (portRef I0 (instanceRef DataA__ibuf_0_ ))))
+     (net (rename DataB__15_ "DataB_(15)") 
+      (joined 
+       (portRef (member DataB_ 0))
+       (portRef I0 (instanceRef DataB__ibuf_15_ ))))
+     (net (rename DataB__14_ "DataB_(14)") 
+      (joined 
+       (portRef (member DataB_ 1))
+       (portRef I0 (instanceRef DataB__ibuf_14_ ))))
+     (net (rename DataB__13_ "DataB_(13)") 
+      (joined 
+       (portRef (member DataB_ 2))
+       (portRef I0 (instanceRef DataB__ibuf_13_ ))))
+     (net (rename DataB__12_ "DataB_(12)") 
+      (joined 
+       (portRef (member DataB_ 3))
+       (portRef I0 (instanceRef DataB__ibuf_12_ ))))
+     (net (rename DataB__11_ "DataB_(11)") 
+      (joined 
+       (portRef (member DataB_ 4))
+       (portRef I0 (instanceRef DataB__ibuf_11_ ))))
+     (net (rename DataB__10_ "DataB_(10)") 
+      (joined 
+       (portRef (member DataB_ 5))
+       (portRef I0 (instanceRef DataB__ibuf_10_ ))))
+     (net (rename DataB__9_ "DataB_(9)") 
+      (joined 
+       (portRef (member DataB_ 6))
+       (portRef I0 (instanceRef DataB__ibuf_9_ ))))
+     (net (rename DataB__8_ "DataB_(8)") 
+      (joined 
+       (portRef (member DataB_ 7))
+       (portRef I0 (instanceRef DataB__ibuf_8_ ))))
+     (net (rename DataB__7_ "DataB_(7)") 
+      (joined 
+       (portRef (member DataB_ 8))
+       (portRef I0 (instanceRef DataB__ibuf_7_ ))))
+     (net (rename DataB__6_ "DataB_(6)") 
+      (joined 
+       (portRef (member DataB_ 9))
+       (portRef I0 (instanceRef DataB__ibuf_6_ ))))
+     (net (rename DataB__5_ "DataB_(5)") 
+      (joined 
+       (portRef (member DataB_ 10))
+       (portRef I0 (instanceRef DataB__ibuf_5_ ))))
+     (net (rename DataB__4_ "DataB_(4)") 
+      (joined 
+       (portRef (member DataB_ 11))
+       (portRef I0 (instanceRef DataB__ibuf_4_ ))))
+     (net (rename DataB__3_ "DataB_(3)") 
+      (joined 
+       (portRef (member DataB_ 12))
+       (portRef I0 (instanceRef DataB__ibuf_3_ ))))
+     (net (rename DataB__2_ "DataB_(2)") 
+      (joined 
+       (portRef (member DataB_ 13))
+       (portRef I0 (instanceRef DataB__ibuf_2_ ))))
+     (net (rename DataB__1_ "DataB_(1)") 
+      (joined 
+       (portRef (member DataB_ 14))
+       (portRef I0 (instanceRef DataB__ibuf_1_ ))))
+     (net (rename DataB__0_ "DataB_(0)") 
+      (joined 
+       (portRef (member DataB_ 15))
+       (portRef I0 (instanceRef DataB__ibuf_0_ ))))
+     (net (rename DataA__int_15_ "DataA__int(15)") 
+      (joined 
+       (portRef O (instanceRef DataA__ibuf_15_ ))
+       (portRef (member DataA_ 0)(instanceRef U0 ))))
+     (net (rename DataA__int_14_ "DataA__int(14)") 
+      (joined 
+       (portRef O (instanceRef DataA__ibuf_14_ ))
+       (portRef (member DataA_ 1)(instanceRef U0 ))))
+     (net (rename DataA__int_13_ "DataA__int(13)") 
+      (joined 
+       (portRef O (instanceRef DataA__ibuf_13_ ))
+       (portRef (member DataA_ 2)(instanceRef U0 ))))
+     (net (rename DataA__int_12_ "DataA__int(12)") 
+      (joined 
+       (portRef O (instanceRef DataA__ibuf_12_ ))
+       (portRef (member DataA_ 3)(instanceRef U0 ))))
+     (net (rename DataA__int_11_ "DataA__int(11)") 
+      (joined 
+       (portRef O (instanceRef DataA__ibuf_11_ ))
+       (portRef (member DataA_ 4)(instanceRef U0 ))))
+     (net (rename DataA__int_10_ "DataA__int(10)") 
+      (joined 
+       (portRef O (instanceRef DataA__ibuf_10_ ))
+       (portRef (member DataA_ 5)(instanceRef U0 ))))
+     (net (rename DataA__int_9_ "DataA__int(9)") 
+      (joined 
+       (portRef O (instanceRef DataA__ibuf_9_ ))
+       (portRef (member DataA_ 6)(instanceRef U0 ))))
+     (net (rename DataA__int_8_ "DataA__int(8)") 
+      (joined 
+       (portRef O (instanceRef DataA__ibuf_8_ ))
+       (portRef (member DataA_ 7)(instanceRef U0 ))))
+     (net (rename DataA__int_7_ "DataA__int(7)") 
+      (joined 
+       (portRef O (instanceRef DataA__ibuf_7_ ))
+       (portRef (member DataA_ 8)(instanceRef U0 ))))
+     (net (rename DataA__int_6_ "DataA__int(6)") 
+      (joined 
+       (portRef O (instanceRef DataA__ibuf_6_ ))
+       (portRef (member DataA_ 9)(instanceRef U0 ))))
+     (net (rename DataA__int_5_ "DataA__int(5)") 
+      (joined 
+       (portRef O (instanceRef DataA__ibuf_5_ ))
+       (portRef (member DataA_ 10)(instanceRef U0 ))))
+     (net (rename DataA__int_4_ "DataA__int(4)") 
+      (joined 
+       (portRef O (instanceRef DataA__ibuf_4_ ))
+       (portRef (member DataA_ 11)(instanceRef U0 ))))
+     (net (rename DataA__int_3_ "DataA__int(3)") 
+      (joined 
+       (portRef O (instanceRef DataA__ibuf_3_ ))
+       (portRef (member DataA_ 12)(instanceRef U0 ))))
+     (net (rename DataA__int_2_ "DataA__int(2)") 
+      (joined 
+       (portRef O (instanceRef DataA__ibuf_2_ ))
+       (portRef (member DataA_ 13)(instanceRef U0 ))))
+     (net (rename DataA__int_1_ "DataA__int(1)") 
+      (joined 
+       (portRef O (instanceRef DataA__ibuf_1_ ))
+       (portRef (member DataA_ 14)(instanceRef U0 ))))
+     (net (rename DataA__int_0_ "DataA__int(0)") 
+      (joined 
+       (portRef O (instanceRef DataA__ibuf_0_ ))
+       (portRef (member DataA_ 15)(instanceRef U0 ))))
+     (net (rename DataB__int_15_ "DataB__int(15)") 
+      (joined 
+       (portRef O (instanceRef DataB__ibuf_15_ ))
+       (portRef (member DataB_ 0)(instanceRef U0 ))))
+     (net (rename DataB__int_14_ "DataB__int(14)") 
+      (joined 
+       (portRef O (instanceRef DataB__ibuf_14_ ))
+       (portRef (member DataB_ 1)(instanceRef U0 ))))
+     (net (rename DataB__int_13_ "DataB__int(13)") 
+      (joined 
+       (portRef O (instanceRef DataB__ibuf_13_ ))
+       (portRef (member DataB_ 2)(instanceRef U0 ))))
+     (net (rename DataB__int_12_ "DataB__int(12)") 
+      (joined 
+       (portRef O (instanceRef DataB__ibuf_12_ ))
+       (portRef (member DataB_ 3)(instanceRef U0 ))))
+     (net (rename DataB__int_11_ "DataB__int(11)") 
+      (joined 
+       (portRef O (instanceRef DataB__ibuf_11_ ))
+       (portRef (member DataB_ 4)(instanceRef U0 ))))
+     (net (rename DataB__int_10_ "DataB__int(10)") 
+      (joined 
+       (portRef O (instanceRef DataB__ibuf_10_ ))
+       (portRef (member DataB_ 5)(instanceRef U0 ))))
+     (net (rename DataB__int_9_ "DataB__int(9)") 
+      (joined 
+       (portRef O (instanceRef DataB__ibuf_9_ ))
+       (portRef (member DataB_ 6)(instanceRef U0 ))))
+     (net (rename DataB__int_8_ "DataB__int(8)") 
+      (joined 
+       (portRef O (instanceRef DataB__ibuf_8_ ))
+       (portRef (member DataB_ 7)(instanceRef U0 ))))
+     (net (rename DataB__int_7_ "DataB__int(7)") 
+      (joined 
+       (portRef O (instanceRef DataB__ibuf_7_ ))
+       (portRef (member DataB_ 8)(instanceRef U0 ))))
+     (net (rename DataB__int_6_ "DataB__int(6)") 
+      (joined 
+       (portRef O (instanceRef DataB__ibuf_6_ ))
+       (portRef (member DataB_ 9)(instanceRef U0 ))))
+     (net (rename DataB__int_5_ "DataB__int(5)") 
+      (joined 
+       (portRef O (instanceRef DataB__ibuf_5_ ))
+       (portRef (member DataB_ 10)(instanceRef U0 ))))
+     (net (rename DataB__int_4_ "DataB__int(4)") 
+      (joined 
+       (portRef O (instanceRef DataB__ibuf_4_ ))
+       (portRef (member DataB_ 11)(instanceRef U0 ))))
+     (net (rename DataB__int_3_ "DataB__int(3)") 
+      (joined 
+       (portRef O (instanceRef DataB__ibuf_3_ ))
+       (portRef (member DataB_ 12)(instanceRef U0 ))))
+     (net (rename DataB__int_2_ "DataB__int(2)") 
+      (joined 
+       (portRef O (instanceRef DataB__ibuf_2_ ))
+       (portRef (member DataB_ 13)(instanceRef U0 ))))
+     (net (rename DataB__int_1_ "DataB__int(1)") 
+      (joined 
+       (portRef O (instanceRef DataB__ibuf_1_ ))
+       (portRef (member DataB_ 14)(instanceRef U0 ))))
+     (net (rename DataB__int_0_ "DataB__int(0)") 
+      (joined 
+       (portRef O (instanceRef DataB__ibuf_0_ ))
+       (portRef (member DataB_ 15)(instanceRef U0 ))))
+     (net (rename Result_31_ "Result(31)") 
+      (joined 
+       (portRef (member Result 0))
+       (portRef O (instanceRef Result_obuf_31_ ))))
+     (net (rename Result_30_ "Result(30)") 
+      (joined 
+       (portRef (member Result 1))
+       (portRef O (instanceRef Result_obuf_30_ ))))
+     (net (rename Result_29_ "Result(29)") 
+      (joined 
+       (portRef (member Result 2))
+       (portRef O (instanceRef Result_obuf_29_ ))))
+     (net (rename Result_28_ "Result(28)") 
+      (joined 
+       (portRef (member Result 3))
+       (portRef O (instanceRef Result_obuf_28_ ))))
+     (net (rename Result_27_ "Result(27)") 
+      (joined 
+       (portRef (member Result 4))
+       (portRef O (instanceRef Result_obuf_27_ ))))
+     (net (rename Result_26_ "Result(26)") 
+      (joined 
+       (portRef (member Result 5))
+       (portRef O (instanceRef Result_obuf_26_ ))))
+     (net (rename Result_25_ "Result(25)") 
+      (joined 
+       (portRef (member Result 6))
+       (portRef O (instanceRef Result_obuf_25_ ))))
+     (net (rename Result_24_ "Result(24)") 
+      (joined 
+       (portRef (member Result 7))
+       (portRef O (instanceRef Result_obuf_24_ ))))
+     (net (rename Result_23_ "Result(23)") 
+      (joined 
+       (portRef (member Result 8))
+       (portRef O (instanceRef Result_obuf_23_ ))))
+     (net (rename Result_22_ "Result(22)") 
+      (joined 
+       (portRef (member Result 9))
+       (portRef O (instanceRef Result_obuf_22_ ))))
+     (net (rename Result_21_ "Result(21)") 
+      (joined 
+       (portRef (member Result 10))
+       (portRef O (instanceRef Result_obuf_21_ ))))
+     (net (rename Result_20_ "Result(20)") 
+      (joined 
+       (portRef (member Result 11))
+       (portRef O (instanceRef Result_obuf_20_ ))))
+     (net (rename Result_19_ "Result(19)") 
+      (joined 
+       (portRef (member Result 12))
+       (portRef O (instanceRef Result_obuf_19_ ))))
+     (net (rename Result_18_ "Result(18)") 
+      (joined 
+       (portRef (member Result 13))
+       (portRef O (instanceRef Result_obuf_18_ ))))
+     (net (rename Result_17_ "Result(17)") 
+      (joined 
+       (portRef (member Result 14))
+       (portRef O (instanceRef Result_obuf_17_ ))))
+     (net (rename Result_16_ "Result(16)") 
+      (joined 
+       (portRef (member Result 15))
+       (portRef O (instanceRef Result_obuf_16_ ))))
+     (net (rename Result_15_ "Result(15)") 
+      (joined 
+       (portRef (member Result 16))
+       (portRef O (instanceRef Result_obuf_15_ ))))
+     (net (rename Result_14_ "Result(14)") 
+      (joined 
+       (portRef (member Result 17))
+       (portRef O (instanceRef Result_obuf_14_ ))))
+     (net (rename Result_13_ "Result(13)") 
+      (joined 
+       (portRef (member Result 18))
+       (portRef O (instanceRef Result_obuf_13_ ))))
+     (net (rename Result_12_ "Result(12)") 
+      (joined 
+       (portRef (member Result 19))
+       (portRef O (instanceRef Result_obuf_12_ ))))
+     (net (rename Result_11_ "Result(11)") 
+      (joined 
+       (portRef (member Result 20))
+       (portRef O (instanceRef Result_obuf_11_ ))))
+     (net (rename Result_10_ "Result(10)") 
+      (joined 
+       (portRef (member Result 21))
+       (portRef O (instanceRef Result_obuf_10_ ))))
+     (net (rename Result_9_ "Result(9)") 
+      (joined 
+       (portRef (member Result 22))
+       (portRef O (instanceRef Result_obuf_9_ ))))
+     (net (rename Result_8_ "Result(8)") 
+      (joined 
+       (portRef (member Result 23))
+       (portRef O (instanceRef Result_obuf_8_ ))))
+     (net (rename Result_7_ "Result(7)") 
+      (joined 
+       (portRef (member Result 24))
+       (portRef O (instanceRef Result_obuf_7_ ))))
+     (net (rename Result_6_ "Result(6)") 
+      (joined 
+       (portRef (member Result 25))
+       (portRef O (instanceRef Result_obuf_6_ ))))
+     (net (rename Result_5_ "Result(5)") 
+      (joined 
+       (portRef (member Result 26))
+       (portRef O (instanceRef Result_obuf_5_ ))))
+     (net (rename Result_4_ "Result(4)") 
+      (joined 
+       (portRef (member Result 27))
+       (portRef O (instanceRef Result_obuf_4_ ))))
+     (net (rename Result_3_ "Result(3)") 
+      (joined 
+       (portRef (member Result 28))
+       (portRef O (instanceRef Result_obuf_3_ ))))
+     (net (rename Result_2_ "Result(2)") 
+      (joined 
+       (portRef (member Result 29))
+       (portRef O (instanceRef Result_obuf_2_ ))))
+     (net (rename Result_1_ "Result(1)") 
+      (joined 
+       (portRef (member Result 30))
+       (portRef O (instanceRef Result_obuf_1_ ))))
+     (net (rename Result_0_ "Result(0)") 
+      (joined 
+       (portRef (member Result 31))
+       (portRef O (instanceRef Result_obuf_0_ ))))))))
+ (design mult_16x16_32_SIGNED_0_Aclr (cellRef mult_16x16_32_SIGNED_0_Aclr (libraryRef work ))))

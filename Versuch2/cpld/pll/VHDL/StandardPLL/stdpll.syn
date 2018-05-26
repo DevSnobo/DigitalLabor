@@ -1,0 +1,9 @@
+JDF B
+// Created by Version 9.0 
+PROJECT Untitled
+DESIGN stdpll Normal
+DEVKIT LC51024MV-52F672C
+ENTRY Schematic/VHDL
+STIMULUS tb_stdpll.vhd
+MODULE std_pll.vhd
+MODSTYLE standardpll Normal

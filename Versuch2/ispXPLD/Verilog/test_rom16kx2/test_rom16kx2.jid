@@ -1,0 +1,2 @@
+. test_rom16kx2 test_rom16kx2.v c:\isptools\ispcpld\examples\ispxpld\verilog\test_rom16kx2\test_rom16kx2.v
+U0 L_ROM test_rom16kx2.v c:\isptools\ispcpld\examples\ispxpld\verilog\test_rom16kx2\test_rom16kx2.v

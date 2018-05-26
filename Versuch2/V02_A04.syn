@@ -1,0 +1,19 @@
+JDF B
+// Created by Version 1.6 
+PROJECT V02_A04
+DESIGN v02_a04 Normal
+DEVKIT LC4256ZE-5TN144C
+ENTRY Pure VHDL
+MODULE .\Versuch2-master\zaehler.vhd
+MODSTYLE zaehler_e Normal
+STIMULUS zaehler_e .\Versuch2-master\zaehler_tb.vhd
+MODULE zaehler_ampel.vhd
+MODSTYLE zaehler_ampel_e Normal
+STIMULUS zaehler_ampel_e zaehler_ampel_tb.vhd
+MODULE .\Versuch2-master\ampel_sn.vhd
+MODSTYLE Ampel_sn_e Normal
+MODULE hard_a4.vhd
+MODSTYLE HARD_A4e Normal
+SYNTHESIS_TOOL Synplify
+SIMULATOR_TOOL ActiveHDL
+TOPMODULE HARD_A4e

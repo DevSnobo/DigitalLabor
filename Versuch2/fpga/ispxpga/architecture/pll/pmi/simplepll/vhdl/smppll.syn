@@ -1,0 +1,9 @@
+JDF B
+// Created by Version 6.0 
+PROJECT Untitled
+DESIGN smppll Normal
+DEVKIT LFX125B-04F256CES/2X
+ENTRY Schematic/VHDL
+STIMULUS tb_simpll.vhd
+MODULE smp_pll.vhd
+SYNTHESIS_TOOL Precision

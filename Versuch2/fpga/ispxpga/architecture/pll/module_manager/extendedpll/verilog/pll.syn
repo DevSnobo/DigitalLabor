@@ -1,0 +1,11 @@
+JDF B
+// Created by Version 4.1 
+PROJECT Untitled
+DESIGN pll Normal
+DEVKIT LFX125B-04F256CES/2X
+ENTRY Schematic/Verilog HDL
+MODULE top.v
+MODSTYLE top Normal
+MODULE extendpll.v
+MODSTYLE extendpll Normal
+SYNTHESIS_TOOL Synplify

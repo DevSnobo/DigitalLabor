@@ -1,0 +1,27 @@
+[Compiler Settings]
+Strategy=Delay
+Effort=Mid
+Use Global Reset=FALSE
+Preserve XOR=
+Maximum GLB Inputs=16
+Maximum GLB Outputs=4
+Free All Pin Locks=FALSE
+Ignore Reserved Pins=FALSE
+Use Extended Routing=TRUE
+Carry Pin Direction=FALSE
+Case Sensitive=FALSE
+Perform Timing Analysis=FALSE
+EDIF netlist=FALSE
+VHDL netlist=FALSE
+Verilog netlist=FALSE
+LMC=FALSE
+OrCAD netlist=FALSE
+Pre-Route LDF=FALSE
+Post-Route LDF=FALSE
+BFM Packing Selection=Compiler
+Parameter File=
+Use Internal Tristate IO Driver=FALSE
+Minimize GLB Levels For All Paths=FALSE
+Reduction Effort=Low
+BFM Packing=9
+Single PT Function Packing for Routability=0

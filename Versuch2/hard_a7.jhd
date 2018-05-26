@@ -1,0 +1,6 @@
+
+
+MODULE HARD_A7e
+
+	SUBMODULE ampel_komplett_e
+		INSTANCE i2

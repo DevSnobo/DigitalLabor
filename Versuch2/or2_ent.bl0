@@ -1,0 +1,23 @@
+#$ DATE Mon Apr 23 14:31:12 2018
+#$ TOOL EDIF2BLIF version IspLever 1.0 
+#$ MODULE or2_ent
+#$ PINS 3 a b y
+#$ NODES 6 a_c b_c y_c a_c_i b_c_i y_c_0 
+.model or2_ent
+.inputs a.BLIF b.BLIF a_c.BLIF b_c.BLIF y_c.BLIF a_c_i.BLIF b_c_i.BLIF y_c_0.BLIF  
+.outputs y a_c b_c y_c a_c_i b_c_i y_c_0
+.names  a.BLIF a_c
+1 1
+.names  b.BLIF b_c
+1 1
+.names  y_c.BLIF y
+1 1
+.names  a_c_i.BLIF b_c_i.BLIF y_c_0
+11 1
+.names  a_c.BLIF a_c_i
+0 1
+.names  b_c.BLIF b_c_i
+0 1
+.names  y_c_0.BLIF y_c
+0 1
+.end

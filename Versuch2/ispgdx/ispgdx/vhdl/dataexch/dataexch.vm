@@ -1,0 +1,882 @@
+//
+// Written by Synplify
+// Wed Sep 20 16:52:19 2000
+//
+// Source file index table:
+// Object locations will have the form <file>:<line>
+// file 0 "noname"
+// file 1 "\c:\isptools\synplify\lib\vhd\std.vhd "
+// file 2 "\c:\isptools\ispsys\examples\isplsi_gal\ispgdx\vhdl\dataexch\dataexch.vhd "
+// file 3 "\c:\isptools\synplify\lib\vhd\std1164.vhd "
+
+`timescale 100 ps/100 ps
+module BI_DIR (
+  O,
+  I0,
+  IO,
+  OE
+);
+output O;
+input I0;
+inout IO;
+input OE;
+wire O ;
+wire I0 ;
+wire IO ;
+wire OE ;
+wire true ;
+wire false ;
+  assign true = 1'b1;
+  assign false = 1'b0;
+  assign #(1)  IO = OE ? I0 : 1'bz;
+  assign #(1)  O = IO;
+endmodule /* BI_DIR */
+
+module IBUF (
+  O,
+  I0
+);
+output O;
+input I0;
+wire O ;
+wire I0 ;
+wire true ;
+wire false ;
+  assign #(1)  O = I0;
+  assign true = 1'b1;
+  assign false = 1'b0;
+endmodule /* IBUF */
+
+module INV (
+  O,
+  I0
+);
+output O;
+input I0;
+wire O ;
+wire I0 ;
+wire true ;
+wire false ;
+  assign #(1)  O = ~ I0;
+  assign true = 1'b1;
+  assign false = 1'b0;
+endmodule /* INV */
+
+module dataexch (
+  busAdata,
+  busBdata,
+  busCdata,
+  busDdata,
+  oe0,
+  oe1
+);
+inout [31:0] busAdata;
+inout [31:0] busBdata;
+inout [31:0] busCdata;
+inout [31:0] busDdata;
+input oe0;
+input oe1;
+wire [31:0] busAdata;
+wire [31:0] busBdata;
+wire [31:0] busCdata;
+wire [31:0] busDdata;
+wire oe0 ;
+wire oe1 ;
+wire [31:0] busAdata_c;
+wire [31:0] busBdata_c;
+wire [31:0] busCdata_c;
+wire [31:0] busDdata_c;
+wire oe1_i ;
+wire oe0_i ;
+wire oe0_c ;
+wire oe1_c ;
+wire GND ;
+wire VCC ;
+  BI_DIR \busAdata_Z[0]  (
+	.O(busAdata_c[0]),
+	.I0(busBdata_c[0]),
+	.IO(busAdata[0]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[1]  (
+	.O(busAdata_c[1]),
+	.I0(busBdata_c[1]),
+	.IO(busAdata[1]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[2]  (
+	.O(busAdata_c[2]),
+	.I0(busBdata_c[2]),
+	.IO(busAdata[2]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[3]  (
+	.O(busAdata_c[3]),
+	.I0(busBdata_c[3]),
+	.IO(busAdata[3]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[4]  (
+	.O(busAdata_c[4]),
+	.I0(busBdata_c[4]),
+	.IO(busAdata[4]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[5]  (
+	.O(busAdata_c[5]),
+	.I0(busBdata_c[5]),
+	.IO(busAdata[5]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[6]  (
+	.O(busAdata_c[6]),
+	.I0(busBdata_c[6]),
+	.IO(busAdata[6]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[7]  (
+	.O(busAdata_c[7]),
+	.I0(busBdata_c[7]),
+	.IO(busAdata[7]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[8]  (
+	.O(busAdata_c[8]),
+	.I0(busBdata_c[8]),
+	.IO(busAdata[8]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[9]  (
+	.O(busAdata_c[9]),
+	.I0(busBdata_c[9]),
+	.IO(busAdata[9]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[10]  (
+	.O(busAdata_c[10]),
+	.I0(busBdata_c[10]),
+	.IO(busAdata[10]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[11]  (
+	.O(busAdata_c[11]),
+	.I0(busBdata_c[11]),
+	.IO(busAdata[11]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[12]  (
+	.O(busAdata_c[12]),
+	.I0(busBdata_c[12]),
+	.IO(busAdata[12]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[13]  (
+	.O(busAdata_c[13]),
+	.I0(busBdata_c[13]),
+	.IO(busAdata[13]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[14]  (
+	.O(busAdata_c[14]),
+	.I0(busBdata_c[14]),
+	.IO(busAdata[14]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[15]  (
+	.O(busAdata_c[15]),
+	.I0(busBdata_c[15]),
+	.IO(busAdata[15]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[16]  (
+	.O(busAdata_c[16]),
+	.I0(busBdata_c[16]),
+	.IO(busAdata[16]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[17]  (
+	.O(busAdata_c[17]),
+	.I0(busBdata_c[17]),
+	.IO(busAdata[17]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[18]  (
+	.O(busAdata_c[18]),
+	.I0(busBdata_c[18]),
+	.IO(busAdata[18]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[19]  (
+	.O(busAdata_c[19]),
+	.I0(busBdata_c[19]),
+	.IO(busAdata[19]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[20]  (
+	.O(busAdata_c[20]),
+	.I0(busBdata_c[20]),
+	.IO(busAdata[20]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[21]  (
+	.O(busAdata_c[21]),
+	.I0(busBdata_c[21]),
+	.IO(busAdata[21]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[22]  (
+	.O(busAdata_c[22]),
+	.I0(busBdata_c[22]),
+	.IO(busAdata[22]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[23]  (
+	.O(busAdata_c[23]),
+	.I0(busBdata_c[23]),
+	.IO(busAdata[23]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[24]  (
+	.O(busAdata_c[24]),
+	.I0(busBdata_c[24]),
+	.IO(busAdata[24]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[25]  (
+	.O(busAdata_c[25]),
+	.I0(busBdata_c[25]),
+	.IO(busAdata[25]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[26]  (
+	.O(busAdata_c[26]),
+	.I0(busBdata_c[26]),
+	.IO(busAdata[26]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[27]  (
+	.O(busAdata_c[27]),
+	.I0(busBdata_c[27]),
+	.IO(busAdata[27]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[28]  (
+	.O(busAdata_c[28]),
+	.I0(busBdata_c[28]),
+	.IO(busAdata[28]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[29]  (
+	.O(busAdata_c[29]),
+	.I0(busBdata_c[29]),
+	.IO(busAdata[29]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[30]  (
+	.O(busAdata_c[30]),
+	.I0(busBdata_c[30]),
+	.IO(busAdata[30]),
+	.OE(oe0_c)
+);
+  BI_DIR \busAdata_Z[31]  (
+	.O(busAdata_c[31]),
+	.I0(busBdata_c[31]),
+	.IO(busAdata[31]),
+	.OE(oe0_c)
+);
+  BI_DIR \busBdata_Z[0]  (
+	.O(busBdata_c[0]),
+	.I0(busAdata_c[0]),
+	.IO(busBdata[0]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[1]  (
+	.O(busBdata_c[1]),
+	.I0(busAdata_c[1]),
+	.IO(busBdata[1]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[2]  (
+	.O(busBdata_c[2]),
+	.I0(busAdata_c[2]),
+	.IO(busBdata[2]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[3]  (
+	.O(busBdata_c[3]),
+	.I0(busAdata_c[3]),
+	.IO(busBdata[3]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[4]  (
+	.O(busBdata_c[4]),
+	.I0(busAdata_c[4]),
+	.IO(busBdata[4]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[5]  (
+	.O(busBdata_c[5]),
+	.I0(busAdata_c[5]),
+	.IO(busBdata[5]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[6]  (
+	.O(busBdata_c[6]),
+	.I0(busAdata_c[6]),
+	.IO(busBdata[6]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[7]  (
+	.O(busBdata_c[7]),
+	.I0(busAdata_c[7]),
+	.IO(busBdata[7]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[8]  (
+	.O(busBdata_c[8]),
+	.I0(busAdata_c[8]),
+	.IO(busBdata[8]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[9]  (
+	.O(busBdata_c[9]),
+	.I0(busAdata_c[9]),
+	.IO(busBdata[9]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[10]  (
+	.O(busBdata_c[10]),
+	.I0(busAdata_c[10]),
+	.IO(busBdata[10]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[11]  (
+	.O(busBdata_c[11]),
+	.I0(busAdata_c[11]),
+	.IO(busBdata[11]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[12]  (
+	.O(busBdata_c[12]),
+	.I0(busAdata_c[12]),
+	.IO(busBdata[12]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[13]  (
+	.O(busBdata_c[13]),
+	.I0(busAdata_c[13]),
+	.IO(busBdata[13]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[14]  (
+	.O(busBdata_c[14]),
+	.I0(busAdata_c[14]),
+	.IO(busBdata[14]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[15]  (
+	.O(busBdata_c[15]),
+	.I0(busAdata_c[15]),
+	.IO(busBdata[15]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[16]  (
+	.O(busBdata_c[16]),
+	.I0(busAdata_c[16]),
+	.IO(busBdata[16]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[17]  (
+	.O(busBdata_c[17]),
+	.I0(busAdata_c[17]),
+	.IO(busBdata[17]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[18]  (
+	.O(busBdata_c[18]),
+	.I0(busAdata_c[18]),
+	.IO(busBdata[18]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[19]  (
+	.O(busBdata_c[19]),
+	.I0(busAdata_c[19]),
+	.IO(busBdata[19]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[20]  (
+	.O(busBdata_c[20]),
+	.I0(busAdata_c[20]),
+	.IO(busBdata[20]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[21]  (
+	.O(busBdata_c[21]),
+	.I0(busAdata_c[21]),
+	.IO(busBdata[21]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[22]  (
+	.O(busBdata_c[22]),
+	.I0(busAdata_c[22]),
+	.IO(busBdata[22]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[23]  (
+	.O(busBdata_c[23]),
+	.I0(busAdata_c[23]),
+	.IO(busBdata[23]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[24]  (
+	.O(busBdata_c[24]),
+	.I0(busAdata_c[24]),
+	.IO(busBdata[24]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[25]  (
+	.O(busBdata_c[25]),
+	.I0(busAdata_c[25]),
+	.IO(busBdata[25]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[26]  (
+	.O(busBdata_c[26]),
+	.I0(busAdata_c[26]),
+	.IO(busBdata[26]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[27]  (
+	.O(busBdata_c[27]),
+	.I0(busAdata_c[27]),
+	.IO(busBdata[27]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[28]  (
+	.O(busBdata_c[28]),
+	.I0(busAdata_c[28]),
+	.IO(busBdata[28]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[29]  (
+	.O(busBdata_c[29]),
+	.I0(busAdata_c[29]),
+	.IO(busBdata[29]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[30]  (
+	.O(busBdata_c[30]),
+	.I0(busAdata_c[30]),
+	.IO(busBdata[30]),
+	.OE(oe0_i)
+);
+  BI_DIR \busBdata_Z[31]  (
+	.O(busBdata_c[31]),
+	.I0(busAdata_c[31]),
+	.IO(busBdata[31]),
+	.OE(oe0_i)
+);
+  BI_DIR \busCdata_Z[0]  (
+	.O(busCdata_c[0]),
+	.I0(busDdata_c[0]),
+	.IO(busCdata[0]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[1]  (
+	.O(busCdata_c[1]),
+	.I0(busDdata_c[1]),
+	.IO(busCdata[1]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[2]  (
+	.O(busCdata_c[2]),
+	.I0(busDdata_c[2]),
+	.IO(busCdata[2]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[3]  (
+	.O(busCdata_c[3]),
+	.I0(busDdata_c[3]),
+	.IO(busCdata[3]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[4]  (
+	.O(busCdata_c[4]),
+	.I0(busDdata_c[4]),
+	.IO(busCdata[4]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[5]  (
+	.O(busCdata_c[5]),
+	.I0(busDdata_c[5]),
+	.IO(busCdata[5]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[6]  (
+	.O(busCdata_c[6]),
+	.I0(busDdata_c[6]),
+	.IO(busCdata[6]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[7]  (
+	.O(busCdata_c[7]),
+	.I0(busDdata_c[7]),
+	.IO(busCdata[7]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[8]  (
+	.O(busCdata_c[8]),
+	.I0(busDdata_c[8]),
+	.IO(busCdata[8]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[9]  (
+	.O(busCdata_c[9]),
+	.I0(busDdata_c[9]),
+	.IO(busCdata[9]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[10]  (
+	.O(busCdata_c[10]),
+	.I0(busDdata_c[10]),
+	.IO(busCdata[10]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[11]  (
+	.O(busCdata_c[11]),
+	.I0(busDdata_c[11]),
+	.IO(busCdata[11]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[12]  (
+	.O(busCdata_c[12]),
+	.I0(busDdata_c[12]),
+	.IO(busCdata[12]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[13]  (
+	.O(busCdata_c[13]),
+	.I0(busDdata_c[13]),
+	.IO(busCdata[13]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[14]  (
+	.O(busCdata_c[14]),
+	.I0(busDdata_c[14]),
+	.IO(busCdata[14]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[15]  (
+	.O(busCdata_c[15]),
+	.I0(busDdata_c[15]),
+	.IO(busCdata[15]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[16]  (
+	.O(busCdata_c[16]),
+	.I0(busDdata_c[16]),
+	.IO(busCdata[16]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[17]  (
+	.O(busCdata_c[17]),
+	.I0(busDdata_c[17]),
+	.IO(busCdata[17]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[18]  (
+	.O(busCdata_c[18]),
+	.I0(busDdata_c[18]),
+	.IO(busCdata[18]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[19]  (
+	.O(busCdata_c[19]),
+	.I0(busDdata_c[19]),
+	.IO(busCdata[19]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[20]  (
+	.O(busCdata_c[20]),
+	.I0(busDdata_c[20]),
+	.IO(busCdata[20]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[21]  (
+	.O(busCdata_c[21]),
+	.I0(busDdata_c[21]),
+	.IO(busCdata[21]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[22]  (
+	.O(busCdata_c[22]),
+	.I0(busDdata_c[22]),
+	.IO(busCdata[22]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[23]  (
+	.O(busCdata_c[23]),
+	.I0(busDdata_c[23]),
+	.IO(busCdata[23]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[24]  (
+	.O(busCdata_c[24]),
+	.I0(busDdata_c[24]),
+	.IO(busCdata[24]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[25]  (
+	.O(busCdata_c[25]),
+	.I0(busDdata_c[25]),
+	.IO(busCdata[25]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[26]  (
+	.O(busCdata_c[26]),
+	.I0(busDdata_c[26]),
+	.IO(busCdata[26]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[27]  (
+	.O(busCdata_c[27]),
+	.I0(busDdata_c[27]),
+	.IO(busCdata[27]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[28]  (
+	.O(busCdata_c[28]),
+	.I0(busDdata_c[28]),
+	.IO(busCdata[28]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[29]  (
+	.O(busCdata_c[29]),
+	.I0(busDdata_c[29]),
+	.IO(busCdata[29]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[30]  (
+	.O(busCdata_c[30]),
+	.I0(busDdata_c[30]),
+	.IO(busCdata[30]),
+	.OE(oe1_c)
+);
+  BI_DIR \busCdata_Z[31]  (
+	.O(busCdata_c[31]),
+	.I0(busDdata_c[31]),
+	.IO(busCdata[31]),
+	.OE(oe1_c)
+);
+  BI_DIR \busDdata_Z[0]  (
+	.O(busDdata_c[0]),
+	.I0(busCdata_c[0]),
+	.IO(busDdata[0]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[1]  (
+	.O(busDdata_c[1]),
+	.I0(busCdata_c[1]),
+	.IO(busDdata[1]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[2]  (
+	.O(busDdata_c[2]),
+	.I0(busCdata_c[2]),
+	.IO(busDdata[2]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[3]  (
+	.O(busDdata_c[3]),
+	.I0(busCdata_c[3]),
+	.IO(busDdata[3]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[4]  (
+	.O(busDdata_c[4]),
+	.I0(busCdata_c[4]),
+	.IO(busDdata[4]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[5]  (
+	.O(busDdata_c[5]),
+	.I0(busCdata_c[5]),
+	.IO(busDdata[5]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[6]  (
+	.O(busDdata_c[6]),
+	.I0(busCdata_c[6]),
+	.IO(busDdata[6]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[7]  (
+	.O(busDdata_c[7]),
+	.I0(busCdata_c[7]),
+	.IO(busDdata[7]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[8]  (
+	.O(busDdata_c[8]),
+	.I0(busCdata_c[8]),
+	.IO(busDdata[8]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[9]  (
+	.O(busDdata_c[9]),
+	.I0(busCdata_c[9]),
+	.IO(busDdata[9]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[10]  (
+	.O(busDdata_c[10]),
+	.I0(busCdata_c[10]),
+	.IO(busDdata[10]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[11]  (
+	.O(busDdata_c[11]),
+	.I0(busCdata_c[11]),
+	.IO(busDdata[11]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[12]  (
+	.O(busDdata_c[12]),
+	.I0(busCdata_c[12]),
+	.IO(busDdata[12]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[13]  (
+	.O(busDdata_c[13]),
+	.I0(busCdata_c[13]),
+	.IO(busDdata[13]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[14]  (
+	.O(busDdata_c[14]),
+	.I0(busCdata_c[14]),
+	.IO(busDdata[14]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[15]  (
+	.O(busDdata_c[15]),
+	.I0(busCdata_c[15]),
+	.IO(busDdata[15]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[16]  (
+	.O(busDdata_c[16]),
+	.I0(busCdata_c[16]),
+	.IO(busDdata[16]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[17]  (
+	.O(busDdata_c[17]),
+	.I0(busCdata_c[17]),
+	.IO(busDdata[17]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[18]  (
+	.O(busDdata_c[18]),
+	.I0(busCdata_c[18]),
+	.IO(busDdata[18]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[19]  (
+	.O(busDdata_c[19]),
+	.I0(busCdata_c[19]),
+	.IO(busDdata[19]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[20]  (
+	.O(busDdata_c[20]),
+	.I0(busCdata_c[20]),
+	.IO(busDdata[20]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[21]  (
+	.O(busDdata_c[21]),
+	.I0(busCdata_c[21]),
+	.IO(busDdata[21]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[22]  (
+	.O(busDdata_c[22]),
+	.I0(busCdata_c[22]),
+	.IO(busDdata[22]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[23]  (
+	.O(busDdata_c[23]),
+	.I0(busCdata_c[23]),
+	.IO(busDdata[23]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[24]  (
+	.O(busDdata_c[24]),
+	.I0(busCdata_c[24]),
+	.IO(busDdata[24]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[25]  (
+	.O(busDdata_c[25]),
+	.I0(busCdata_c[25]),
+	.IO(busDdata[25]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[26]  (
+	.O(busDdata_c[26]),
+	.I0(busCdata_c[26]),
+	.IO(busDdata[26]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[27]  (
+	.O(busDdata_c[27]),
+	.I0(busCdata_c[27]),
+	.IO(busDdata[27]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[28]  (
+	.O(busDdata_c[28]),
+	.I0(busCdata_c[28]),
+	.IO(busDdata[28]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[29]  (
+	.O(busDdata_c[29]),
+	.I0(busCdata_c[29]),
+	.IO(busDdata[29]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[30]  (
+	.O(busDdata_c[30]),
+	.I0(busCdata_c[30]),
+	.IO(busDdata[30]),
+	.OE(oe1_i)
+);
+  BI_DIR \busDdata_Z[31]  (
+	.O(busDdata_c[31]),
+	.I0(busCdata_c[31]),
+	.IO(busDdata[31]),
+	.OE(oe1_i)
+);
+  IBUF oe0_Z (
+	.O(oe0_c),
+	.I0(oe0)
+);
+  IBUF oe1_Z (
+	.O(oe1_c),
+	.I0(oe1)
+);
+  INV oe1_i_Z (
+	.O(oe1_i),
+	.I0(oe1_c)
+);
+  INV oe0_i_Z (
+	.O(oe0_i),
+	.I0(oe0_c)
+);
+  assign GND = 1'b0;
+  assign VCC = 1'b1;
+endmodule /* dataexch */
+

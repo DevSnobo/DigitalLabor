@@ -1,0 +1,109 @@
+MODULE HOURS
+
+TITLE 'Hour Counter for Clock with seven segment outputs'
+
+"Inputs
+  CLK,RST,CIN         PIN ;
+
+"Outputs
+  J,H,G,F,E,D,C,B,A         PIN ISTYPE 'COM';
+  COUT                      PIN ISTYPE 'COM';
+
+"Nodes
+  H4,H3,H2,H1,H0            NODE ISTYPE 'REG_D,BUFFER';
+
+"Sets
+  HOURS = [H4,H3,H2,H1,H0];
+
+"Definitions
+    Pu = [0,0,0,0,0];
+   One = [0,0,0,0,1];
+   Two = [0,0,0,1,0];
+ Three = [0,0,0,1,1];
+  Four = [0,0,1,0,0];
+  Five = [0,0,1,0,1];
+   Six = [0,0,1,1,0];
+ Seven = [0,0,1,1,1];
+ Eight = [0,1,0,0,0];
+  Nine = [0,1,0,0,1];
+   Ten = [1,0,0,0,0];
+Eleven = [1,0,0,0,1];
+Twelve = [1,0,0,1,0];
+
+
+"Submodule declarations
+  SSEG interface (D3=0,D2=0,D1=0,D0=0 -> G,F,E,D,C,B,A);
+  ONESDISP functional_block SSEG;
+
+
+
+Equations
+
+ 	COUT = (HOURS.Q == Twelve);
+	
+	HOURS.CLK = CLK;
+	HOURS.AR = RST;
+
+
+State_Diagram HOURS
+
+	State Pu: GOTO One;
+
+	State One: IF CIN THEN Two
+                 ELSE One;
+
+	State Two: IF CIN THEN Three
+                 ELSE Two;
+
+	State Three: IF CIN THEN Four
+                 ELSE Three;
+
+	State Four: IF CIN THEN Five
+                 ELSE Four;
+
+	State Five: IF CIN THEN Six
+                 ELSE Five;
+
+	State Six: IF CIN THEN Seven
+                 ELSE Six;
+
+	State Seven: IF CIN THEN Eight
+                 ELSE Seven;
+
+	State Eight: IF CIN THEN Nine
+                 ELSE Eight;
+
+	State Nine: IF CIN THEN Ten
+                 ELSE Nine;
+
+	State Ten: IF CIN THEN Eleven
+                 ELSE Ten;
+
+	State Eleven: IF CIN THEN Twelve
+                 ELSE Eleven;
+
+	State Twelve: IF CIN THEN One
+                 ELSE Twelve;
+
+
+Equations
+
+	ONESDISP.D3 = H3;
+	ONESDISP.D2 = H2;
+	ONESDISP.D1 = H1;
+	ONESDISP.D0 = H0;
+
+	G = ONESDISP.G;
+	F = ONESDISP.F;
+	E = ONESDISP.E;
+	D = ONESDISP.D;
+	C = ONESDISP.C;
+	B = ONESDISP.B;
+	A = ONESDISP.A;
+	
+	H = (HOURS.Q == Ten) # (HOURS.Q == Eleven) # (HOURS.Q == Twelve);
+	J = (HOURS.Q == Ten) # (HOURS.Q == Eleven) # (HOURS.Q == Twelve);
+
+
+END
+

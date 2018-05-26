@@ -1,0 +1,10 @@
+JDF B
+// Created by Version 5.0 
+PROJECT Untitled
+DESIGN bcd2l_vh Normal
+DEVKIT LFX125B-04F256CES/2X
+ENTRY Schematic/VHDL
+STIMULUS tb_bcd.vhd
+MODULE bcd2led.vhd
+MODSTYLE BCD2LED Normal
+SYNTHESIS_TOOL Precision

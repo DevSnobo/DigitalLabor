@@ -1,0 +1,9 @@
+JDF B
+// Created by Version 5.0 
+PROJECT Untitled
+DESIGN uart Normal
+DEVKIT LFX1200B-04F900CES/2X
+ENTRY EDIF
+MODULE uart.edf
+MODSTYLE uart Normal
+SYNTHESIS_TOOL Precision

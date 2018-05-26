@@ -1,0 +1,97 @@
+module mult4x4
+title '4 bit Cray multiplier
+       Tom Bowns     Data I/O Corporation   May 7th, 1993';
+
+"Multiplies two four-bit values using a Cray-type algorithm,
+"and immediately outputs the result in an eight-bit set.
+
+@CARRY 1;
+
+"Inputs / Outputs
+	x3..x0  pin ;
+	y3..y0  pin ;
+	p7..p0  pin istype 'com';
+
+"Sets
+        X       = [x3..x0];
+        Y       = [y3..y0];
+	PRODUCT = [p7..p0];
+
+"Intermediate Equations
+        sm00 = x0 & y0;
+        sm01 = x0 & y1;
+        sm02 = x0 & y2;
+        sm03 = x0 & y3;
+       
+        sm10 = (x1 & y0) $ sm01;
+        cr10 = (x1 & y0) & sm01;
+
+        sm11 = (x1 & y1) $ sm02;
+        cr11 = (x1 & y1) & sm02;
+
+        sm12 = (x1 & y2) $ sm03;
+        cr12 = (x1 & y2) & sm03;
+
+        sm13 = (x1 & y3) $ cr12;
+        cr13 = (x1 & y3) & cr12;
+ 
+        sm20 = ((x2 & y0) $ sm11) $ cr10;
+        cr20 = (cr10 & x2 & y0) 
+             # (x2 & y0 & sm11) 
+             # (sm11 & cr10); 
+
+        sm21 = ((x2 & y1) $ sm12) $ cr11;
+        cr21 = (cr11 & x2 & y1) 
+             # (x2 & y1 & sm12) 
+             # (sm12 & cr11); 
+
+        sm22 = ((x2 & y2) $ sm13) $ cr21;
+        cr22 = (cr21 & x2 & y2) 
+             # (x2 & y2 & sm13) 
+             # (sm13 & cr21); 
+
+        sm23 = ((x2 & y3) $ cr13) $ cr22;
+        cr23 = (cr22 & x2 & y3) 
+             # (x2 & y3 & cr13) 
+             # (cr13 & cr22); 
+
+        sm30 = ((x3 & y0) $ sm21) $ cr20;
+        cr30 = (cr20 & x3 & y0)
+             # (x3 & y0 & sm21)
+             # (sm21 & cr20);
+
+        sm31 = ((x3 & y1) $ sm22) $ cr30;
+        cr31 = (cr30 & x3 & y1)
+             # (x3 & y1 & sm22)
+             # (sm22 & cr30);
+
+        sm32 = ((x3 & y2) $ sm23) $ cr31;
+        cr32 = (cr31 & x3 & y2)
+             # (x3 & y2 & sm23)
+             # (sm23 & cr31);
+
+        sm33 = ((x3 & y3) $ cr23) $ cr32;
+        cr33 = (cr32 & x3 & y3)
+             # (x3 & y3 & cr23)
+             # (cr23 & cr32);
+
+
+"Output" Equations
+
+     PRODUCT = [cr33,sm33,sm32,sm31,sm30,sm20,sm10,sm00];
+
+
+Test_vectors
+    ([ X , Y ] -> PRODUCT)
+     [ 0 , 0 ] ->    0   ;
+     [ 1 , 0 ] ->    0   ;
+     [ 2 , 1 ] ->    2   ;
+     [ 4 , 5 ] ->   20   ;
+     [ 3 , 3 ] ->    9   ;
+     [ 5 , 5 ] ->   25   ;
+     [ 5 , 8 ] ->   40   ;
+     [10 , 9 ] ->   90   ;
+     [15 ,15 ] ->  225   ;
+
+     
+End mult4x4

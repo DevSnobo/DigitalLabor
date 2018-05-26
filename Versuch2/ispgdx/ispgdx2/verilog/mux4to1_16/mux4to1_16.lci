@@ -1,0 +1,102 @@
+[Device]
+Family = gdx2;
+PartNumber = LX256V-5F484C2R;
+Package = 484fpBGA;
+PartType = LX256V;
+Speed = -5;
+Operating_condition = COM;
+Status=Production;
+
+[Revision]
+RCS = $Revision: 1.9 $;
+Parent = gdx2256.lci;
+Design = ;
+DATE = 12/20/2001;
+TIME = 12:38:03;
+Source_Format = Schematic_Verilog_HDL;
+
+[IGNORE ASSIGNMENTS]
+
+[CLEAR ASSIGNMENTS]
+
+[BACKANNOTATE ASSIGNMENTS]
+
+[GLOBAL CONSTRAINTS]
+
+[LOCATION ASSIGNMENTS]
+layer = OFF;
+
+[GROUP ASSIGNMENTS]
+layer = OFF;
+BusA = -, -, $ordered, a_0_, a_1_, a_10_, a_11_, a_12_, a_13_, a_14_, a_15_,
+	a_2_, a_3_, a_4_, a_5_, a_6_, a_7_, a_8_, a_9_;
+BusB = -, -, $ordered, b_0_, b_1_, b_10_, b_11_, b_12_, b_13_, b_14_, b_15_,
+	b_2_, b_3_, b_4_, b_5_, b_6_, b_7_, b_8_, b_9_;
+BusC = -, -, $ordered, c_0_, c_1_, c_10_, c_11_, c_12_, c_13_, c_14_, c_15_,
+	c_2_, c_3_, c_4_, c_5_, c_6_, c_7_, c_8_, c_9_;
+BusD = -, -, $ordered, d_0_, d_1_, d_10_, d_11_, d_12_, d_13_, d_14_, d_15_,
+	d_2_, d_3_, d_4_, d_5_, d_6_, d_7_, d_8_, d_9_;
+BusOut = -, -, $ordered, out_0_, out_1_, out_10_, out_11_, out_12_, out_13_,
+	out_14_, out_15_, out_2_, out_3_, out_4_, out_5_, out_6_, out_7_, out_8_,
+	out_9_;
+
+[RESOURCE RESERVATIONS]
+layer = OFF;
+
+[FITTER REPORT FORMAT]
+
+[POWER]
+
+[SOURCE CONSTRAINT OPTION]
+
+[NETLIST/DELAY FORMAT]
+
+[GLOBAL PROJECT OPTIMIZATION]
+
+[OPTIMIZATION OPTIONS]
+
+[FITTER GLOBAL OPTIONS]
+
+[LOCATION ASSIGNMENT]
+
+[GROUP ASSIGNMENT]
+
+[SPACE RESERVATIONS]
+
+[PIN RESERVATIONS]
+
+[BUS ASSIGNMENTS]
+
+[PLL ASSIGNMENTS]
+
+[INPUT REGISTERS]
+
+[IO TYPES]
+layer = OFF;
+
+[Pin Attributes List]
+
+[Pull]
+
+[SLEWRATE]
+Default = Fast;
+
+[Hardware Device Options]
+
+[Timing Analyzer]
+
+[Backannotate Netlist]
+
+[global constraints list]
+
+[Constraint Version]
+version = 1.0;
+
+[Node attribute]
+layer = OFF;
+
+[SYMBOL/MODULE attribute]
+layer = OFF;
+
+[INDIVIDUAL CONSTRAINTS]
+layer = OFF;

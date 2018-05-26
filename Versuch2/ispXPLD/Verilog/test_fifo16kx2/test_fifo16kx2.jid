@@ -1,0 +1,2 @@
+. test_fifo16kx2 test_fifo16kx2.v c:\isptools\ispcpld\examples\ispxpld\verilog\test_fifo16kx2\test_fifo16kx2.v
+U0 L_FIFO test_fifo16kx2.v c:\isptools\ispcpld\examples\ispxpld\verilog\test_fifo16kx2\test_fifo16kx2.v

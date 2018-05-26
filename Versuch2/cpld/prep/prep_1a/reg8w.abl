@@ -1,0 +1,43 @@
+module reg8w;
+interface (d7..d0,clk,rst -> q7..q0);
+title '8 bit wide register set.
+       Tom Bowns   Data I/O Corporation  May 7th, 1993'
+
+
+"Constants
+    X,C = .x.,.c.;
+    
+"Inputs
+     d7..d0   pin;
+     clk,rst    pin;
+
+"Outputs
+     q7..q0   pin istype 'reg';
+
+"Sets
+     DATIN = [d7..d0];
+     DATOUT = [q7..q0];
+
+
+Equations
+
+     DATOUT := DATIN;
+     DATOUT.clk = clk;
+     DATOUT.ar = rst;
+
+
+
+
+Test_vectors ([DATIN , clk , rst ] ->  DATOUT )
+              [  0   ,  0  ,  0  ] ->    0   ;
+              [  0   ,  C  ,  0  ] ->    0   ;
+              [  1   ,  C  ,  0  ] ->    1   ;
+              [  5   ,  C  ,  0  ] ->    5   ;
+              [  8   ,  C  ,  0  ] ->    8   ;
+              [  9   ,  C  ,  0  ] ->    9   ;
+              [  3   ,  C  ,  0  ] ->    3   ;
+              [  4   ,  C  ,  0  ] ->    4   ;
+              [  6   ,  C  ,  0  ] ->    6   ;
+              [  7   ,  C  ,  1  ] ->    0   ;
+               
+end

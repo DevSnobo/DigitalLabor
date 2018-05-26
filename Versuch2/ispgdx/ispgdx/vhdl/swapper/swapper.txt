@@ -1,0 +1,14 @@
+ 32-bit High Byte and Low Byte Swapper;
+
+ dataA0 to dataA15 are low-byte of A-bus input signals;
+ dataA16 to dataA31 are high-byte of A-bus input signals;
+ dataB0 to dataB15 are low-byte of B-bus output signals;
+ dataB16 to dataB31 are high-byte of B-bus output signals;
+
+ oe0 is an enable signal that controls B-bus output signals;
+
+ clk0 is the clock signal that triggers the registers of
+ B-bus output signals;
+
+ Data goes from A-bus to B-bus with swapped byte order when 
+ oe0 is high (1) and clk0 jumps to high (1);

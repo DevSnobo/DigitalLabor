@@ -1,0 +1,59 @@
+MODULE COUNTER
+
+TITLE 'Count until HOLD active'
+
+
+"Constants
+        C,P,X = .c.,.p.,.x.;
+
+"Inputs
+        !CLK,!RST,HOLD         pin 1,2,3;    "DIVX10 and RST from scaler 
+                                             "are both active low
+
+"Outputs
+        Q9,Q8,Q7,Q6,Q5       pin 19,18,20,17,21 istype 'reg,buffer';
+        Q4,Q3,Q2,Q1,Q0       pin 16,22,15,23,14 istype 'reg,buffer';
+
+
+"Set declarations
+        COUNT = [Q9,Q8,Q7,Q6,Q5,Q4,Q3,Q2,Q1,Q0];
+
+
+Equations
+        COUNT := (COUNT + 1) & !HOLD    "Count up if not HOLD
+               # (COUNT)     &  HOLD;   "Hold count
+
+        COUNT.AR = RST;
+	COUNT.C = CLK;
+
+
+Test_Vectors ([CLK  , RST,HOLD,!COUNT] -> COUNT)
+              [ 1   ,  0  , 0  ,  X  ] ->   X  ;
+              [ 1   ,  1  , 0  ,  X  ] ->   0  ;
+              [ 1   ,  0  , 0  ,  X  ] ->   0  ;
+              [ C   ,  0  , 0  ,  X  ] ->   1  ;
+              [ C   ,  0  , 0  ,  X  ] ->   2  ;
+              [ C   ,  0  , 0  ,  X  ] ->   3  ;
+              [ C   ,  0  , 0  ,  X  ] ->   4  ;
+              [ C   ,  0  , 0  ,  X  ] ->   5  ;
+              [ C   ,  0  , 0  ,  X  ] ->   6  ;
+              [ C   ,  0  , 0  ,  X  ] ->   7  ;
+              [ C   ,  0  , 0  ,  X  ] ->   8  ;
+              [ C   ,  0  , 0  ,  X  ] ->   9  ;
+              [ C   ,  0  , 0  ,  X  ] ->  10  ;
+              [ C   ,  0  , 0  ,  X  ] ->  11  ;
+              [ C   ,  0  , 0  ,  X  ] ->  12  ;
+              [ C   ,  0  , 0  ,  X  ] ->  13  ;
+              [ C   ,  0  , 0  ,  X  ] ->  14  ;
+              [ P   ,  0  , 0  , 1019] ->   X  ;
+              [ 0   ,  0  , 0  ,  X  ] -> 1019 ;
+              [ C   ,  0  , 0  ,  X  ] -> 1020 ;
+              [ C   ,  0  , 0  ,  X  ] -> 1021 ;
+              [ C   ,  0  , 0  ,  X  ] -> 1022 ;
+              [ C   ,  0  , 0  ,  X  ] -> 1023 ;
+              [ C   ,  0  , 1  ,  X  ] -> 1023 ;
+              [ C   ,  0  , 1  ,  X  ] -> 1023 ;
+              [ C   ,  0  , 1  ,  X  ] -> 1023 ;
+              [ 0   ,  1  , 0  ,  X  ] ->   0  ;
+
+END

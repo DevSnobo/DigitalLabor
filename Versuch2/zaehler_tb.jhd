@@ -1,0 +1,6 @@
+
+
+MODULE testbench
+
+	SUBMODULE zaehler_e
+		INSTANCE uut

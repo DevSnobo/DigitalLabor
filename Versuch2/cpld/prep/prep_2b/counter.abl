@@ -1,0 +1,24 @@
+module counter 
+
+title '8 bit, bus interface counter circuit';
+
+    d7..d0   pin ;                "Data inputs, 8 bits wide
+    clk      pin ;                "Clock input
+    rst      pin ;                "Asynchronous reset
+    ld       pin ;                "Load counter with input data value
+
+    q7..q0   pin istype 'reg';    "Counter outputs
+
+    data  = [d7..d0];             "Data set
+    count = [q7..q0];             "Counter set
+
+
+Equations
+
+    count.clk = clk;              "Counter clock input
+    count.ar  = rst;              "Counter reset input
+
+         when  ld then count := data         "Load counter with data when ld high
+    else when !ld then count := count + 1;   "Count when ld low
+
+END

@@ -1,0 +1,100 @@
+
+[Device]
+Family = lc5kmx;
+PartNumber = LC51024MV-52F672C;
+Package = 672fpBGA;
+PartType = LC51024MV;
+Speed = -5.2;
+Operating_condition = COM;
+Status = Production;
+Default_Device_IO_Types = LVCMOS33, 8;
+
+[Revision]
+Parent = lc5kmx1024.lci;
+Design = ;
+DATE = 03/14/2001;
+TIME = 16:31:13;
+Source_Format = Schematic_VHDL;
+
+[IGNORE ASSIGNMENTS]
+
+[CLEAR ASSIGNMENTS]
+Pin_Assignments = YES;
+Pin_Keep_Block = NO;
+Pin_Keep_Segment = NO;
+Group_Assignments = YES;
+Macrocell_Assignments = YES;
+Macrocell_Keep_Block = NO;
+Macrocell_Keep_Segment = NO;
+Pin_Reservation = YES;
+Timing_Constraints = NO;
+IO_Types = YES;
+
+[BACKANNOTATE ASSIGNMENTS]
+
+[GLOBAL CONSTRAINTS]
+
+[LOCATION ASSIGNMENTS]
+layer = OFF;
+
+[GROUP ASSIGNMENTS]
+layer = OFF;
+
+[RESOURCE RESERVATIONS]
+layer = OFF;
+
+[FITTER REPORT FORMAT]
+
+[POWER]
+Default = High;
+
+[SOURCE CONSTRAINT OPTION]
+
+[HARDWARE DEVICE OPTIONS]
+
+[Fast Bypass]
+Default = Bypass;
+
+[OSM Bypass]
+
+[INPUT REGISTERS]
+
+[NETLIST/DELAY FORMAT]
+
+[IO TYPES]
+layer = OFF;
+
+[PULLUP]
+Default = Off;
+
+[SLEWRATE]
+Default = Fast;
+
+[LOCATION ASSIGNMENTS LIST]
+
+[RESOURCE RESERVATIONS LIST]
+
+[Pin attributes list]
+
+[Timing Analyzer]
+
+[PLL Assignments]
+layer = OFF;
+clk = STDPLL, 100.0000, pllclk, -, off, 1, 5, 8, 1, -, -, -, lock, 2.0;
+
+[Constraint Version]
+version = 1.0;
+
+[Node attribute]
+layer = OFF;
+
+[SYMBOL/MODULE attribute]
+layer = OFF;
+
+[INDIVIDUAL CONSTRAINTS]
+layer = OFF;
+
+[TIMING CONSTRAINTS]
+layer = OFF;
+
+[global constraints list]

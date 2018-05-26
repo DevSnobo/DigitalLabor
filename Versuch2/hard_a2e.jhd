@@ -1,0 +1,6 @@
+
+
+MODULE HARD_A2e
+
+	SUBMODULE zaehler_e
+		INSTANCE i2

@@ -1,0 +1,2 @@
+. test_fifo16kx2 test_fifo16kx2.edf c:\isptools\ispcpld\examples\ispxpld\edif\test_fifo16kx2\test_fifo16kx2.edf
+U0 L_FIFO_LPM_FIFO_DC_2_14_16384_1_1_UNUSED  c:\isptools\ispcpld\examples\ispxpld\edif\test_fifo16kx2\

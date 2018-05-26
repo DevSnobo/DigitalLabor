@@ -1,0 +1,101 @@
+MODULE prep9
+
+TITLE 'Memory Map
+	By Kim-Fu Lim, Data I/O Corp.'
+
+" Inputs
+	CLK, RST, AS pin;
+	A15..A0 pin;
+	AH = [A15..A8];
+	AL = [A7..A0];
+
+" Outputs
+	A, B, C, D, E, F, G, H, BE pin istype 'reg';
+
+" Set Declarations
+	Q = [A, B, C, D, E, F, G, H];
+
+
+EQUATIONS
+
+  [Q, BE].C = CLK;
+  [Q, BE].AR = RST;
+
+  when (AS) then
+      {
+      BE := 0;
+      when ((AH <= ^hFF) & (AH >= ^hF0))       then Q := ^h80;
+      else when ((AH <= ^hEF) & (AH >= ^hE8))  then Q := ^h40;
+      else when ((AH <= ^hE7) & (AH >= ^hE4))  then Q := ^h20;
+      else when (AH == ^hE3)                   then Q := ^h10;
+      else when (AH == ^hE2) then
+          {
+          when ((AL <= ^hFF) & (AL >= ^hC0))       then Q := ^h08;
+          else when ((AL <= ^hBF) & (AL >= ^hB0))  then Q := ^h04;
+          else when ((AL <= ^hAF) & (AL >= ^hAC))  then Q := ^h02;
+          else when (AL == ^hAB) then Q := ^h01;
+          else
+              {
+	      Q := ^h00;
+	      BE := 1;
+              }
+          }
+      else
+          {
+          Q := ^h00;
+          BE := 1;
+          } 
+      }
+  else
+      {
+      Q := ^h00;
+      BE := 0;
+      }	
+
+
+DECLARATIONS
+" Constants
+
+    Output0  = ^h00;
+    OutputA  = ^h80;
+    OutputB  = ^h40;
+    OutputC  = ^h20;
+    OutputD  = ^h10;
+    OutputE  = ^h08;
+    OutputF  = ^h04;
+    OutputG  = ^h02;
+    OutputH  = ^h01;
+
+    
+
+TEST_VECTORS
+    ([CLK,RST,AS,   AH,   AL] -> [   Q,   BE])
+     [.C.,  1, 0, ^haa, ^haa] -> [Output0, 0];  "reset
+     [.C.,  0, 0, ^haa, ^haa] -> [Output0, 0];  " as
+     [.C.,  0, 1, ^hff, ^hff] -> [OutputA, 0];  
+     [.C.,  0, 1, ^hff, ^haa] -> [OutputA, 0];  
+     [.C.,  0, 1, ^hff, ^h55] -> [OutputA, 0];  
+     [.C.,  0, 1, ^hf0, ^h00] -> [OutputA, 0];  
+     [.C.,  0, 1, ^hef, ^hff] -> [OutputB, 0];  
+     [.C.,  0, 1, ^he8, ^ha5] -> [OutputB, 0];  
+     [.C.,  0, 1, ^he8, ^h00] -> [OutputB, 0];  
+
+     [.C.,  0, 1, ^he7, ^hff] -> [OutputC, 0];  "10
+     [.C.,  0, 1, ^he5, ^h00] -> [OutputC, 0];  
+     [.C.,  0, 1, ^he4, ^h00] -> [OutputC, 0];  
+     [.C.,  0, 1, ^he3, ^hff] -> [OutputD, 0];  
+     [.C.,  0, 1, ^he3, ^h00] -> [OutputD, 0];  
+     [.C.,  0, 1, ^he2, ^hff] -> [OutputE, 0];  
+     [.C.,  0, 1, ^he2, ^hc0] -> [OutputE, 0];  
+     [.C.,  0, 1, ^he2, ^hbf] -> [OutputF, 0];  
+     [.C.,  0, 1, ^he2, ^hb0] -> [OutputF, 0];  
+     [.C.,  0, 1, ^he2, ^haf] -> [OutputG, 0];  
+
+     [.C.,  0, 1, ^he2, ^hac] -> [OutputG, 0];  "20
+     [.C.,  0, 1, ^he2, ^hab] -> [OutputH, 0];  
+     [.C.,  0, 1, ^he2, ^haa] -> [Output0, 1];  
+     [.C.,  0, 1, ^h00, ^h00] -> [Output0, 1];  
+     [.C.,  0, 1, ^he2, ^hab] -> [OutputH, 0];  
+     [.C.,  0, 0, ^haa, ^haa] -> [Output0, 0];  " as
+    
+END

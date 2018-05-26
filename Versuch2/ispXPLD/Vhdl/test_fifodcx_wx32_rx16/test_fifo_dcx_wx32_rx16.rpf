@@ -1,0 +1,2 @@
+-blif -inp test_fifo_dcx_wx32_rx16.bl4 -out test_fifo_dcx_wx32_rx16.bl5
+-err automake.err -log test_fifo_dcx_wx32_rx16.log -mod test_fifo_dcx_wx32_rx16 -sc

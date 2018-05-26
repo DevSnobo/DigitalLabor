@@ -1,0 +1,18 @@
+MODULE adder
+
+TITLE 'full adder block'
+
+a, b, cin, sin      pin ;
+sum, carry          pin ;
+
+Equations
+
+	sum = ((a & b) $ sin) $ cin;
+
+	carry = (cin & (a & b))
+              # ((a & b) & sin)
+	      # (cin & sin);
+
+
+END
+

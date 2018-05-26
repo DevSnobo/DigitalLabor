@@ -1,0 +1,1 @@
+-w -s "C:\Users\John Doe\Documents\Versuch2\Aufgabe1\work\library.cfg"  -j "C:\Users\John Doe\Documents\Versuch2\Aufgabe1\work\projlib.cfg"  -d "C:\Users\John Doe\Documents\Versuch2\Aufgabe1\work\compile"   -work work  -O3 -e 100 "multiplexer_e_tb.vhd"

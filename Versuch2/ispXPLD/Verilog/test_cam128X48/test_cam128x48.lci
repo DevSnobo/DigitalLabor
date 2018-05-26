@@ -1,0 +1,63 @@
+[Device]
+Family=lc5kmx;
+PartNumber=LC5512MV-45F256C;
+Package=256fpBGA;
+PartType=LC5512MV;
+Speed=-4.5;
+Operating_condition=COM;
+Status=Production;
+
+[Revision]
+Parent=lc5kmx512.lci;
+DATE=03/10/2003;
+TIME=11:32:52;
+Source_Format=Schematic_Verilog_HDL;
+Synthesis=Precision;
+
+[Ignore Assignments]
+
+[Clear Assignments]
+
+[Backannotate Assignments]
+
+[Global Constraints]
+
+[Location Assignments]
+Layer = Off;
+
+[Group Assignments]
+Layer = Off;
+
+[Resource Reservations]
+Layer = Off;
+
+[Fitter Report Format]
+
+[Power]
+
+[Source Constraint Option]
+
+[Fast Bypass]
+
+[OSM Bypass]
+
+[Input Registers]
+
+[Netlist/Delay Format]
+
+[IO Types]
+Layer = off;
+
+[Pullup]
+
+[Slewrate]
+
+[Region]
+
+[Timing Constraints]
+
+[HSI Attributes]
+
+[Input Delay]
+
+

@@ -1,0 +1,24 @@
+module test
+
+clk,rst			pin;
+end3,end2,end1,end0	pin;
+
+out3,out2,out1,out0	pin;
+
+endv = [end3,end2,end1,end0];
+outv = [out3,out2,out1,out0];
+
+test_vectors
+
+([clk,rst,endv]		->	[outv]);
+
+[.x.,1,^h5]		->	[^h3];
+[.c.,0,^h5]		->	[^h1];
+[.c.,0,^h5]		->	[^h2];
+[.c.,0,^h5]		->	[^h3];
+[.c.,0,^h5]		->	[^h4];
+[.c.,0,^h5]		->	[^h5];
+[.c.,0,^h5]		->	[^h1];
+[.c.,0,^h5]		->	[^h2];
+
+END

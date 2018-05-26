@@ -1,0 +1,24 @@
+{\rtf1\ansi\ansicpg1252\uc1 \deff0\deflang1033\deflangfe1033{\fonttbl{\f0\froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f16\fswiss\fcharset0\fprq2{\*\panose 020b0506020202030204}Arial Narrow;}
+{\f113\fswiss\fcharset238\fprq2 Arial Narrow CE;}{\f114\fswiss\fcharset204\fprq2 Arial Narrow Cyr;}{\f116\fswiss\fcharset161\fprq2 Arial Narrow Greek;}{\f117\fswiss\fcharset162\fprq2 Arial Narrow Tur;}{\f118\fswiss\fcharset186\fprq2 Arial Narrow Baltic;}}
+{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;
+\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}{\stylesheet{\widctlpar\adjustright \fs20\cgrid \snext0 Normal;}{\*\cs10 \additive Default Paragraph Font;}}{\info{\author James Khong}
+{\operator James Khong}{\creatim\yr1999\mo12\dy3\hr18\min1}{\revtim\yr1999\mo12\dy5\hr19\min11}{\version3}{\edmins1}{\nofpages1}{\nofwords208}{\nofchars1189}{\*\company Vantis}{\nofcharsws0}{\vern89}}
+\widowctrl\ftnbj\aenddoc\hyphcaps0\viewkind1\viewscale103\viewzk2 \fet0\sectd \linex0\sectdefaultcl {\*\pnseclvl1\pnucrm\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl2\pnucltr\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl3
+\pndec\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl4\pnlcltr\pnstart1\pnindent720\pnhang{\pntxta )}}{\*\pnseclvl5\pndec\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl6\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}
+{\*\pnseclvl7\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl8\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl9\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}\pard\plain \qc\nowidctlpar\adjustright 
+\fs20\cgrid {\b\f16\cgrid0 CRAPS Design Example
+\par }\pard \nowidctlpar\adjustright {\f16\cgrid0 
+\par The is a
+n example VHDL design that monitors a game of craps. Craps is a dice game consisting of a series of rolls that determines a winning or losing point. The circuit keeps track of the dice rolls as a sequence of events, and determines at each roll if the play
+er has won or lost. 
+\par 
+\par The game starts with an initial roll of the dice. If the roll is a 2, the player loses. If the roll is a 7 or 11, the player wins. If, however, the roll is a number other than 2, 7, or 11, then that number becomes the "point." In order
+ to win the game, the player must roll the point again before rolling a 7. If the player rolls a 7 before rolling the point, the player loses. The craps circuit accepts the value of each roll on its input and reports a win or loss on its outputs after eac
+h subsequent roll. The new_game input resets the circuit, and roll provides the clocking of each subsequent roll.
+\par 
+\par Two files are provided for testing the design. Crapstb.vhd is a VHDL testbench for the craps design.  Craps.abv are Abel test vectors that can be used to simulate the synthesized logic.
+\par 
+\par Note that this design uses std_logic_vector for the \ldblquote Number\rdblquote  signal.  if this design uses an enumerated type (dice of type range 0 to 12;
+) for one of the top-level ports. While interesting, we do not, in general, recommend this practice. The reason is that it will cause the VHDL post-route netlis
+t to be non "plug compatible" with the VHDL testbench (since post-route netlists are almost always produced in terms of std_logic).
+\par }}

@@ -1,0 +1,2 @@
+-blif -inp test_fifodcx16kwx2rx4.bl4 -out test_fifodcx16kwx2rx4.bl5
+-err automake.err -log test_fifodcx16kwx2rx4.log -mod test_fifodcx16kwx2rx4 -sc

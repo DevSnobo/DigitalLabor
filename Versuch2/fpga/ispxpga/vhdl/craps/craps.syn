@@ -1,0 +1,11 @@
+JDF B
+// Created by Version 5.0 
+PROJECT Craps Game
+DESIGN craps Normal
+DEVKIT LFX125B-04F256CES/2X
+ENTRY Schematic/VHDL
+STIMULUS crapstb.vhd
+DOCUMENT dicegame.rtf
+MODULE craps.vhd
+MODSTYLE craps Normal
+SYNTHESIS_TOOL Precision

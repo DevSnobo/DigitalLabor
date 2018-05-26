@@ -1,0 +1,2 @@
+. test_fifo4kx4 test_fifo4kx4.vhd c:\isptools\ispcpld\examples\ispxpld\vhdl\test_fifo4kx4\test_fifo4kx4.vhd
+U0 L_FIFO  c:\isptools\ispcpld\examples\ispxpld\vhdl\test_fifo4kx4\

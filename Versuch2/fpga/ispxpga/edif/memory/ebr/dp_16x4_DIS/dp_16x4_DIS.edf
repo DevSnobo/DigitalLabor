@@ -1,0 +1,275 @@
+(edif dp_16x4_DIS 
+ (edifVersion 2 0 0)
+ (edifLevel 0)
+ (keywordMap (keywordLevel 0))
+ (status 
+  (written 
+   (timestamp 2004 07 29 20 41 15)
+   (program "LeonardoSpectrum for Lattice" (version "2004a.53_OEM_Lattice"))
+   (author "Mentor Graphics")))
+ (external PRIMITIVES 
+  (edifLevel 0)
+  (technology (numberDefinition )))
+ (external ispxpga 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell IBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port O (direction OUTPUT)))))
+  (cell OBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port O (direction OUTPUT))))))
+ (library work 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell test (cellType GENERIC)
+   (view INTERFACE  (viewType NETLIST)
+    (interface 
+     (port (array (rename EDI "EDI(0:0)") 1 )(direction INPUT))
+     (port (array (rename EDO "EDO(0:0)") 1 )(direction OUTPUT))
+     (port (array (rename Q "Q(3:0)") 4 )(direction OUTPUT))
+     (port (array (rename Data "Data(3:0)") 4 )(direction INPUT))
+     (port (array (rename WrAddress "WrAddress(3:0)") 4 )(direction INPUT))
+     (port (array (rename RdAddress "RdAddress(3:0)") 4 )(direction INPUT))
+     (port RdClock (direction INPUT))
+     (port WrClock (direction INPUT))
+     (port RdEn (direction INPUT))
+     (port WrEn (direction INPUT)))
+    (property lpm_type (string "LPM_RAM_DP"))
+    (property lpm_width (string "4"))
+    (property lpm_widthad (string "4"))
+    (property lpm_numwords (string "16"))
+    (property lpm_indata (string "REGISTERED"))
+    (property lpm_outdata (string "REGISTERED"))
+    (property lpm_rdaddress_control (string "UNREGISTERED"))
+    (property lpm_wraddress_control (string "UNREGISTERED"))
+    (property lpm_parity_width (string "1"))
+    (property lpm_hint (string "DIS"))))
+  (cell dp_16x4_DIS (cellType GENERIC)
+   (view INTERFACE  (viewType NETLIST)
+    (interface 
+     (port (array (rename EDI "EDI(0:0)") 1 )(direction INPUT))
+     (port (array (rename EDO "EDO(0:0)") 1 )(direction OUTPUT))
+     (port RdEn (direction INPUT))
+     (port WrEn (direction INPUT))
+     (port RdClock (direction INPUT))
+     (port WrClock (direction INPUT))
+     (port (array (rename addr "addr(3:0)") 4 )(direction INPUT))
+     (port (array (rename addw "addw(3:0)") 4 )(direction INPUT))
+     (port (array (rename data "data(3:0)") 4 )(direction INPUT))
+     (port (array (rename result "result(3:0)") 4 )(direction OUTPUT)))
+    (contents 
+     (instance U0 (viewRef INTERFACE  (cellRef test ))
+      (property lpm_type (string "LPM_RAM_DP"))
+      (property lpm_width (string "4"))
+      (property lpm_widthad (string "4"))
+      (property lpm_numwords (string "16"))
+      (property lpm_indata (string "REGISTERED"))
+      (property lpm_outdata (string "REGISTERED"))
+      (property lpm_rdaddress_control (string "UNREGISTERED"))
+      (property lpm_wraddress_control (string "UNREGISTERED"))
+      (property lpm_parity_width (string "1"))
+      (property lpm_hint (string "DIS")))
+     (instance (rename EDI_ibuf_0_ "EDI_ibuf(0)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance RdEn_ibuf (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance WrEn_ibuf (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance RdClock_ibuf (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance WrClock_ibuf (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename addr_ibuf_3_ "addr_ibuf(3)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename addr_ibuf_2_ "addr_ibuf(2)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename addr_ibuf_1_ "addr_ibuf(1)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename addr_ibuf_0_ "addr_ibuf(0)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename addw_ibuf_3_ "addw_ibuf(3)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename addw_ibuf_2_ "addw_ibuf(2)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename addw_ibuf_1_ "addw_ibuf(1)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename addw_ibuf_0_ "addw_ibuf(0)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename data_ibuf_3_ "data_ibuf(3)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename data_ibuf_2_ "data_ibuf(2)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename data_ibuf_1_ "data_ibuf(1)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename data_ibuf_0_ "data_ibuf(0)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispxpga ))))
+     (instance (rename EDO_obuf_0_ "EDO_obuf(0)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename result_obuf_3_ "result_obuf(3)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename result_obuf_2_ "result_obuf(2)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename result_obuf_1_ "result_obuf(1)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (instance (rename result_obuf_0_ "result_obuf(0)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispxpga ))))
+     (net (rename EDI_0_ "EDI(0)") 
+      (joined 
+       (portRef (member EDI 0))
+       (portRef I0 (instanceRef EDI_ibuf_0_ ))))
+     (net (rename EDO_dup0_0_ "EDO_dup0(0)") 
+      (joined 
+       (portRef (member EDO 0)(instanceRef U0 ))
+       (portRef I0 (instanceRef EDO_obuf_0_ ))))
+     (net RdEn 
+      (joined 
+       (portRef RdEn )
+       (portRef I0 (instanceRef RdEn_ibuf ))))
+     (net WrEn 
+      (joined 
+       (portRef WrEn )
+       (portRef I0 (instanceRef WrEn_ibuf ))))
+     (net RdClock 
+      (joined 
+       (portRef RdClock )
+       (portRef I0 (instanceRef RdClock_ibuf ))))
+     (net WrClock 
+      (joined 
+       (portRef WrClock )
+       (portRef I0 (instanceRef WrClock_ibuf ))))
+     (net (rename addr_3_ "addr(3)") 
+      (joined 
+       (portRef (member addr 0))
+       (portRef I0 (instanceRef addr_ibuf_3_ ))))
+     (net (rename addr_2_ "addr(2)") 
+      (joined 
+       (portRef (member addr 1))
+       (portRef I0 (instanceRef addr_ibuf_2_ ))))
+     (net (rename addr_1_ "addr(1)") 
+      (joined 
+       (portRef (member addr 2))
+       (portRef I0 (instanceRef addr_ibuf_1_ ))))
+     (net (rename addr_0_ "addr(0)") 
+      (joined 
+       (portRef (member addr 3))
+       (portRef I0 (instanceRef addr_ibuf_0_ ))))
+     (net (rename addw_3_ "addw(3)") 
+      (joined 
+       (portRef (member addw 0))
+       (portRef I0 (instanceRef addw_ibuf_3_ ))))
+     (net (rename addw_2_ "addw(2)") 
+      (joined 
+       (portRef (member addw 1))
+       (portRef I0 (instanceRef addw_ibuf_2_ ))))
+     (net (rename addw_1_ "addw(1)") 
+      (joined 
+       (portRef (member addw 2))
+       (portRef I0 (instanceRef addw_ibuf_1_ ))))
+     (net (rename addw_0_ "addw(0)") 
+      (joined 
+       (portRef (member addw 3))
+       (portRef I0 (instanceRef addw_ibuf_0_ ))))
+     (net (rename data_3_ "data(3)") 
+      (joined 
+       (portRef (member data 0))
+       (portRef I0 (instanceRef data_ibuf_3_ ))))
+     (net (rename data_2_ "data(2)") 
+      (joined 
+       (portRef (member data 1))
+       (portRef I0 (instanceRef data_ibuf_2_ ))))
+     (net (rename data_1_ "data(1)") 
+      (joined 
+       (portRef (member data 2))
+       (portRef I0 (instanceRef data_ibuf_1_ ))))
+     (net (rename data_0_ "data(0)") 
+      (joined 
+       (portRef (member data 3))
+       (portRef I0 (instanceRef data_ibuf_0_ ))))
+     (net (rename result_dup0_3_ "result_dup0(3)") 
+      (joined 
+       (portRef (member Q 0)(instanceRef U0 ))
+       (portRef I0 (instanceRef result_obuf_3_ ))))
+     (net (rename result_dup0_2_ "result_dup0(2)") 
+      (joined 
+       (portRef (member Q 1)(instanceRef U0 ))
+       (portRef I0 (instanceRef result_obuf_2_ ))))
+     (net (rename result_dup0_1_ "result_dup0(1)") 
+      (joined 
+       (portRef (member Q 2)(instanceRef U0 ))
+       (portRef I0 (instanceRef result_obuf_1_ ))))
+     (net (rename result_dup0_0_ "result_dup0(0)") 
+      (joined 
+       (portRef (member Q 3)(instanceRef U0 ))
+       (portRef I0 (instanceRef result_obuf_0_ ))))
+     (net (rename EDI_int_0_ "EDI_int(0)") 
+      (joined 
+       (portRef O (instanceRef EDI_ibuf_0_ ))
+       (portRef (member EDI 0)(instanceRef U0 ))))
+     (net RdEn_int 
+      (joined 
+       (portRef O (instanceRef RdEn_ibuf ))
+       (portRef RdEn (instanceRef U0 ))))
+     (net WrEn_int 
+      (joined 
+       (portRef O (instanceRef WrEn_ibuf ))
+       (portRef WrEn (instanceRef U0 ))))
+     (net RdClock_int 
+      (joined 
+       (portRef O (instanceRef RdClock_ibuf ))
+       (portRef RdClock (instanceRef U0 ))))
+     (net WrClock_int 
+      (joined 
+       (portRef O (instanceRef WrClock_ibuf ))
+       (portRef WrClock (instanceRef U0 ))))
+     (net (rename addr_int_3_ "addr_int(3)") 
+      (joined 
+       (portRef O (instanceRef addr_ibuf_3_ ))
+       (portRef (member RdAddress 0)(instanceRef U0 ))))
+     (net (rename addr_int_2_ "addr_int(2)") 
+      (joined 
+       (portRef O (instanceRef addr_ibuf_2_ ))
+       (portRef (member RdAddress 1)(instanceRef U0 ))))
+     (net (rename addr_int_1_ "addr_int(1)") 
+      (joined 
+       (portRef O (instanceRef addr_ibuf_1_ ))
+       (portRef (member RdAddress 2)(instanceRef U0 ))))
+     (net (rename addr_int_0_ "addr_int(0)") 
+      (joined 
+       (portRef O (instanceRef addr_ibuf_0_ ))
+       (portRef (member RdAddress 3)(instanceRef U0 ))))
+     (net (rename addw_int_3_ "addw_int(3)") 
+      (joined 
+       (portRef O (instanceRef addw_ibuf_3_ ))
+       (portRef (member WrAddress 0)(instanceRef U0 ))))
+     (net (rename addw_int_2_ "addw_int(2)") 
+      (joined 
+       (portRef O (instanceRef addw_ibuf_2_ ))
+       (portRef (member WrAddress 1)(instanceRef U0 ))))
+     (net (rename addw_int_1_ "addw_int(1)") 
+      (joined 
+       (portRef O (instanceRef addw_ibuf_1_ ))
+       (portRef (member WrAddress 2)(instanceRef U0 ))))
+     (net (rename addw_int_0_ "addw_int(0)") 
+      (joined 
+       (portRef O (instanceRef addw_ibuf_0_ ))
+       (portRef (member WrAddress 3)(instanceRef U0 ))))
+     (net (rename data_int_3_ "data_int(3)") 
+      (joined 
+       (portRef O (instanceRef data_ibuf_3_ ))
+       (portRef (member Data 0)(instanceRef U0 ))))
+     (net (rename data_int_2_ "data_int(2)") 
+      (joined 
+       (portRef O (instanceRef data_ibuf_2_ ))
+       (portRef (member Data 1)(instanceRef U0 ))))
+     (net (rename data_int_1_ "data_int(1)") 
+      (joined 
+       (portRef O (instanceRef data_ibuf_1_ ))
+       (portRef (member Data 2)(instanceRef U0 ))))
+     (net (rename data_int_0_ "data_int(0)") 
+      (joined 
+       (portRef O (instanceRef data_ibuf_0_ ))
+       (portRef (member Data 3)(instanceRef U0 ))))
+     (net (rename EDO_0_ "EDO(0)") 
+      (joined 
+       (portRef (member EDO 0))
+       (portRef O (instanceRef EDO_obuf_0_ ))))
+     (net (rename result_3_ "result(3)") 
+      (joined 
+       (portRef (member result 0))
+       (portRef O (instanceRef result_obuf_3_ ))))
+     (net (rename result_2_ "result(2)") 
+      (joined 
+       (portRef (member result 1))
+       (portRef O (instanceRef result_obuf_2_ ))))
+     (net (rename result_1_ "result(1)") 
+      (joined 
+       (portRef (member result 2))
+       (portRef O (instanceRef result_obuf_1_ ))))
+     (net (rename result_0_ "result(0)") 
+      (joined 
+       (portRef (member result 3))
+       (portRef O (instanceRef result_obuf_0_ ))))))))
+ (design dp_16x4_DIS (cellRef dp_16x4_DIS (libraryRef work ))))

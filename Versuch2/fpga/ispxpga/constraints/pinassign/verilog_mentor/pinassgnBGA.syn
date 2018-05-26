@@ -1,0 +1,9 @@
+JDF B
+// Created by Version 5.0 
+PROJECT Untitled
+DESIGN pinassgnbga Normal
+DEVKIT LFX125B-04F256CES/2X
+ENTRY Schematic/Verilog HDL
+MODULE pinassgnbga.v
+MODSTYLE pinassgn Normal
+SYNTHESIS_TOOL Precision

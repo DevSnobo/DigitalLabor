@@ -1,0 +1,82 @@
+MODULE Flicker
+
+Title 'Three lights: green, red and yellow. When yellow light is on,it will flicker'
+	Q0..Q3 pin istype 'reg_d';
+	clk    pin;
+	flash  pin;
+	cao    pin;
+	xrst 	pin;
+	Red	pin;
+	Green	pin;
+	Yellow	pin;
+
+	tmp node;
+
+"set define
+	Q = [Q3..Q0];
+"constant
+	C = .c.;
+
+equations
+	Q := Q.FB + 1;
+	Q.ar = xrst;
+	Q.clk = clk;
+	cao = Q0 & Q1 & Q2 & Q3;
+
+	when (Q <= 4) then
+		Red = 1;
+ 	else
+		Red = 0;
+	when ((Q >4) & (Q < 9)) then
+		tmp = 1;
+	else
+		tmp = 0;
+	when (Q >= 9) then
+		Green = 1;
+	else
+		Green = 0;
+
+	Yellow = flash & tmp;
+
+Test_vectors([xrst,clk, flash]->[Q,cao,[Red,Green,Yellow]])
+[ 1, C ,C ]->[0,0,.X.];
+[ 0, C ,C ]->[1,0,.X.];
+[ 0, C ,C ]->[2,0,.X.];
+[ 0, C ,C ]->[3,0,.X.];
+[ 0, C ,C ]->[4,0,.X.];
+[ 0, C ,C ]->[5,0,.X.];
+[ 0, C ,C ]->[6,0,.X.];
+[ 0, C ,C ]->[7,0,.X.];
+[ 0, C ,C ]->[8,0,.X.];
+[ 0, C ,C ]->[9,0,.X.];
+[ 0, C ,C ]->[10,0,.X.];
+[ 0, C ,C ]->[11,0,.X.];
+[ 0, C ,C ]->[12,0,.X.];
+[ 0, C ,C ]->[13,0,.X.];
+[ 0, C ,C ]->[14,0,.X.];
+[ 0, C ,C ]->[15,1,.X.];
+
+Test_vectors (xrst ->[Q,cao,[Red,Green,Yellow]])
+	cycle clk (0, 20ns) (1,20ns)(0,20ns);
+	cycle flash (0, 30)(1,40); "specify the time of flash light
+	wait   0; 1 ->[0,0,.X.];
+	wait 30;  0 ->[0,0,.X.];
+	wait 50;  0 ->[1,0,.x.];
+	wait 60; 0 ->[2,0,.X.];
+	wait 60; 0 ->[3,0,.X.];
+	wait 60; 0 ->[4,0,.X.];
+	wait 60; 0 ->[5,0,.X.];
+	wait 60; 0 ->[6,0,.X.];
+	wait 60; 0 ->[7,0,.X.];
+	wait 60; 0 ->[8,0,.X.];
+	wait 60; 0 ->[9,0,.X.];
+	wait 60; 0 ->[10,0,.X.];
+	wait 60; 0 ->[11,0,.X.];
+	wait 60; 0 ->[12,0,.X.];
+	wait 60; 0 ->[13,0,.X.];
+	wait 60; 0 ->[14,0,.X.];
+	wait 60; 0 ->[15,1,.x.];
+	wait 60; 0 ->[ 0,0,.x.];
+
+END 
+

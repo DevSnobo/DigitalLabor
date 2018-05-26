@@ -1,0 +1,83 @@
+Section Type   Array Num   Name                     Real Name          Base     Number     Increment
+// -------------------------------------------------------------------------------------------------
+      Port          1      x(1:0)                        x                  1          2            -1
+      Port          2      y(1:0)                        y                  1          2            -1
+      Port          3      Sout(1:0)                     Sout                  1          2            -1
+End
+Section Member   Rename                   Array-Notation          Array Number     Index
+// -------------------------------------------------------------------------------------
+        Port      x_1_                        x[1]                       1            0            
+        Port      x_0_                        x[0]                       1            1            
+        Port      y_1_                        y[1]                       2            0            
+        Port      y_0_                        y[0]                       2            1            
+        Port      Sout_1_                     Sout[1]                       3            0            
+        Port      Sout_0_                     Sout[0]                       3            1            
+End
+Section Cross Reference File
+Design 'cradd_ent' created Mon Apr 23 16:23:34 2018
+   Type              New Name                               Original Name
+// ----------------------------------------------------------------------
+   Inst                   x_0_                                      x[0]
+   Inst                   x_1_                                      x[1]
+   Inst                   y_0_                                      y[0]
+   Inst                   y_1_                                      y[1]
+   Inst                Sout_0_                                   Sout[0]
+   Inst                Sout_1_                                   Sout[1]
+   Inst      FA2_ha1_un1_y_2_i                         FA2.ha1.un1_y_2_i
+   Inst          FA2_ha1_s_1_i                             FA2.ha1.s_1_i
+   Inst         FA2_ha1_c1ha_i                            FA2.ha1.c1ha_i
+   Inst         FA2_ha2_c2ha_i                            FA2.ha2.c2ha_i
+   Inst            FA2_or2_y_i                               FA2.or2.y_i
+   Inst      FA2_ha2_un1_y_1_i                         FA2.ha2.un1_y_1_i
+   Inst      FA2_ha2_un1_y_2_i                         FA2.ha2.un1_y_2_i
+   Inst          FA2_ha2_s_1_i                             FA2.ha2.s_1_i
+   Inst      FA2_ha1_un1_y_1_i                         FA2.ha1.un1_y_1_i
+   Inst            FA2_ha1_c_1                               FA2.ha1.c_1
+   Inst         FA2_ha1_x_i_1_                            FA2.ha1.x_i[1]
+   Inst        FA2_ha1_un1_y_1                           FA2.ha1.un1_y_1
+   Inst         FA2_ha1_y_i_1_                            FA2.ha1.y_i[1]
+   Inst        FA2_ha1_un1_y_2                           FA2.ha1.un1_y_2
+   Inst            FA2_ha1_s_1                               FA2.ha1.s_1
+   Inst            FA2_ha2_c_1                               FA2.ha2.c_1
+   Inst        FA2_ha2_un1_y_1                           FA2.ha2.un1_y_1
+   Inst        FA2_ha2_un1_y_2                           FA2.ha2.un1_y_2
+   Inst            FA2_ha2_s_1                               FA2.ha2.s_1
+   Inst              FA2_or2_y                                 FA2.or2.y
+   Inst                 x_i_0_                                    x_i[0]
+   Net             sout_1_1__n                                 Sout_1[1]
+   Net              fa2_c1ha_n                                  FA2.c1ha
+   Net       fa2_ha1_un1_y_1_n                           FA2.ha1.un1_y_1
+   Net       fa2_ha1_un1_y_2_n                           FA2.ha1.un1_y_2
+   Net              fa2_s1ha_n                                  FA2.s1ha
+   Net              fa2_c2ha_n                                  FA2.c2ha
+   Net       fa2_ha2_un1_y_1_n                           FA2.ha2.un1_y_1
+   Net       fa2_ha2_un1_y_2_n                           FA2.ha2.un1_y_2
+   Net                x_i_0__n                                    x_i[0]
+   Net                y_i_1__n                                    y_i[1]
+   Net                x_i_1__n                                    x_i[1]
+   Net                x_c_0__n                                    x_c[0]
+   Net                  x_0__n                                      x[0]
+   Net                x_c_1__n                                    x_c[1]
+   Net                y_c_0__n                                    y_c[0]
+   Net                  y_0__n                                      y[0]
+   Net                y_c_1__n                                    y_c[1]
+   Net               sout_0__n                                   Sout[0]
+   Net            fa2_c1ha_i_n                                FA2.c1ha_i
+   Net            fa2_c2ha_i_n                                FA2.c2ha_i
+   Net     fa2_ha2_un1_y_1_i_n                         FA2.ha2.un1_y_1_i
+   Net     fa2_ha2_un1_y_2_i_n                         FA2.ha2.un1_y_2_i
+   Net           sout_1_0_1__n                               Sout_1_0[1]
+   Net     fa2_ha1_un1_y_1_i_n                         FA2.ha1.un1_y_1_i
+   Net     fa2_ha1_un1_y_2_i_n                         FA2.ha1.un1_y_2_i
+   Net            fa2_s1ha_i_n                                FA2.s1ha_i
+End
+Section Type      Name
+// ----------------------------------------------------------------------
+        Input     x_1_
+        Input     y_1_
+        Input     x_0_
+        Input     y_0_
+        Output     Sout_1_
+        Output     Cfinal
+        Output     Sout_0_
+End

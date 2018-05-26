@@ -1,0 +1,6 @@
+
+
+MODULE HARD_A4e
+
+	SUBMODULE zaehler_ampel_e
+		INSTANCE i2

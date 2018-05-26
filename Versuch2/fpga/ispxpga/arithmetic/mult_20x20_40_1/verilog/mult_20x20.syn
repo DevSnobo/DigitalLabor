@@ -1,0 +1,10 @@
+JDF B
+// Created by Version 5.0 
+PROJECT Untitled
+DESIGN mult_20x20 Normal
+DEVKIT LFX200B-04F256CES/2X
+ENTRY Schematic/Verilog HDL
+MODULE mult_20x20_40_signed_1_aclr.v
+MODSTYLE mult_20x20_40_SIGNED_1_Aclr Normal
+MODSTYLE test Normal
+SYNTHESIS_TOOL Precision

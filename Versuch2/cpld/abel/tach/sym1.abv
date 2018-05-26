@@ -1,0 +1,77 @@
+module toplev;
+
+"constants
+	c,x,z = .C.,.X.,.Z.;
+
+"pins
+	P90, P0, CLK     	        pin;
+	D9,D8,D7,D6,D5,D4,D3,D2,D1,D0   pin;
+	CW,CCW				pin;
+
+"Set up constants
+   @const ccwset = ^b1100;   "Pattern for phase 0, counter-clockwise
+   @const cwset = ^b0110;    "Pattern for phase 0, clockwise
+   @const cw = 1;            "This value of variable dir represents clockwise
+   @const ccw = 0;           "This value represents counter-clockwise
+   @const stop = 2;          "This value represents stop
+   @const repsize = 5;       "Run five cycles for a given speed
+
+"Macro that actually creates the test vectors based on direction and speed values
+scycle MACRO (dir,speed) {
+   @const size = ?speed / 4;
+   @const i = 0;
+   @repeat repsize * 4
+      {
+      @const phasesel = i % 4;
+      @repeat size
+         {
+         @if (?dir == cw)
+            {
+            @const phase0 = (cwset >> phasesel);
+            @const phase90 = (ccwset >> phasesel);
+            [ c, phase90, phase0 ] -> [ x, x, x, x, x, x, x, x, x, x, x, x];
+            }  
+         @if (?dir == ccw)
+            { 
+            @const phase0 = (ccwset >> phasesel);
+            @const phase90 = (cwset >> phasesel);
+            [ c, phase90, phase0 ] -> [ x, x, x, x, x, x, x, x, x, x, x, x];
+            }
+         @if (?dir == stop)
+            {
+            [ c, phase90, phase0 ] -> [ x, x, x, x, x, x, x, x, x, x, x, x];
+            }
+         }
+      @const i = i + 1;
+      }
+};
+
+test_vectors  'Simple tests'
+   ([CLK,P90,P0] -> [CW,CCW,D9,D8,D7,D6,D5,D4,D3,D2,D1,D0])
+
+"Initial vector;
+    [ 0 , 0 , 0] -> [ 0,  0, x, x, x, x, x, x, x, x, x, x];
+
+"Run clockwise cycle of 100 count pulse widths. Note that system clock speed
+"is 10x the counter clock speed.
+   @message 'Clockwise, Slowly';
+   scycle (cw,100)
+
+"Run clockwise cycle of 60 count pulse widths
+   @message 'Clockwise, Medium';
+   scycle (cw,60)
+
+"Run clockwise cycle of 10 count pulse widths
+   @message 'Clockwise, Fast';
+   scycle (cw,10)
+
+"Stop for 50 counts
+   @message 'Dead Stop';
+   scycle (stop,50)
+
+"Run counter-clockwise cycle of 40 count pulse widths
+   @message 'Counter-clockwise, Medium';
+   scycle (ccw,40)
+
+
+end

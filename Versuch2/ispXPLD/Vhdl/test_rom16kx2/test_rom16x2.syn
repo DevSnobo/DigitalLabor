@@ -1,0 +1,10 @@
+JDF B
+// Created by Version 2.1 
+PROJECT Untitled
+DESIGN test_rom16x2 Normal
+DEVKIT LC5512MV-45F256C
+ENTRY Schematic/VHDL
+STIMULUS tb_test_rom16kx2.vhd
+MODULE test_rom16kx2.vhd
+MODSTYLE test_rom16kx2 Normal
+SYNTHESIS_TOOL Precision

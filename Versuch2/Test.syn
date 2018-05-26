@@ -1,0 +1,20 @@
+JDF B
+// Created by Version 2.0 
+PROJECT Test
+DESIGN test Normal
+DEVKIT GAL16LV8C-10LJ
+ENTRY Pure VHDL
+MODULE ..\..\Users\RobinFritz\Downloads\Versuch 1\VHDL\funktionstabelle.vhd
+MODSTYLE Funktionstabelle_ent Normal
+MODULE test.vhd
+MODSTYLE test_ent Normal
+MODULE ..\..\Users\RobinFritz\Downloads\Versuch 1\VHDL\und3.vhd
+MODSTYLE UND3_ent Normal
+STIMULUS UND3_ent UND3_tb.vhd
+MODULE ..\..\Users\RobinFritz\Downloads\Versuch 1\VHDL\or.vhd
+MODSTYLE or_ent Normal
+MODULE ..\..\Users\RobinFritz\Downloads\Versuch 1\VHDL\halbad.vhd
+MODSTYLE halbad_ent Normal
+SYNTHESIS_TOOL Synplify
+SIMULATOR_TOOL ActiveHDL
+TOPMODULE UND3_ent

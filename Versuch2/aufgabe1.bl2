@@ -1,0 +1,36 @@
+#$ TOOL ispLEVER Classic 1.6.00.07.29.12
+#$ DATE Mon Apr 23 16:23:34 2018
+#$ MODULE cradd_ent
+#$ PINS 7 x_1_ y_1_ Sout_1_ Cfinal x_0_ y_0_ Sout_0_
+
+.model cradd_ent
+.inputs x_1_.BLIF y_1_.BLIF x_0_.BLIF y_0_.BLIF
+.outputs Sout_1_ Cfinal Sout_0_
+.names x_1_.BLIF y_1_.BLIF x_0_.BLIF y_0_.BLIF Sout_1_
+100- 1
+010- 1
+0011 1
+1111 1
+10-0 1
+01-0 1
+000- 0
+110- 0
+1011 0
+0111 0
+00-0 0
+11-0 0
+.names x_1_.BLIF y_1_.BLIF x_0_.BLIF y_0_.BLIF Cfinal
+11-- 1
+-111 1
+1-11 1
+-00- 0
+0-0- 0
+00-- 0
+-0-0 0
+0--0 0
+.names x_0_.BLIF y_0_.BLIF Sout_0_
+10 1
+01 1
+00 0
+11 0
+.end

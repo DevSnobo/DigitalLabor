@@ -1,0 +1,9 @@
+JDF B
+// Created by Version 5.0 
+PROJECT Untitled
+DESIGN counter Normal
+DEVKIT LFX1200B-03FE680CES/2X
+ENTRY EDIF
+MODULE count.edf
+MODSTYLE count Normal
+SYNTHESIS_TOOL Precision

@@ -1,0 +1,10 @@
+JDF B
+// Created by Version 4.2 
+PROJECT Untitled
+DESIGN cdrx_8b10b_fifo Normal
+DEVKIT LX256V-35F484C
+ENTRY Schematic/VHDL
+STIMULUS tb_cdrx8b10b.vhd
+MODULE cdrx_8b10b_fifo.vhd
+MODSTYLE cdrx_8b10b_fifo Normal
+SYNTHESIS_TOOL Synplify

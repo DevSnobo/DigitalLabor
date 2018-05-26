@@ -1,0 +1,46 @@
+#$ DATE Mon Mar 10 11:30:50 2003
+#$ TOOL EDIF2BLIF version IspLever 1.0 
+#$ MODULE test_fifodcx16kwx2rx4
+#$ PINS 16 Q_3_ Full Empty AlmostFull AlmostEmpty Data_1_ WrClock WrEn RdClock RdEn Reset RPReset Q_2_ Q_1_ Q_0_ Data_0_
+#$ NODES 16 int_q_3__n int_q_2__n int_q_1__n int_q_0__n int_Full int_Empty int_AlmostFull int_AlmostEmpty int_data_1__n int_data_0__n 
+int_WrClock int_WrEn int_RdClock int_RdEn int_Reset int_RPReset 
+#$ INTERFACE l_fifodcx_lpm_fifo_dcx_2_4_13_ 16 Data0'i' Data1'i' WrClock'i' WrEn'i' RdClock'i' RdEn'i' Reset'i' RPReset'i' Q0'o' Q1'o' Q2'o' Q3'o' Full'o' Empty'o' AlmostFull'o' AlmostEmpty'o'
+#$ INSTANCE U0 l_fifodcx_lpm_fifo_dcx_2_4_13_ 16 int_data_0__n int_data_1__n int_WrClock int_WrEn int_RdClock int_RdEn int_Reset int_RPReset int_q_0__n int_q_1__n int_q_2__n int_q_3__n int_Full int_Empty int_AlmostFull int_AlmostEmpty
+.model test_fifodcx16kwx2rx4
+.inputs Data_1_.BLIF WrClock.BLIF WrEn.BLIF RdClock.BLIF RdEn.BLIF Reset.BLIF RPReset.BLIF Data_0_.BLIF int_q_3__n.BLIF \
+  int_q_2__n.BLIF int_q_1__n.BLIF int_q_0__n.BLIF int_Full.BLIF int_Empty.BLIF int_AlmostFull.BLIF int_AlmostEmpty.BLIF  
+.outputs Q_3_ Full Empty AlmostFull AlmostEmpty Q_2_ Q_1_ Q_0_ int_data_1__n int_data_0__n int_WrClock \
+  int_WrEn int_RdClock int_RdEn int_Reset int_RPReset
+.names  int_q_3__n.BLIF Q_3_
+1 1
+.names  int_q_2__n.BLIF Q_2_
+1 1
+.names  int_q_1__n.BLIF Q_1_
+1 1
+.names  int_q_0__n.BLIF Q_0_
+1 1
+.names  int_Full.BLIF Full
+1 1
+.names  int_Empty.BLIF Empty
+1 1
+.names  int_AlmostFull.BLIF AlmostFull
+1 1
+.names  int_AlmostEmpty.BLIF AlmostEmpty
+1 1
+.names  Data_1_.BLIF int_data_1__n
+1 1
+.names  Data_0_.BLIF int_data_0__n
+1 1
+.names  WrClock.BLIF int_WrClock
+1 1
+.names  WrEn.BLIF int_WrEn
+1 1
+.names  RdClock.BLIF int_RdClock
+1 1
+.names  RdEn.BLIF int_RdEn
+1 1
+.names  Reset.BLIF int_Reset
+1 1
+.names  RPReset.BLIF int_RPReset
+1 1
+.end

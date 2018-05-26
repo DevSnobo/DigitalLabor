@@ -1,0 +1,78 @@
+module p1_top (arg)
+
+// ----------------------------------------------------------------------
+// This section accepts a compile-time argument which determines the
+// number of times the PREP1 design should be instanced within this
+// top level module. Note that if no argument is passed, the instance
+// number is given a default value of 1.
+//
+@ifb (?arg)
+   {
+   @message 'No value specified, substituting 1'
+   @const val = 1;
+   }
+@ifnb (?arg)
+   {
+   @const val = ?arg;
+   }
+
+
+// ------------------------------------------------------------------------
+// This section declares the global input and output pins and sets.
+//
+"Inputs
+ID23..ID0 pin;
+IPD7..IPD0 pin;
+CLK, EXT_RESET, S_L, S0, S1 pin;
+
+"Outputs
+Q_7..Q_0 pin ;                 "Declared as registers in prep1 submodule
+
+"Sets
+Q = [Q_7..Q_0];
+ID = [ID23..ID0];
+IPD = [IPD7..IPD0];
+
+"Sub-module declarations
+prep1 interface (id23..id0, ipd7..ipd0, clk, rst, s_l, s0, s1 -> q7..q0);
+
+
+// -------------------------------------------------------------------------
+// Here the sub-module prep1 is instantiated a number of times. The number
+// of instantiations is determined by the input argument.
+//
+PREP1_ macro (i) { @expr {PREP1_}?i; }
+
+@const i = 0;
+@repeat val 
+  {
+  PREP1_(i) functional_block prep1;     "This is the actual instantiation line.
+  @const i = i + 1;
+  }
+
+
+// -------------------------------------------------------------------------
+// Equations interconnecting the instances and global input and output pins.
+//
+equations
+
+  PREP1_0.[ipd7..ipd0] = IPD;      "Connect first instance's inputs to IPD.
+
+@const i = 0;
+@repeat val                        "Repeat the bracketed section <VAL> times.
+  {                                "Connects each instance to the global inputs.
+  PREP1_(i).[clk, rst, s_l, s0, s1, id23..id0] = [CLK, EXT_RESET, S_L, S0, S1, ID23..ID0];
+  @const i = i+1;                     
+  }
+
+@const i = 0;
+@repeat val-1                      "Connects the next instance with the current one.
+  {
+  PREP1_(i+1).[ipd7..ipd0] = PREP1_(i).[q7..q0];
+  @const i = i+1;
+  }
+
+@const N = val - 1;
+Q = PREP1_(N).[q7..q0];            "Connects the last instance with the global outputs.
+
+end

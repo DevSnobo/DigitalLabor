@@ -1,0 +1,107 @@
+
+[Device]
+Family = lc4k;
+PartNumber = LC4512C-10FT256I;
+Package = 256ftBGA;
+PartType = LC4512C;
+Speed = -10;
+Operating_condition = IND;
+Status = Production;
+
+[Revision]
+Parent = lc4k512c.lci;
+Design = ;
+DATE = 05/10/2010;
+TIME = 10:27:58;
+Source_Format = ABEL_Schematic;
+Synthesis = Synplify;
+
+[IGNORE ASSIGNMENTS]
+
+[CLEAR ASSIGNMENTS]
+
+[BACKANNOTATE ASSIGNMENTS]
+
+[GLOBAL CONSTRAINTS]
+
+[LOCATION ASSIGNMENTS]
+layer = OFF;
+P0 = pin,B14,-,-,-;
+P90 = pin,A15,-,-,-;
+D2 = pin,J3,-,-,-;
+D3 = pin,J2,-,-,-;
+
+[GROUP ASSIGNMENTS]
+layer = OFF;
+
+[RESOURCE RESERVATIONS]
+layer = OFF;
+
+[FITTER REPORT FORMAT]
+
+[POWER]
+
+[SOURCE CONSTRAINT OPTION]
+
+[FAST BYPASS]
+
+[OSM BYPASS]
+
+[INPUT REGISTERS]
+
+[NETLIST/DELAY FORMAT]
+
+[IO TYPES]
+layer = OFF;
+
+[PULLUP]
+
+[SLEWRATE]
+
+[LOCATION ASSIGNMENTS LIST]
+
+[RESOURCE RESERVATIONS LIST]
+
+[Pin attributes list]
+
+[Timing Analyzer]
+
+[opt global constraints list]
+
+[Explorer User Settings]
+
+[global constraints list]
+
+[Global Constraints Process Update]
+
+[pin lock limitation]
+
+[individual constraints list]
+
+[Attributes list setting]
+
+[PLL Assignments]
+
+[Dual Function Macrocell]
+
+[Explorer Results]
+
+[VHDL synplify constraints]
+
+[VHDL spectrum constraints]
+
+[verilog synplify constraints]
+
+[verilog spectrum constraints]
+
+[VHDL synplify constraints list]
+
+[VHDL spectrum constraints list]
+
+[verilog synplify constraints list]
+
+[verilog spectrum constraints list]
+
+[ORP Bypass]
+
+[Register Powerup]

@@ -1,0 +1,283 @@
+--
+-- Written by Synplicity
+-- Fri Dec 15 10:45:43 2000
+--
+
+--
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+library synplify;
+use synplify.components.all;
+
+entity BI_DIR is
+port(
+  O :  out std_logic;
+  I0 :  in std_logic;
+  IO :  inout std_logic;
+  OE :  in std_logic);
+end BI_DIR;
+
+architecture beh of BI_DIR is
+  signal NN_1 : std_logic ;
+  signal NN_2 : std_logic ;
+begin
+  NN_1 <= '1';
+  NN_2 <= '0';
+  IO <= I0 after 100 ps when OE = '1' else 'Z' after 100 ps;
+  O <= IO;
+end beh;
+
+--
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+library synplify;
+use synplify.components.all;
+
+entity IBUF is
+port(
+  O :  out std_logic;
+  I0 :  in std_logic);
+end IBUF;
+
+architecture beh of IBUF is
+  signal NN_1 : std_logic ;
+  signal NN_2 : std_logic ;
+begin
+  O <= I0;
+  NN_1 <= '1';
+  NN_2 <= '0';
+end beh;
+
+--
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+library synplify;
+use synplify.components.all;
+
+entity INV is
+port(
+  O :  out std_logic;
+  I0 :  in std_logic);
+end INV;
+
+architecture beh of INV is
+  signal NN_1 : std_logic ;
+  signal NN_2 : std_logic ;
+begin
+  O <= not I0;
+  NN_1 <= '1';
+  NN_2 <= '0';
+end beh;
+
+--
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+library synplify;
+use synplify.components.all;
+
+entity a2bexch is
+port(
+  busa : inout std_logic_vector(15 downto 0);
+  busb : inout std_logic_vector(15 downto 0);
+  oe0 :  in std_logic);
+end a2bexch;
+
+architecture beh of a2bexch is
+  signal BUSA_C : std_logic_vector(15 downto 0);
+  signal BUSB_C : std_logic_vector(15 downto 0);
+  signal OE0_I_0 : std_logic ;
+  signal OE0_C : std_logic ;
+  signal GND : std_logic ;
+  signal VCC : std_logic ;
+  component BI_DIR
+    port(
+      O :  out std_logic;
+      I0 :  in std_logic;
+      IO :  inout std_logic;
+      OE :  in std_logic  );
+  end component;
+  component IBUF
+    port(
+      O :  out std_logic;
+      I0 :  in std_logic  );
+  end component;
+  component INV
+    port(
+      O :  out std_logic;
+      I0 :  in std_logic  );
+  end component;
+begin
+  \II_BUSA[0]\: BI_DIR port map (
+      O => BUSA_C(0),
+      I0 => BUSB_C(0),
+      IO => busa(0),
+      OE => OE0_C);
+  \II_BUSA[1]\: BI_DIR port map (
+      O => BUSA_C(1),
+      I0 => BUSB_C(1),
+      IO => busa(1),
+      OE => OE0_C);
+  \II_BUSA[2]\: BI_DIR port map (
+      O => BUSA_C(2),
+      I0 => BUSB_C(2),
+      IO => busa(2),
+      OE => OE0_C);
+  \II_BUSA[3]\: BI_DIR port map (
+      O => BUSA_C(3),
+      I0 => BUSB_C(3),
+      IO => busa(3),
+      OE => OE0_C);
+  \II_BUSA[4]\: BI_DIR port map (
+      O => BUSA_C(4),
+      I0 => BUSB_C(4),
+      IO => busa(4),
+      OE => OE0_C);
+  \II_BUSA[5]\: BI_DIR port map (
+      O => BUSA_C(5),
+      I0 => BUSB_C(5),
+      IO => busa(5),
+      OE => OE0_C);
+  \II_BUSA[6]\: BI_DIR port map (
+      O => BUSA_C(6),
+      I0 => BUSB_C(6),
+      IO => busa(6),
+      OE => OE0_C);
+  \II_BUSA[7]\: BI_DIR port map (
+      O => BUSA_C(7),
+      I0 => BUSB_C(7),
+      IO => busa(7),
+      OE => OE0_C);
+  \II_BUSA[8]\: BI_DIR port map (
+      O => BUSA_C(8),
+      I0 => BUSB_C(8),
+      IO => busa(8),
+      OE => OE0_C);
+  \II_BUSA[9]\: BI_DIR port map (
+      O => BUSA_C(9),
+      I0 => BUSB_C(9),
+      IO => busa(9),
+      OE => OE0_C);
+  \II_BUSA[10]\: BI_DIR port map (
+      O => BUSA_C(10),
+      I0 => BUSB_C(10),
+      IO => busa(10),
+      OE => OE0_C);
+  \II_BUSA[11]\: BI_DIR port map (
+      O => BUSA_C(11),
+      I0 => BUSB_C(11),
+      IO => busa(11),
+      OE => OE0_C);
+  \II_BUSA[12]\: BI_DIR port map (
+      O => BUSA_C(12),
+      I0 => BUSB_C(12),
+      IO => busa(12),
+      OE => OE0_C);
+  \II_BUSA[13]\: BI_DIR port map (
+      O => BUSA_C(13),
+      I0 => BUSB_C(13),
+      IO => busa(13),
+      OE => OE0_C);
+  \II_BUSA[14]\: BI_DIR port map (
+      O => BUSA_C(14),
+      I0 => BUSB_C(14),
+      IO => busa(14),
+      OE => OE0_C);
+  \II_BUSA[15]\: BI_DIR port map (
+      O => BUSA_C(15),
+      I0 => BUSB_C(15),
+      IO => busa(15),
+      OE => OE0_C);
+  \II_BUSB[0]\: BI_DIR port map (
+      O => BUSB_C(0),
+      I0 => BUSA_C(0),
+      IO => busb(0),
+      OE => OE0_I_0);
+  \II_BUSB[1]\: BI_DIR port map (
+      O => BUSB_C(1),
+      I0 => BUSA_C(1),
+      IO => busb(1),
+      OE => OE0_I_0);
+  \II_BUSB[2]\: BI_DIR port map (
+      O => BUSB_C(2),
+      I0 => BUSA_C(2),
+      IO => busb(2),
+      OE => OE0_I_0);
+  \II_BUSB[3]\: BI_DIR port map (
+      O => BUSB_C(3),
+      I0 => BUSA_C(3),
+      IO => busb(3),
+      OE => OE0_I_0);
+  \II_BUSB[4]\: BI_DIR port map (
+      O => BUSB_C(4),
+      I0 => BUSA_C(4),
+      IO => busb(4),
+      OE => OE0_I_0);
+  \II_BUSB[5]\: BI_DIR port map (
+      O => BUSB_C(5),
+      I0 => BUSA_C(5),
+      IO => busb(5),
+      OE => OE0_I_0);
+  \II_BUSB[6]\: BI_DIR port map (
+      O => BUSB_C(6),
+      I0 => BUSA_C(6),
+      IO => busb(6),
+      OE => OE0_I_0);
+  \II_BUSB[7]\: BI_DIR port map (
+      O => BUSB_C(7),
+      I0 => BUSA_C(7),
+      IO => busb(7),
+      OE => OE0_I_0);
+  \II_BUSB[8]\: BI_DIR port map (
+      O => BUSB_C(8),
+      I0 => BUSA_C(8),
+      IO => busb(8),
+      OE => OE0_I_0);
+  \II_BUSB[9]\: BI_DIR port map (
+      O => BUSB_C(9),
+      I0 => BUSA_C(9),
+      IO => busb(9),
+      OE => OE0_I_0);
+  \II_BUSB[10]\: BI_DIR port map (
+      O => BUSB_C(10),
+      I0 => BUSA_C(10),
+      IO => busb(10),
+      OE => OE0_I_0);
+  \II_BUSB[11]\: BI_DIR port map (
+      O => BUSB_C(11),
+      I0 => BUSA_C(11),
+      IO => busb(11),
+      OE => OE0_I_0);
+  \II_BUSB[12]\: BI_DIR port map (
+      O => BUSB_C(12),
+      I0 => BUSA_C(12),
+      IO => busb(12),
+      OE => OE0_I_0);
+  \II_BUSB[13]\: BI_DIR port map (
+      O => BUSB_C(13),
+      I0 => BUSA_C(13),
+      IO => busb(13),
+      OE => OE0_I_0);
+  \II_BUSB[14]\: BI_DIR port map (
+      O => BUSB_C(14),
+      I0 => BUSA_C(14),
+      IO => busb(14),
+      OE => OE0_I_0);
+  \II_BUSB[15]\: BI_DIR port map (
+      O => BUSB_C(15),
+      I0 => BUSA_C(15),
+      IO => busb(15),
+      OE => OE0_I_0);
+  II_OE0: IBUF port map (
+      O => OE0_C,
+      I0 => oe0);
+  II_OE0_I: INV port map (
+      O => OE0_I_0,
+      I0 => OE0_C);
+  GND <= '0';
+  VCC <= '1';
+end beh;
+

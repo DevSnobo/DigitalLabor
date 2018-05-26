@@ -1,0 +1,132 @@
+(edif pull 
+ (edifVersion 2 0 0)
+ (edifLevel 0)
+ (keywordMap (keywordLevel 0))
+ (status 
+  (written 
+   (timestamp 2002 09 09 17 02 15)
+   (program "LeonardoSpectrum for Lattice" (version "2002c.24_OEM_Lattice"))
+   (author "Mentor Graphics Corp")))
+ (external PRIMITIVES 
+  (edifLevel 0)
+  (technology (numberDefinition )))
+ (external ispXPGA 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell IBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT)
+      (property pad (string "T")))
+     (port O (direction OUTPUT)))))
+  (cell OBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port O (direction OUTPUT)
+      (property pad (string "T"))))))
+  (cell LUT2 (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port I1 (direction INPUT))
+     (port O (direction OUTPUT)))
+    (property IS_LUT (string "1"))
+    (property NOMAP_GATE (string "1"))
+    (property AREA (string "0.250000")))))
+ (library work 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell pull (cellType GENERIC)
+   (view rtl  (viewType NETLIST)
+    (interface 
+     (port ina (direction INPUT)
+      (property pull (string "UP")))
+     (port inb (direction INPUT))
+     (port inc (direction INPUT))
+     (port pullof (direction OUTPUT)
+      (property pull (string "OFF")))
+     (port pullhd (direction OUTPUT)
+      (property pull (string "HOLD")))
+     (port pullup (direction OUTPUT)
+      (property pull (string "UP")))
+     (port pulldn (direction OUTPUT)
+      (property pull (string "DOWN"))))
+    (contents 
+     (instance ina_ibuf (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPGA ))))
+     (instance inb_ibuf (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPGA ))))
+     (instance inc_ibuf (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPGA ))))
+     (instance pullof_obuf (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance pullhd_obuf (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance pullup_obuf (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance pulldn_obuf (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance ix72 (viewRef NETLIST  (cellRef LUT2 (libraryRef ispXPGA )))
+      (property lut_function (string "((I0*I1))")))
+     (instance ix73 (viewRef NETLIST  (cellRef LUT2 (libraryRef ispXPGA )))
+      (property lut_function (string "((I0)+(I1))")))
+     (instance ix74 (viewRef NETLIST  (cellRef LUT2 (libraryRef ispXPGA )))
+      (property lut_function (string "((I0)+(I1))")))
+     (instance ix75 (viewRef NETLIST  (cellRef LUT2 (libraryRef ispXPGA )))
+      (property lut_function (string "((I0)+(I1))")))
+     (net ina 
+      (joined 
+       (portRef ina )
+       (portRef I0 (instanceRef ina_ibuf ))))
+     (net inb 
+      (joined 
+       (portRef inb )
+       (portRef I0 (instanceRef inb_ibuf ))))
+     (net inc 
+      (joined 
+       (portRef inc )
+       (portRef I0 (instanceRef inc_ibuf ))))
+     (net ina_int 
+      (joined 
+       (portRef O (instanceRef ina_ibuf ))
+       (portRef I0 (instanceRef ix72 ))
+       (portRef I0 (instanceRef ix74 ))
+       (portRef I0 (instanceRef ix75 ))))
+     (net inb_int 
+      (joined 
+       (portRef O (instanceRef inb_ibuf ))
+       (portRef I0 (instanceRef ix73 ))
+       (portRef I1 (instanceRef ix74 ))))
+     (net inc_int 
+      (joined 
+       (portRef O (instanceRef inc_ibuf ))
+       (portRef I1 (instanceRef ix72 ))
+       (portRef I1 (instanceRef ix73 ))
+       (portRef I1 (instanceRef ix75 ))))
+     (net pullof 
+      (joined 
+       (portRef pullof )
+       (portRef O (instanceRef pullof_obuf ))))
+     (net pullhd 
+      (joined 
+       (portRef pullhd )
+       (portRef O (instanceRef pullhd_obuf ))))
+     (net pullup 
+      (joined 
+       (portRef pullup )
+       (portRef O (instanceRef pullup_obuf ))))
+     (net pulldn 
+      (joined 
+       (portRef pulldn )
+       (portRef O (instanceRef pulldn_obuf ))))
+     (net pullof_dup0 
+      (joined 
+       (portRef O (instanceRef ix72 ))
+       (portRef I0 (instanceRef pullof_obuf ))))
+     (net pullhd_dup0 
+      (joined 
+       (portRef O (instanceRef ix73 ))
+       (portRef I0 (instanceRef pullhd_obuf ))))
+     (net pullup_dup0 
+      (joined 
+       (portRef O (instanceRef ix74 ))
+       (portRef I0 (instanceRef pullup_obuf ))))
+     (net pulldn_dup0 
+      (joined 
+       (portRef O (instanceRef ix75 ))
+       (portRef I0 (instanceRef pulldn_obuf ))))))))
+ (design pull (cellRef pull (libraryRef work ))))

@@ -1,0 +1,248 @@
+// Node Statistic Information File
+// Tool:  ispLEVER Classic 1.6.00.07.29.12
+// Design 'hard_a4e' created   Thu May 03 16:00:25 2018
+
+// Fmax Logic Level: 1.
+
+// Path: i2_z_tmp_0_.Q
+//    -> i2_z_tmp_3_.D
+
+// Signal Name: q_3_
+// Type: Output
+BEGIN q_3_
+Fanin Number		0
+Pterm Number		1
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		N/A
+END
+
+// Signal Name: rot
+// Type: Output
+BEGIN rot
+Fanin Number		3
+Pterm Number		2
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		N/A
+Fanin Node      	i2_z_tmp_1_.Q       	2
+Fanin Node      	i2_z_tmp_2_.Q       	3
+Fanin Node      	i2_z_tmp_3_.Q       	4
+END
+
+// Signal Name: gelb
+// Type: Output
+BEGIN gelb
+Fanin Number		3
+Pterm Number		2
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		N/A
+Fanin Node      	i2_z_tmp_1_.Q       	2
+Fanin Node      	i2_z_tmp_2_.Q       	3
+Fanin Node      	i2_z_tmp_3_.Q       	4
+END
+
+// Signal Name: gruen
+// Type: Output
+BEGIN gruen
+Fanin Number		2
+Pterm Number		1
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		N/A
+Fanin Node      	i2_z_tmp_2_.Q       	3
+Fanin Node      	i2_z_tmp_3_.Q       	4
+END
+
+// Signal Name: q_2_
+// Type: Output
+BEGIN q_2_
+Fanin Number		0
+Pterm Number		1
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		N/A
+END
+
+// Signal Name: q_1_
+// Type: Output
+BEGIN q_1_
+Fanin Number		0
+Pterm Number		1
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		N/A
+END
+
+// Signal Name: q_0_
+// Type: Output
+BEGIN q_0_
+Fanin Number		0
+Pterm Number		1
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		N/A
+END
+
+// Signal Name: i2_z_tmp_0_.D
+// Type: Node_reg
+BEGIN i2_z_tmp_0_.D
+Fanin Number		1
+Pterm Number		1
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		1
+Fanin Node      	i2_z_tmp_0_.Q       	1
+END
+
+// Signal Name: i2_z_tmp_0_.C
+// Type: Node_reg
+BEGIN i2_z_tmp_0_.C
+Fanin Number		1
+Pterm Number		1
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		N/A
+Fanin Input     	takt.BLIF           	0
+END
+
+// Signal Name: i2_z_tmp_0_.AR
+// Type: Node_reg
+BEGIN i2_z_tmp_0_.AR
+Fanin Number		1
+Pterm Number		1
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		N/A
+Fanin Input     	S1.BLIF             	0
+END
+
+// Signal Name: i2_z_tmp_1_.D
+// Type: Node_reg
+BEGIN i2_z_tmp_1_.D
+Fanin Number		2
+Pterm Number		2
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		1
+Fanin Node      	i2_z_tmp_0_.Q       	1
+Fanin Node      	i2_z_tmp_1_.Q       	2
+END
+
+// Signal Name: i2_z_tmp_1_.C
+// Type: Node_reg
+BEGIN i2_z_tmp_1_.C
+Fanin Number		1
+Pterm Number		1
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		N/A
+Fanin Input     	takt.BLIF           	0
+END
+
+// Signal Name: i2_z_tmp_1_.AR
+// Type: Node_reg
+BEGIN i2_z_tmp_1_.AR
+Fanin Number		1
+Pterm Number		1
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		N/A
+Fanin Input     	S1.BLIF             	0
+END
+
+// Signal Name: i2_z_tmp_2_.D
+// Type: Node_reg
+BEGIN i2_z_tmp_2_.D
+Fanin Number		3
+Pterm Number		3
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		1
+Fanin Node      	i2_z_tmp_0_.Q       	1
+Fanin Node      	i2_z_tmp_1_.Q       	2
+Fanin Node      	i2_z_tmp_2_.Q       	3
+END
+
+// Signal Name: i2_z_tmp_2_.C
+// Type: Node_reg
+BEGIN i2_z_tmp_2_.C
+Fanin Number		1
+Pterm Number		1
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		N/A
+Fanin Input     	takt.BLIF           	0
+END
+
+// Signal Name: i2_z_tmp_2_.AR
+// Type: Node_reg
+BEGIN i2_z_tmp_2_.AR
+Fanin Number		1
+Pterm Number		1
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		N/A
+Fanin Input     	S1.BLIF             	0
+END
+
+// Signal Name: i2_z_tmp_3_.D
+// Type: Node_reg
+BEGIN i2_z_tmp_3_.D
+Fanin Number		4
+Pterm Number		4
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		1
+Fanin Node      	i2_z_tmp_0_.Q       	1
+Fanin Node      	i2_z_tmp_1_.Q       	2
+Fanin Node      	i2_z_tmp_2_.Q       	3
+Fanin Node      	i2_z_tmp_3_.Q       	4
+END
+
+// Signal Name: i2_z_tmp_3_.C
+// Type: Node_reg
+BEGIN i2_z_tmp_3_.C
+Fanin Number		1
+Pterm Number		1
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		N/A
+Fanin Input     	takt.BLIF           	0
+END
+
+// Signal Name: i2_z_tmp_3_.AR
+// Type: Node_reg
+BEGIN i2_z_tmp_3_.AR
+Fanin Number		1
+Pterm Number		1
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		N/A
+Fanin Input     	S1.BLIF             	0
+END
+
+// Signal Name: gnd_n_n
+// Type: Node
+BEGIN gnd_n_n
+Fanin Number		0
+Pterm Number		0
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		N/A
+END
+
+// Signal Name: T1_i
+// Type: Node
+BEGIN T1_i
+Fanin Number		1
+Pterm Number		1
+Fanin per Macrocell	N/A
+Cluster PT		N/A
+Logic Levels		N/A
+Fanin Input     	T1.BLIF             	0
+END
+
+// Design 'hard_a4e' used clock signal list:
+

@@ -1,0 +1,4 @@
+MODULE fifo16kx2
+MODULE test_fifo16kx2
+	SUBMODULE fifo16kx2
+		INSTANCE U0

@@ -1,0 +1,225 @@
+(edif test_fifodcx16kwx2rx4 
+ (edifVersion 2 0 0)
+ (edifLevel 0)
+ (keywordMap (keywordLevel 0))
+ (status 
+  (written 
+   (timestamp 2003 02 19 21 27 15)
+   (program "LeonardoSpectrum for Lattice" (version "2002e.14_OEM_Lattice"))
+   (author "Exemplar Logic Inc")))
+ (external PRIMITIVES 
+  (edifLevel 0)
+  (technology (numberDefinition )))
+ (external ispXPLD5000MX 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell OBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port O (direction OUTPUT)
+      (property pad (string "T"))))))
+  (cell IBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT)
+      (property pad (string "T")))
+     (port O (direction OUTPUT))))))
+ (library work 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell L_FIFODCX_LPM_FIFO_DCX_2_4_13_12_8192_4096_1_1_UNUSED (cellType GENERIC)
+   (view INTERFACE  (viewType NETLIST)
+    (interface 
+     (port (array (rename Q "Q(3:0)") 4 )(direction OUTPUT))
+     (port Full (direction OUTPUT))
+     (port Empty (direction OUTPUT))
+     (port AlmostFull (direction OUTPUT))
+     (port AlmostEmpty (direction OUTPUT))
+     (port (array (rename Data "Data(1:0)") 2 )(direction INPUT))
+     (port WrClock (direction INPUT))
+     (port WrEn (direction INPUT))
+     (port RdClock (direction INPUT))
+     (port RdEn (direction INPUT))
+     (port Reset (direction INPUT))
+     (port RPReset (direction INPUT)))
+    (property lpm_type (string "LPM_FIFO_DCX"))
+    (property lpm_widthw (string "2"))
+    (property lpm_widthr (string "4"))
+    (property lpm_widthuw (string "13"))
+    (property lpm_widthur (string "12"))
+    (property lpm_numwordsw (string "8192"))
+    (property lpm_numwordsr (string "4096"))
+    (property lpm_amfull_flag (string "1"))
+    (property lpm_amempty_flag (string "1"))))
+  (cell test_fifodcx16kwx2rx4 (cellType GENERIC)
+   (view INTERFACE  (viewType NETLIST)
+    (interface 
+     (port (array (rename Q "Q(3:0)") 4 )(direction OUTPUT))
+     (port Full (direction OUTPUT))
+     (port Empty (direction OUTPUT))
+     (port AlmostFull (direction OUTPUT))
+     (port AlmostEmpty (direction OUTPUT))
+     (port (array (rename Data "Data(1:0)") 2 )(direction INPUT))
+     (port WrClock (direction INPUT))
+     (port WrEn (direction INPUT))
+     (port RdClock (direction INPUT))
+     (port RdEn (direction INPUT))
+     (port Reset (direction INPUT))
+     (port RPReset (direction INPUT)))
+    (contents 
+     (instance U0 (viewRef INTERFACE  (cellRef L_FIFODCX_LPM_FIFO_DCX_2_4_13_12_8192_4096_1_1_UNUSED ))
+      (property lpm_type (string "LPM_FIFO_DCX"))
+      (property lpm_widthw (string "2"))
+      (property lpm_widthr (string "4"))
+      (property lpm_widthuw (string "13"))
+      (property lpm_widthur (string "12"))
+      (property lpm_numwordsw (string "8192"))
+      (property lpm_numwordsr (string "4096"))
+      (property lpm_amfull_flag (string "1"))
+      (property lpm_amempty_flag (string "1")))
+     (instance (rename io_Q_3_ "io_Q(3)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_Q_2_ "io_Q(2)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_Q_1_ "io_Q(1)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_Q_0_ "io_Q(0)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPLD5000MX ))))
+     (instance io_Full (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPLD5000MX ))))
+     (instance io_Empty (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPLD5000MX ))))
+     (instance io_AlmostFull (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPLD5000MX ))))
+     (instance io_AlmostEmpty (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_Data_1_ "io_Data(1)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance (rename io_Data_0_ "io_Data(0)") (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance io_WrClock (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance io_WrEn (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance io_RdClock (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance io_RdEn (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance io_Reset (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (instance io_RPReset (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPLD5000MX ))))
+     (net (rename int_Q_3_ "int_Q(3)") 
+      (joined 
+       (portRef (member Q 0)(instanceRef U0 ))
+       (portRef I0 (instanceRef io_Q_3_ ))))
+     (net (rename int_Q_2_ "int_Q(2)") 
+      (joined 
+       (portRef (member Q 1)(instanceRef U0 ))
+       (portRef I0 (instanceRef io_Q_2_ ))))
+     (net (rename int_Q_1_ "int_Q(1)") 
+      (joined 
+       (portRef (member Q 2)(instanceRef U0 ))
+       (portRef I0 (instanceRef io_Q_1_ ))))
+     (net (rename int_Q_0_ "int_Q(0)") 
+      (joined 
+       (portRef (member Q 3)(instanceRef U0 ))
+       (portRef I0 (instanceRef io_Q_0_ ))))
+     (net int_Full 
+      (joined 
+       (portRef Full (instanceRef U0 ))
+       (portRef I0 (instanceRef io_Full ))))
+     (net int_Empty 
+      (joined 
+       (portRef Empty (instanceRef U0 ))
+       (portRef I0 (instanceRef io_Empty ))))
+     (net int_AlmostFull 
+      (joined 
+       (portRef AlmostFull (instanceRef U0 ))
+       (portRef I0 (instanceRef io_AlmostFull ))))
+     (net int_AlmostEmpty 
+      (joined 
+       (portRef AlmostEmpty (instanceRef U0 ))
+       (portRef I0 (instanceRef io_AlmostEmpty ))))
+     (net (rename int_Data_1_ "int_Data(1)") 
+      (joined 
+       (portRef O (instanceRef io_Data_1_ ))
+       (portRef (member Data 0)(instanceRef U0 ))))
+     (net (rename int_Data_0_ "int_Data(0)") 
+      (joined 
+       (portRef O (instanceRef io_Data_0_ ))
+       (portRef (member Data 1)(instanceRef U0 ))))
+     (net int_WrClock 
+      (joined 
+       (portRef O (instanceRef io_WrClock ))
+       (portRef WrClock (instanceRef U0 ))))
+     (net int_WrEn 
+      (joined 
+       (portRef O (instanceRef io_WrEn ))
+       (portRef WrEn (instanceRef U0 ))))
+     (net int_RdClock 
+      (joined 
+       (portRef O (instanceRef io_RdClock ))
+       (portRef RdClock (instanceRef U0 ))))
+     (net int_RdEn 
+      (joined 
+       (portRef O (instanceRef io_RdEn ))
+       (portRef RdEn (instanceRef U0 ))))
+     (net int_Reset 
+      (joined 
+       (portRef O (instanceRef io_Reset ))
+       (portRef Reset (instanceRef U0 ))))
+     (net int_RPReset 
+      (joined 
+       (portRef O (instanceRef io_RPReset ))
+       (portRef RPReset (instanceRef U0 ))))
+     (net (rename Q_3_ "Q(3)") 
+      (joined 
+       (portRef (member Q 0))
+       (portRef O (instanceRef io_Q_3_ ))))
+     (net (rename Q_2_ "Q(2)") 
+      (joined 
+       (portRef (member Q 1))
+       (portRef O (instanceRef io_Q_2_ ))))
+     (net (rename Q_1_ "Q(1)") 
+      (joined 
+       (portRef (member Q 2))
+       (portRef O (instanceRef io_Q_1_ ))))
+     (net (rename Q_0_ "Q(0)") 
+      (joined 
+       (portRef (member Q 3))
+       (portRef O (instanceRef io_Q_0_ ))))
+     (net Full 
+      (joined 
+       (portRef Full )
+       (portRef O (instanceRef io_Full ))))
+     (net Empty 
+      (joined 
+       (portRef Empty )
+       (portRef O (instanceRef io_Empty ))))
+     (net AlmostFull 
+      (joined 
+       (portRef AlmostFull )
+       (portRef O (instanceRef io_AlmostFull ))))
+     (net AlmostEmpty 
+      (joined 
+       (portRef AlmostEmpty )
+       (portRef O (instanceRef io_AlmostEmpty ))))
+     (net (rename Data_1_ "Data(1)") 
+      (joined 
+       (portRef (member Data 0))
+       (portRef I0 (instanceRef io_Data_1_ ))))
+     (net (rename Data_0_ "Data(0)") 
+      (joined 
+       (portRef (member Data 1))
+       (portRef I0 (instanceRef io_Data_0_ ))))
+     (net WrClock 
+      (joined 
+       (portRef WrClock )
+       (portRef I0 (instanceRef io_WrClock ))))
+     (net WrEn 
+      (joined 
+       (portRef WrEn )
+       (portRef I0 (instanceRef io_WrEn ))))
+     (net RdClock 
+      (joined 
+       (portRef RdClock )
+       (portRef I0 (instanceRef io_RdClock ))))
+     (net RdEn 
+      (joined 
+       (portRef RdEn )
+       (portRef I0 (instanceRef io_RdEn ))))
+     (net Reset 
+      (joined 
+       (portRef Reset )
+       (portRef I0 (instanceRef io_Reset ))))
+     (net RPReset 
+      (joined 
+       (portRef RPReset )
+       (portRef I0 (instanceRef io_RPReset ))))))))
+ (design test_fifodcx16kwx2rx4 (cellRef test_fifodcx16kwx2rx4 (libraryRef work ))))

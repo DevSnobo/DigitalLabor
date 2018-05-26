@@ -1,0 +1,8 @@
+JDF B
+// Created by Version 8.0 
+PROJECT Brake Light Controller
+DESIGN braklite Normal
+DEVKIT GAL16V8ZD-12QP
+ENTRY ABEL/Schematic
+MODULE control.abl
+MODSTYLE control Normal

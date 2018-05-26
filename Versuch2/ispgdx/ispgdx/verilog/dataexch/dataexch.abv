@@ -1,0 +1,74 @@
+MODULE dataexch
+
+" Inputs
+    oe0 pin;
+    oe1 pin;
+
+" Bidirs
+    busAdata_31_, busAdata_30_, busAdata_29_, busAdata_28_ pin;
+    busAdata_27_, busAdata_26_, busAdata_25_, busAdata_24_ pin;
+    busAdata_23_, busAdata_22_, busAdata_21_, busAdata_20_ pin;
+    busAdata_19_, busAdata_18_, busAdata_17_, busAdata_16_ pin;
+    busAdata_15_, busAdata_14_, busAdata_13_, busAdata_12_ pin;
+    busAdata_11_, busAdata_10_, busAdata_9_,  busAdata_8_  pin;
+    busAdata_7_,  busAdata_6_,  busAdata_5_,  busAdata_4_  pin;
+    busAdata_3_,  busAdata_2_,  busAdata_1_,  busAdata_0_  pin;
+
+    busBdata_31_, busBdata_30_, busBdata_29_, busBdata_28_ pin;
+    busBdata_27_, busBdata_26_, busBdata_25_, busBdata_24_ pin;
+    busBdata_23_, busBdata_22_, busBdata_21_, busBdata_20_ pin;
+    busBdata_19_, busBdata_18_, busBdata_17_, busBdata_16_ pin;
+    busBdata_15_, busBdata_14_, busBdata_13_, busBdata_12_ pin;
+    busBdata_11_, busBdata_10_, busBdata_9_,  busBdata_8_  pin;
+    busBdata_7_,  busBdata_6_,  busBdata_5_,  busBdata_4_  pin;
+    busBdata_3_,  busBdata_2_,  busBdata_1_,  busBdata_0_  pin;
+
+    busCdata_31_, busCdata_30_, busCdata_29_, busCdata_28_ pin;
+    busCdata_27_, busCdata_26_, busCdata_25_, busCdata_24_ pin;
+    busCdata_23_, busCdata_22_, busCdata_21_, busCdata_20_ pin;
+    busCdata_19_, busCdata_18_, busCdata_17_, busCdata_16_ pin;
+    busCdata_15_, busCdata_14_, busCdata_13_, busCdata_12_ pin;
+    busCdata_11_, busCdata_10_, busCdata_9_,  busCdata_8_  pin;
+    busCdata_7_,  busCdata_6_,  busCdata_5_,  busCdata_4_  pin;
+    busCdata_3_,  busCdata_2_,  busCdata_1_,  busCdata_0_  pin;
+
+    busDdata_31_, busDdata_30_, busDdata_29_, busDdata_28_ pin;
+    busDdata_27_, busDdata_26_, busDdata_25_, busDdata_24_ pin;
+    busDdata_23_, busDdata_22_, busDdata_21_, busDdata_20_ pin;
+    busDdata_19_, busDdata_18_, busDdata_17_, busDdata_16_ pin;
+    busDdata_15_, busDdata_14_, busDdata_13_, busDdata_12_ pin;
+    busDdata_11_, busDdata_10_, busDdata_9_,  busDdata_8_  pin;
+    busDdata_7_,  busDdata_6_,  busDdata_5_,  busDdata_4_  pin;
+    busDdata_3_,  busDdata_2_,  busDdata_1_,  busDdata_0_  pin;
+
+"set declaration
+    busA = [busAdata_31_,busAdata_30_,busAdata_29_,busAdata_28_,busAdata_27_,busAdata_26_,busAdata_25_,
+            busAdata_24_,busAdata_23_,busAdata_22_,busAdata_21_,busAdata_20_,busAdata_19_,busAdata_18_,
+            busAdata_17_,busAdata_16_,busAdata_15_,busAdata_14_,busAdata_13_,busAdata_12_,busAdata_11_,
+            busAdata_10_,busAdata_9_, busAdata_8_, busAdata_7_, busAdata_6_, busAdata_5_, busAdata_4_,
+            busAdata_3_, busAdata_2_, busAdata_1_, busAdata_0_];
+    busB = [busBdata_31_,busBdata_30_,busBdata_29_,busBdata_28_,busBdata_27_,busBdata_26_,busBdata_25_,
+            busBdata_24_,busBdata_23_,busBdata_22_,busBdata_21_,busBdata_20_,busBdata_19_,busBdata_18_,
+            busBdata_17_,busBdata_16_,busBdata_15_,busBdata_14_,busBdata_13_,busBdata_12_,busBdata_11_,
+            busBdata_10_,busBdata_9_, busBdata_8_, busBdata_7_, busBdata_6_, busBdata_5_, busBdata_4_,
+            busBdata_3_, busBdata_2_, busBdata_1_, busBdata_0_];
+    busC = [busCdata_31_,busCdata_30_,busCdata_29_,busCdata_28_,busCdata_27_,busCdata_26_,busCdata_25_,
+            busCdata_24_,busCdata_23_,busCdata_22_,busCdata_21_,busCdata_20_,busCdata_19_,busCdata_18_,
+            busCdata_17_,busCdata_16_,busCdata_15_,busCdata_14_,busCdata_13_,busCdata_12_,busCdata_11_,
+            busCdata_10_,busCdata_9_, busCdata_8_, busCdata_7_, busCdata_6_, busCdata_5_, busCdata_4_,
+            busCdata_3_, busCdata_2_, busCdata_1_, busCdata_0_];
+    busD = [busDdata_31_,busDdata_30_,busDdata_29_,busDdata_28_,busDdata_27_,busDdata_26_,busDdata_25_,
+            busDdata_24_,busDdata_23_,busDdata_22_,busDdata_21_,busDdata_20_,busDdata_19_,busDdata_18_,
+            busDdata_17_,busDdata_16_,busDdata_15_,busDdata_14_,busDdata_13_,busDdata_12_,busDdata_11_,
+            busDdata_10_,busDdata_9_, busDdata_8_, busDdata_7_, busDdata_6_, busDdata_5_, busDdata_4_,
+            busDdata_3_, busDdata_2_, busDdata_1_, busDdata_0_];;
+"constant declaration
+    X = .X.;
+
+test_vectors
+([oe0,oe1,      busA,      busB,      busC,      busD] -> [      busA,      busB,      busC,      busD])
+ [  0,  0,^h12345678,         X,^hFEDCBA98,         X] -> [         X,^h12345678,         X,^hFEDCBA98];
+ [  0,  1,^h23456789,         X,         X,^hEDCBA987] -> [         X,^h23456789,^hEDCBA987,         X];
+ [  1,  0,         X,^h3456789A,^hDCBA9876,         X] -> [^h3456789A,         X,         X,^hDCBA9876];
+ [  1,  1,         X,^h456789AB,         X,^hCBA98765] -> [^h456789AB,         X,^hCBA98765,         X];
+end

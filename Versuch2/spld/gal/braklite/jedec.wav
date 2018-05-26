@@ -1,0 +1,26 @@
+;D:\tmp\exp\jedec.wav - Save data for Waveform Viewer
+
+
+[NameRules]
+LeadingInstancePrefix=No
+RootNets=NoPrefix
+InstanceSeparator=.
+BusParentheses=[:]
+
+[Waves]
+Count=12
+Net0=CLK
+Net1=OE
+Net2=RBI
+Net3=LBI
+Net4=LB3
+Net5=LB2
+Net6=LB1
+Net7=LB0
+Net8=RB3
+Net9=RB2
+Net10=RB1
+Net11=RB0
+
+[Triggers]
+Count=0

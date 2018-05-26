@@ -1,0 +1,11 @@
+JDF B
+// Created by Version 1.0 
+PROJECT Swapper
+DESIGN swapper Normal
+DEVKIT ispGDX160VA-5Q208
+ENTRY Schematic/VHDL
+STIMULUS swap.vhd
+STIMULUS swapper.abv
+DOCUMENT swapper.txt
+MODULE swapper.vhd
+MODSTYLE swapper Normal

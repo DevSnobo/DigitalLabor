@@ -1,0 +1,55 @@
+"**************************************
+"* ABEL source constraint example
+"* 	Resource Reservation
+"*	2/05/2001
+"* Lattice Semiconductor Corporation 
+"**************************************
+
+"ABEL syntax to preserve pins,GLBs and Segments.
+
+"LAT_RESERVE ([Type],[Number],[PinState]);
+"LAT_RESERVE_SEGMENT ([Number]);
+"LAT_RESERVE_GLB ([Number]);
+
+"Type: 		Resource type. This can be Pin, GLB or Segment.
+"Number:	The number of the pin, GLB or segment that you want to preserve.
+"PinState: 	This can be input, out_z, out_low, or out_high.
+
+MODULE preserve
+
+library 'lattice';
+
+xor2..xor0	pin;
+inA31..inA0	pin;
+inB31..inB0	pin;
+
+ndA31..ndA0	node istype 'keep';
+ndB31..ndB0	node istype 'keep';
+
+out31..out0	pin istype 'com';
+
+inA = [inA31..inA0];
+inB = [inB31..inB0];
+
+ndA = [ndA31..ndA0];
+ndB = [ndB31..ndB0];
+
+out = [out31..out0];
+
+" GLB C will be reserved for future use. See Post-Fit Pinouts report.
+LAT_RESERVE_GLB (C);
+
+" Pin A3 will be reserved. See Post-Fit Pinouts report.
+LAT_RESERVE (Pin,A3,out_low);
+
+equations
+
+ndA = inA $ xor2 $ xor1 $ xor0;
+ndB = inB $ xor2 $ xor1 $ xor0;
+
+out = ndA # ndB;
+
+END
+
+
+

@@ -1,0 +1,40 @@
+//
+// Software Version :  ispLEVER Classic 1.6.00.07.29.12  
+// Project Name	    :  versuch2
+// Targeted Device  :  LC4064ZE-5UMN64C
+// Date             :  Thu May 03 14:51:49 2018
+//
+                      GND          SYS           1
+                   VCCIO0          SYS           3
+                   GNDIO0          SYS           10
+                   VCCIO0          SYS           19
+                       T1          IN            21
+                       S1          IN            23
+                   GNDIO0          SYS           27
+                   VCCIO0          SYS           34
+                      VCC          SYS           36
+                      GND          SYS           37
+                   GNDIO0          SYS           46
+                   VCCIO0          SYS           47
+                   GNDIO1          SYS           55
+                      VCC          SYS           57
+                     q_0_          OUT           62
+                     q_1_          OUT           63
+                   VCCIO1          SYS           64
+                   GNDIO1          SYS           65
+                     q_2_          OUT           70
+                     q_3_          OUT           71
+                      GND          SYS           73
+                   VCCIO1          SYS           75
+                   GNDIO1          SYS           82
+                   VCCIO1          SYS           91
+                   GNDIO1          SYS           99
+                   VCCIO1          SYS           106
+                      VCC          SYS           108
+                      GND          SYS           109
+                   GNDIO1          SYS           118
+                   VCCIO1          SYS           119
+                   GNDIO0          SYS           127
+                      VCC          SYS           129
+                   VCCIO0          SYS           136
+                   GNDIO0          SYS           137

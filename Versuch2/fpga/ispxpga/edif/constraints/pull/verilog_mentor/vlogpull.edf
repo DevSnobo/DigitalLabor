@@ -1,0 +1,139 @@
+(edif vlogpull 
+ (edifVersion 2 0 0)
+ (edifLevel 0)
+ (keywordMap (keywordLevel 0))
+ (status 
+  (written 
+   (timestamp 2002 09 09 17 02 25)
+   (program "LeonardoSpectrum for Lattice" (version "2002c.24_OEM_Lattice"))
+   (author "Mentor Graphics Corp")))
+ (external PRIMITIVES 
+  (edifLevel 0)
+  (technology (numberDefinition )))
+ (external ispXPGA 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell IBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT)
+      (property pad (string "T")))
+     (port O (direction OUTPUT)))))
+  (cell OBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port O (direction OUTPUT)
+      (property pad (string "T"))))))
+  (cell LUT3 (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port I1 (direction INPUT))
+     (port I2 (direction INPUT))
+     (port O (direction OUTPUT)))
+    (property IS_LUT (string "1"))
+    (property NOMAP_GATE (string "1"))
+    (property AREA (string "0.500000")))))
+ (library work 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell vlogpull (cellType GENERIC)
+   (view INTERFACE  (viewType NETLIST)
+    (interface 
+     (port A (direction INPUT)
+      (property PULL (string "UP")))
+     (port B (direction INPUT)
+      (property PULL (string "DOWN")))
+     (port C (direction INPUT)
+      (property PULL (string "HOLD")))
+     (port YUP (direction OUTPUT)
+      (property PULL (string "UP")))
+     (port YDN (direction OUTPUT)
+      (property PULL (string "DOWN")))
+     (port YHD (direction OUTPUT)
+      (property PULL (string "HOLD")))
+     (port YOF (direction OUTPUT)
+      (property PULL (string "OFF"))))
+    (contents 
+     (instance A_ibuf (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPGA ))))
+     (instance B_ibuf (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPGA ))))
+     (instance C_ibuf (viewRef NETLIST  (cellRef IBUF (libraryRef ispXPGA ))))
+     (instance YUP_obuf (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance YDN_obuf (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance YHD_obuf (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance YOF_obuf (viewRef NETLIST  (cellRef OBUF (libraryRef ispXPGA ))))
+     (instance ix94 (viewRef NETLIST  (cellRef LUT3 (libraryRef ispXPGA )))
+      (property lut_function (string "((!I0*I1*I2))")))
+     (instance ix95 (viewRef NETLIST  (cellRef LUT3 (libraryRef ispXPGA )))
+      (property lut_function (string "((I0*!I1*I2))")))
+     (instance ix96 (viewRef NETLIST  (cellRef LUT3 (libraryRef ispXPGA )))
+      (property lut_function (string "((I0*I1*!I2))")))
+     (instance ix97 (viewRef NETLIST  (cellRef LUT3 (libraryRef ispXPGA )))
+      (property lut_function (string "((!I0*!I1*!I2))")))
+     (net A 
+      (joined 
+       (portRef A )
+       (portRef I0 (instanceRef A_ibuf ))))
+     (net B 
+      (joined 
+       (portRef B )
+       (portRef I0 (instanceRef B_ibuf ))))
+     (net C 
+      (joined 
+       (portRef C )
+       (portRef I0 (instanceRef C_ibuf ))))
+     (net A_int 
+      (joined 
+       (portRef O (instanceRef A_ibuf ))
+       (portRef I0 (instanceRef ix94 ))
+       (portRef I0 (instanceRef ix95 ))
+       (portRef I0 (instanceRef ix96 ))
+       (portRef I0 (instanceRef ix97 ))))
+     (net B_int 
+      (joined 
+       (portRef O (instanceRef B_ibuf ))
+       (portRef I1 (instanceRef ix94 ))
+       (portRef I1 (instanceRef ix95 ))
+       (portRef I1 (instanceRef ix96 ))
+       (portRef I1 (instanceRef ix97 ))))
+     (net C_int 
+      (joined 
+       (portRef O (instanceRef C_ibuf ))
+       (portRef I2 (instanceRef ix94 ))
+       (portRef I2 (instanceRef ix95 ))
+       (portRef I2 (instanceRef ix96 ))
+       (portRef I2 (instanceRef ix97 ))))
+     (net YUP 
+      (joined 
+       (portRef YUP )
+       (portRef O (instanceRef YUP_obuf ))))
+     (net YDN 
+      (joined 
+       (portRef YDN )
+       (portRef O (instanceRef YDN_obuf ))))
+     (net YHD 
+      (joined 
+       (portRef YHD )
+       (portRef O (instanceRef YHD_obuf ))))
+     (net YOF 
+      (joined 
+       (portRef YOF )
+       (portRef O (instanceRef YOF_obuf ))))
+     (net YUP_dup0 
+      (joined 
+       (portRef O (instanceRef ix94 ))
+       (portRef I0 (instanceRef YUP_obuf ))))
+     (net YDN_dup0 
+      (joined 
+       (portRef O (instanceRef ix95 ))
+       (portRef I0 (instanceRef YDN_obuf ))))
+     (net YHD_dup0 
+      (joined 
+       (portRef O (instanceRef ix96 ))
+       (portRef I0 (instanceRef YHD_obuf ))))
+     (net YOF_dup0 
+      (joined 
+       (portRef O (instanceRef ix97 ))
+       (portRef I0 (instanceRef YOF_obuf ))))))))
+ (design vlogpull (cellRef vlogpull (libraryRef work ))))

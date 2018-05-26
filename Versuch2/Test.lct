@@ -1,0 +1,62 @@
+
+[Device]
+Family = plsiGal;
+PartNumber = GAL16LV8C-10LJ;
+Package = 20PLCC;
+PartType = GAL16LV8C;
+Speed = -10;
+Operating_condition = COM;
+Status = Obsolete;
+
+[Revision]
+Parent = plsigal.lci;
+DATE = 04/19/2018;
+TIME = 10:51:44;
+Source_Format = Pure_VHDL;
+Synthesis = Synplify;
+
+[Ignore Assignments]
+
+[Clear Assignments]
+
+[Backannotate Assignments]
+
+[Global Constraints]
+
+[Location Assignments]
+layer = OFF;
+
+[Group Assignments]
+layer = OFF;
+
+[Resource Reservations]
+layer = OFF;
+
+[Fitter Report Format]
+
+[Power]
+
+[Source Constraint Option]
+
+[Fast Bypass]
+
+[OSM Bypass]
+
+[Input Registers]
+
+[Netlist/Delay Format]
+
+[IO Types]
+layer = OFF;
+
+[Pullup]
+
+[Slewrate]
+
+[Region]
+
+[Timing Constraints]
+
+[HSI Attributes]
+
+[Input Delay]

@@ -1,0 +1,54 @@
+Section Type   Array Num   Name                     Real Name          Base     Number     Increment
+// -------------------------------------------------------------------------------------------------
+      Port          1      Data(1:0)                     Data                  1          2            -1
+      Port          2      Q(3:0)                        Q                  3          4            -1
+End
+Section Member   Rename                   Array-Notation          Array Number     Index
+// -------------------------------------------------------------------------------------
+        Port      Q_3_                        Q[3]                       2            0            
+        Port      Q_2_                        Q[2]                       2            1            
+        Port      Q_1_                        Q[1]                       2            2            
+        Port      Q_0_                        Q[0]                       2            3            
+        Port      Data_1_                     Data[1]                       1            0            
+        Port      Data_0_                     Data[0]                       1            1            
+End
+Section Cross Reference File
+Design 'test_fifodcx16kwx2rx4' created Mon Mar 10 11:30:50 2003
+   Type              New Name                               Original Name
+// ----------------------------------------------------------------------
+   Inst                io_Q_3_                                   io_Q(3)
+   Inst                io_Q_2_                                   io_Q(2)
+   Inst                io_Q_1_                                   io_Q(1)
+   Inst                io_Q_0_                                   io_Q(0)
+   Inst             io_Data_1_                                io_Data(1)
+   Inst             io_Data_0_                                io_Data(0)
+   Net              int_q_3__n                                  int_Q(3)
+   Net              int_q_2__n                                  int_Q(2)
+   Net              int_q_1__n                                  int_Q(1)
+   Net              int_q_0__n                                  int_Q(0)
+   Net           int_data_1__n                               int_Data(1)
+   Net           int_data_0__n                               int_Data(0)
+   Net                  q_2__n                                      Q(2)
+   Net                  q_1__n                                      Q(1)
+   Net                  q_0__n                                      Q(0)
+   Net               data_0__n                                   Data(0)
+End
+Section Type      Name
+// ----------------------------------------------------------------------
+        Input     Data_1_
+        Input     WrClock
+        Input     WrEn
+        Input     RdClock
+        Input     RdEn
+        Input     Reset
+        Input     RPReset
+        Input     Data_0_
+        Output     Q_3_
+        Output     Full
+        Output     Empty
+        Output     AlmostFull
+        Output     AlmostEmpty
+        Output     Q_2_
+        Output     Q_1_
+        Output     Q_0_
+End

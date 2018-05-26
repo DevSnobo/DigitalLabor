@@ -1,0 +1,10 @@
+JDF B
+// Created by Version 5.0 
+PROJECT Untitled
+DESIGN prep_1 Normal
+DEVKIT LFX125B-04F256CES/2X
+ENTRY Schematic/VHDL
+STIMULUS prep1_tb.vhd
+MODULE prep1.vhd
+MODSTYLE prep1 Normal
+SYNTHESIS_TOOL Precision

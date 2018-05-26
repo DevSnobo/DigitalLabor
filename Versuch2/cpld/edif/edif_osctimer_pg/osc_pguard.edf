@@ -1,0 +1,252 @@
+(edif OSC_PGUARD 
+ (edifVersion 2 0 0)
+ (edifLevel 0)
+ (keywordMap (keywordLevel 0))
+ (status 
+  (written 
+   (timestamp 2007 11 29 08 36 28)
+   (program "Precision RTL Synthesis" (version "2006a.401OEM_Lattice"))
+   (author "Mentor Graphics Corporation")))
+ (external ispmach4000 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell IBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port O (direction OUTPUT)))))
+  (cell OBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port O (direction OUTPUT)))))
+  (cell DFFRH (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port D (direction INPUT))
+     (port CLK (direction INPUT))
+     (port R (direction INPUT))
+     (port Q (direction OUTPUT)))))
+  (cell INV (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port O (direction OUTPUT)))))
+  (cell XOR2 (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port I1 (direction INPUT))
+     (port O (direction OUTPUT)))))
+  (cell DFFCRH (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port CE (direction INPUT))
+     (port D (direction INPUT))
+     (port CLK (direction INPUT))
+     (port R (direction INPUT))
+     (port Q (direction OUTPUT)))))
+  (cell AND2 (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port I1 (direction INPUT))
+     (port O (direction OUTPUT)))))
+  (cell AND3 (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port I1 (direction INPUT))
+     (port I2 (direction INPUT))
+     (port O (direction OUTPUT))))))
+ (library work 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell osctimer_l1_r3_49_50_56 (cellType GENERIC)
+   (property RTLC_BLACK_BOX_CELL (string "TRUE"))
+   (view osctimer  (viewType NETLIST)
+    (interface 
+     (port DYNOSCDIS (direction INPUT))
+     (port TIMERRES (direction INPUT))
+     (port OSCOUT (direction OUTPUT))
+     (port TIMEROUT (direction OUTPUT)))
+    (property TIMER_DIV (string "128"))
+    (property RTLC_DUMMY_VIEW (string "TRUE"))))
+  (cell PG (cellType GENERIC)
+   (property RTLC_BLACK_BOX_CELL (string "TRUE"))
+   (view PG  (viewType NETLIST)
+    (interface 
+     (port D (direction INPUT))
+     (port E (direction INPUT))
+     (port Q (direction OUTPUT)))
+    (property RTLC_DUMMY_VIEW (string "TRUE"))))
+  (cell OSC_PGUARD (cellType GENERIC)
+   (view IMP_OSC_PGUARD  (viewType NETLIST)
+    (interface 
+     (port RST (direction INPUT))
+     (port RST2 (direction INPUT))
+     (port PG_D (direction INPUT))
+     (port PG_E (direction INPUT))
+     (port QOUT (direction OUTPUT))
+     (port (array (rename XOUT "XOUT(3:0)") 4 )(direction OUTPUT))
+     (port TOUT (direction INOUT)))
+    (property DESIGN_IS_RTL (string "NO"))
+    (contents 
+     (instance I1 (viewRef osctimer  (cellRef osctimer_l1_r3_49_50_56 ))
+      (property TIMER_DIV (string "128")))
+     (instance I11 (viewRef PG  (cellRef PG )))
+     (instance io_RST (viewRef NETLIST  (cellRef IBUF (libraryRef ispmach4000 ))))
+     (instance io_RST2 (viewRef NETLIST  (cellRef IBUF (libraryRef ispmach4000 ))))
+     (instance io_PG_D (viewRef NETLIST  (cellRef IBUF (libraryRef ispmach4000 ))))
+     (instance io_PG_E (viewRef NETLIST  (cellRef IBUF (libraryRef ispmach4000 ))))
+     (instance io_QOUT (viewRef NETLIST  (cellRef OBUF (libraryRef ispmach4000 ))))
+     (instance (rename io_XOUT_3_ "io_XOUT(3)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispmach4000 ))))
+     (instance (rename io_XOUT_2_ "io_XOUT(2)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispmach4000 ))))
+     (instance (rename io_XOUT_1_ "io_XOUT(1)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispmach4000 ))))
+     (instance (rename io_XOUT_0_ "io_XOUT(0)") (viewRef NETLIST  (cellRef OBUF (libraryRef ispmach4000 ))))
+     (instance io_TOUT (viewRef NETLIST  (cellRef OBUF (libraryRef ispmach4000 ))))
+     (instance (rename modgen_counter_XOUT_reg_q_0_ "modgen_counter_XOUT_reg_q(0)") (viewRef NETLIST  (cellRef DFFRH (libraryRef ispmach4000 ))))
+     (instance ix37390z26622 (viewRef NETLIST  (cellRef INV (libraryRef ispmach4000 ))))
+     (instance (rename modgen_counter_XOUT_reg_q_1_ "modgen_counter_XOUT_reg_q(1)") (viewRef NETLIST  (cellRef DFFRH (libraryRef ispmach4000 ))))
+     (instance ix36393z10876 (viewRef NETLIST  (cellRef XOR2 (libraryRef ispmach4000 ))))
+     (instance (rename modgen_counter_XOUT_reg_q_2_ "modgen_counter_XOUT_reg_q(2)") (viewRef NETLIST  (cellRef DFFCRH (libraryRef ispmach4000 ))))
+     (instance ix35396z48514 (viewRef NETLIST  (cellRef AND2 (libraryRef ispmach4000 ))))
+     (instance ix35396z26623 (viewRef NETLIST  (cellRef INV (libraryRef ispmach4000 ))))
+     (instance (rename modgen_counter_XOUT_reg_q_3_ "modgen_counter_XOUT_reg_q(3)") (viewRef NETLIST  (cellRef DFFCRH (libraryRef ispmach4000 ))))
+     (instance ix34399z48515 (viewRef NETLIST  (cellRef AND3 (libraryRef ispmach4000 ))))
+     (instance ix34399z26623 (viewRef NETLIST  (cellRef INV (libraryRef ispmach4000 ))))
+     (instance reg_QOUT (viewRef NETLIST  (cellRef DFFRH (libraryRef ispmach4000 ))))
+     (instance ix1030z26622 (viewRef NETLIST  (cellRef INV (libraryRef ispmach4000 ))))
+     (net int_RST 
+      (joined 
+       (portRef O (instanceRef io_RST ))
+       (portRef DYNOSCDIS (instanceRef I1 ))))
+     (net int_RST2 
+      (joined 
+       (portRef O (instanceRef io_RST2 ))
+       (portRef TIMERRES (instanceRef I1 ))
+       (portRef R (instanceRef modgen_counter_XOUT_reg_q_0_ ))
+       (portRef R (instanceRef modgen_counter_XOUT_reg_q_1_ ))
+       (portRef R (instanceRef modgen_counter_XOUT_reg_q_2_ ))
+       (portRef R (instanceRef modgen_counter_XOUT_reg_q_3_ ))
+       (portRef R (instanceRef reg_QOUT ))))
+     (net int_PG_D 
+      (joined 
+       (portRef O (instanceRef io_PG_D ))
+       (portRef D (instanceRef I11 ))))
+     (net int_PG_E 
+      (joined 
+       (portRef O (instanceRef io_PG_E ))
+       (portRef E (instanceRef I11 ))))
+     (net int_QOUT 
+      (joined 
+       (portRef Q (instanceRef reg_QOUT ))
+       (portRef I0 (instanceRef io_QOUT ))))
+     (net (rename int_XOUT_3_ "int_XOUT(3)") 
+      (joined 
+       (portRef Q (instanceRef modgen_counter_XOUT_reg_q_3_ ))
+       (portRef I0 (instanceRef io_XOUT_3_ ))
+       (portRef I0 (instanceRef ix34399z26623 ))))
+     (net (rename int_XOUT_2_ "int_XOUT(2)") 
+      (joined 
+       (portRef Q (instanceRef modgen_counter_XOUT_reg_q_2_ ))
+       (portRef I0 (instanceRef io_XOUT_2_ ))
+       (portRef I0 (instanceRef ix35396z26623 ))
+       (portRef I0 (instanceRef ix34399z48515 ))))
+     (net (rename int_XOUT_1_ "int_XOUT(1)") 
+      (joined 
+       (portRef Q (instanceRef modgen_counter_XOUT_reg_q_1_ ))
+       (portRef I0 (instanceRef io_XOUT_1_ ))
+       (portRef I0 (instanceRef ix36393z10876 ))
+       (portRef I0 (instanceRef ix35396z48514 ))
+       (portRef I1 (instanceRef ix34399z48515 ))))
+     (net (rename int_XOUT_0_ "int_XOUT(0)") 
+      (joined 
+       (portRef Q (instanceRef modgen_counter_XOUT_reg_q_0_ ))
+       (portRef I0 (instanceRef io_XOUT_0_ ))
+       (portRef I0 (instanceRef ix37390z26622 ))
+       (portRef I1 (instanceRef ix36393z10876 ))
+       (portRef I1 (instanceRef ix35396z48514 ))
+       (portRef I2 (instanceRef ix34399z48515 ))))
+     (net int_TOUT 
+      (joined 
+       (portRef OSCOUT (instanceRef I1 ))
+       (portRef I0 (instanceRef io_TOUT ))
+       (portRef CLK (instanceRef modgen_counter_XOUT_reg_q_0_ ))
+       (portRef CLK (instanceRef modgen_counter_XOUT_reg_q_1_ ))
+       (portRef CLK (instanceRef modgen_counter_XOUT_reg_q_2_ ))
+       (portRef CLK (instanceRef modgen_counter_XOUT_reg_q_3_ ))
+       (portRef CLK (instanceRef reg_QOUT ))))
+     (net PG_Q 
+      (joined 
+       (portRef Q (instanceRef I11 ))
+       (portRef I0 (instanceRef ix1030z26622 ))))
+     (net (rename NOT__320_ "NOT_[320]") 
+      (joined 
+       (portRef O (instanceRef ix37390z26622 ))
+       (portRef D (instanceRef modgen_counter_XOUT_reg_q_0_ ))))
+     (net nx36393z1 
+      (joined 
+       (portRef O (instanceRef ix36393z10876 ))
+       (portRef D (instanceRef modgen_counter_XOUT_reg_q_1_ ))))
+     (net nx35396z1 
+      (joined 
+       (portRef O (instanceRef ix35396z48514 ))
+       (portRef CE (instanceRef modgen_counter_XOUT_reg_q_2_ ))))
+     (net (rename NOT__322_ "NOT_[322]") 
+      (joined 
+       (portRef O (instanceRef ix35396z26623 ))
+       (portRef D (instanceRef modgen_counter_XOUT_reg_q_2_ ))))
+     (net nx34399z1 
+      (joined 
+       (portRef O (instanceRef ix34399z48515 ))
+       (portRef CE (instanceRef modgen_counter_XOUT_reg_q_3_ ))))
+     (net (rename NOT__323_ "NOT_[323]") 
+      (joined 
+       (portRef O (instanceRef ix34399z26623 ))
+       (portRef D (instanceRef modgen_counter_XOUT_reg_q_3_ ))))
+     (net NOT_p_PG_Q 
+      (joined 
+       (portRef O (instanceRef ix1030z26622 ))
+       (portRef D (instanceRef reg_QOUT ))))
+     (net RST 
+      (joined 
+       (portRef RST )
+       (portRef I0 (instanceRef io_RST ))))
+     (net RST2 
+      (joined 
+       (portRef RST2 )
+       (portRef I0 (instanceRef io_RST2 ))))
+     (net PG_D 
+      (joined 
+       (portRef PG_D )
+       (portRef I0 (instanceRef io_PG_D ))))
+     (net PG_E 
+      (joined 
+       (portRef PG_E )
+       (portRef I0 (instanceRef io_PG_E ))))
+     (net QOUT 
+      (joined 
+       (portRef QOUT )
+       (portRef O (instanceRef io_QOUT ))))
+     (net (rename XOUT_3_ "XOUT(3)") 
+      (joined 
+       (portRef (member XOUT 0))
+       (portRef O (instanceRef io_XOUT_3_ ))))
+     (net (rename XOUT_2_ "XOUT(2)") 
+      (joined 
+       (portRef (member XOUT 1))
+       (portRef O (instanceRef io_XOUT_2_ ))))
+     (net (rename XOUT_1_ "XOUT(1)") 
+      (joined 
+       (portRef (member XOUT 2))
+       (portRef O (instanceRef io_XOUT_1_ ))))
+     (net (rename XOUT_0_ "XOUT(0)") 
+      (joined 
+       (portRef (member XOUT 3))
+       (portRef O (instanceRef io_XOUT_0_ ))))
+     (net TOUT 
+      (joined 
+       (portRef TOUT )
+       (portRef O (instanceRef io_TOUT ))))))))
+ (design OSC_PGUARD (cellRef OSC_PGUARD (libraryRef work ))))

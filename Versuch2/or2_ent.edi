@@ -1,0 +1,112 @@
+(edif or2_ent
+  (edifVersion 2 0 0)
+  (edifLevel 0)
+  (keywordMap (keywordLevel 0))
+  (status
+    (written
+      (timeStamp 2018 4 23 14 31 7)
+      (author "Synopsys, Inc.")
+      (program "Synplify Pro" (version "F-2012.03LC , mapper maplat, Build 396R"))
+     )
+   )
+  (external mach
+    (edifLevel 0)
+    (technology (numberDefinition ))
+    (cell AND2 (cellType GENERIC)
+       (view prim (viewType NETLIST)
+         (interface
+           (port O (direction OUTPUT))
+           (port I0 (direction INPUT))
+           (port I1 (direction INPUT))
+         )
+       )
+    )
+    (cell IBUF (cellType GENERIC)
+       (view prim (viewType NETLIST)
+         (interface
+           (port O (direction OUTPUT))
+           (port I0 (direction INPUT))
+         )
+       )
+    )
+    (cell INV (cellType GENERIC)
+       (view prim (viewType NETLIST)
+         (interface
+           (port O (direction OUTPUT))
+           (port I0 (direction INPUT))
+         )
+       )
+    )
+    (cell OBUF (cellType GENERIC)
+       (view prim (viewType NETLIST)
+         (interface
+           (port O (direction OUTPUT))
+           (port I0 (direction INPUT))
+         )
+       )
+    )
+  )
+  (library work
+    (edifLevel 0)
+    (technology (numberDefinition ))
+    (cell or2_ent (cellType GENERIC)
+       (view or2_arch (viewType NETLIST)
+         (interface
+           (port a (direction INPUT))
+           (port b (direction INPUT))
+           (port y (direction OUTPUT))
+         )
+         (contents
+          (instance a (viewRef prim (cellRef IBUF (libraryRef mach)))          )
+          (instance b (viewRef prim (cellRef IBUF (libraryRef mach)))          )
+          (instance y (viewRef prim (cellRef OBUF (libraryRef mach)))          )
+          (instance yor (viewRef prim (cellRef AND2 (libraryRef mach)))          )
+          (instance a_c_i (viewRef prim (cellRef INV (libraryRef mach)))          )
+          (instance b_c_i (viewRef prim (cellRef INV (libraryRef mach)))          )
+          (instance yor_i (viewRef prim (cellRef INV (libraryRef mach)))          )
+          (net a_c (joined
+           (portRef O (instanceRef a))
+           (portRef I0 (instanceRef a_c_i))
+          ))
+          (net a (joined
+           (portRef a)
+           (portRef I0 (instanceRef a))
+          ))
+          (net b_c (joined
+           (portRef O (instanceRef b))
+           (portRef I0 (instanceRef b_c_i))
+          ))
+          (net b (joined
+           (portRef b)
+           (portRef I0 (instanceRef b))
+          ))
+          (net y_c (joined
+           (portRef O (instanceRef yor_i))
+           (portRef I0 (instanceRef y))
+          ))
+          (net y (joined
+           (portRef O (instanceRef y))
+           (portRef y)
+          ))
+          (net a_c_i (joined
+           (portRef O (instanceRef a_c_i))
+           (portRef I0 (instanceRef yor))
+          ))
+          (net b_c_i (joined
+           (portRef O (instanceRef b_c_i))
+           (portRef I1 (instanceRef yor))
+          ))
+          (net y_c_0 (joined
+           (portRef O (instanceRef yor))
+           (portRef I0 (instanceRef yor_i))
+          ))
+          (net GND (joined
+          ))
+          (net VCC (joined
+          ))
+         )
+       )
+    )
+  )
+  (design or2_ent (cellRef or2_ent (libraryRef work)))
+)

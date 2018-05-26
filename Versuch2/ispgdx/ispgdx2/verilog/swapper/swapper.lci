@@ -1,0 +1,77 @@
+[Device]
+Family = gdx2;
+PartNumber = LX256V-5F484C2R;
+Package = 484fpBGA;
+PartType = LX256V;
+Speed = -5;
+Operating_condition = COM;
+Status=Production;
+
+[Revision]
+RCS = $Revision: 1.9 $;
+Parent = gdx2256.lci;
+Design = ;
+DATE = 12/31/2001;
+TIME = 13:30:49;
+Source_Format = Schematic_Verilog_HDL;
+
+[IGNORE ASSIGNMENTS]
+
+[CLEAR ASSIGNMENTS]
+
+[BACKANNOTATE ASSIGNMENTS]
+
+[GLOBAL CONSTRAINTS]
+
+[LOCATION ASSIGNMENTS]
+layer = OFF;
+
+[GROUP ASSIGNMENTS]
+layer = OFF;
+
+[RESOURCE RESERVATIONS]
+layer = OFF;
+
+[FITTER REPORT FORMAT]
+
+[POWER]
+
+[SOURCE CONSTRAINT OPTION]
+
+[NETLIST/DELAY FORMAT]
+
+[GLOBAL PROJECT OPTIMIZATION]
+
+[OPTIMIZATION OPTIONS]
+
+[FITTER GLOBAL OPTIONS]
+
+[LOCATION ASSIGNMENT]
+
+[GROUP ASSIGNMENT]
+
+[SPACE RESERVATIONS]
+
+[PIN RESERVATIONS]
+
+[BUS ASSIGNMENTS]
+
+[PLL ASSIGNMENTS]
+
+[INPUT REGISTERS]
+
+[IO TYPES]
+
+[Pin Attributes List]
+
+[Pull]
+
+[SLEWRATE]
+
+[Hardware Device Options]
+
+[Timing Analyzer]
+
+[Backannotate Netlist]
+
+[global constraints list]

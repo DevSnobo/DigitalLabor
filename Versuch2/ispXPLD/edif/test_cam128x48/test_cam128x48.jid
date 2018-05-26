@@ -1,0 +1,2 @@
+. test_cam128x48 test_cam128x48.edf c:\isptools\ispcpld\examples\ispxpld\edif\test_cam128x48\test_cam128x48.edf
+U0 L_CAM_LPM_CAM_48_128_7_CAM_init_1_UNUSED  c:\isptools\ispcpld\examples\ispxpld\edif\test_cam128x48\

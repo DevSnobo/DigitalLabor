@@ -1,0 +1,9 @@
+JDF B
+// Created by Version 5.0 
+PROJECT Untitled
+DESIGN pull Normal
+DEVKIT LFX125B-04F256CES/2X
+ENTRY Schematic/VHDL
+MODULE vhdlpull.vhd
+MODSTYLE pull Normal
+SYNTHESIS_TOOL Precision

@@ -1,0 +1,16 @@
+ispLEVER Classic 1.6.00.07.29.12 Signal Name Cross Reference File
+Copyright(C), 1992-2012, Lattice Semiconductor Corp.
+All Rights Reserved.
+
+Design 'cradd_ent' created Mon Apr 23 16:23:34 2018
+
+
+ LEGEND:  '>'  Functional Block Port Separator
+          '/'  Hierarchy Path Separator
+          '@'  Automatically Generated Node
+
+
+Short Name                              Hierarchical Name
+----------                              -----------------
+
+ *** Shortened names not required for this design. ***

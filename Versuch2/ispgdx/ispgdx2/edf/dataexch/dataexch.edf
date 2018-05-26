@@ -1,0 +1,117 @@
+(edif dataexch 
+ (edifVersion 2 0 0)
+ (edifLevel 0)
+ (keywordMap (keywordLevel 0))
+ (status 
+  (written 
+   (timestamp 2002 09 09 03 53 52)
+   (program "LeonardoSpectrum for Lattice" (version "2002c.24_OEM_Lattice"))
+   (author "Mentor Graphics Corp")))
+ (external PRIMITIVES 
+  (edifLevel 0)
+  (technology (numberDefinition )))
+ (external ispgdx2 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell BI_DIR (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port OE (direction INPUT))
+     (port IO (direction INOUT)
+      (property direction (string "inout"))
+      (property pad (string "T")))
+     (port O (direction OUTPUT)))))
+  (cell IBUF (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT)
+      (property pad (string "T")))
+     (port O (direction OUTPUT)))
+    (property AREA (string "1.000000"))))
+  (cell INV (cellType GENERIC)
+   (view NETLIST  (viewType NETLIST)
+    (interface 
+     (port I0 (direction INPUT))
+     (port O (direction OUTPUT)))
+    (property AREA (string "1.000000")))))
+ (library work 
+  (edifLevel 0)
+  (technology (numberDefinition ))
+  (cell dataexch (cellType GENERIC)
+   (view behave  (viewType NETLIST)
+    (interface 
+     (port (array (rename busAdata "busAdata(0:0)") 1 )(direction INOUT))
+     (port (array (rename busBdata "busBdata(0:0)") 1 )(direction INOUT))
+     (port (array (rename busCdata "busCdata(0:0)") 1 )(direction INOUT))
+     (port (array (rename busDdata "busDdata(0:0)") 1 )(direction INOUT))
+     (port oe0 (direction INPUT))
+     (port oe1 (direction INPUT)))
+    (contents 
+     (instance (rename io_busAdata_0_ "io_busAdata(0)") (viewRef NETLIST  (cellRef BI_DIR (libraryRef ispgdx2 ))))
+     (instance (rename io_busBdata_0_ "io_busBdata(0)") (viewRef NETLIST  (cellRef BI_DIR (libraryRef ispgdx2 ))))
+     (instance (rename io_busCdata_0_ "io_busCdata(0)") (viewRef NETLIST  (cellRef BI_DIR (libraryRef ispgdx2 ))))
+     (instance (rename io_busDdata_0_ "io_busDdata(0)") (viewRef NETLIST  (cellRef BI_DIR (libraryRef ispgdx2 ))))
+     (instance io_oe0 (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance io_oe1 (viewRef NETLIST  (cellRef IBUF (libraryRef ispgdx2 ))))
+     (instance ix136 (viewRef NETLIST  (cellRef INV (libraryRef ispgdx2 ))))
+     (instance ix138 (viewRef NETLIST  (cellRef INV (libraryRef ispgdx2 ))))
+     (net (rename busAdata_0_ "busAdata(0)") 
+      (joined 
+       (portRef (member busAdata 0))
+       (portRef IO (instanceRef io_busAdata_0_ ))))
+     (net (rename busBdata_0_ "busBdata(0)") 
+      (joined 
+       (portRef (member busBdata 0))
+       (portRef IO (instanceRef io_busBdata_0_ ))))
+     (net (rename busCdata_0_ "busCdata(0)") 
+      (joined 
+       (portRef (member busCdata 0))
+       (portRef IO (instanceRef io_busCdata_0_ ))))
+     (net (rename busDdata_0_ "busDdata(0)") 
+      (joined 
+       (portRef (member busDdata 0))
+       (portRef IO (instanceRef io_busDdata_0_ ))))
+     (net int_oe0 
+      (joined 
+       (portRef O (instanceRef io_oe0 ))
+       (portRef OE (instanceRef io_busAdata_0_ ))
+       (portRef I0 (instanceRef ix138 ))))
+     (net int_oe1 
+      (joined 
+       (portRef O (instanceRef io_oe1 ))
+       (portRef OE (instanceRef io_busCdata_0_ ))
+       (portRef I0 (instanceRef ix136 ))))
+     (net NOT_oe0 
+      (joined 
+       (portRef O (instanceRef ix138 ))
+       (portRef OE (instanceRef io_busBdata_0_ ))))
+     (net NOT_oe1 
+      (joined 
+       (portRef O (instanceRef ix136 ))
+       (portRef OE (instanceRef io_busDdata_0_ ))))
+     (net (rename int_busAdata_0_ "int_busAdata(0)") 
+      (joined 
+       (portRef O (instanceRef io_busAdata_0_ ))
+       (portRef I0 (instanceRef io_busBdata_0_ ))))
+     (net (rename int_busBdata_0_ "int_busBdata(0)") 
+      (joined 
+       (portRef O (instanceRef io_busBdata_0_ ))
+       (portRef I0 (instanceRef io_busAdata_0_ ))))
+     (net (rename int_busCdata_0_ "int_busCdata(0)") 
+      (joined 
+       (portRef O (instanceRef io_busCdata_0_ ))
+       (portRef I0 (instanceRef io_busDdata_0_ ))))
+     (net (rename int_busDdata_0_ "int_busDdata(0)") 
+      (joined 
+       (portRef O (instanceRef io_busDdata_0_ ))
+       (portRef I0 (instanceRef io_busCdata_0_ ))))
+     (net oe0 
+      (joined 
+       (portRef oe0 )
+       (portRef I0 (instanceRef io_oe0 ))))
+     (net oe1 
+      (joined 
+       (portRef oe1 )
+       (portRef I0 (instanceRef io_oe1 ))))))))
+ (design dataexch (cellRef dataexch (libraryRef work ))))

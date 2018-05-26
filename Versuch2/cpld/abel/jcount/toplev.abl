@@ -1,0 +1,42 @@
+MODULE toplev
+
+TITLE '8 bit Johnson counter'
+
+"Performs an 8 bit Johnson or ring count synchronously.
+
+
+"Inputs
+	CLK,SYSCLR,RUN			pin;
+
+"Outputs
+	Q7,Q6,Q5,Q4,Q3,Q2,Q1,Q0		pin istype 'reg_d,buffer';
+
+
+
+"Sets
+	count = [Q7,Q6,Q5,Q4,Q3,Q2,Q1,Q0]; 	"Counter set.
+	prev  = [Q6,Q5,Q4,Q3,Q2,Q1,Q0,!Q7];     "Counter set is fed from this set.
+						"It is much easier to perform wide
+						"operations such as counters or mathematical
+						"functions by establishing signal sets.
+
+
+
+Equations
+
+	count.d = prev.q & RUN             "increment count if RUN
+		# count.q & !RUN;          "hold if not RUN
+
+	count.clk = CLK;
+	count.ar = SYSCLR;
+
+Test_Vectors ([SYSCLR, RUN]->count)
+	cycle CLK (0, 30) (1, 30);
+	wait   15; [1,0]->.X.;
+	WAIT   30; [0,0]->.X.;
+	WAIT   75; [0,1]->.X.;
+	WAIT 1800; [0,0]->.X.;
+	WAIT  240; [0,1]->.X.;
+	wait 100;
+END
+

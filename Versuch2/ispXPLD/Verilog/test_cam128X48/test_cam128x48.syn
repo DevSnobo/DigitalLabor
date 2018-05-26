@@ -1,0 +1,11 @@
+JDF B
+// Created by Version 3.0 
+PROJECT Untitled
+DESIGN test_cam128x48 Normal
+DEVKIT LC5512MV-45F256C
+ENTRY Schematic/Verilog HDL
+TESTFIXTURE tb_test_cam128x48.tf
+MODULE test_cam128x48.v
+MODSTYLE L_CAM Normal
+MODSTYLE test_cam128x48 Normal
+SYNTHESIS_TOOL Precision

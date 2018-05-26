@@ -1,0 +1,169 @@
+#$ TOOL ispLEVER Classic 1.6.00.07.29.12
+#$ DATE Thu May 03 17:12:57 2018
+#$ PROPERTY LATTICE OSCTIMER i1= -, T1_i, -, takt, 1048576; 
+#$ MODULE hard_a7e
+#$ PINS 10 q_3_ S1 S2 T1 rot gelb gruen q_2_ q_1_ q_0_
+#$ NODES 37 takt i2_z_tmp_0_ i2_z_tmp_1_ i2_z_tmp_2_ i2_z_tmp_3_ gnd_n_n i2_z_tmp_n1 \
+#  i2_z_tmp_n2 i2_z_tmp_n3 i2_ampel_un2_r_n i2_ampel_un10_r_n i2_ampel_un2_y_n \
+#  i2_ampelint_2__n i2_ampelint_1__n i2_z_tmp_c1_n i2_z_tmp_c2_n q_out_i_0__n \
+#  q_out_i_1__n q_out_i_2__n q_out_i_3__n T1_i S1_c S2_c T1_c rot_c gelb_c gruen_c \
+#  i2_ampel_un10_r_i_n i2_ampelint_0_2__n gruen_c_1 i2_ampel_un3_y_0__un3_n \
+#  i2_ampel_un3_y_0__un1_n i2_ampel_un3_y_0__un0_n i2_mux_x_1__un3_n \
+#  i2_mux_x_1__un1_n i2_mux_x_1__un0_n i1>OSCOUT
+#$ EXTERNAL osctimer  4 DYNOSCDIS'i'  TIMERRES'i'  OSCOUT'o'  TIMEROUT'o' 
+#$ INSTANCE i1 OSCTIMER 4 gnd_n_n T1_i i1>OSCOUT takt
+.model hard_a7e
+.inputs S1.BLIF S2.BLIF T1.BLIF takt.BLIF i2_z_tmp_0_.BLIF i2_z_tmp_1_.BLIF \
+i2_z_tmp_2_.BLIF i2_z_tmp_3_.BLIF i2_z_tmp_n1.BLIF i2_z_tmp_n2.BLIF \
+i2_z_tmp_n3.BLIF i2_ampel_un2_r_n.BLIF i2_ampel_un10_r_n.BLIF \
+i2_ampel_un2_y_n.BLIF i2_ampelint_2__n.BLIF i2_ampelint_1__n.BLIF \
+i2_z_tmp_c1_n.BLIF i2_z_tmp_c2_n.BLIF q_out_i_0__n.BLIF q_out_i_1__n.BLIF \
+q_out_i_2__n.BLIF q_out_i_3__n.BLIF S1_c.BLIF S2_c.BLIF T1_c.BLIF rot_c.BLIF \
+gelb_c.BLIF gruen_c.BLIF i2_ampel_un10_r_i_n.BLIF i2_ampelint_0_2__n.BLIF \
+gruen_c_1.BLIF i2_ampel_un3_y_0__un3_n.BLIF i2_ampel_un3_y_0__un1_n.BLIF \
+i2_ampel_un3_y_0__un0_n.BLIF i2_mux_x_1__un3_n.BLIF i2_mux_x_1__un1_n.BLIF \
+i2_mux_x_1__un0_n.BLIF i1>OSCOUT.BLIF
+.outputs q_3_ rot gelb gruen q_2_ q_1_ q_0_ i2_z_tmp_1_.D i2_z_tmp_1_.C \
+i2_z_tmp_1_.AR i2_z_tmp_2_.D i2_z_tmp_2_.C i2_z_tmp_2_.AR i2_z_tmp_3_.D \
+i2_z_tmp_3_.C i2_z_tmp_3_.AR i2_z_tmp_0_.D i2_z_tmp_0_.C i2_z_tmp_0_.AR \
+gnd_n_n i2_ampel_un2_r_n i2_ampel_un10_r_n i2_ampel_un2_y_n i2_ampelint_2__n \
+i2_ampelint_1__n i2_z_tmp_c1_n i2_z_tmp_c2_n q_out_i_0__n q_out_i_1__n \
+q_out_i_2__n q_out_i_3__n T1_i S1_c S2_c T1_c rot_c gelb_c gruen_c \
+i2_ampel_un10_r_i_n i2_ampelint_0_2__n gruen_c_1 i2_ampel_un3_y_0__un3_n \
+i2_ampel_un3_y_0__un1_n i2_ampel_un3_y_0__un0_n i2_mux_x_1__un3_n \
+i2_mux_x_1__un1_n i2_mux_x_1__un0_n i2_z_tmp_n1 i2_z_tmp_n2 i2_z_tmp_n3
+.names gnd_n_n
+.names i2_z_tmp_2_.BLIF i2_z_tmp_3_.BLIF i2_ampel_un2_r_n
+11 1
+.names i2_z_tmp_1_.BLIF i2_z_tmp_2_.BLIF i2_ampel_un10_r_n
+11 1
+.names i2_z_tmp_2_.BLIF q_out_i_3__n.BLIF i2_ampel_un2_y_n
+11 1
+.names i2_ampelint_0_2__n.BLIF i2_ampelint_2__n
+0 1
+.names i2_ampel_un3_y_0__un1_n.BLIF i2_ampel_un3_y_0__un0_n.BLIF \
+i2_ampelint_1__n
+1- 1
+-1 1
+.names i2_z_tmp_0_.BLIF i2_z_tmp_1_.BLIF i2_z_tmp_c1_n
+11 1
+.names i2_z_tmp_c1_n.BLIF i2_z_tmp_2_.BLIF i2_z_tmp_c2_n
+11 1
+.names i2_z_tmp_0_.BLIF q_out_i_0__n
+0 1
+.names i2_z_tmp_1_.BLIF q_out_i_1__n
+0 1
+.names i2_z_tmp_2_.BLIF q_out_i_2__n
+0 1
+.names i2_z_tmp_3_.BLIF q_out_i_3__n
+0 1
+.names T1_c.BLIF T1_i
+0 1
+.names S2_c.BLIF i2_ampelint_2__n.BLIF rot_c
+11 1
+.names i2_mux_x_1__un1_n.BLIF i2_mux_x_1__un0_n.BLIF gelb_c
+1- 1
+-1 1
+.names gruen_c_1.BLIF q_out_i_3__n.BLIF gruen_c
+11 1
+.names i2_ampel_un10_r_n.BLIF i2_ampel_un10_r_i_n
+0 1
+.names i2_ampel_un10_r_i_n.BLIF q_out_i_3__n.BLIF i2_ampelint_0_2__n
+11 1
+.names S2_c.BLIF q_out_i_2__n.BLIF gruen_c_1
+11 1
+.names i2_z_tmp_1_.BLIF i2_ampel_un3_y_0__un3_n
+0 1
+.names i2_ampel_un2_r_n.BLIF i2_z_tmp_1_.BLIF i2_ampel_un3_y_0__un1_n
+11 1
+.names i2_ampel_un2_y_n.BLIF i2_ampel_un3_y_0__un3_n.BLIF \
+i2_ampel_un3_y_0__un0_n
+11 1
+.names S2_c.BLIF i2_mux_x_1__un3_n
+0 1
+.names i2_ampelint_1__n.BLIF S2_c.BLIF i2_mux_x_1__un1_n
+11 1
+.names q_out_i_1__n.BLIF i2_mux_x_1__un3_n.BLIF i2_mux_x_1__un0_n
+11 1
+.names q_out_i_3__n.BLIF q_3_
+1 1
+0 0
+.names rot_c.BLIF rot
+1 1
+0 0
+.names gelb_c.BLIF gelb
+1 1
+0 0
+.names gruen_c.BLIF gruen
+1 1
+0 0
+.names q_out_i_2__n.BLIF q_2_
+1 1
+0 0
+.names q_out_i_1__n.BLIF q_1_
+1 1
+0 0
+.names q_out_i_0__n.BLIF q_0_
+1 1
+0 0
+.names i2_z_tmp_n1.BLIF i2_z_tmp_1_.D
+1 1
+0 0
+.names takt.BLIF i2_z_tmp_1_.C
+1 1
+0 0
+.names S1_c.BLIF i2_z_tmp_1_.AR
+1 1
+0 0
+.names i2_z_tmp_n2.BLIF i2_z_tmp_2_.D
+1 1
+0 0
+.names takt.BLIF i2_z_tmp_2_.C
+1 1
+0 0
+.names S1_c.BLIF i2_z_tmp_2_.AR
+1 1
+0 0
+.names i2_z_tmp_n3.BLIF i2_z_tmp_3_.D
+1 1
+0 0
+.names takt.BLIF i2_z_tmp_3_.C
+1 1
+0 0
+.names S1_c.BLIF i2_z_tmp_3_.AR
+1 1
+0 0
+.names q_out_i_0__n.BLIF i2_z_tmp_0_.D
+1 1
+0 0
+.names takt.BLIF i2_z_tmp_0_.C
+1 1
+0 0
+.names S1_c.BLIF i2_z_tmp_0_.AR
+1 1
+0 0
+.names S1.BLIF S1_c
+1 1
+0 0
+.names S2.BLIF S2_c
+1 1
+0 0
+.names T1.BLIF T1_c
+1 1
+0 0
+.names i2_z_tmp_0_.BLIF i2_z_tmp_1_.BLIF i2_z_tmp_n1
+01 1
+10 1
+11 0
+00 0
+.names i2_z_tmp_2_.BLIF i2_z_tmp_c1_n.BLIF i2_z_tmp_n2
+01 1
+10 1
+11 0
+00 0
+.names i2_z_tmp_3_.BLIF i2_z_tmp_c2_n.BLIF i2_z_tmp_n3
+01 1
+10 1
+11 0
+00 0
+.end

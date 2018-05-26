@@ -1,0 +1,26 @@
+;C:\isptools\ispsys\examples\gal\multiply\BMUL.wav - Save data for Waveform Viewer
+
+
+[NameRules]
+Language=VHDL
+LeadingInstancePrefix=No
+InstanceSeparator=^
+BusParentheses=[:]
+
+[Waves]
+Count=12
+Net0=A0
+Net1=A1
+Net2=A2
+Net3=B0
+Net4=B1
+Net5=B2
+Net6=P0
+Net7=P1
+Net8=P2
+Net9=P3
+Net10=P4
+Net11=P5
+
+[Triggers]
+Count=0

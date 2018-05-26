@@ -1,0 +1,1 @@
+set SIM_WORKING_FOLDER .

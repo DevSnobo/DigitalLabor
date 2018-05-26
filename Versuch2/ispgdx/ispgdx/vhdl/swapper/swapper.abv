@@ -1,0 +1,54 @@
+
+MODULE swapper
+
+" Inputs
+    oe0 pin;
+    clk0 pin;
+
+    lowA_15_, lowA_14_, lowA_13_, lowA_12_, lowA_11_, lowA_10_, lowA_9_, lowA_8_ pin;
+    lowA_7_,  lowA_6_,  lowA_5_,  lowA_4_,  lowA_3_,  lowA_2_,  lowA_1_, lowA_0_ pin;
+
+    highA_15_, highA_14_, highA_13_, highA_12_, highA_11_, highA_10_ pin;
+    highA_9_,  highA_8_,  highA_7_,  highA_6_,  highA_5_,  highA_4_  pin;
+    highA_3_,  highA_2_,  highA_1_,  highA_0_ pin;
+
+" Outputs
+    lowB_15_, lowB_14_, lowB_13_, lowB_12_, lowB_11_, lowB_10_, lowB_9_, lowB_8_ pin;
+    lowB_7_,  lowB_6_,  lowB_5_,  lowB_4_,  lowB_3_,  lowB_2_,  lowB_1_, lowB_0_ pin;
+
+    highB_15_, highB_14_, highB_13_, highB_12_, highB_11_, highB_10_ pin;
+    highB_9_,  highB_8_,  highB_7_,  highB_6_,  highB_5_,  highB_4_  pin;
+    highB_3_,  highB_2_,  highB_1_,  highB_0_ pin;
+ 
+"set declaration
+    lowA = [lowA_15_,lowA_14_,lowA_13_,lowA_12_,lowA_11_,lowA_10_,lowA_9_,lowA_8_,
+            lowA_7_, lowA_6_, lowA_5_, lowA_4_, lowA_3_, lowA_2_, lowA_1_,lowA_0_];
+   highA = [highA_15_,highA_14_,highA_13_,highA_12_,highA_11_,highA_10_,
+            highA_9_, highA_8_, highA_7_, highA_6_, highA_5_, highA_4_,
+            highA_3_, highA_2_, highA_1_, highA_0_];
+    lowB = [lowB_15_,lowB_14_,lowB_13_,lowB_12_,lowB_11_,lowB_10_,lowB_9_,lowB_8_,
+            lowB_7_, lowB_6_, lowB_5_, lowB_4_, lowB_3_, lowB_2_, lowB_1_,lowB_0_];
+   highB = [highB_15_,highB_14_,highB_13_,highB_12_,highB_11_,highB_10_,
+            highB_9_, highB_8_, highB_7_, highB_6_, highB_5_, highB_4_,
+            highB_3_, highB_2_, highB_1_, highB_0_]; 
+"constant declaration
+    X,C,Z = .X.,.C.,.Z.;
+
+test_vectors
+([clk0,oe0,  lowA, highA] -> [  lowB, highB])
+ [   C,  0,^h1234,^hFEDC] -> [     Z,     Z];
+ [   0,  1,^h2345,^hEDCB] -> [^hFEDC,^h1234];
+ [   C,  1,^h2345,^hEDCB] -> [^hEDCB,^h2345];
+ [   C,  1,^h3456,^hDCBA] -> [^hDCBA,^h3456];
+ [   C,  0,^h4567,^hCBA9] -> [     Z,     Z];
+ [   0,  1,^h5678,^hBA98] -> [^hCBA9,^h4567];
+ [   C,  1,^h5678,^hBA98] -> [^hBA98,^h5678];
+ [   C,  1,^h6789,^hA987] -> [^hA987,^h6789];
+ [   C,  1,^h789A,^h9876] -> [^h9876,^h789A];
+ [   C,  0,^h89AB,^h8765] -> [     Z,     Z];
+ [   0,  1,^h9ABC,^h7654] -> [^h8765,^h89AB];
+ [   C,  1,^h9ABC,^h7654] -> [^h7654,^h9ABC];
+ [   C,  0,^hABCD,^h6543] -> [     Z,     Z];
+ [   C,  0,^hBCDE,^h5432] -> [     Z,     Z];
+ [   0,  1,^hCDEF,^h4321] -> [^h5432,^hBCDE];
+End

@@ -1,0 +1,122 @@
+[Device]
+Family = gdx2;
+PartNumber = LX256V-5F484C2R;
+Package = 484fpBGA;
+PartType = LX256V;
+Speed = -5;
+Operating_condition = COM;
+Status=Production;
+
+[Revision]
+RCS = $Revision: 1.9 $;
+Parent = gdx2256.lci;
+Design = ;
+DATE = 12/24/2001;
+TIME = 14:11:03;
+Source_Format = Schematic_VHDL;
+
+[IGNORE ASSIGNMENTS]
+
+[CLEAR ASSIGNMENTS]
+
+[BACKANNOTATE ASSIGNMENTS]
+
+[GLOBAL CONSTRAINTS]
+
+[LOCATION ASSIGNMENTS]
+layer = OFF;
+
+[GROUP ASSIGNMENTS]
+layer = OFF;
+BusIn1 = -, -, $ordered, mux_in1_0_, mux_in1_1_, mux_in1_10_, mux_in1_11_,
+	mux_in1_12_, mux_in1_13_, mux_in1_14_, mux_in1_15_, mux_in1_2_, mux_in1_3_,
+	mux_in1_4_, mux_in1_5_, mux_in1_6_, mux_in1_7_, mux_in1_8_, mux_in1_9_;
+BusIn2 = -, -, $ordered, mux_in2_0_, mux_in2_1_, mux_in2_10_, mux_in2_11_,
+	mux_in2_12_, mux_in2_13_, mux_in2_14_, mux_in2_15_, mux_in2_2_, mux_in2_3_,
+	mux_in2_4_, mux_in2_5_, mux_in2_6_, mux_in2_7_, mux_in2_8_, mux_in2_9_;
+BusIn3 = -, -, $ordered, mux_in3_0_, mux_in3_1_, mux_in3_10_, mux_in3_11_,
+	mux_in3_12_, mux_in3_13_, mux_in3_14_, mux_in3_15_, mux_in3_2_, mux_in3_3_,
+	mux_in3_4_, mux_in3_5_, mux_in3_6_, mux_in3_7_, mux_in3_8_, mux_in3_9_;
+BusIn4 = -, -, $ordered, mux_in4_0_, mux_in4_1_, mux_in4_10_, mux_in4_11_,
+	mux_in4_12_, mux_in4_13_, mux_in4_14_, mux_in4_15_, mux_in4_2_, mux_in4_3_,
+	mux_in4_4_, mux_in4_5_, mux_in4_6_, mux_in4_7_, mux_in4_8_, mux_in4_9_;
+BusOut = -, -, $ordered, mux_out_0_, mux_out_1_, mux_out_10_, mux_out_11_,
+	mux_out_12_, mux_out_13_, mux_out_14_, mux_out_15_, mux_out_2_, mux_out_3_,
+	mux_out_4_, mux_out_5_, mux_out_6_, mux_out_7_, mux_out_8_, mux_out_9_;
+
+[RESOURCE RESERVATIONS]
+layer = OFF;
+
+[FITTER REPORT FORMAT]
+
+[POWER]
+
+[SOURCE CONSTRAINT OPTION]
+
+[NETLIST/DELAY FORMAT]
+
+[Explorer User Settings]
+
+[LOCATION ASSIGNMENTS LIST]
+
+[RESOURCE RESERVATIONS LIST]
+
+[Pin attributes list]
+
+[Timing Analyzer]
+
+[INPUT REGISTERS]
+
+[IO TYPES]
+layer = OFF;
+
+[Fast Bypass]
+
+[SLEWRATE]
+Default = Fast;
+
+[PLL Assignments]
+
+[OSM Bypass]
+
+[Pullup]
+
+[global constraints list]
+
+[Global Constraints Process Update]
+
+[Explorer Results]
+
+[GLOBAL PROJECT OPTIMIZATION]
+
+[OPTIMIZATION OPTIONS]
+
+[FITTER GLOBAL OPTIONS]
+
+[LOCATION ASSIGNMENT]
+
+[GROUP ASSIGNMENT]
+
+[SPACE RESERVATIONS]
+
+[PIN RESERVATIONS]
+
+[BUS ASSIGNMENTS]
+
+[Pull]
+
+[Hardware Device Options]
+
+[Backannotate Netlist]
+
+[Constraint Version]
+version = 1.0;
+
+[Node attribute]
+layer = OFF;
+
+[SYMBOL/MODULE attribute]
+layer = OFF;
+
+[INDIVIDUAL CONSTRAINTS]
+layer = OFF;

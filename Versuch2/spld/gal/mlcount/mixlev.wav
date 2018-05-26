@@ -1,0 +1,24 @@
+;C:\isptools\ispsys\examples\gal\mlcount\MIXLEV.wav - Save data for Waveform Viewer
+
+
+[NameRules]
+Language=VHDL
+LeadingInstancePrefix=No
+InstanceSeparator=^
+BusParentheses=[:]
+
+[Waves]
+Count=10
+Net0=CLK
+Net1=HOLD
+Net2=Q0
+Net3=Q1
+Net4=Q2
+Net5=Q3
+Net6=Q4
+Net7=Q5
+Net8=Q6
+Net9=Q7
+
+[Triggers]
+Count=0

@@ -1,0 +1,54 @@
+module mixlev
+title 'State machine which has mixed power-up level outputs'
+
+"This design takes advantage of the target device capability
+"of selectable invert or buffer output. The states are designed
+"for the pins themselves via ABEL-HDL pin-to-pin syntax. All
+"states and transitions are described in terms of the input
+"and output pins.
+
+   Clk,hold                 pin ;
+   Q7,Q6,Q5,Q4              pin istype 'reg,invert';
+   Q3,Q2,Q1,Q0              pin istype 'reg,buffer';
+   C = .C.;
+
+" Counter States
+        S0 = ^b11110000;
+        S1 = ^b11110001;
+        S2 = ^b11110101;
+        S3 = ^b11010101;
+        S4 = ^b01010101;
+        S5 = ^b11010111;
+        S6 = ^b00010111;
+        OUTPUTS = [Q7,Q6,Q5,Q4,Q3,Q2,Q1,Q0];
+
+equations
+        OUTPUTS.c = Clk;
+
+
+state_diagram OUTPUTS
+        State S0:       IF hold then S0 ELSE S1;
+        State S1:       IF hold THEN S1 ELSE S2;
+        State S2:       IF hold THEN S2 ELSE S3;
+        State S3:       IF hold THEN S3 ELSE S4;
+        State S4:       IF hold THEN S4 ELSE S5;
+        State S5:       IF hold THEN S5 ELSE S6;
+        State S6:       IF hold THEN S6 ELSE S0;
+
+test_vectors ([Clk,hold]->[Q7,Q6,Q5,Q4,Q3,Q2,Q1,Q0])
+              [ 0 ,  1 ]->[ 1, 1, 1, 1, 0, 0, 0, 0];  "0
+              [ C ,  1 ]->[ 1, 1, 1, 1, 0, 0, 0, 0];  "0
+              [ C ,  0 ]->[ 1, 1, 1, 1, 0, 0, 0, 1];  "1
+              [ C ,  0 ]->[ 1, 1, 1, 1, 0, 1, 0, 1];  "2
+              [ C ,  0 ]->[ 1, 1, 0, 1, 0, 1, 0, 1];  "3
+              [ C ,  0 ]->[ 0, 1, 0, 1, 0, 1, 0, 1];  "4
+              [ C ,  0 ]->[ 1, 1, 0, 1, 0, 1, 1, 1];  "5
+              [ C ,  0 ]->[ 0, 0, 0, 1, 0, 1, 1, 1];  "6
+              [ C ,  0 ]->[ 1, 1, 1, 1, 0, 0, 0, 0];  "0
+              [ C ,  0 ]->[ 1, 1, 1, 1, 0, 0, 0, 1];  "1
+              [ C ,  0 ]->[ 1, 1, 1, 1, 0, 1, 0, 1];  "2
+              [ C ,  0 ]->[ 1, 1, 0, 1, 0, 1, 0, 1];  "3
+              [ C ,  0 ]->[ 0, 1, 0, 1, 0, 1, 0, 1];  "4
+              [ C ,  0 ]->[ 1, 1, 0, 1, 0, 1, 1, 1];  "5
+
+end 

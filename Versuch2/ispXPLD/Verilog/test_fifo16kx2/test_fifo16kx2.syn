@@ -1,0 +1,11 @@
+JDF B
+// Created by Version 2.1 
+PROJECT Untitled
+DESIGN test_fifo16kx2 Normal
+DEVKIT LC5512MV-45F484C
+ENTRY Schematic/Verilog HDL
+TESTFIXTURE tb_test_fifo16kx2.tf
+MODULE test_fifo16kx2.v
+MODSTYLE test_fifo16kx2 Normal
+MODSTYLE L_FIFO Normal
+SYNTHESIS_TOOL Precision

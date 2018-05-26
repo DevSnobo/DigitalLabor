@@ -1,0 +1,49 @@
+#Build: Synplify Pro F-2012.03LC , Build 063R, May 17 2012
+#install: C:\ispLEVER_Classic1_6\synpbase
+#OS: Windows 7 6.1
+#Hostname: LAT-DIG-01B
+
+#Implementation: digital labor
+
+$ Start of Compile
+#Mon Apr 23 14:31:05 2018
+
+Synopsys VHDL Compiler, version comp201203rcp1, Build 061R, built May 17 2012
+@N|Running in 64-bit mode
+Copyright (C) 1994-2012 Synopsys, Inc. This software the associated documentation are confidential and proprietary to Synopsys, Inc. Your use or disclosure of this software subject to the terms and conditions of a written license agreement between you, or your company, and Synopsys, Inc.
+
+@N: CD720 :"C:\ispLEVER_Classic1_6\synpbase\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ns
+@N:"N:\digital labor\or2.vhd":6:7:6:13|Top entity is set to or2_ent.
+VHDL syntax check successful!
+@N: CD630 :"N:\digital labor\or2.vhd":6:7:6:13|Synthesizing work.or2_ent.or2_arch 
+Post processing for work.or2_ent.or2_arch
+@END
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+# Mon Apr 23 14:31:05 2018
+
+###########################################################]
+Map & Optimize Report
+
+Synopsys CPLD Technology Mapper, Version maplat, Build 396R, Built May 18 2012
+Copyright (C) 1994-2012, Synopsys Inc. This software the associated documentation are confidential and proprietary to Synopsys, Inc. Your use or disclosure of this software subject to the terms and conditions of a written license agreement between you, or your company, and Synopsys, Inc.
+Product Version F-2012.03LC 
+---------------------------------------
+Resource Usage Report
+
+Simple gate primitives:
+IBUF            2 uses
+OBUF            1 use
+AND2            1 use
+INV             3 uses
+
+
+@N: FC100 |Timing Report not generated for this device, please use place and route tools for timing analysis.
+F-2012.03LC 
+Mapper successful!
+
+At Mapper Exit (Time elapsed 0h:00m:00s; Memory used current: 17MB peak: 50MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+# Mon Apr 23 14:31:07 2018
+
+###########################################################]

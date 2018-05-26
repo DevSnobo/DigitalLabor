@@ -1,0 +1,11 @@
+JDF B
+// Created by Version 2.1 
+PROJECT Untitled
+DESIGN test_ramdp8kx2x2 Normal
+DEVKIT LC5512MV-45F256C
+ENTRY Schematic/Verilog HDL
+TESTFIXTURE tb_test_ramdp8kx2x2.tf
+MODULE test_ramdp8kx2x2.v
+MODSTYLE L_RAMDP Normal
+MODSTYLE test_ramdp8kx2x2 Normal
+SYNTHESIS_TOOL Precision

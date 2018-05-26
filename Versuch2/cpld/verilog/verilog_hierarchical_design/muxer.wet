@@ -1,0 +1,4 @@
+Wave a[7:0]
+Wave b[7:0]
+Wave sel
+Wave out[7:0]
