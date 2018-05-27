@@ -1,0 +1,144 @@
+;$NONSEGMENTED              ; Nur Tiny Model möglich
+$MODV2                 ; Code fuer 161/163/164/165/167
+$NOLIST
+$INCLUDE (REG167.INC)   ; include CPU definition file 
+$LIST
+;
+;	TITLE <Mein Text>
+;
+;	Prozessor Definitionen
+;
+;------------------------------------------------------------
+; Hier folgen Ihre Konstanten Definitionen
+;
+;Ora     	EQU	0	;Portbit für Ora
+
+S1			EQU 0
+S2			EQU 1
+TA1			EQU 2
+TA2			EQU 3
+LED1		EQU 4
+LED2		EQU 5
+LED3		EQU 6
+LED4		EQU 7
+DelayC1		EQU 1000;4500000 ca 0,5s - 1 CPU Cycle at 80MHZ -> single cycle execution 12,5ns
+DelayC2		EQU 4500;
+
+Datenspeicher	SECTION Data
+;------------------------------------------------------------
+; Hier folgen Ihre Speicher Vereinbarungen
+;
+;Mein_Speicher           DB      12      ;Byte Initialisiert
+;Mein_Speicher1          DW      65      ;Word Initialisiert
+;Mein_Speicher2          DD      4711
+;Mein_Text               DB      'ASCII Text'
+
+Datenspeicher	ENDS
+;
+;
+Programme	Section Code
+ASSUME	DPP3:SYSTEM
+ASSUME  DPP0:Datenspeicher
+;------------------------------------------------------------
+; Hier stehen Ihre Unterprogramme
+PortInit PROC
+; Outputs
+mov R0, #0x80 ;1 for output
+mov P0_IOCR_4,R0 ;allocation output
+mov P0_IOCR_5,R0 ;allocation output
+mov P0_IOCR_6,R0 ;allocation output
+mov P0_IOCR_7,R0 ;allocation output
+
+; inputs
+mov R0, #0x00 ;0 for input
+mov P0_IOCR_4,R0 ;allocation input
+mov P0_IOCR_5,R0 ;allocation input
+mov P0_IOCR_6,R0 ;allocation input
+mov P0_IOCR_7,R0 ;allocation input
+
+ret
+PortInit EndP
+
+Delay PROC
+
+push R0
+push R1
+
+MOV R0,#DelayC1
+loop1:
+MOV R1,#DelayC2
+loop2:
+CMPD1 R1,#0
+JMP cc_NZ,loop2
+
+CMPD1 R0,#0
+JMP cc_NZ,loop1
+
+pop R0
+pop R1
+
+ret
+Delay EndP
+;
+;PInit	Initialisiert den Port Px
+;=====
+;	I: nix
+;	O: nix
+;	Z: Register, die zerstört werden.
+;
+MyUp1	PROC NEAR
+
+	Ret
+MyUp1	EndP;
+
+;------------------------------------------------------------
+; Hier startet das Hauptprogramm
+;
+A_RESET	PROC TASK STARTUP INTNO RESET = 0
+	mov	r0,BUSCON0
+	and	r0,#0xFF00
+	mov	BUSCON0,r0
+	mov	dpp0,#PAG Datenspeicher		;Page von Datenspeicher => DPP0
+	mov 	KSCCFG,#0x0003;     		;Module Enable
+	mov 	R0,KSCCFG			;wieder ruecklesen
+	JMP	Main	
+A_RESET	EndP
+
+MAIN	Proc
+;------------------------------------------------------------
+;Hier geht Ihr Hauptprogramm los
+;
+call PortInit
+	BSET P0_OUT.LED1
+	BSET P0_OUT.LED2
+	BSET P0_OUT.LED3
+	BSET P0_OUT.LED4
+
+	loop:
+	BMOV P0_OUT.LED1,P0_IN.TA1
+	BMOV P0_OUT.LED2,P0_IN.TA2
+
+	call Delay
+	call Delay
+
+	BMOVN P0_OUT.LED3,P0_OUT.LED3
+
+	JMP loop	
+	
+	Call	MyUp1	
+
+Forever:
+
+
+	jmp		Forever
+;
+;  Notstop
+;
+StopJetzt:	JMP	StopJetzt
+
+Main		ENDP
+
+Programme	ENDS
+;
+
+	END
