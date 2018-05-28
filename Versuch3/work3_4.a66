@@ -1,0 +1,119 @@
+;$NONSEGMENTED              ; Nur Tiny Model möglich
+$MODV2                 ; Code fuer 161/163/164/165/167
+$NOLIST
+$INCLUDE (REG167.INC)   ; include CPU definition file 
+$LIST
+;
+;	TITLE <Mein Text>
+;
+;	Prozessor Definitionen
+;
+;------------------------------------------------------------
+; Hier folgen Ihre Konstanten Definitionen
+;
+Ora     	EQU	0	;Portbit für Ora
+
+
+Datenspeicher	SECTION Data
+;------------------------------------------------------------
+; Hier folgen Ihre Speicher Vereinbarungen
+;
+;Mein_Speicher           DB      12      ;Byte Initialisiert
+
+op1						DW		30000	 ;
+op2						DW		5000     ;
+op3						DW		40000	 ;
+op4						DW		4999	 ;
+op5						DW		-30000	 ;
+
+Datenspeicher	ENDS
+;
+;
+Programme	Section Code
+ASSUME	DPP3:SYSTEM
+ASSUME  DPP0:Datenspeicher
+;------------------------------------------------------------
+; Hier stehen Ihre Unterprogramme
+;
+;
+;PInit	Initialisiert den Port Px
+;=====
+;	I: nix
+;	O: nix
+;	Z: Register, die zerstört werden.
+;
+Addi	PROC NEAR
+	MOV R2, [R0]
+	ADD R2, [R1]
+
+	Ret
+Addi	EndP;
+
+Subbi	PROC NEAR
+	MOV R2, [R0]
+	SUB R2, [R1]
+
+	Ret
+Subbi	EndP;
+
+;------------------------------------------------------------
+; Hier startet das Hauptprogramm
+;
+A_RESET	PROC TASK STARTUP INTNO RESET = 0
+	mov	r0,BUSCON0
+	and	r0,#0xFF00
+	mov	BUSCON0,r0
+	mov	dpp0,#PAG Datenspeicher		;Page von Datenspeicher => DPP0
+	mov 	KSCCFG,#0x0003;     		;Module Enable
+	mov 	R0,KSCCFG			;wieder ruecklesen
+	JMP	Main	
+A_RESET	EndP
+
+MAIN	Proc
+;------------------------------------------------------------
+;Hier geht Ihr Hauptprogramm los
+;
+
+
+	MOV R0, #op1 
+	MOV	R1, #op2
+	CALL Addi
+	MOV R10, R2
+
+ 	MOV R0, #op1 
+	MOV	R1, #op3
+	CALL Addi
+	MOV R11, R2
+
+ 	MOV R0, #op4 
+	MOV	R1, #op2
+	CALL Subbi
+	MOV R12, R2
+
+ 	MOV R0, #op1 
+	MOV	R1, #op5
+	CALL Addi
+	MOV R13, R2
+
+ 	MOV R0, #op3 
+	MOV	R1, #op5
+	CALL Addi
+	MOV R14, R2
+	 
+	
+
+Forever:
+
+
+	jmp		Forever
+;
+;  Notstop
+;
+StopJetzt:	JMP	StopJetzt
+
+Main		ENDP
+
+Programme	ENDS
+;
+
+	END
