@@ -1,0 +1,73 @@
+<html>
+<body>
+<pre>
+<h1>µVision3 Build Log</h1>
+<h2>Project:</h2>
+C:\Users\John Doe\Desktop\Versuch5\Aufgabe2\A2.uv2
+Project File Date:  06/13/2018
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling START_V3.A66...
+compiling main.c...
+main.c(1): error C318: can't open file 'XE164F_MY.h'
+MAIN.C(16): error C67: 'P0_IOCR_0': undefined identifier
+MAIN.C(17): error C67: 'P0_IOCR_1': undefined identifier
+MAIN.C(18): error C67: 'P0_IOCR_2': undefined identifier
+MAIN.C(19): error C67: 'P0_IOCR_3': undefined identifier
+MAIN.C(22): error C67: 'P0_IOCR_4': undefined identifier
+MAIN.C(23): error C67: 'P0_IOCR_5': undefined identifier
+MAIN.C(24): error C67: 'P0_OUT': undefined identifier
+MAIN.C(25): error C67: 'P0_OUT': undefined identifier
+MAIN.C(33): error C67: 'P0_IN': undefined identifier
+MAIN.C(33): error C67: 'S_1': undefined identifier
+MAIN.C(34): error C67: 'P0_IN': undefined identifier
+MAIN.C(34): error C67: 'T_1': undefined identifier
+MAIN.C(35): error C67: 'P0_OUT': undefined identifier
+MAIN.C(37): error C67: 'P0_OUT': undefined identifier
+MAIN.C(41): error C67: 'P0_IN': undefined identifier
+MAIN.C(41): error C67: 'S_2': undefined identifier
+MAIN.C(42): error C67: 'T2_ON': undefined identifier
+MAIN.C(43): error C67: 'P0_OUT': undefined identifier
+MAIN.C(45): error C67: 'P0_OUT': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling main.c...
+main.c(1): error C318: can't open file 'XE164F_MY.h'
+MAIN.C(16): error C67: 'P0_IOCR_0': undefined identifier
+MAIN.C(17): error C67: 'P0_IOCR_1': undefined identifier
+MAIN.C(18): error C67: 'P0_IOCR_2': undefined identifier
+MAIN.C(19): error C67: 'P0_IOCR_3': undefined identifier
+MAIN.C(22): error C67: 'P0_IOCR_4': undefined identifier
+MAIN.C(23): error C67: 'P0_IOCR_5': undefined identifier
+MAIN.C(24): error C67: 'P0_OUT': undefined identifier
+MAIN.C(25): error C67: 'P0_OUT': undefined identifier
+MAIN.C(33): error C67: 'P0_IN': undefined identifier
+MAIN.C(33): error C67: 'S_1': undefined identifier
+MAIN.C(34): error C67: 'P0_IN': undefined identifier
+MAIN.C(34): error C67: 'T_1': undefined identifier
+MAIN.C(35): error C67: 'P0_OUT': undefined identifier
+MAIN.C(37): error C67: 'P0_OUT': undefined identifier
+MAIN.C(41): error C67: 'P0_IN': undefined identifier
+MAIN.C(41): error C67: 'S_2': undefined identifier
+MAIN.C(42): error C67: 'T2_ON': undefined identifier
+MAIN.C(43): error C67: 'P0_OUT': undefined identifier
+MAIN.C(45): error C67: 'P0_OUT': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(33): error C67: 'S_1': undefined identifier
+MAIN.C(34): error C67: 'T_1': undefined identifier
+MAIN.C(41): error C67: 'S_2': undefined identifier
+MAIN.C(42): error C67: 'T2_ON': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(42): error C67: 'T2_ON': undefined identifier
+Target not created
+Build target 'Target 1'
+assembling START_V3.A66...
+compiling main.c...
+linking...
+Program Size: data=1088(near=1088) const=2(near=0) code=604
+"A2" - 0 Error(s), 0 Warning(s).

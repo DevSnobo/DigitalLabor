@@ -1,0 +1,77 @@
+1. Vereinbarung von Registern auf festen Adressen. In dieser Aufgabe dürfen nur
+Standard Statements verwendet werden. Die Keil Erweiterungen sind nicht
+zulässig.
+
+a) Auf welchen Adressen liegen die SFRs P0_OUT und P0_IN?
+
+sfr  P0_OUT = 0xFFA2;
+sfr  P10_IN = 0xFF94;
+
+b) Wie lautet das #define zur Adressierung von P0_OUT?
+
+#define P0_OUT (*(volatile unsigned char *)(0xFFA2))
+
+c) Wie lautet das #define zur Maskierung von Bit 7?
+
+#define P0_OUT_7 (1 << 6)
+
+
+d) Wie lauten mit den Vereinbarungen aus b) und c) die C-Statements zum Setzen
+bzw. Löschen von Bit 7 in P0_OUT?
+
+Set:    P0_OUT |= P0_OUT_7
+Clear:  P0_OUT &= ~P0_OUT_7
+
+
+2. Timer T3
+Welchen Teilerfaktor und welchen Reload Wert braucht ein mit 10 MHz
+Eingangsfrequenz betriebener Timer T3 für
+
+a) Eine Wartezeit von 250 msec ?
+
+t = ((2^Bit des Timers)*Prescaler)/Systemtakt in Hz
+250 = (2^16 * prescaler) / 10MHZ
+
+b) Ein symmetrisches periodisches Signal von 10 Hz ?
+
+Geben Sie jeweils den Rechengang an.
+Hinweis: Die Tabelle für 10 MHz finden Sie im Aufgabenblatt für Versuch 5.
+
+
+https://www.electroschematics.com/9677/basic-bitwise-operators-part-1/
+
+https://en.wikipedia.org/wiki/Bit_manipulation
+
+https://www.monsterli.ch/blog/programmierung/cpp/c-c-bitmanipulation-mit-bitweise-operatoren/
+
+https://paritycheck.wordpress.com/2009/03/27/what-does-this-mean-volatile-unsigned-char-0x22/
+
+--------------------------------------------------------------------------
+Aufgabe 1 
+
+a
+
+Es wird nur die Variable fahr in das Register 5 gesichert. 
+Die Berechnung celsius = 5 * (fahr-32) / 9; fehlt vollständig im Assembler Code
+
+b
+
+fahr in R6 mov nach R5 sub 32
+zwischenergebniss nach R4
+R5 mal 4 + zwischenergebniss = *5
+
+c
+
+R8 übergabeparameter 
+R4 für return Wertes. 
+
+d
+float
+0.00000250s
+mehr Register, indirekter zugriff andere Funktionen
+double 
+0.00000290s
+mehr Register, indirekter zugriff andere Funktionen
+long
+0.00000290s
+zwei Register werden benötigt für celcius und fahr

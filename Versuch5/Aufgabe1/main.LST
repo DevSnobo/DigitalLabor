@@ -1,0 +1,109 @@
+C166 COMPILER V6.17, MAIN                                                                  06/13/2018 16:20:01 PAGE 1   
+
+
+C166 COMPILER V6.17, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C166\BIN\C166.EXE main.c MODV2 BROWSE MODV2 DEBUG CODE
+
+ stmt lvl     source
+
+    1         /* Umwandlung von Fahrenheit in Celsius fuer fahr = 0, 20, …., 300 */
+    2         
+    3         float celsius;
+    4         
+    5         float fahr2cels (float fahr){
+    6  1      return 5 * (fahr-32) / 9;
+    7  1      }
+    8         
+    9         void main(void) {     
+   10  1              float fahr;     
+   11  1              float lower, upper,step;     
+   12  1      
+   13  1              lower = 0;     
+   14  1              upper = 300;     
+   15  1              step = 20;     
+   16  1      
+   17  1              fahr = lower;     
+   18  1      
+   19  1              while (fahr <= upper) {         
+   20  2                      fahr2cels (fahr);
+*** WARNING C192 IN LINE 20 OF MAIN.C: 'parameter 1': value truncated
+   21  2              //      celsius = 5 * (fahr-32) / 9;    //Diese Zeile kommt in c) in Function         
+   22  2                      fahr = fahr + step;     
+   23  2              } 
+   24  1      } 
+C166 COMPILER V6.17, MAIN                                                                  06/13/2018 16:20:01 PAGE 2   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION fahr2cels (BEGIN  RMASK = @0x6030)
+                                           ; SOURCE LINE # 5
+;---- Variable 'fahr' assigned to Register 'R8' ----
+                                           ; SOURCE LINE # 6
+0000 F058          MOV       R5,R8
+0002 26F52000      SUB       R5,#020H
+0006 F045          MOV       R4,R5
+0008 5C25          SHL       R5,#02H
+000A 0054          ADD       R5,R4
+000C E094          MOV       R4,#09H
+000E F6F50EFE      MOV       MDL,R5
+0012 4B44          DIV       R4
+0014 F2F40EFE      MOV       R4,MDL
+0018 F054          MOV       R5,R4
+001A BCF5          ASHR      R5,#0FH
+                                           ; SOURCE LINE # 7
+001C CB00          RET       
+             ; FUNCTION fahr2cels (END    RMASK = @0x6030)
+
+             ; FUNCTION main (BEGIN  RMASK = @0x61F0)
+                                           ; SOURCE LINE # 9
+                                           ; SOURCE LINE # 13
+                                           ; SOURCE LINE # 14
+                                           ; SOURCE LINE # 15
+                                           ; SOURCE LINE # 17
+001E E006          MOV       R6,#00H
+0020 E007          MOV       R7,#00H
+;---- Variable 'fahr' assigned to Register 'R6/R7' ----
+                                           ; SOURCE LINE # 19
+0022         ?C0004:
+                                           ; SOURCE LINE # 20
+0022 F086          MOV       R8,R6
+0024 BBED          CALLR     fahr2cels
+                                           ; SOURCE LINE # 22
+0026 06F61400      ADD       R6,#014H
+002A 1870          ADDC      R7,#00H
+                                           ; SOURCE LINE # 23
+002C F046          MOV       R4,R6
+002E F057          MOV       R5,R7
+0030 26F42C01      SUB       R4,#012CH
+0034 3850          SUBC      R5,#00H
+0036 BDF5          JMPR      cc_SLE,?C0004
+0038         ?C0003:
+                                           ; SOURCE LINE # 24
+0038 CB00          RET       
+             ; FUNCTION main (END    RMASK = @0x61F0)
+
+
+
+MODULE INFORMATION:   INITIALIZED  UNINITIALIZED
+  CODE SIZE        =          58     --------
+  NEAR-CONST SIZE  =    --------     --------
+  FAR-CONST SIZE   =    --------     --------
+  HUGE-CONST SIZE  =    --------     --------
+  XHUGE-CONST SIZE =    --------     --------
+  NEAR-DATA SIZE   =           4     --------
+  FAR-DATA SIZE    =    --------     --------
+  XHUGE-DATA SIZE  =    --------     --------
+  IDATA-DATA SIZE  =    --------     --------
+C166 COMPILER V6.17, MAIN                                                                  06/13/2018 16:20:01 PAGE 3   
+
+  SDATA-DATA SIZE  =    --------     --------
+  BDATA-DATA SIZE  =    --------     --------
+  HUGE-DATA SIZE   =    --------     --------
+  BIT SIZE         =    --------     --------
+  INIT'L SIZE      =    --------     --------
+END OF MODULE INFORMATION.
+
+
+C166 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)
