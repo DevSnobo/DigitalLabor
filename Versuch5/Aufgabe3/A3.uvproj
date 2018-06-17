@@ -381,6 +381,11 @@
                 </File166>
               </FileOption>
             </File>
+            <File>
+              <FileName>t3power.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\t3power.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

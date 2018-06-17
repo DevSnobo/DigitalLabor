@@ -1,4 +1,5 @@
-".\Objects\main.obj" 
+".\Objects\main.obj",
+".\Objects\t3power.obj" 
 TO ".\Objects\A3" 
 PRINT(".\Listings\A3.m66") VECTAB (0xC00000) 
 CLASSES (ICODE (0xC00000-0xC0EFFF), NCODE (0xC10000-0xC1FFFF), 

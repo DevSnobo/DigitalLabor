@@ -1,70 +1,69 @@
-C166 COMPILER V7.57.0, MAIN                                                                06/17/2018 15:54:48 PAGE 1   
+C166 COMPILER V7.57.0, MAIN                                                                06/17/2018 16:36:07 PAGE 1   
 
 
 C166 COMPILER V7.57.0, COMPILATION OF MODULE MAIN
 OBJECT MODULE PLACED IN .\Objects\main.obj
-COMPILER INVOKED BY: C:\Keil_v5\C166\BIN\C166.EXE main.c MODV2 BROWSE MODV2 DEBUG PRINT(.\Listings\main.lst) TABS(2) OBJ
-                    -ECT(.\Objects\main.obj) 
+COMPILER INVOKED BY: C:\Keil_v5\C166\BIN\C166.EXE main.c MODV2 BROWSE MODV2 MODV2 DEBUG PRINT(.\Listings\main.lst) TABS(
+                    -2) OBJECT(.\Objects\main.obj) 
 
  stmt lvl     source
 
     1         #include <stdio.h>
     2         #include "XE164F_HS.h"
     3         
-    4         void t3power(void);
-    5         
-    6         void t3init() {
-    7  1      
-    8  1      }
-    9         
-   10         void portInit() {
-   11  1          // INPUT setzen
-   12  1          P0_IOCR00 = 0;
-   13  1          P0_IOCR01 = 0;
-   14  1          P0_IOCR02 = 0;
-   15  1          P0_IOCR03 = 0;
-   16  1      
-   17  1          // OUTPUT setzen
-   18  1          P0_IOCR04 = 1;
-   19  1          P0_IOCR05 = 1;
-   20  1          P0_IOCR06 = 1;
-   21  1          P0_IOCR07 = 1;
-   22  1      }
-   23         
-   24         
-   25         void main(void) {
-   26  1          portInit();
-   27  1      
-   28  1          while (1) {
-   29  2              if (P0_IOCR00) {
-   30  3                  if (P0_IOCR02) {
-   31  4                      P0_IOCR04 &= ~P0_IOCR04;
-   32  4                      //T3 in LED3 kopieren
-   33  4                  } else {
-   34  4                      P0_IOCR04 |= P0_IOCR04;
-   35  4                      //T3 in LED3 kopieren
-   36  4                  }
-   37  3              }
-   38  2      
-   39  2              if (P0_IOCR01) {
-   40  3                  if (P0_IOCR03) {
-   41  4                      P0_IOCR05 &= ~P0_IOCR05;
-   42  4                      //T3 in LED3 kopieren
-   43  4                  } else {
-   44  4                      P0_IOCR05 |= P0_IOCR05;
-   45  4                      //T3 in LED3 kopieren
-   46  4                  }
-   47  3              }
-   48  2          }
-   49  1      }
+    4         void t3Init() {
+    5  1          void t3power(void);
+    6  1      }
+    7         
+    8         void portInit() {
+    9  1          // INPUT setzen
+   10  1          P0_IOCR00 = 0; //S1
+   11  1          P0_IOCR01 = 0; //S2
+   12  1          P0_IOCR02 = 0; //T1
+   13  1          P0_IOCR03 = 0; //T2
+   14  1      
+   15  1          // OUTPUT setzen
+   16  1          P0_IOCR04 = 1; //LED1
+   17  1          P0_IOCR05 = 1; //LED2
+   18  1          P0_IOCR06 = 1; //LED3
+   19  1          P0_IOCR07 = 1; //LED4
+   20  1      }
+   21         
+   22         
+   23         void main(void) {
+   24  1          t3Init();
+   25  1          portInit();
+   26  1      
+   27  1          while (1) {
+   28  2              if (P0_IOCR00) {
+   29  3                  if (P0_IOCR02) {
+   30  4                      P0_IOCR04 &= ~P0_IOCR04;
+   31  4                      //T3 in LED3 kopieren
+   32  4                  } else {
+   33  4                      P0_IOCR04 |= P0_IOCR04;
+   34  4                      //T3 in LED3 kopieren
+   35  4                  }
+   36  3              }
+   37  2      
+   38  2              if (P0_IOCR01) {
+   39  3                  if (P0_IOCR03) {
+   40  4                      P0_IOCR05 &= ~P0_IOCR05;
+   41  4                      //T3 in LED3 kopieren
+   42  4                  } else {
+   43  4                      P0_IOCR05 |= P0_IOCR05;
+   44  4                      //T3 in LED3 kopieren
+   45  4                  }
+   46  3              }
+   47  2          }
+   48  1      }
 
 
 MODULE INFORMATION:   INITIALIZED  UNINITIALIZED
-  CODE SIZE        =         132     --------
+  CODE SIZE        =         134     --------
   NEAR-CONST SIZE  =    --------     --------
-C166 COMPILER V7.57.0, MAIN                                                                06/17/2018 15:54:48 PAGE 2   
-
   FAR-CONST SIZE   =    --------     --------
+C166 COMPILER V7.57.0, MAIN                                                                06/17/2018 16:36:07 PAGE 2   
+
   HUGE-CONST SIZE  =    --------     --------
   XHUGE-CONST SIZE =    --------     --------
   NEAR-DATA SIZE   =    --------     --------

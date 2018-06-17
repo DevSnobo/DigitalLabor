@@ -1,14 +1,15 @@
-L166 LINKER/LOCATER V5.29.2.0                                                           06/17/2018  15:54:48  PAGE 1
+L166 LINKER/LOCATER V5.29.2.0                                                           06/17/2018  16:36:08  PAGE 1
 
 
 L166 LINKER/LOCATER V5.29.2.0, INVOKED BY:
-C:\KEIL_V5\C166\BIN\L166.EXE .\Objects\main.obj TO .\Objects\A3 PRINT (.\Listings\A3.m66) VECTAB (0XC00000) CLASSES (ICO
->> DE (0XC00000-0XC0EFFF), NCODE (0XC10000-0XC1FFFF), FCONST (0XC00000-0XC0EFFF, 0XC10000-0XCBFFFF), HCONST (0XC00000-0X
->> C0EFFF, 0XC10000-0XCBFFFF), XCONST (0XC00000-0XC0EFFF, 0XC10000-0XCBFFFF), NCONST (0XC04000-0XC07FFF), NDATA (0XE0000
->> 0-0XE03FFF), NDATA0 (0XE00000-0XE03FFF), SDATA (0XC000-0XDFFF, 0XF600-0XFDFF), SDATA0 (0XC000-0XDFFF, 0XF600-0XFDFF),
->>  IDATA (0XF600-0XFDFF), IDATA0 (0XF600-0XFDFF), FDATA (0XA000-0XDFFF, 0XE00000-0XE0FFFF), FDATA0 (0XA000-0XDFFF, 0XE0
->> 0000-0XE0FFFF), HDATA (0XA000-0XDFFF, 0XE00000-0XE0FFFF), HDATA0 (0XA000-0XDFFF, 0XE00000-0XE0FFFF), XDATA (0XA000-0X
->> DFFF, 0XE00000-0XE0FFFF), XDATA0 (0XA000-0XDFFF, 0XE00000-0XE0FFFF)) CINITTAB (0XC10000-0XCBFFFF)
+C:\KEIL_V5\C166\BIN\L166.EXE .\Objects\main.obj, .\Objects\t3power.obj TO .\Objects\A3 PRINT (.\Listings\A3.m66) VECTAB 
+>> (0XC00000) CLASSES (ICODE (0XC00000-0XC0EFFF), NCODE (0XC10000-0XC1FFFF), FCONST (0XC00000-0XC0EFFF, 0XC10000-0XCBFFF
+>> F), HCONST (0XC00000-0XC0EFFF, 0XC10000-0XCBFFFF), XCONST (0XC00000-0XC0EFFF, 0XC10000-0XCBFFFF), NCONST (0XC04000-0X
+>> C07FFF), NDATA (0XE00000-0XE03FFF), NDATA0 (0XE00000-0XE03FFF), SDATA (0XC000-0XDFFF, 0XF600-0XFDFF), SDATA0 (0XC000-
+>> 0XDFFF, 0XF600-0XFDFF), IDATA (0XF600-0XFDFF), IDATA0 (0XF600-0XFDFF), FDATA (0XA000-0XDFFF, 0XE00000-0XE0FFFF), FDAT
+>> A0 (0XA000-0XDFFF, 0XE00000-0XE0FFFF), HDATA (0XA000-0XDFFF, 0XE00000-0XE0FFFF), HDATA0 (0XA000-0XDFFF, 0XE00000-0XE0
+>> FFFF), XDATA (0XA000-0XDFFF, 0XE00000-0XE0FFFF), XDATA0 (0XA000-0XDFFF, 0XE00000-0XE0FFFF)) CINITTAB (0XC10000-0XCBFF
+>> FF)
 
 
 CPU TYPE:     C167 or derivative
@@ -18,6 +19,8 @@ MEMORY MODEL: SMALL
 
 INPUT MODULES INCLUDED:
   .\Objects\main.obj (MAIN)
+         COMMENT TYPE 128: C166 V7.57.0
+  .\Objects\t3power.obj (T3POWER)
          COMMENT TYPE 128: C166 V7.57.0
   C:\KEIL_V5\C166\LIB\C167S.LIB (?C_STARTUP)
          COMMENT TYPE 128: A166 V5.36.0.1
@@ -43,7 +46,8 @@ START     STOP      LENGTH    TYPE  RTYP  ALIGN  TGR  GRP  COMB  CLASS   SECTION
 C00000H   C00003H   000004H   ---   ---   ---    ---  ---  ---   * INTVECTOR TABLE *
 C00004H   C00121H   00011EH   CODE  REL   WORD   ---  ---  PRIV  ICODE   ?C_STARTUP_CODE
 C10000H   C10001H   000002H   XDATA REL   WORD   ---  ---  GLOB  ---     ?C_INITSEC
-C10002H   C10085H   000084H   CODE  REL   WORD   ---    1  PUBL  NCODE   ?PR?MAIN
+C10002H   C10087H   000086H   CODE  REL   WORD   ---    1  PUBL  NCODE   ?PR?MAIN
+C10088H   C100BDH   000036H   CODE  REL   WORD   ---    1  PUBL  NCODE   ?PR?T3POWER
 E00000H   E00FFFH   001000H   DATA  REL   WORD   ---    2  PUBL  NDATA   ?C_USERSTACK
 
 
@@ -54,12 +58,13 @@ GROUP LIST OF MODULE:  .\Objects\A3 (MAIN)
 GROUP NAME                           TYPE  TGR  GRP  CLASS       SECTION NAME
 =============================================================================
 NCODE                                CODE  ---    1  NCODE       ?PR?MAIN
+                                                     NCODE       ?PR?T3POWER
+L166 LINKER/LOCATER V5.29.2.0                                                         06/17/2018  16:36:08  PAGE 2
+
+
 
 NDATA                                DATA  ---    2  NDATA       ?C_USERSTACK
 
-
-
-L166 LINKER/LOCATER V5.29.2.0                                                         06/17/2018  15:54:48  PAGE 2
 
 
 
@@ -85,7 +90,8 @@ PUBLIC SYMBOLS OF MODULE:  .\Objects\A3 (MAIN)
       000000H     RESET                            INTNO ---  ---     ---
       C1002AH     main                             LABEL ---  NCODE   ?PR?MAIN
       C10004H     portInit                         LABEL ---  NCODE   ?PR?MAIN
-      C10002H     t3init                           LABEL ---  NCODE   ?PR?MAIN
+      C10002H     t3Init                           LABEL ---  NCODE   ?PR?MAIN
+      C10088H     t3power                          LABEL ---  NCODE   ?PR?T3POWER
 
 
 
@@ -94,48 +100,68 @@ SYMBOL TABLE OF MODULE:  .\Objects\A3 (MAIN)
       VALUE       TYPE      REP       LENGTH  TGR   SYMBOL NAME
       =========================================================
       C1002AH     GLOBAL    LABEL     ---     ---   main
-      C10002H     PUBLIC    LABEL     ---     ---   t3init
       C10004H     PUBLIC    LABEL     ---     ---   portInit
+      C10002H     PUBLIC    LABEL     ---     ---   t3Init
 
-      C10002H     BLOCK     LVL=0     0002H   ---   t3init
-      C10002H     LINE      ---       ---     ---   #6
-      C10002H     LINE      ---       ---     ---   #8
+      C10002H     BLOCK     LVL=0     0002H   ---   t3Init
+      C10002H     LINE      ---       ---     ---   #4
+      C10002H     LINE      ---       ---     ---   #5
       ---         BLOCKEND  LVL=0     ---     ---   
 
       C10004H     BLOCK     LVL=0     0026H   ---   portInit
+      C10004H     LINE      ---       ---     ---   #8
       C10004H     LINE      ---       ---     ---   #10
-      C10004H     LINE      ---       ---     ---   #12
-      C1000AH     LINE      ---       ---     ---   #13
-      C1000EH     LINE      ---       ---     ---   #14
-      C10012H     LINE      ---       ---     ---   #15
-      C10016H     LINE      ---       ---     ---   #18
-      C1001CH     LINE      ---       ---     ---   #19
-      C10020H     LINE      ---       ---     ---   #20
-      C10024H     LINE      ---       ---     ---   #21
-      C10028H     LINE      ---       ---     ---   #22
+      C1000AH     LINE      ---       ---     ---   #11
+      C1000EH     LINE      ---       ---     ---   #12
+      C10012H     LINE      ---       ---     ---   #13
+      C10016H     LINE      ---       ---     ---   #16
+      C1001CH     LINE      ---       ---     ---   #17
+      C10020H     LINE      ---       ---     ---   #18
+      C10024H     LINE      ---       ---     ---   #19
+      C10028H     LINE      ---       ---     ---   #20
+L166 LINKER/LOCATER V5.29.2.0                                                         06/17/2018  16:36:08  PAGE 3
+
+
       ---         BLOCKEND  LVL=0     ---     ---   
 
-      C1002AH     BLOCK     LVL=0     005CH   ---   main
-      C1002AH     LINE      ---       ---     ---   #25
-      C1002AH     LINE      ---       ---     ---   #26
-      C1002CH     LINE      ---       ---     ---   #28
-L166 LINKER/LOCATER V5.29.2.0                                                         06/17/2018  15:54:48  PAGE 3
+      C1002AH     BLOCK     LVL=0     005EH   ---   main
+      C1002AH     LINE      ---       ---     ---   #23
+      C1002AH     LINE      ---       ---     ---   #24
+      C1002CH     LINE      ---       ---     ---   #25
+      C1002EH     LINE      ---       ---     ---   #27
+      C1002EH     LINE      ---       ---     ---   #28
+      C10034H     LINE      ---       ---     ---   #29
+      C1003AH     LINE      ---       ---     ---   #30
+      C1004AH     LINE      ---       ---     ---   #32
+      C1004CH     LINE      ---       ---     ---   #33
+      C1005AH     LINE      ---       ---     ---   #35
+      C1005AH     LINE      ---       ---     ---   #36
+      C1005AH     LINE      ---       ---     ---   #38
+      C10060H     LINE      ---       ---     ---   #39
+      C10066H     LINE      ---       ---     ---   #40
+      C10076H     LINE      ---       ---     ---   #42
+      C10078H     LINE      ---       ---     ---   #43
+      C10086H     LINE      ---       ---     ---   #45
+      C10086H     LINE      ---       ---     ---   #46
+      ---         BLOCKEND  LVL=0     ---     ---   
+      C10088H     PUBLIC    LABEL     ---     ---   t3power
 
-
-      C1002CH     LINE      ---       ---     ---   #29
-      C10032H     LINE      ---       ---     ---   #30
-      C10038H     LINE      ---       ---     ---   #31
-      C10048H     LINE      ---       ---     ---   #33
-      C1004AH     LINE      ---       ---     ---   #34
-      C10058H     LINE      ---       ---     ---   #36
-      C10058H     LINE      ---       ---     ---   #37
-      C10058H     LINE      ---       ---     ---   #39
-      C1005EH     LINE      ---       ---     ---   #40
-      C10064H     LINE      ---       ---     ---   #41
-      C10074H     LINE      ---       ---     ---   #43
-      C10076H     LINE      ---       ---     ---   #44
-      C10084H     LINE      ---       ---     ---   #46
-      C10084H     LINE      ---       ---     ---   #47
+      C10088H     BLOCK     LVL=0     0036H   ---   t3power
+      C10088H     BLOCK     LVL=1     0034H   ---   
+      000005H     SYMBOL    REG       ---     ---   PWD
+      000004H     SYMBOL    REG       ---     ---   temp
+      ---         BLOCKEND  LVL=1     ---     ---   
+      C10088H     LINE      ---       ---     ---   #3
+      C10088H     LINE      ---       ---     ---   #4
+      C10088H     LINE      ---       ---     ---   #7
+      C1008EH     LINE      ---       ---     ---   #8
+      C10092H     LINE      ---       ---     ---   #10
+      C1009AH     LINE      ---       ---     ---   #11
+      C100A4H     LINE      ---       ---     ---   #13
+      C100AEH     LINE      ---       ---     ---   #14
+      C100B4H     LINE      ---       ---     ---   #17
+      C100B8H     LINE      ---       ---     ---   #18
+      C100BCH     LINE      ---       ---     ---   #20
       ---         BLOCKEND  LVL=0     ---     ---   
       C00004H     PUBLIC    LABEL     ---     ---   ?C_STARTUP
       E00000H     PUBLIC    VAR       ---     ---   ?C_USRSTKBOT
@@ -153,12 +179,15 @@ FUNCTION REGISTER MASKS
 
 
 FUNCTION . . . . . . REG MASK
+L166 LINKER/LOCATER V5.29.2.0                                                         06/17/2018  16:36:08  PAGE 4
+
+
 =============================
 
 
 ******************************************************************************
-* RESTRICTED VERSION WITH 1000H BYTE CODE SIZE LIMIT; USED: 0084H BYTE ( 3%) *
+* RESTRICTED VERSION WITH 1000H BYTE CODE SIZE LIMIT; USED: 00BCH BYTE ( 4%) *
 ******************************************************************************
 
-Program Size: data=4096(near=4096) const=2(near=0) code=418
+Program Size: data=4096(near=4096) const=2(near=0) code=474
 L166 RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
