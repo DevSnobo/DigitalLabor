@@ -1,0 +1,254 @@
+%----Laborbericht-----
+\documentclass[a4paper,10pt]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{listings}
+\usepackage{color}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+
+%----Dokumentenpfade-----
+\graphicspath{ {./images/} }
+\lstset{inputpath=./lst}
+
+%----Formatierung für Quellcodes-----
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
+%----Angaben für Titelseite----
+\title{Laborbericht zum Digitallabor an der Hochschule Karlsruhe}
+\author{Michael Nestor und Robin Fritz}
+
+%----Begin des Berichts----
+\begin{document}
+%----Deckblatt-----
+\begin{titlepage}
+\maketitle           
+\end{titlepage} 
+\newpage
+\pagenumbering{roman}
+
+%----Zusammenfassung----
+\begin{abstract}
+Die uns aus der Vorlesung \textit{Technische Informatik} bekannten Techniken werden im Digitallabor begleitend an der konkreten Hardware eingeübt.
+Dies dient zur Konkretisierung und Vertiefung des Stoffes sowie zur persönlichen Erfolgskontrolle. Ziel ist es dabei die verschiedenen 
+logischen Grundschaltungen, sowie die Zahlendarstellung in verschiedenen Zahlensystemen zu verstehen und anzuwenden. 
+Das erlernen des Umgangs mit einem Mikrocontroller-Entwicklungssystem und verstehen des Aufbaus sowie die Bedienung typischer Peripherieschaltungen sind weitere 
+Lernziele des Labors. Die Versuche enthalten Übungen zur Zahlendarstellung, zu Mikrocontrollern und zur Verwendung von parallelen Peripherieschaltkreisen sowie Zähler/Zeitgebern.
+Dieses Dokument gibt einen ausführlichen Überblick von den von uns ausgeführten Versuchen.
+
+\end{abstract}
+\newpage
+
+%----Verzeichnisse----
+\addcontentsline{toc}{section}{Zusammenfassung}
+\tableofcontents
+\renewcommand{\lstlistlistingname}{Quellcodeverzeichnis}
+\lstlistoflistings % Listings-Verzeichnis
+\listoffigures
+\listoftables
+\newpage
+
+%----Laborbericht-----
+\pagenumbering{arabic}
+\part{Dokumentation der Laborversuche}
+\renewcommand{\chaptername}{Labortermin}
+
+%----Versuche-----
+\chapter{Versuch I}
+
+Im ersten Versuch lag der Schwerpunkt auf kombinatorischem und strukturellem VHDL im GAL Baustein. 
+Zur Vorbereitung machten wir uns mit der Oberfläche des ISP-Levler-Programm vertraut, übersetzten eine Funktionstabelle in VHDL und beschäftigten uns mit dem Aufbau
+von Halb-, Voll- und Serienaddierer.\\
+\\Ziel des Versuch sollten erste Erfahrungen mit der Sprache VHDL und dem hierarchischem Design sein. Hierbei wurde ein kleiner programmierbaren Baustein, das GAL eingesetzt.
+Mit Hilfe des Versuches erfuhren wir, dass die Kombination aus HDL und programmierbarer Hardware schnell zu funktionierenden Schaltungen führt, und auch
+ziemlich flexibel bei Änderungen ist.\\
+\\Für die Designerstellung wurde das Programm \textit{Classic} und zur Simulation der \textit{VHDL Functional Simulator} verwendet.
+
+\section{Aufgabe 1}
+
+Die Aufgabe beinhaltete das Schreiben eines nebenläufigen VHDL Modells für ein ODER Gatter mit zwei Eingängen welches wir mit einer Gleichung zur 
+Beschreibung der Funktionalität umsetzten. Simuliert wurde das Design durch die direkte Eingabe der Testvektoren. Nach der erfolgreiche Simulation
+programierten wir den GAL und testeten ihn mit zwei Schaltern.
+
+\subsection{Quellcode für ein Or mit zwei Eingängen}
+
+\lstinputlisting[language=VHDL, caption=or mit zwei Eingängen]{or.vhd}
+
+\section{Aufgabe 2}
+
+Im folgenden sollte eine Funktionstabelle als nebenläufiges VHDL Modell für einen Halbaddierer umgesetzt werden. 
+Die Korrektheit des Designs wurde mittel einer Simulation überprüft.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{funktionstabelle.png}
+ \caption{Funktionstabelle für einen Halbaddierer}
+ \label{fig:1}
+\end{figure}
+
+\subsection{Quellcode für einen Halbaddierer}
+
+\lstinputlisting[language=VHDL, caption=nebenläufiges VHDL für einen Halbaddierer]{halbadd.vhd}
+
+\section{Aufgabe 3}
+
+Aus zwei Instanzen des Halbaddierers und einem ODER Gatter erstellten wir einen Volladdierer. Gefordert war dabei rein strukturelles VHDL, das nur die Verknüpfung
+der Komponenten beschreibt.
+
+\subsection{Quellcode für einen Volladdierer}
+
+\lstinputlisting[language=VHDL, caption=Volladierer in ein strukturellem VHDL]{va.vhd}
+
+\section{Aufgabe 4}
+
+Wir verwendeten in dieser Aufgabe den darvor erstelllten Volladierer um mit zwei Instanzen einen Serienaddierer zuerstelle welcher
+zwei Zahlen zu je zwei Bit zusammenzufügt. Die beiden Eingangszahlen a und b sind je ein 2 Bit breiter Vektor, für die Summe wurde ein 3 Bit breiter
+Vektor verwendet.//
+Für den Serienaddierer haben wir des weiteren eine Testbench erstellt und ihn mit dieser Simuliert. Nach der Simulation nutzten wir den GAL Baustein und verbanden 
+die Eingänge mit den Schaltern, die Ausgänge mit der BCD -> 7-Segment - Anzeige. Anschlussbuchse „C/C – D2“ an der 7-Segment-Anzeige mussten an GND angeschlossen werden.
+
+\subsection{Quellcode für einen Serienaddierer}
+
+\lstinputlisting[language=VHDL, caption=Serienaddierer in VHDL]{va2.vhd}
+
+\subsection{Testbench für den Serienaddierer}
+
+\lstinputlisting[language=VHDL, caption=Testbench des Serienaddierers]{va_ent_tb.vhd}
+\newpage
+
+\chapter{Versuch II}
+
+In diesem Versuch nutzten wir die nächste Technologiestufe, die CPLDs.
+Durch Verwendung eines MACH Bausteines konten wir gleichzeitig auf die In-System-
+Programmierung zurückgreifen. Der Baustein konnte d.h. über den JTAG Anschluss direkt auf der Platine programiert werde.
+Dabei war es Zielführend die Beschreibung von sequentiellen Schaltungen mit VHDL und die Simulation dieser Schaltungen kennen lernen. 
+Natürlich sollten wir auch unsere Kenntnisse über das Erstellen hierarchischer Designs und den Umgang mit einer Testbench vertiefen.\\
+\\Für die Durchführung des Versuchs benötigten wir ein ispMach-Board und ein I/O-Board mit welchen wir eine Ampelsteuerung, die aus vier
+Komponenten gemäß Abbildung 2.1 aufgebaut wurde. Als Datentyp wurde durchgehend die \textit{std\_logic} verwendet.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{ample.png}
+ \caption{Ampelsteuerung}
+ \label{fig:2}
+\end{figure}
+
+\section{Aufgabe 1}
+
+Wir erstellten einen 4-Bit Binärzähler mit asynchronem Reset in VHDL den Vorgaben entsprechend. Für die sequenzielle Schaltung verwendeten wir einen Prozess
+welcher entsprechend getrigert wurde. Im Prozess wird die asynchrone Bedingung \textit{intReset = \'1\'} abgefragt, falls diese wahr ist wird der Vektor \textit{temp}
+auf 0 gesetzt, andernfalls wird dieser um 1 hochgezählt.  Außerhalb des Prozesses wird nebenläufig \textit{temp} dem Ausgang zugewiesen. 
+Im folgenden wurde der Zäler mittels Simulation getestet.\\
+\\Wenn der Reset zubeginn auf 0 steht, besitzt der Ausgang einen unbestimmten Zustand und kann d.h. nicht zählen. 
+
+\subsection{Quellcode und Simulation des 4-Bit Binärzähler}
+
+\lstinputlisting[language=VHDL, caption=4-Bit Binärzähler]{zaehler.vhd}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.25]{sim_4Bit.jpg}
+ \caption{Simulation des 4-Bit Binärzähler}
+ \label{fig:2}
+\end{figure}
+
+\section{Aufgabe 2}
+\subsection{Anmerkungen zu Aufgabe 2}
+\section{Aufgabe 3}
+\subsection{Anmerkungen zu Aufgabe 3}
+\section{Aufgabe 4}
+\subsection{Anmerkungen zu Aufgabe 4}
+\section{Aufgabe 5}
+\subsection{Anmerkungen zu Aufgabe 5}
+\section{Aufgabe 6}
+\subsection{Anmerkungen zu Aufgabe 6}
+\section{Aufgabe 7}
+\subsection{Anmerkungen zu Aufgabe 7}
+\newpage
+
+\chapter{Versuch III}
+\section{Aufgabe 1}
+\subsection{Anmerkungen zu Aufgabe 1}
+\section{Aufgabe 2}
+\subsection{Anmerkungen zu Aufgabe 2}
+\section{Aufgabe 3}
+\subsection{Anmerkungen zu Aufgabe 3}
+\section{Aufgabe 4}
+\subsection{Anmerkungen zu Aufgabe 4}
+\section{Aufgabe 5}
+\subsection{Anmerkungen zu Aufgabe 5}
+\newpage
+
+\chapter{Versuch IV}
+\section{Aufgabe 1}
+\subsection{Anmerkungen zu Aufgabe 1}
+\section{Aufgabe 2}
+\subsection{Anmerkungen zu Aufgabe 2}
+\section{Aufgabe 3}
+\subsection{Anmerkungen zu Aufgabe 3}
+\section{Aufgabe 4}
+\subsection{Anmerkungen zu Aufgabe 4}
+
+\chapter{Versuch V}
+\section{Aufgabe 1}
+\subsection{Anmerkungen zu Aufgabe 1}
+\section{Aufgabe 2}
+\subsection{Anmerkungen zu Aufgabe 2}
+\section{Aufgabe 3}
+\subsection{Anmerkungen zu Aufgabe 3}
+\newpage
+
+%----Anhang----
+\appendix
+\part{Anhang}
+\chapter{Aufgabenblatt 1}
+\includepdf[pages=-]{./pdf/Aufgabenblatt1.pdf}
+\chapter{Aufgabenblatt 2}
+\includepdf[pages=-]{./pdf/Aufgabenblatt2.pdf}
+\chapter{Aufgabenblatt 3}
+\includepdf[pages=-]{./pdf/Aufgabenblatt3.pdf}
+\chapter{Aufgabenblatt 4}
+\includepdf[pages=-]{./pdf/Aufgabenblatt4.pdf}
+\chapter{Aufgabenblatt 5}
+\includepdf[pages=-]{./pdf/Aufgabenblatt5.pdf}
+
+%----Ende des Berichts----
+\end{document}          
+
+
+%----Code zum einbinden von Grafiken----
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[scale=0.5]{test.png}
+% \caption{Simulation des Serienaddierers}
+% \label{fig:4}
+%\end{figure}
+
+%----Code zum einbinden von Quellcode----
+%\lstinputlisting[language=VHDL, caption=or example]{or.vhd}
