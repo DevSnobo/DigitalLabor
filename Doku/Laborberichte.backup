@@ -71,7 +71,7 @@ Dieses Dokument gibt einen ausführlichen Überblick von den von uns ausgeführt
 \renewcommand{\lstlistlistingname}{Quellcodeverzeichnis}
 \lstlistoflistings % Listings-Verzeichnis
 \listoffigures
-\listoftables
+%\listoftables
 \newpage
 
 %----Laborbericht-----
@@ -175,7 +175,7 @@ Im folgenden wurde der Zäler mittels Simulation getestet.\\
 \centering
 \includegraphics[scale=0.25]{sim_4Bit.jpg}
  \caption{Simulation des 4-Bit Binärzähler}
- \label{fig:2}
+ \label{fig:3}
 \end{figure}
 
 \newpage
@@ -241,21 +241,97 @@ Simmuliert wurde diese Schaltung mit der Testbench aus Aufgabe 3.
 \textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Quellcode und Screenshot fehlen!!!!!!!!!!!!!!!!!!!!!}}
 
 \section{Aufgabe 6}
-\subsection{Anmerkungen zu Aufgabe 6}
+
+Ziel dieser Aufgabe war es ein sequentielles VHDL Modell eines 2:1 Multiplexers zu entwerfen für zwei je drei Bit
+breite std\_logic Vektoren A und B, die abhängig von einem Signal Select auf den drei Bit breiten Ausgangsvektor Y durchgeschaltet werden.
+
+Wir testeten das Modell via Simulation.
+
+\subsection{Quelcode, Testbensch und Simulation zu Aufgabe 6}
+
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Quellcode und Screenshot fehlen!!!!!!!!!!!!!!!!!!!!!}}
+
 \section{Aufgabe 7}
-\subsection{Anmerkungen zu Aufgabe 7}
+
+Als letztes fügten wir alle Komponenten zusammen. Neben den Ports aus Aufgabe 4 fügten wir noch den Port:\textit{S2 : in std\_logic} hinzu.
+Zur Simulation nutzten wir die Testbench aus Aufgabe 2 welche wir um \textit{S2} erweiterten. Im Anschluss wurde die Hardware programiert.
+\subsection{Quelcode, Testbensch und Simulation zu Aufgabe 7}
+
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Quellcode und Screenshot fehlen!!!!!!!!!!!!!!!!!!!!!}}
 \newpage
 
 \chapter{Versuch III}
+
+Der dritte Labortermin hatte den Schwerpunkt erste Schritte mit maschinennaher C166 Programmierung zumachen.
+Ziel des Versuchs sollete es sein die internen Abläufe in einem typischen Prozessor zu verstehen. Wir erarbeiten, was die Unterschiede zwischen 
+Konstanten und Variablen sind, und wie der Prozessor mit den internen Registern arbeitet. Weiterhin beschäftigten wir uns mit dem Übergabemechanismus von 
+Parameteradressen an Unterprogramme und der Verarbeitung der Parameter per indirekter Adressierung.\\
+\\Verwendet wurde die Keil Software mit der vorgegebenen Vorlage. Zum Debuggen benutzten wir den Simulator. 
+
 \section{Aufgabe 1}
-\subsection{Anmerkungen zu Aufgabe 1}
+
+Wir erstellten Konstanten mit folgenden Namen und Werten:\\
+\\op1 = 30000, op2 = 5000, op3 = 40000, op4 = 4999, op5 = -30000\\
+\\Im Hauptprogramm wurden die Konstanten den Registern R1 bis R5 zugewiesen. Im Anschluss assemblierten und banden wir das Programm
+um es zu debuggen. Mit Hilfe des Register-Window konnte nun überprüft werden, ob die in den Konstanten gespeicherten Werte in die Register geladen wurden, 
+was hier der Fall war. Die Konstanten sind direkt im kompilierten Programmcode enthalten wie man im Disassembly-Fenster sehen konnte.
+
+\subsection{Quellcode, Listning und Screenshots der Aufgabe 1}
+
+\lstinputlisting[caption=Definitio der Konstanten in µVision Assembler source]{work1.a66}
+\lstinputlisting[caption=Listning von work1.a66]{work1.LST}
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Screenshot fehlt!!!!!!!!!!!!!!!!!!!!!}}
+
 \section{Aufgabe 2}
-\subsection{Anmerkungen zu Aufgabe 2}
+Die Werte wurden im Anschluss in 16bit Variablen abgelegt. Dies geschah im Variablenbereich des Programms. 
+Durch eine direkte Adressierung wird der Wert der Variable in das zugewiesene Register geladen, dabei 
+kann man in der Listing-Datei erkennen, dass für den Speicherort ein Offset-Parameter angelegt wurde, dieser wurde auf die entsprechende Startadresse addiert
+wodurch der Speicherort definiert ist. Im Memory-Fenster konnte man an denn berechneten Adressen die Werte der Variablen ablesen. 
+
+\subsection{Quellcode, Listing und Screenshots der Aufgabe 2}
+
+\lstinputlisting[caption=Definition der 16bit Variablen]{work2.a66}
+\lstinputlisting[caption=Listning von work2.a66]{work2.LST}
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Screenshot fehlt!!!!!!!!!!!!!!!!!!!!!}}
+
 \section{Aufgabe 3}
+
+Wir erweiterten das Programm aus Aufgabe 2, um folgende Rechenoperationen mit den Ziel-Registern R10 bis R14:\\
+\\R10 = op1 + op2; R11 = op1 + op3; R12 = op4 - op2; R13 = op1 + op5, R14 = op3 + op5;\\
+\\Danach debuggten wir im Single Step unser Programm.\\
+
 \subsection{Anmerkungen zu Aufgabe 3}
+
+Bei R10 op1 + op 2 entstand bei der Rechnung mit signed ein Overflow, da der zulässige Zahlenbereich überschritten wurde, das MSB wird bei der 
+signed Darstellung als Vorzeichenbit behandelt. Bei op1 + op2 wurde dieses Bit auf 1 gesetzt.\\ 
+Bei R11 op1 + op3 wurde der Zahlenbereich von 16bit unsigned überschritten, daher wurde das  Carry-Flag gesetzt.\\
+Bei R12 op4 – op2 wurde in der signed Darstellung das Ergebnis negativ (Flag N). Da der Subtrahend größer als der Minuend ist, wurde ein Carry-Flag gesetzt.\\
+Bei R13 op1 + op5 wurde das Zero-Flag gesetzt, da das Ergebnis 0 ist.\\ 
+Bei R14 op3 + op 5 handelte es sich um eine signed Operation. Op3 war jedoch nicht im definierten signed Bereich, Daher wurde die Overflow-Flag gesetzt. 
+Bei der Addition entstand ein Übertrag, d.h. wurde das Carry-Flag gesetzt. 
+
+\subsection{Quellcode und Screenshots der Aufgabe 3}
+
+\lstinputlisting[caption=Quellcode für Rechenoperationen]{work3.a66}
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Screenshot fehlt!!!!!!!!!!!!!!!!!!!!!}}
+
 \section{Aufgabe 4}
-\subsection{Anmerkungen zu Aufgabe 4}
+
+Wir erstellten ein Unterprogramm, das zwei 16 Bit Zahlen addiert. Die Zahlen standen direkt im Speicher. 
+Das Unterprogramm sollte beim Aufruf in R0 einen Pointer auf den ersten Operanden, in R1 und einen Pointer auf den zweiten Operanden enthalten. 
+Das Resultat wurde als Wert in R2 zurückgeliefert. Wir nutzten das Programm 4 mal, um die Werte in R10, R11, R13 und R14 zu berechnen.
+
+\subsection{Quellcode und Screenshot zu Aufgabe 4}
+
+\lstinputlisting[caption=Unterprogramm der Aufgabe 4]{work4.a66}
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Screenshot fehlt!!!!!!!!!!!!!!!!!!!!!}}
+
+
 \section{Aufgabe 5}
+
+Das Ziel der letzten Aufgabe war es mit 32bit Variablen zurechnen. Hoerfür wurde eine Variable angelegt, die aus 2 Words bestand welche im Speicher direkt 
+hintereinander lagen. Mittels Bitshifting wurden die Wertebereiche der 32bit Variable umgesetzt. 
+Zunächst werden nun die unteren 16bit der beiden zu addierenden Variablen in das Ergebnisregister geladen und addiert. Damit der Zeiger auf der nächsten Speicherstelle, und damit auf den oberen 16bit steht, muss in diesem Schritt jeweils die Startadresse inkrementiert werden (kein Präkrement möglich). Im nächsten Schritt können die oberen 16bit mit Hilfe des ADD C Befehls addiert werden, dabei wird ein möglicherweise gesetztes Carry-bit der Addition der unteren 16bit berücksichtigt. Um r0 und r1 „wieder herzustellen“ müssen zum Schluss die auf dem Stack abgelegten Werte wieder in das entsprechende Register geladen werden. Dabei gilt: last in first out.
 \subsection{Anmerkungen zu Aufgabe 5}
 \newpage
 
