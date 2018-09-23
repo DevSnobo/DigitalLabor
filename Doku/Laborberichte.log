@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.3.20)  17 SEP 2018 15:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.9.19)  23 SEP 2018 19:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -667,508 +667,528 @@ Overfull \hbox (16.16092pt too wide) in paragraph at lines 176--177
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[9] [10 <./images/sim_4Bit.jpg>]
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 206--209
+
+ []
+
+<./images/ampelphasen.png, id=68, 936.49875pt x 575.14874pt>
+File: ./images/ampelphasen.png Graphic file (type png)
+
+<use ./images/ampelphasen.png>
+Package pdftex.def Info: ./images/ampelphasen.png used on input line 212.
+(pdftex.def)             Requested size: 280.95178pt x 172.54594pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 223--228
+
+ []
+
+[10 <./images/sim_4Bit.jpg>] [11 <./images/ampelphasen.png>] [12]
 Labortermin 3.
-[11
+[13
 
 ]
 Labortermin 4.
-[12
+[14
 
 ]
 Labortermin 5.
-[13
+[15
 
-] [14
+] [16
 
 ]
 Anhang A.
-<./pdf/Aufgabenblatt1.pdf, id=84, 597.23125pt x 845.1575pt>
+<./pdf/Aufgabenblatt1.pdf, id=91, 597.23125pt x 845.1575pt>
 File: ./pdf/Aufgabenblatt1.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt1.pdf>
-Package pdftex.def Info: ./pdf/Aufgabenblatt1.pdf used on input line 231.
+Package pdftex.def Info: ./pdf/Aufgabenblatt1.pdf used on input line 299.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 File: ./pdf/Aufgabenblatt1.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt1.pdf>
-Package pdftex.def Info: ./pdf/Aufgabenblatt1.pdf used on input line 231.
+Package pdftex.def Info: ./pdf/Aufgabenblatt1.pdf used on input line 299.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 
-<./pdf/Aufgabenblatt1.pdf, id=87, page=1, 597.23125pt x 845.1575pt>
+<./pdf/Aufgabenblatt1.pdf, id=94, page=1, 597.23125pt x 845.1575pt>
 File: ./pdf/Aufgabenblatt1.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt1.pdf, page 1>
-Package pdftex.def Info: ./pdf/Aufgabenblatt1.pdf, page1 used on input line 231
+Package pdftex.def Info: ./pdf/Aufgabenblatt1.pdf, page1 used on input line 299
 .
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 File: ./pdf/Aufgabenblatt1.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt1.pdf, page 1>
-Package pdftex.def Info: ./pdf/Aufgabenblatt1.pdf, page1 used on input line 231
+Package pdftex.def Info: ./pdf/Aufgabenblatt1.pdf, page1 used on input line 299
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 
-[15
+[17
 
 ]
 File: ./pdf/Aufgabenblatt1.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt1.pdf, page 1>
-Package pdftex.def Info: ./pdf/Aufgabenblatt1.pdf, page1 used on input line 231
+Package pdftex.def Info: ./pdf/Aufgabenblatt1.pdf, page1 used on input line 299
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt1.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt1.pdf, page 1>
-Package pdftex.def Info: ./pdf/Aufgabenblatt1.pdf, page1 used on input line 231
+Package pdftex.def Info: ./pdf/Aufgabenblatt1.pdf, page1 used on input line 299
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt1.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt1.pdf, page 1>
-Package pdftex.def Info: ./pdf/Aufgabenblatt1.pdf, page1 used on input line 231
+Package pdftex.def Info: ./pdf/Aufgabenblatt1.pdf, page1 used on input line 299
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 
-[16 <./pdf/Aufgabenblatt1.pdf>]
-<./pdf/Aufgabenblatt1.pdf, id=121, page=2, 597.23125pt x 845.1575pt>
+[18 <./pdf/Aufgabenblatt1.pdf>]
+<./pdf/Aufgabenblatt1.pdf, id=129, page=2, 597.23125pt x 845.1575pt>
 File: ./pdf/Aufgabenblatt1.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt1.pdf, page 2>
-Package pdftex.def Info: ./pdf/Aufgabenblatt1.pdf, page2 used on input line 231
+Package pdftex.def Info: ./pdf/Aufgabenblatt1.pdf, page2 used on input line 299
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt1.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt1.pdf, page 2>
-Package pdftex.def Info: ./pdf/Aufgabenblatt1.pdf, page2 used on input line 231
+Package pdftex.def Info: ./pdf/Aufgabenblatt1.pdf, page2 used on input line 299
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt1.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt1.pdf, page 2>
-Package pdftex.def Info: ./pdf/Aufgabenblatt1.pdf, page2 used on input line 231
+Package pdftex.def Info: ./pdf/Aufgabenblatt1.pdf, page2 used on input line 299
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
- [17 <./pdf/Aufgabenblatt1.pdf>]
+ [19 <./pdf/Aufgabenblatt1.pdf>]
 Anhang B.
-<./pdf/Aufgabenblatt2.pdf, id=126, 597.23125pt x 845.1575pt>
+<./pdf/Aufgabenblatt2.pdf, id=134, 597.23125pt x 845.1575pt>
 File: ./pdf/Aufgabenblatt2.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt2.pdf>
-Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf used on input line 233.
+Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf used on input line 301.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 File: ./pdf/Aufgabenblatt2.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt2.pdf>
-Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf used on input line 233.
+Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf used on input line 301.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 
-<./pdf/Aufgabenblatt2.pdf, id=129, page=1, 597.23125pt x 845.1575pt>
+<./pdf/Aufgabenblatt2.pdf, id=137, page=1, 597.23125pt x 845.1575pt>
 File: ./pdf/Aufgabenblatt2.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt2.pdf, page 1>
-Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page1 used on input line 233
+Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page1 used on input line 301
 .
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 File: ./pdf/Aufgabenblatt2.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt2.pdf, page 1>
-Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page1 used on input line 233
+Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page1 used on input line 301
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 
-[18
+[20
 
 ]
 File: ./pdf/Aufgabenblatt2.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt2.pdf, page 1>
-Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page1 used on input line 233
+Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page1 used on input line 301
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt2.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt2.pdf, page 1>
-Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page1 used on input line 233
+Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page1 used on input line 301
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt2.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt2.pdf, page 1>
-Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page1 used on input line 233
+Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page1 used on input line 301
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 
-[19 <./pdf/Aufgabenblatt2.pdf>]
-<./pdf/Aufgabenblatt2.pdf, id=184, page=2, 597.23125pt x 845.1575pt>
+[21 <./pdf/Aufgabenblatt2.pdf>]
+<./pdf/Aufgabenblatt2.pdf, id=192, page=2, 597.23125pt x 845.1575pt>
 File: ./pdf/Aufgabenblatt2.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt2.pdf, page 2>
-Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page2 used on input line 233
+Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page2 used on input line 301
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt2.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt2.pdf, page 2>
-Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page2 used on input line 233
+Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page2 used on input line 301
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt2.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt2.pdf, page 2>
-Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page2 used on input line 233
+Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page2 used on input line 301
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
- [20 <./pdf/Aufgabenblatt2.pdf>]
-<./pdf/Aufgabenblatt2.pdf, id=190, page=3, 597.23125pt x 845.1575pt>
+ [22 <./pdf/Aufgabenblatt2.pdf>]
+<./pdf/Aufgabenblatt2.pdf, id=197, page=3, 597.23125pt x 845.1575pt>
 File: ./pdf/Aufgabenblatt2.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt2.pdf, page 3>
-Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page3 used on input line 233
+Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page3 used on input line 301
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt2.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt2.pdf, page 3>
-Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page3 used on input line 233
+Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page3 used on input line 301
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt2.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt2.pdf, page 3>
-Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page3 used on input line 233
+Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page3 used on input line 301
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
- [21 <./pdf/Aufgabenblatt2.pdf>]
-<./pdf/Aufgabenblatt2.pdf, id=195, page=4, 597.23125pt x 845.1575pt>
+ [23 <./pdf/Aufgabenblatt2.pdf>]
+<./pdf/Aufgabenblatt2.pdf, id=202, page=4, 597.23125pt x 845.1575pt>
 File: ./pdf/Aufgabenblatt2.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt2.pdf, page 4>
-Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page4 used on input line 233
+Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page4 used on input line 301
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt2.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt2.pdf, page 4>
-Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page4 used on input line 233
+Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page4 used on input line 301
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt2.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt2.pdf, page 4>
-Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page4 used on input line 233
+Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page4 used on input line 301
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
- [22 <./pdf/Aufgabenblatt2.pdf>]
-<./pdf/Aufgabenblatt2.pdf, id=200, page=5, 597.23125pt x 845.1575pt>
+ [24 <./pdf/Aufgabenblatt2.pdf>]
+<./pdf/Aufgabenblatt2.pdf, id=208, page=5, 597.23125pt x 845.1575pt>
 File: ./pdf/Aufgabenblatt2.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt2.pdf, page 5>
-Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page5 used on input line 233
+Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page5 used on input line 301
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt2.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt2.pdf, page 5>
-Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page5 used on input line 233
+Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page5 used on input line 301
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt2.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt2.pdf, page 5>
-Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page5 used on input line 233
+Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page5 used on input line 301
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
- [23 <./pdf/Aufgabenblatt2.pdf>]
-<./pdf/Aufgabenblatt2.pdf, id=205, page=6, 597.23125pt x 845.1575pt>
+ [25 <./pdf/Aufgabenblatt2.pdf>]
+<./pdf/Aufgabenblatt2.pdf, id=213, page=6, 597.23125pt x 845.1575pt>
 File: ./pdf/Aufgabenblatt2.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt2.pdf, page 6>
-Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page6 used on input line 233
+Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page6 used on input line 301
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt2.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt2.pdf, page 6>
-Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page6 used on input line 233
+Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page6 used on input line 301
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt2.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt2.pdf, page 6>
-Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page6 used on input line 233
+Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page6 used on input line 301
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
- [24 <./pdf/Aufgabenblatt2.pdf>]
-<./pdf/Aufgabenblatt2.pdf, id=211, page=7, 597.23125pt x 845.1575pt>
+ [26 <./pdf/Aufgabenblatt2.pdf>]
+<./pdf/Aufgabenblatt2.pdf, id=218, page=7, 597.23125pt x 845.1575pt>
 File: ./pdf/Aufgabenblatt2.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt2.pdf, page 7>
-Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page7 used on input line 233
+Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page7 used on input line 301
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt2.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt2.pdf, page 7>
-Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page7 used on input line 233
+Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page7 used on input line 301
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt2.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt2.pdf, page 7>
-Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page7 used on input line 233
+Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page7 used on input line 301
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
- [25 <./pdf/Aufgabenblatt2.pdf>]
-<./pdf/Aufgabenblatt2.pdf, id=216, page=8, 597.23125pt x 845.1575pt>
+ [27 <./pdf/Aufgabenblatt2.pdf>]
+<./pdf/Aufgabenblatt2.pdf, id=223, page=8, 597.23125pt x 845.1575pt>
 File: ./pdf/Aufgabenblatt2.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt2.pdf, page 8>
-Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page8 used on input line 233
+Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page8 used on input line 301
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt2.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt2.pdf, page 8>
-Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page8 used on input line 233
+Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page8 used on input line 301
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt2.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt2.pdf, page 8>
-Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page8 used on input line 233
+Package pdftex.def Info: ./pdf/Aufgabenblatt2.pdf, page8 used on input line 301
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
- [26 <./pdf/Aufgabenblatt2.pdf>]
+ [28 <./pdf/Aufgabenblatt2.pdf>]
 Anhang C.
-<./pdf/Aufgabenblatt3.pdf, id=221, 597.23125pt x 845.1575pt>
+<./pdf/Aufgabenblatt3.pdf, id=228, 597.23125pt x 845.1575pt>
 File: ./pdf/Aufgabenblatt3.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt3.pdf>
-Package pdftex.def Info: ./pdf/Aufgabenblatt3.pdf used on input line 235.
+Package pdftex.def Info: ./pdf/Aufgabenblatt3.pdf used on input line 303.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 File: ./pdf/Aufgabenblatt3.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt3.pdf>
-Package pdftex.def Info: ./pdf/Aufgabenblatt3.pdf used on input line 235.
+Package pdftex.def Info: ./pdf/Aufgabenblatt3.pdf used on input line 303.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 
-<./pdf/Aufgabenblatt3.pdf, id=224, page=1, 597.23125pt x 845.1575pt>
+<./pdf/Aufgabenblatt3.pdf, id=231, page=1, 597.23125pt x 845.1575pt>
 File: ./pdf/Aufgabenblatt3.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt3.pdf, page 1>
-Package pdftex.def Info: ./pdf/Aufgabenblatt3.pdf, page1 used on input line 235
+Package pdftex.def Info: ./pdf/Aufgabenblatt3.pdf, page1 used on input line 303
 .
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 File: ./pdf/Aufgabenblatt3.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt3.pdf, page 1>
-Package pdftex.def Info: ./pdf/Aufgabenblatt3.pdf, page1 used on input line 235
+Package pdftex.def Info: ./pdf/Aufgabenblatt3.pdf, page1 used on input line 303
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 
-[27
+[29
 
 ]
 File: ./pdf/Aufgabenblatt3.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt3.pdf, page 1>
-Package pdftex.def Info: ./pdf/Aufgabenblatt3.pdf, page1 used on input line 235
+Package pdftex.def Info: ./pdf/Aufgabenblatt3.pdf, page1 used on input line 303
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt3.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt3.pdf, page 1>
-Package pdftex.def Info: ./pdf/Aufgabenblatt3.pdf, page1 used on input line 235
+Package pdftex.def Info: ./pdf/Aufgabenblatt3.pdf, page1 used on input line 303
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt3.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt3.pdf, page 1>
-Package pdftex.def Info: ./pdf/Aufgabenblatt3.pdf, page1 used on input line 235
+Package pdftex.def Info: ./pdf/Aufgabenblatt3.pdf, page1 used on input line 303
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 
-[28 <./pdf/Aufgabenblatt3.pdf>]
-<./pdf/Aufgabenblatt3.pdf, id=268, page=2, 597.23125pt x 845.1575pt>
+[30 <./pdf/Aufgabenblatt3.pdf>]
+<./pdf/Aufgabenblatt3.pdf, id=276, page=2, 597.23125pt x 845.1575pt>
 File: ./pdf/Aufgabenblatt3.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt3.pdf, page 2>
-Package pdftex.def Info: ./pdf/Aufgabenblatt3.pdf, page2 used on input line 235
+Package pdftex.def Info: ./pdf/Aufgabenblatt3.pdf, page2 used on input line 303
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt3.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt3.pdf, page 2>
-Package pdftex.def Info: ./pdf/Aufgabenblatt3.pdf, page2 used on input line 235
+Package pdftex.def Info: ./pdf/Aufgabenblatt3.pdf, page2 used on input line 303
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt3.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt3.pdf, page 2>
-Package pdftex.def Info: ./pdf/Aufgabenblatt3.pdf, page2 used on input line 235
+Package pdftex.def Info: ./pdf/Aufgabenblatt3.pdf, page2 used on input line 303
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
- [29 <./pdf/Aufgabenblatt3.pdf>]
+ [31 <./pdf/Aufgabenblatt3.pdf>]
 Anhang D.
-<./pdf/Aufgabenblatt4.pdf, id=273, 597.45204pt x 845.1575pt>
+<./pdf/Aufgabenblatt4.pdf, id=281, 597.45204pt x 845.1575pt>
 File: ./pdf/Aufgabenblatt4.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt4.pdf>
-Package pdftex.def Info: ./pdf/Aufgabenblatt4.pdf used on input line 237.
+Package pdftex.def Info: ./pdf/Aufgabenblatt4.pdf used on input line 305.
 (pdftex.def)             Requested size: 597.45058pt x 845.15544pt.
 File: ./pdf/Aufgabenblatt4.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt4.pdf>
-Package pdftex.def Info: ./pdf/Aufgabenblatt4.pdf used on input line 237.
+Package pdftex.def Info: ./pdf/Aufgabenblatt4.pdf used on input line 305.
 (pdftex.def)             Requested size: 597.45058pt x 845.15544pt.
 
-<./pdf/Aufgabenblatt4.pdf, id=276, page=1, 597.45204pt x 845.1575pt>
+<./pdf/Aufgabenblatt4.pdf, id=284, page=1, 597.45204pt x 845.1575pt>
 File: ./pdf/Aufgabenblatt4.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt4.pdf, page 1>
-Package pdftex.def Info: ./pdf/Aufgabenblatt4.pdf, page1 used on input line 237
+Package pdftex.def Info: ./pdf/Aufgabenblatt4.pdf, page1 used on input line 305
 .
 (pdftex.def)             Requested size: 597.45058pt x 845.15544pt.
 File: ./pdf/Aufgabenblatt4.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt4.pdf, page 1>
-Package pdftex.def Info: ./pdf/Aufgabenblatt4.pdf, page1 used on input line 237
+Package pdftex.def Info: ./pdf/Aufgabenblatt4.pdf, page1 used on input line 305
 .
 (pdftex.def)             Requested size: 597.47792pt x 845.19412pt.
 
-[30
+[32
 
 ]
 File: ./pdf/Aufgabenblatt4.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt4.pdf, page 1>
-Package pdftex.def Info: ./pdf/Aufgabenblatt4.pdf, page1 used on input line 237
+Package pdftex.def Info: ./pdf/Aufgabenblatt4.pdf, page1 used on input line 305
 .
 (pdftex.def)             Requested size: 597.47792pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt4.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt4.pdf, page 1>
-Package pdftex.def Info: ./pdf/Aufgabenblatt4.pdf, page1 used on input line 237
+Package pdftex.def Info: ./pdf/Aufgabenblatt4.pdf, page1 used on input line 305
 .
 (pdftex.def)             Requested size: 597.47792pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt4.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt4.pdf, page 1>
-Package pdftex.def Info: ./pdf/Aufgabenblatt4.pdf, page1 used on input line 237
+Package pdftex.def Info: ./pdf/Aufgabenblatt4.pdf, page1 used on input line 305
 .
 (pdftex.def)             Requested size: 597.47792pt x 845.19412pt.
 
-[31 <./pdf/Aufgabenblatt4.pdf>]
-<./pdf/Aufgabenblatt4.pdf, id=302, page=2, 597.45204pt x 845.1575pt>
+[33 <./pdf/Aufgabenblatt4.pdf>]
+<./pdf/Aufgabenblatt4.pdf, id=309, page=2, 597.45204pt x 845.1575pt>
 File: ./pdf/Aufgabenblatt4.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt4.pdf, page 2>
-Package pdftex.def Info: ./pdf/Aufgabenblatt4.pdf, page2 used on input line 237
+Package pdftex.def Info: ./pdf/Aufgabenblatt4.pdf, page2 used on input line 305
 .
 (pdftex.def)             Requested size: 597.47792pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt4.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt4.pdf, page 2>
-Package pdftex.def Info: ./pdf/Aufgabenblatt4.pdf, page2 used on input line 237
+Package pdftex.def Info: ./pdf/Aufgabenblatt4.pdf, page2 used on input line 305
 .
 (pdftex.def)             Requested size: 597.47792pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt4.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt4.pdf, page 2>
-Package pdftex.def Info: ./pdf/Aufgabenblatt4.pdf, page2 used on input line 237
+Package pdftex.def Info: ./pdf/Aufgabenblatt4.pdf, page2 used on input line 305
 .
 (pdftex.def)             Requested size: 597.47792pt x 845.19412pt.
- [32 <./pdf/Aufgabenblatt4.pdf>]
+ [34 <./pdf/Aufgabenblatt4.pdf>]
 Anhang E.
-<./pdf/Aufgabenblatt5.pdf, id=313, 597.23125pt x 845.1575pt>
+<./pdf/Aufgabenblatt5.pdf, id=320, 597.23125pt x 845.1575pt>
 File: ./pdf/Aufgabenblatt5.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt5.pdf>
-Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf used on input line 239.
+Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf used on input line 307.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 File: ./pdf/Aufgabenblatt5.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt5.pdf>
-Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf used on input line 239.
+Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf used on input line 307.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 
-<./pdf/Aufgabenblatt5.pdf, id=316, page=1, 597.23125pt x 845.1575pt>
+<./pdf/Aufgabenblatt5.pdf, id=323, page=1, 597.23125pt x 845.1575pt>
 File: ./pdf/Aufgabenblatt5.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt5.pdf, page 1>
-Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf, page1 used on input line 239
+Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf, page1 used on input line 307
 .
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 File: ./pdf/Aufgabenblatt5.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt5.pdf, page 1>
-Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf, page1 used on input line 239
+Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf, page1 used on input line 307
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 
-[33
+[35
 
 ]
 File: ./pdf/Aufgabenblatt5.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt5.pdf, page 1>
-Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf, page1 used on input line 239
+Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf, page1 used on input line 307
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt5.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt5.pdf, page 1>
-Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf, page1 used on input line 239
+Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf, page1 used on input line 307
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt5.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt5.pdf, page 1>
-Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf, page1 used on input line 239
+Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf, page1 used on input line 307
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 
-[34 <./pdf/Aufgabenblatt5.pdf>]
-<./pdf/Aufgabenblatt5.pdf, id=369, page=2, 597.23125pt x 845.1575pt>
+[36 <./pdf/Aufgabenblatt5.pdf>]
+<./pdf/Aufgabenblatt5.pdf, id=377, page=2, 597.23125pt x 845.1575pt>
 File: ./pdf/Aufgabenblatt5.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt5.pdf, page 2>
-Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf, page2 used on input line 239
+Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf, page2 used on input line 307
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt5.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt5.pdf, page 2>
-Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf, page2 used on input line 239
+Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf, page2 used on input line 307
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt5.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt5.pdf, page 2>
-Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf, page2 used on input line 239
+Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf, page2 used on input line 307
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
- [35 <./pdf/Aufgabenblatt5.pdf>]
-<./pdf/Aufgabenblatt5.pdf, id=374, page=3, 597.23125pt x 845.1575pt>
+ [37 <./pdf/Aufgabenblatt5.pdf>]
+<./pdf/Aufgabenblatt5.pdf, id=382, page=3, 597.23125pt x 845.1575pt>
 File: ./pdf/Aufgabenblatt5.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt5.pdf, page 3>
-Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf, page3 used on input line 239
+Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf, page3 used on input line 307
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt5.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt5.pdf, page 3>
-Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf, page3 used on input line 239
+Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf, page3 used on input line 307
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt5.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt5.pdf, page 3>
-Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf, page3 used on input line 239
+Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf, page3 used on input line 307
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
- [36 <./pdf/Aufgabenblatt5.pdf>]
-<./pdf/Aufgabenblatt5.pdf, id=380, page=4, 597.23125pt x 845.1575pt>
+ [38 <./pdf/Aufgabenblatt5.pdf>]
+<./pdf/Aufgabenblatt5.pdf, id=387, page=4, 597.23125pt x 845.1575pt>
 File: ./pdf/Aufgabenblatt5.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt5.pdf, page 4>
-Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf, page4 used on input line 239
+Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf, page4 used on input line 307
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt5.pdf Graphic file (type pdf)
  <use ./pdf/Aufgabenblatt5.pdf, page 4>
-Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf, page4 used on input line 239
+Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf, page4 used on input line 307
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: ./pdf/Aufgabenblatt5.pdf Graphic file (type pdf)
 
 <use ./pdf/Aufgabenblatt5.pdf, page 4>
-Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf, page4 used on input line 239
+Package pdftex.def Info: ./pdf/Aufgabenblatt5.pdf, page4 used on input line 307
 .
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
- [37 <./pdf/Aufgabenblatt5.pdf>]
+ [39 <./pdf/Aufgabenblatt5.pdf>]
 (./Laborberichte.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5326 strings out of 493029
- 72708 string characters out of 6136234
- 298080 words of memory out of 5000000
- 8724 multiletter control sequences out of 15000+600000
+ 5334 strings out of 493029
+ 72859 string characters out of 6136234
+ 298091 words of memory out of 5000000
+ 8731 multiletter control sequences out of 15000+600000
  17078 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,18n,46p,235b,1768s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1182,10 +1202,10 @@ sfrm0500.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/s
 hare/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/typ
 e1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/s
 frm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on Laborberichte.pdf (44 pages, 1288873 bytes).
+Output written on Laborberichte.pdf (46 pages, 1325038 bytes).
 PDF statistics:
- 427 PDF objects out of 1000 (max. 8388607)
- 265 compressed objects within 3 object streams
+ 434 PDF objects out of 1000 (max. 8388607)
+ 269 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 181 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 186 words of extra memory for PDF output out of 10000 (max. 10000000)
 

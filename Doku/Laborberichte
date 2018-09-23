@@ -178,18 +178,86 @@ Im folgenden wurde der Zäler mittels Simulation getestet.\\
  \label{fig:2}
 \end{figure}
 
+\newpage
+
 \section{Aufgabe 2}
+
+Für den 4-Bit Binärzähler haben wir eine Testbench erstellt. Die Testbench enthält für die Signale jeweils einen Prozesss in welchem es Initialisiert wird.
+Die Dauer des Signals wird dabei durch \textit{wait for} festgelegt danach wird das Signal gekippt usw.durch einen zweiten Prozess 
+für wiederholende Signale verwendten wir einen \textit{loop} wieder unter zuhilfenahme des \textit{wait for} Befehls.
+Zum programieren des CLPD Bauteins mussten noch diverse Einstellungen vorgenommen werden unteranderem die Zuweisung der Pins mittels des \textit{Constraint Editor}.
+
+
 \subsection{Anmerkungen zu Aufgabe 2}
+
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Quellcode und Screenshot fehlen!!!!!!!!!!!!!!!!!!!!!}}
+
+%\lstinputlisting[language=VHDL, caption=Testbench für 4-Bit Binärzähler]{test.vhd}
+
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[scale=0.25]{sim_4Bit2.jpg}
+% \caption{Simulation des 4-Bit Binärzähler durch Testbench}
+% \label{fig:3}
+%\end{figure}
+
 \section{Aufgabe 3}
-\subsection{Anmerkungen zu Aufgabe 3}
+
+In dieser Aufgabe sollten wir ein VHDL Modell für einen rein kombinatorischen Ampel Steuerungsblock entwerfen. Die in
+Funktionstabelle in Abbildung 2.3 gab uns die 16 Ampelphasen vor welche implementiert wurden.\\
+\\Weiter sollten wir diese mit einer Testbench simulieren wobei die 16 Eingangswerte mit Hilfe einer FOR-Schleife erzeugt wurden.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.3]{ampelphasen.png}
+ \caption{Funktionstabelle der Ampelphasen}
+ \label{fig:4}
+\end{figure}
+
+\subsection{Quelcode, Testbensch und Simulation zu Aufgabe 3}
+
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Quellcode und Screenshot fehlen!!!!!!!!!!!!!!!!!!!!!}}
+
 \section{Aufgabe 4}
-\subsection{Anmerkungen zu Aufgabe 4}
+
+Den AmpelSteuerungsblock aus der vorigen Aufgabe fügten wir in ein Strukturmodell ein, das
+den Zähler und das Ampel Schaltnetz instanziert. Neben den Ports aus Aufgabe 1 kammen folgende Ports hinzu:
+\textit{rot, gelb, gruen : out std\_logic}\\
+\\Simuliert wurde der Code mit der Testbench aus Aufgabe 2 im Anschluss programierte wir die Hardware wofür wir
+alle Signals aus der Liste einem entsprechenden den Pins zuwiesen und testeten die Schaltung.
+
+\subsection{Quelcode, Testbensch und Simulation zu Aufgabe 4}
+
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Quellcode und Screenshot fehlen!!!!!!!!!!!!!!!!!!!!!}}
+
 \section{Aufgabe 5}
-\subsection{Anmerkungen zu Aufgabe 5}
+
+Wir erstellten einen zusätzlichen Ampel Steuerungsblock als getrenntes VHDL-Modul. Es liefert ebenfalls die Signale \"rot / gelb / gruen\".
+Die Ampelphasen wurden dabei so angepasst ,dass die gelbe LED zwei Takte leuchtet und zwei Takte aus ist, die anderen blieben aus.
+Simmuliert wurde diese Schaltung mit der Testbench aus Aufgabe 3.
+
+\subsection{Quelcode, Testbensch und Simulation zu Aufgabe 5}
+
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Quellcode und Screenshot fehlen!!!!!!!!!!!!!!!!!!!!!}}
+
 \section{Aufgabe 6}
-\subsection{Anmerkungen zu Aufgabe 6}
+
+Ziel dieser Aufgabe war es ein sequentielles VHDL Modell eines 2:1 Multiplexers zu entwerfen für zwei je drei Bit
+breite std\_logic Vektoren A und B, die abhängig von einem Signal Select auf den drei Bit breiten Ausgangsvektor Y durchgeschaltet werden.
+
+Wir testeten das Modell via Simulation.
+
+\subsection{Quelcode, Testbensch und Simulation zu Aufgabe 6}
+
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Quellcode und Screenshot fehlen!!!!!!!!!!!!!!!!!!!!!}}
+
 \section{Aufgabe 7}
-\subsection{Anmerkungen zu Aufgabe 7}
+
+Als letztes fügten wir alle Komponenten zusammen. Neben den Ports aus Aufgabe 4 fügten wir noch den Port:\textit{S2 : in std\_logic} hinzu.
+Zur Simulation nutzten wir die Testbench aus Aufgabe 2 welche wir um \textit{S2} erweiterten. Im Anschluss wurde die Hardware programiert.
+\subsection{Quelcode, Testbensch und Simulation zu Aufgabe 7}
+
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Quellcode und Screenshot fehlen!!!!!!!!!!!!!!!!!!!!!}}
 \newpage
 
 \chapter{Versuch III}

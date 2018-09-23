@@ -17,45 +17,45 @@
 \contentsline {section}{\numberline {2.2}Aufgabe 2}{10}
 \contentsline {subsection}{\numberline {2.2.1}Anmerkungen zu Aufgabe 2}{10}
 \contentsline {section}{\numberline {2.3}Aufgabe 3}{10}
-\contentsline {subsection}{\numberline {2.3.1}Anmerkungen zu Aufgabe 3}{10}
-\contentsline {section}{\numberline {2.4}Aufgabe 4}{10}
-\contentsline {subsection}{\numberline {2.4.1}Anmerkungen zu Aufgabe 4}{10}
-\contentsline {section}{\numberline {2.5}Aufgabe 5}{10}
-\contentsline {subsection}{\numberline {2.5.1}Anmerkungen zu Aufgabe 5}{10}
-\contentsline {section}{\numberline {2.6}Aufgabe 6}{10}
-\contentsline {subsection}{\numberline {2.6.1}Anmerkungen zu Aufgabe 6}{10}
-\contentsline {section}{\numberline {2.7}Aufgabe 7}{10}
-\contentsline {subsection}{\numberline {2.7.1}Anmerkungen zu Aufgabe 7}{10}
-\contentsline {chapter}{\numberline {3}Versuch III}{11}
-\contentsline {section}{\numberline {3.1}Aufgabe 1}{11}
-\contentsline {subsection}{\numberline {3.1.1}Anmerkungen zu Aufgabe 1}{11}
-\contentsline {section}{\numberline {3.2}Aufgabe 2}{11}
-\contentsline {subsection}{\numberline {3.2.1}Anmerkungen zu Aufgabe 2}{11}
-\contentsline {section}{\numberline {3.3}Aufgabe 3}{11}
-\contentsline {subsection}{\numberline {3.3.1}Anmerkungen zu Aufgabe 3}{11}
-\contentsline {section}{\numberline {3.4}Aufgabe 4}{11}
-\contentsline {subsection}{\numberline {3.4.1}Anmerkungen zu Aufgabe 4}{11}
-\contentsline {section}{\numberline {3.5}Aufgabe 5}{11}
-\contentsline {subsection}{\numberline {3.5.1}Anmerkungen zu Aufgabe 5}{11}
-\contentsline {chapter}{\numberline {4}Versuch IV}{12}
-\contentsline {section}{\numberline {4.1}Aufgabe 1}{12}
-\contentsline {subsection}{\numberline {4.1.1}Anmerkungen zu Aufgabe 1}{12}
-\contentsline {section}{\numberline {4.2}Aufgabe 2}{12}
-\contentsline {subsection}{\numberline {4.2.1}Anmerkungen zu Aufgabe 2}{12}
-\contentsline {section}{\numberline {4.3}Aufgabe 3}{12}
-\contentsline {subsection}{\numberline {4.3.1}Anmerkungen zu Aufgabe 3}{12}
-\contentsline {section}{\numberline {4.4}Aufgabe 4}{12}
-\contentsline {subsection}{\numberline {4.4.1}Anmerkungen zu Aufgabe 4}{12}
-\contentsline {chapter}{\numberline {5}Versuch V}{13}
-\contentsline {section}{\numberline {5.1}Aufgabe 1}{13}
-\contentsline {subsection}{\numberline {5.1.1}Anmerkungen zu Aufgabe 1}{13}
-\contentsline {section}{\numberline {5.2}Aufgabe 2}{13}
-\contentsline {subsection}{\numberline {5.2.1}Anmerkungen zu Aufgabe 2}{13}
-\contentsline {section}{\numberline {5.3}Aufgabe 3}{13}
-\contentsline {subsection}{\numberline {5.3.1}Anmerkungen zu Aufgabe 3}{13}
-\contentsline {part}{II\hspace {1em}Anhang}{14}
-\contentsline {chapter}{\numberline {A}Aufgabenblatt 1}{15}
-\contentsline {chapter}{\numberline {B}Aufgabenblatt 2}{18}
-\contentsline {chapter}{\numberline {C}Aufgabenblatt 3}{27}
-\contentsline {chapter}{\numberline {D}Aufgabenblatt 4}{30}
-\contentsline {chapter}{\numberline {E}Aufgabenblatt 5}{33}
+\contentsline {subsection}{\numberline {2.3.1}Quelcode, Testbensch und Simulation zu Aufgabe 3}{10}
+\contentsline {section}{\numberline {2.4}Aufgabe 4}{11}
+\contentsline {subsection}{\numberline {2.4.1}Quelcode, Testbensch und Simulation zu Aufgabe 4}{11}
+\contentsline {section}{\numberline {2.5}Aufgabe 5}{11}
+\contentsline {subsection}{\numberline {2.5.1}Quelcode, Testbensch und Simulation zu Aufgabe 5}{11}
+\contentsline {section}{\numberline {2.6}Aufgabe 6}{11}
+\contentsline {subsection}{\numberline {2.6.1}Quelcode, Testbensch und Simulation zu Aufgabe 6}{12}
+\contentsline {section}{\numberline {2.7}Aufgabe 7}{12}
+\contentsline {subsection}{\numberline {2.7.1}Quelcode, Testbensch und Simulation zu Aufgabe 7}{12}
+\contentsline {chapter}{\numberline {3}Versuch III}{13}
+\contentsline {section}{\numberline {3.1}Aufgabe 1}{13}
+\contentsline {subsection}{\numberline {3.1.1}Anmerkungen zu Aufgabe 1}{13}
+\contentsline {section}{\numberline {3.2}Aufgabe 2}{13}
+\contentsline {subsection}{\numberline {3.2.1}Anmerkungen zu Aufgabe 2}{13}
+\contentsline {section}{\numberline {3.3}Aufgabe 3}{13}
+\contentsline {subsection}{\numberline {3.3.1}Anmerkungen zu Aufgabe 3}{13}
+\contentsline {section}{\numberline {3.4}Aufgabe 4}{13}
+\contentsline {subsection}{\numberline {3.4.1}Anmerkungen zu Aufgabe 4}{13}
+\contentsline {section}{\numberline {3.5}Aufgabe 5}{13}
+\contentsline {subsection}{\numberline {3.5.1}Anmerkungen zu Aufgabe 5}{13}
+\contentsline {chapter}{\numberline {4}Versuch IV}{14}
+\contentsline {section}{\numberline {4.1}Aufgabe 1}{14}
+\contentsline {subsection}{\numberline {4.1.1}Anmerkungen zu Aufgabe 1}{14}
+\contentsline {section}{\numberline {4.2}Aufgabe 2}{14}
+\contentsline {subsection}{\numberline {4.2.1}Anmerkungen zu Aufgabe 2}{14}
+\contentsline {section}{\numberline {4.3}Aufgabe 3}{14}
+\contentsline {subsection}{\numberline {4.3.1}Anmerkungen zu Aufgabe 3}{14}
+\contentsline {section}{\numberline {4.4}Aufgabe 4}{14}
+\contentsline {subsection}{\numberline {4.4.1}Anmerkungen zu Aufgabe 4}{14}
+\contentsline {chapter}{\numberline {5}Versuch V}{15}
+\contentsline {section}{\numberline {5.1}Aufgabe 1}{15}
+\contentsline {subsection}{\numberline {5.1.1}Anmerkungen zu Aufgabe 1}{15}
+\contentsline {section}{\numberline {5.2}Aufgabe 2}{15}
+\contentsline {subsection}{\numberline {5.2.1}Anmerkungen zu Aufgabe 2}{15}
+\contentsline {section}{\numberline {5.3}Aufgabe 3}{15}
+\contentsline {subsection}{\numberline {5.3.1}Anmerkungen zu Aufgabe 3}{15}
+\contentsline {part}{II\hspace {1em}Anhang}{16}
+\contentsline {chapter}{\numberline {A}Aufgabenblatt 1}{17}
+\contentsline {chapter}{\numberline {B}Aufgabenblatt 2}{20}
+\contentsline {chapter}{\numberline {C}Aufgabenblatt 3}{29}
+\contentsline {chapter}{\numberline {D}Aufgabenblatt 4}{32}
+\contentsline {chapter}{\numberline {E}Aufgabenblatt 5}{35}
