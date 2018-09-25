@@ -7,6 +7,7 @@
 \usepackage{color}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
+\usepackage{subfigure}
 \usepackage{pdfpages}
 
 %----Dokumentenpfade-----
@@ -39,6 +40,16 @@
 }
  
 \lstset{style=mystyle}
+\lstdefinelanguage{Assembler}{
+    morekeywords={b, ble, blt, bne, 
+        ldr, str, 
+        r0, r1, r2, r3, r4, r5, r6, r7, rr8, r9, r10, r11, r12
+        sp  },
+    sensitive=false, % keywords are not case-sensitive
+    morecomment=[l]{//}, % l is for line comment
+    morecomment=[s]{/*}{*/}, % s is for start and end delimiter
+    morestring=[b]" % defines that strings are enclosed in double quotes
+} % 
 
 %----Angaben für Titelseite----
 \title{Laborbericht zum Digitallabor an der Hochschule Karlsruhe}
@@ -330,18 +341,76 @@ Das Resultat wurde als Wert in R2 zurückgeliefert. Wir nutzten das Programm 4 m
 \section{Aufgabe 5}
 
 Das Ziel der letzten Aufgabe war es mit 32bit Variablen zurechnen. Hoerfür wurde eine Variable angelegt, die aus 2 Words bestand welche im Speicher direkt 
-hintereinander lagen. Mittels Bitshifting wurden die Wertebereiche der 32bit Variable umgesetzt. 
-Zunächst werden nun die unteren 16bit der beiden zu addierenden Variablen in das Ergebnisregister geladen und addiert. Damit der Zeiger auf der nächsten Speicherstelle, und damit auf den oberen 16bit steht, muss in diesem Schritt jeweils die Startadresse inkrementiert werden (kein Präkrement möglich). Im nächsten Schritt können die oberen 16bit mit Hilfe des ADD C Befehls addiert werden, dabei wird ein möglicherweise gesetztes Carry-bit der Addition der unteren 16bit berücksichtigt. Um r0 und r1 „wieder herzustellen“ müssen zum Schluss die auf dem Stack abgelegten Werte wieder in das entsprechende Register geladen werden. Dabei gilt: last in first out.
-\subsection{Anmerkungen zu Aufgabe 5}
+hintereinander lagen. Mittels Bitshifting wurden die Wertebereiche der 32bit Variable umgesetzt.\\
+Im folgenden wurden nun die unteren 16bit der beiden zu addierenden Variablen in das Ergebnisregister geladen und addiert. 
+Damit der Zeiger auf der nächsten Speicherstelle, und somit auf die oberen 16bit zeigt, musste in diesem Schritt die Startadressen inkrementiert werden. 
+Im nächsten Schritt konnten die oberen 16bit mit Hilfe des \textit{ADD C Befehls} addiert werden, hierdurch kann gesetztes Carry-bit der Addition der 
+unteren 16bit berücksichtigt werden. Um r0 und r1 in die Ursprungsform zubringen mussten auf dem Stack abgelegten Werte wieder in das entsprechende Register 
+geladen werden.
+
+\subsection{Quellcode und Screenshot zu Aufgabe 5}
+
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Quellcode und Screenshot fehlt!!!!!!!!!!!!!!!!!!!!!}}
 \newpage
 
 \chapter{Versuch IV}
+
+In diesem Versuch nutzten wir denn UConnect XE166 Real Time Signal Controller mit dem Ziel
+uns mit den Bitbefehlen des C166 vertraut zumachen und diese auf die Parallelports des XE166
+anzuwenden, auch das Debbuging eines Embedded System wurde an diesem Termin fokusiert.\\
+\\Verwendet wurde dabei die Keil 3 Software mit der vorgegebenen Assembler-Vorlagen Datei. Zum
+Debuggen verwendeten wir den UConnect XE166 Real Time Signal Controller (siehe Abbildung 4.1(a)), der an den USB-Bus des
+PCs angeschlossen wurde, sowie eine kleine Platine mit 4 LEDs, 2 Schaltern und 2 Tastern
+(siehe Abbildung 4.1(b)), die am Port P0 des Prozessors: UConnect XE166 Real Time Signal Controller
+angeschlossen war.\\ Die Zuordnung der Portbits zu den LEDs, Schaltern und Tastern finden
+Sie in Abbildung 4.2.
+
+\begin{figure}[h!]
+\centering
+    \subfigure[UConnect XE166]{\includegraphics[scale=0.3]{xe166.png}}
+    \subfigure[verwendete Platine]{\includegraphics[scale=0.3]{platine.png}}
+\caption{verwendete Hardeware}
+\label{fig:5}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{anschlussbelegung.png}
+ \caption{Funktionstabelle der Ampelphasen}
+ \label{fig:7}
+\end{figure}
+
 \section{Aufgabe 1}
-\subsection{Anmerkungen zu Aufgabe 1}
+
+Wir erstellten ein Assembler Programm, das LED 1 leuchten lies, wenn Taste T1 gedrückt wurde und LED2 leuchten lies, wenn die Taste T2 gedrückt wurde.
+Die Initialisierung des Ports P0 wurde in einem Unterprogramm \"PortInit\" ausgeführt, das die Pins für Tasten und Schalter auf Eingang, die für die 
+LEDs auf Ausgang stellt. Die Richtungsregister hießen \textit{P0\_IOCR\_0 bis P0\_IOCR\_7 für Portpin 0 bis 7}.
+Im Hauptprogramm wurde zuerst das Unterprogramm zur Portinitialisierung aufgerufen, danach die Endlosschleife. Es werde dabei zwei \textit{mov Befehle} verwendet.
+
+\subsection{Code welcher per Tastendruck LEDs leuchten lässt}
+
+\lstinputlisting[caption=Quellcode der Aufgabe 1]{A1.a66}
+
 \section{Aufgabe 2}
-\subsection{Anmerkungen zu Aufgabe 2}
+
+Wir erweiterten die Lösung aus Aufgabe 1 so, dass die Tasten nur dann eine Wirkung hatten, wenn der entsprechende Schalter "oben" stand. 
+Aus den Vorgaben entwickelten wir folgenden Quellcode.
+
+\subsection{Quellcode zu Aufgabe 2}
+
+\lstinputlisting[caption=Quellcode der Aufgabe 2]{A2.a66}
+
 \section{Aufgabe 3}
-\subsection{Anmerkungen zu Aufgabe 3}
+
+Diese Aufgabe entsprach der Aufgabe 1 unter Verzicht auf die Einzelbit-Befehle des C166.
+Dies entsprach dem Niveau eines einfachen Desktop Prozessors da dies bei einfachen Aufgabenstellungen wie z.B. Aufgabe 2 so richtig unübersichtlich würde 
+wäre der Verzicht auf Einelbit-Befehle in embedded Systemen eine sehr schlechte Lösung.
+
+\subsection{Quellcode der Aufgabe 3 ohne Einzelbit- Befehle}
+
+\lstinputlisting[caption=Quellcode der Aufgabe 3]{A3.a66}
+
+
 \section{Aufgabe 4}
 \subsection{Anmerkungen zu Aufgabe 4}
 

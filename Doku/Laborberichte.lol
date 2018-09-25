@@ -10,3 +10,6 @@
 \contentsline {lstlisting}{\numberline {3.4}Listning von work2.a66}{19}
 \contentsline {lstlisting}{\numberline {3.5}Quellcode f\IeC {\"u}r Rechenoperationen}{22}
 \contentsline {lstlisting}{\numberline {3.6}Unterprogramm der Aufgabe 4}{24}
+\contentsline {lstlisting}{\numberline {4.1}Quellcode der Aufgabe 1}{29}
+\contentsline {lstlisting}{\numberline {4.2}Quellcode der Aufgabe 2}{31}
+\contentsline {lstlisting}{\numberline {4.3}Quellcode der Aufgabe 3}{33}
