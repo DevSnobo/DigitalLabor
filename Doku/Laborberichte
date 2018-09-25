@@ -1,5 +1,9 @@
 %----Laborbericht-----
-\documentclass[a4paper,10pt]{report}
+\documentclass[a4paper,12pt]{report}
+
+\usepackage{geometry}
+\geometry{a4paper, top=20mm, left=25mm, right=25mm, bottom=20mm,
+headsep=5mm, footskip=5mm}
 
 \usepackage[utf8]{inputenc}
 \usepackage[german]{babel}
@@ -424,6 +428,13 @@ Dies erklärte sich durch das sequentielle Durchlaufen der Endlosschleife.
 \textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Quellcode fehlt!!!!!!!!!!!!!!!!!!!!!}}
 
 \chapter{Versuch V}
+
+Im heutigen Versuch sollen Sie die hardwarenahe Programmierung mit Hilfe der
+Sprache „C“ kennen lernen. Dazu benutzen Sie wieder mit Hilfe des Uconnect USB die ty-
+pischen Peripherie-Komponenten Parallelports und Timer des XE164.
+Für die erfolgreiche Versuchsdurchführung müssen nachfolgende Einstellungen im Keil-
+Progamm μVision3 gemacht werden:
+
 \section{Aufgabe 1}
 \subsection{Anmerkungen zu Aufgabe 1}
 \section{Aufgabe 2}

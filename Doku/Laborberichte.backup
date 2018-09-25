@@ -410,9 +410,18 @@ wäre der Verzicht auf Einelbit-Befehle in embedded Systemen eine sehr schlechte
 
 \lstinputlisting[caption=Quellcode der Aufgabe 3]{A3.a66}
 
-
 \section{Aufgabe 4}
+
+Wir erzeugten ein \"Delay\" in einem Unterprogramm welches die LED 3 ca. jede Sekunde Blinken lies.
+Danach fügten wir die beiden Befehle aus Aufgabe 1, die die LEDs bedienten, zu unserem Hauptprogramm hinzu.\\
+\\Bei dem Delay gab es eine Bespnderheit da 5000 Zählschritte einer Millisekunde entsprechen und Delay für 0,5 Sekunden verzögern sollte, dies 
+aber nicht mit einer Konstanten realisierbar war wegen des Wertebereichs der Konstanten, daher werden zwei Konstanten multipliziert.
+Beim Debuggen fiel auf, dass die Verzögerung durch das Unterprogramm Delay auch Einfluss auf die Funktion des Tasters hat. 
+Dies erklärte sich durch das sequentielle Durchlaufen der Endlosschleife. 
+
 \subsection{Anmerkungen zu Aufgabe 4}
+
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Quellcode fehlt!!!!!!!!!!!!!!!!!!!!!}}
 
 \chapter{Versuch V}
 \section{Aufgabe 1}
