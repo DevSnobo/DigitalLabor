@@ -1,5 +1,9 @@
 %----Laborbericht-----
-\documentclass[a4paper,10pt]{report}
+\documentclass[a4paper,12pt]{report}
+
+\usepackage{geometry}
+\geometry{a4paper, top=20mm, left=25mm, right=25mm, bottom=20mm,
+headsep=5mm, footskip=5mm}
 
 \usepackage[utf8]{inputenc}
 \usepackage[german]{babel}
@@ -299,10 +303,10 @@ Durch eine direkte Adressierung wird der Wert der Variable in das zugewiesene Re
 kann man in der Listing-Datei erkennen, dass für den Speicherort ein Offset-Parameter angelegt wurde, dieser wurde auf die entsprechende Startadresse addiert
 wodurch der Speicherort definiert ist. Im Memory-Fenster konnte man an denn berechneten Adressen die Werte der Variablen ablesen. 
 
-\subsection{Quellcode, Listing und Screenshots der Aufgabe 2}
+\subsection{Quellcode und Screenshots der Aufgabe 2}
 
 \lstinputlisting[caption=Definition der 16bit Variablen]{work2.a66}
-\lstinputlisting[caption=Listning von work2.a66]{work2.LST}
+%\lstinputlisting[caption=Listning von work2.a66]{work2.LST}
 \textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Screenshot fehlt!!!!!!!!!!!!!!!!!!!!!}}
 
 \section{Aufgabe 3}
@@ -424,11 +428,81 @@ Dies erklärte sich durch das sequentielle Durchlaufen der Endlosschleife.
 \textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Quellcode fehlt!!!!!!!!!!!!!!!!!!!!!}}
 
 \chapter{Versuch V}
+
+In diesem Versuch beschäftiten wir uns mit der hardwarenahen Programmierung in \textit{\"C\"}. Dazu benutzen wir wieder denn Uconnect USB die ty-
+pischen Peripherie-Komponenten Parallelports und Timer des XE164.
+
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Testergebnis fehlt!!!!!!!!!!!!!!!!!!!!!}}
+
 \section{Aufgabe 1}
-\subsection{Anmerkungen zu Aufgabe 1}
+
+Ziel der Aufgabe war es das Übungsbeispiel aus Kernighan/Ritchie, die Umwandlung Fah-
+renheit in Celsius auf den XE164 anzupassen. Die Ausgabe über wie Konsole ersetzten wir durch
+Anschauen der Werte für Celsius mit dem Debugger im Simulationsmodus.\\ 
+Im Listing für die Ausgabe des erzeugten Assemblercodes betrachteten wir den optimierten Code, weiter hielten wir die Ergebnisse für die Codegröße und die 
+Laufzeit fest.
+
+\subsection{Teil A}
+
+Die Variable für Celcius wurde durch den Kompiler wegoptimiert, da diese Variable keine internen oder externen Abhängigkeiten besitzt. 
+
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Quellcode fehlt!!!!!!!!!!!!!!!!!!!!!}}\\
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Listing fehlt!!!!!!!!!!!!!!!!!!!!!}}
+
+\subsection{Teil B}
+
+Die Variable Celcius wurde außerhalb der Funktion deklariert. Hierdurch können Abhängigkeiten entstehen.
+Die notwenidge Multiplikation wird durch einen zweistelligen Shift nach links und die Addition des Multiplikanten optimiert.
+
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Quellcode fehlt!!!!!!!!!!!!!!!!!!!!!}}\\
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Listing fehlt!!!!!!!!!!!!!!!!!!!!!}}
+
+\subsection{Teil C}
+
+Für das Unterprogramm wurde der Übergabeparameter in Register R8 geladen und der Returnwert in Register R4 übergeben.
+
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Quellcode fehlt!!!!!!!!!!!!!!!!!!!!!}}\\
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Listing fehlt!!!!!!!!!!!!!!!!!!!!!}}
+
+\subsection{Teil D}
+
+Es werden pro Long-Variable zwei 16 bit Register für die Parameter-/Returnwertübergabe reserviert. 
+Wenn Float-Variablen benutzt werden, können keine Optimierungen verwendet werden, die Laufzeit erhöht sich.\\
+Bei Double-Variablen sind 64 bit nötig, daher werden für Returnwert vier 16 bit Register benötigt und die Laufzeit sowie die Codegröße steigert sich.
+
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Quellcode fehlt!!!!!!!!!!!!!!!!!!!!!}}\\
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Listing fehlt!!!!!!!!!!!!!!!!!!!!!}}
+
 \section{Aufgabe 2}
-\subsection{Anmerkungen zu Aufgabe 2}
+
+Zur Lösung dieser Aufgabe schrieben wir unser eigenes Headerfile, dass die Deklarationen der acht Richtungssteuerregister
+\textit{P0\_IOCRxx} sowie \textit{P0\_OUT} und \textit{P0\_IN} enthielt.\\
+\\Danach lösten wir die Aufgabe 1 und zwei aus dem Versuch 4 erneut.\\
+Mittels Bitmaskierung hatten wir zugriff auf einzelne Bits im Ein-/Ausgangsregister. 
+Die benötigten Bitmasken wurden dem Headerfile hinzugefügt. Dies führte zu gut lesbaren Programmcode.
+
+\subsection{Header und Quellcode zu Aufgabe 2}
+
+\lstinputlisting[language=C, caption=Header]{MYHEADA2.h}
+\lstinputlisting[language=C, caption=main.c]{mainA2.c}
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Quellcode für Teil zwei der Aufgabe fehlt!!!!!!!!!!!!!!!!!!!!!}}\\
+
 \section{Aufgabe 3}
+
+Hier sollte nun mit Keil-spezifischen Datentypen gearbeitet werden. Der 2. Teil der 2. Aufgabe soll so
+verändert werden, dass LED3 mit einer Frequenz von 1 Hz blinkt. Unterschied zu Aufgabe 5 des 4.
+Versuchs ist, dass die Bedienung der LED1 und LED2 nicht verzögert wird, da der Timer nebenläufig
+zum Programmcode ist.
+
+In dieser Aufgabe verwendeten wir die Definitionen der Keil Entwicklungsumgebung zurück. 
+Wir verwendeten den Timer T3, um die grüne LED mit 1 Hz blinken zu lassen und die beiden LEDs über die Tasten diesmal ohne Verzögerung zu bedienen.
+
+Der Timer wurde durch eine Methode \textit{T3Init} initialisiert und gestartet.\\
+\\Für symmetrische Frequenz gilt Periodendauer $$T_h = T_l = 1/F/2$$. Diese wurde benötigt um den Prescale Faktor und den Reloadwert für den Timer zu ermitteln. 
+Aus der Wahl des Vorteilers ergab sich die Zeit eines Einzelschrittes die der Timer benötigt. Um die Ticks für die gewünschte Zeit zu erhalten, 
+wurde folgende Formel verwendet: $$Reloadwert = gewuenschte Zeit/Einzelschrittzeit$$
+Der Reloadwert für T3 wird in T2 gespeichert.
+
 \subsection{Anmerkungen zu Aufgabe 3}
 \newpage
 

@@ -7,9 +7,14 @@
 \contentsline {lstlisting}{\numberline {3.1}Definitio der Konstanten in \GenericError {(inputenc) }{Package inputenc Error: Unicode char µ (U+B5)\MessageBreak not set up for use with LaTeX}{See the inputenc package documentation for explanation.}{Your command was ignored.\MessageBreak Type I <command> <return> to replace it with another command,\MessageBreak or <return> to continue without it.}Vision Assembler source}{12}
 \contentsline {lstlisting}{\numberline {3.2}Listning von work1.a66}{14}
 \contentsline {lstlisting}{\numberline {3.3}Definition der 16bit Variablen}{16}
-\contentsline {lstlisting}{\numberline {3.4}Listning von work2.a66}{18}
-\contentsline {lstlisting}{\numberline {3.5}Quellcode f\IeC {\"u}r Rechenoperationen}{21}
-\contentsline {lstlisting}{\numberline {3.6}Unterprogramm der Aufgabe 4}{23}
-\contentsline {lstlisting}{\numberline {4.1}Quellcode der Aufgabe 1}{28}
-\contentsline {lstlisting}{\numberline {4.2}Quellcode der Aufgabe 2}{30}
-\contentsline {lstlisting}{\numberline {4.3}Quellcode der Aufgabe 3}{32}
+\contentsline {lstlisting}{\numberline {3.4}Quellcode f\IeC {\"u}r Rechenoperationen}{18}
+\contentsline {lstlisting}{\numberline {3.5}Unterprogramm der Aufgabe 4}{21}
+\contentsline {lstlisting}{\numberline {4.1}Quellcode der Aufgabe 1}{25}
+\contentsline {lstlisting}{\numberline {4.2}Quellcode der Aufgabe 2}{27}
+\contentsline {lstlisting}{\numberline {4.3}Quellcode der Aufgabe 3}{29}
+\contentsline {lstlisting}{\numberline {5.1}Aufgabe 2 - Header}{34}
+\contentsline {lstlisting}{\numberline {5.2}Aufgabe 2 - main.c}{34}
+\contentsline {lstlisting}{\numberline {5.3}Aufgabe 3 - main.c}{36}
+\contentsline {lstlisting}{\numberline {5.4}Aufgabe 3 - t3power.c}{36}
+\contentsline {lstlisting}{\numberline {5.5}Aufgabe 3 - t3power.h}{37}
+\contentsline {lstlisting}{\numberline {5.6}Aufgabe 3 - XE164F\_HS.h}{37}
