@@ -44,7 +44,7 @@
 \title{Laborbericht zum Digitallabor an der Hochschule Karlsruhe}
 \author{Michael Nestor und Robin Fritz}
 
-%----Begin des Berichts----
+%----Beginn des Berichts----
 \begin{document}
 %----Deckblatt-----
 \begin{titlepage}
@@ -56,11 +56,11 @@
 %----Zusammenfassung----
 \begin{abstract}
 Die uns aus der Vorlesung \textit{Technische Informatik} bekannten Techniken werden im Digitallabor begleitend an der konkreten Hardware eingeübt.
-Dies dient zur Konkretisierung und Vertiefung des Stoffes sowie zur persönlichen Erfolgskontrolle. Ziel ist es dabei die verschiedenen 
+Dies dient zur Konkretisierung und Vertiefung des Stoffes, sowie zur persönlichen Erfolgskontrolle. Ziel ist es dabei die verschiedenen 
 logischen Grundschaltungen, sowie die Zahlendarstellung in verschiedenen Zahlensystemen zu verstehen und anzuwenden. 
-Das erlernen des Umgangs mit einem Mikrocontroller-Entwicklungssystem und verstehen des Aufbaus sowie die Bedienung typischer Peripherieschaltungen sind weitere 
-Lernziele des Labors. Die Versuche enthalten Übungen zur Zahlendarstellung, zu Mikrocontrollern und zur Verwendung von parallelen Peripherieschaltkreisen sowie Zähler/Zeitgebern.
-Dieses Dokument gibt einen ausführlichen Überblick von den von uns ausgeführten Versuchen.
+Das Erlernen des Umgangs mit einem Mikrocontroller-Entwicklungssystem und Verstehen des Aufbaus sowie die Bedienung typischer Peripherieschaltungen sind weitere 
+Lernziele des Labors. Die Versuche enthalten Übungen zur Zahlendarstellung, zu Mikrocontrollern und zur Verwendung von parallelen Peripherieschaltkreisen sowie Zählern und Zeitgebern.
+Dieses Dokument gibt einen ausführlichen Überblick über die von uns ausgeführten Versuche.
 
 \end{abstract}
 \newpage
@@ -83,27 +83,27 @@ Dieses Dokument gibt einen ausführlichen Überblick von den von uns ausgeführt
 \chapter{Versuch I}
 
 Im ersten Versuch lag der Schwerpunkt auf kombinatorischem und strukturellem VHDL im GAL Baustein. 
-Zur Vorbereitung machten wir uns mit der Oberfläche des ISP-Levler-Programm vertraut, übersetzten eine Funktionstabelle in VHDL und beschäftigten uns mit dem Aufbau
-von Halb-, Voll- und Serienaddierer.\\
-\\Ziel des Versuch sollten erste Erfahrungen mit der Sprache VHDL und dem hierarchischem Design sein. Hierbei wurde ein kleiner programmierbaren Baustein, das GAL eingesetzt.
+Zur Vorbereitung machten wir uns mit der Oberfläche des ISP-Lever-Programm vertraut, übersetzten eine Funktionstabelle in VHDL und beschäftigten uns mit dem Aufbau
+von Halb-, Voll- und Serienaddierern.\\
+\\Ziel des Versuchs sollten erste Erfahrungen mit der Sprache VHDL und dem hierarchischen Design sein. Hierbei wurde ein kleiner programmierbarer Baustein, das GAL, eingesetzt.
 Mit Hilfe des Versuches erfuhren wir, dass die Kombination aus HDL und programmierbarer Hardware schnell zu funktionierenden Schaltungen führt, und auch
 ziemlich flexibel bei Änderungen ist.\\
 \\Für die Designerstellung wurde das Programm \textit{Classic} und zur Simulation der \textit{VHDL Functional Simulator} verwendet.
 
 \section{Aufgabe 1}
 
-Die Aufgabe beinhaltete das Schreiben eines nebenläufigen VHDL Modells für ein ODER Gatter mit zwei Eingängen welches wir mit einer Gleichung zur 
-Beschreibung der Funktionalität umsetzten. Simuliert wurde das Design durch die direkte Eingabe der Testvektoren. Nach der erfolgreiche Simulation
-programierten wir den GAL und testeten ihn mit zwei Schaltern.
+Die Aufgabe beinhaltete das Schreiben eines nebenläufigen VHDL Modells für ein ODER Gatter mit zwei Eingängen, welches wir mit einer Gleichung zur 
+Beschreibung der Funktionalität umsetzten. Simuliert wurde das Design durch die direkte Eingabe der Testvektoren. Nach der erfolgreichen Simulation
+programmierten wir den GAL und testeten ihn mit zwei Schaltern.
 
-\subsection{Quellcode für ein Or mit zwei Eingängen}
+\subsection{Quellcode für ein OR mit zwei Eingängen}
 
-\lstinputlisting[language=VHDL, caption=or mit zwei Eingängen]{or.vhd}
+\lstinputlisting[language=VHDL, caption=OR mit zwei Eingängen]{or.vhd}
 
 \section{Aufgabe 2}
 
-Im folgenden sollte eine Funktionstabelle als nebenläufiges VHDL Modell für einen Halbaddierer umgesetzt werden. 
-Die Korrektheit des Designs wurde mittel einer Simulation überprüft.
+Im Folgenden sollte eine Funktionstabelle als nebenläufiges VHDL Modell für einen Halbaddierer umgesetzt werden. 
+Die Korrektheit des Designs wurde mittels einer Simulation überprüft.
 
 \begin{figure}[h!]
 \centering
