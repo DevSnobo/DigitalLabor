@@ -123,14 +123,14 @@ der Komponenten beschreibt.
 
 \subsection{Quellcode für einen Volladdierer}
 
-\lstinputlisting[language=VHDL, caption=Volladierer in ein strukturellem VHDL]{va.vhd}
+\lstinputlisting[language=VHDL, caption=Volladdierer in rein strukturellem VHDL]{va.vhd}
 
 \section{Aufgabe 4}
 
-Wir verwendeten in dieser Aufgabe den darvor erstelllten Volladierer um mit zwei Instanzen einen Serienaddierer zuerstelle welcher
-zwei Zahlen zu je zwei Bit zusammenzufügt. Die beiden Eingangszahlen a und b sind je ein 2 Bit breiter Vektor, für die Summe wurde ein 3 Bit breiter
+Wir verwendeten in dieser Aufgabe den darvor erstellten Volladierer, um mit zwei Instanzen einen Serienaddierer zuerstellen, welcher
+zwei Zahlen zusammenzufügt. Die beiden Eingangszahlen A und B sind je ein 2 Bit breiter Vektor, für die Summe wurde ein 3 Bit breiter
 Vektor verwendet.//
-Für den Serienaddierer haben wir des weiteren eine Testbench erstellt und ihn mit dieser Simuliert. Nach der Simulation nutzten wir den GAL Baustein und verbanden 
+Für den Serienaddierer haben wir des Weiteren eine Testbench erstellt und ihn mit dieser simuliert. Nach der Simulation nutzten wir den GAL Baustein und verbanden 
 die Eingänge mit den Schaltern, die Ausgänge mit der BCD -> 7-Segment - Anzeige. Anschlussbuchse „C/C – D2“ an der 7-Segment-Anzeige mussten an GND angeschlossen werden.
 
 \subsection{Quellcode für einen Serienaddierer}
@@ -145,11 +145,11 @@ die Eingänge mit den Schaltern, die Ausgänge mit der BCD -> 7-Segment - Anzeig
 \chapter{Versuch II}
 
 In diesem Versuch nutzten wir die nächste Technologiestufe, die CPLDs.
-Durch Verwendung eines MACH Bausteines konten wir gleichzeitig auf die In-System-
-Programmierung zurückgreifen. Der Baustein konnte d.h. über den JTAG Anschluss direkt auf der Platine programiert werde.
-Dabei war es Zielführend die Beschreibung von sequentiellen Schaltungen mit VHDL und die Simulation dieser Schaltungen kennen lernen. 
+Durch Verwendung eines MACH Bausteines konnten wir gleichzeitig auf die In-System-
+Programmierung zurückgreifen. Der Baustein konnte daher über den JTAG Anschluss direkt auf der Platine programmiert werden.
+Dabei war es zielführend die Beschreibung von sequentiellen Schaltungen mit VHDL und die Simulation dieser Schaltungen kennenzulernen. 
 Natürlich sollten wir auch unsere Kenntnisse über das Erstellen hierarchischer Designs und den Umgang mit einer Testbench vertiefen.\\
-\\Für die Durchführung des Versuchs benötigten wir ein ispMach-Board und ein I/O-Board mit welchen wir eine Ampelsteuerung, die aus vier
+\\Für die Durchführung des Versuchs benötigten wir ein ispMach-Board und ein I/O-Board mit welchen wir eine Ampelsteuerung implementierten, die aus vier
 Komponenten gemäß Abbildung 2.1 aufgebaut wurde. Als Datentyp wurde durchgehend die \textit{std\_logic} verwendet.
 
 \begin{figure}[h!]
@@ -161,20 +161,20 @@ Komponenten gemäß Abbildung 2.1 aufgebaut wurde. Als Datentyp wurde durchgehen
 
 \section{Aufgabe 1}
 
-Wir erstellten einen 4-Bit Binärzähler mit asynchronem Reset in VHDL den Vorgaben entsprechend. Für die sequenzielle Schaltung verwendeten wir einen Prozess
-welcher entsprechend getrigert wurde. Im Prozess wird die asynchrone Bedingung \textit{intReset = \'1\'} abgefragt, falls diese wahr ist wird der Vektor \textit{temp}
+Wir erstellten einen 4-Bit Binärzähler mit asynchronem Reset in VHDL den Vorgaben entsprechend. Für die sequentielle Schaltung verwendeten wir einen Prozess,
+welcher entsprechend getriggert wurde. Im Prozess wird die asynchrone Bedingung \textit{intReset = \`1\'} abgefragt, falls diese wahr, ist wird der Vektor \textit{temp}
 auf 0 gesetzt, andernfalls wird dieser um 1 hochgezählt.  Außerhalb des Prozesses wird nebenläufig \textit{temp} dem Ausgang zugewiesen. 
-Im folgenden wurde der Zäler mittels Simulation getestet.\\
-\\Wenn der Reset zubeginn auf 0 steht, besitzt der Ausgang einen unbestimmten Zustand und kann d.h. nicht zählen. 
+Im Folgenden wurde der Zähler mittels Simulation getestet.\\
+\\Wenn der Reset zu Beginn auf 0 steht, besitzt der Ausgang einen unbestimmten Zustand und kann daher nicht zählen. 
 
-\subsection{Quellcode und Simulation des 4-Bit Binärzähler}
+\subsection{Quellcode und Simulation des 4-Bit Binärzählers}
 
 \lstinputlisting[language=VHDL, caption=4-Bit Binärzähler]{zaehler.vhd}
 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.25]{sim_4Bit.jpg}
- \caption{Simulation des 4-Bit Binärzähler}
+ \caption{Simulation des 4-Bit Binärzählers}
  \label{fig:3}
 \end{figure}
 
@@ -182,13 +182,17 @@ Im folgenden wurde der Zäler mittels Simulation getestet.\\
 
 \section{Aufgabe 2}
 
-Für den 4-Bit Binärzähler haben wir eine Testbench erstellt. Die Testbench enthält für die Signale jeweils einen Prozesss in welchem es Initialisiert wird.
-Die Dauer des Signals wird dabei durch \textit{wait for} festgelegt danach wird das Signal gekippt usw.durch einen zweiten Prozess 
-für wiederholende Signale verwendten wir einen \textit{loop} wieder unter zuhilfenahme des \textit{wait for} Befehls.
-Zum programieren des CLPD Bauteins mussten noch diverse Einstellungen vorgenommen werden unteranderem die Zuweisung der Pins mittels des \textit{Constraint Editor}.
+Für den 4-Bit Binärzähler haben wir eine Testbench erstellt. Die Testbench enthält für die Signale jeweils einen Prozesss in welchem es initialisiert wird.
+Die Dauer des Signals wird dabei durch \textit{wait for} festgelegt, danach wird das Signal gekippt. Durch einen zweiten Prozess 
+für wiederholende Signale verwendten wir eine \textit{loop}, wieder unter Zuhilfenahme des \textit{wait for} Befehls.
+Zum Programmieren des CPLD Bausteins mussten noch diverse Einstellungen vorgenommen werden, unter anderem die Zuweisung der Pins mittels des \textit{Constraint Editor}.
 
 
 \subsection{Anmerkungen zu Aufgabe 2}
+
+\subsection{Überschrift hier}
+
+\lstinputlisting[language=VHDL, caption=Unterschrift hier]{...}
 
 \textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Quellcode und Screenshot fehlen!!!!!!!!!!!!!!!!!!!!!}}
 
@@ -197,15 +201,15 @@ Zum programieren des CLPD Bauteins mussten noch diverse Einstellungen vorgenomme
 %\begin{figure}[h!]
 %\centering
 %\includegraphics[scale=0.25]{sim_4Bit2.jpg}
-% \caption{Simulation des 4-Bit Binärzähler durch Testbench}
+% \caption{Simulation des 4-Bit Binärzählers durch Testbench}
 % \label{fig:3}
 %\end{figure}
 
 \section{Aufgabe 3}
 
-In dieser Aufgabe sollten wir ein VHDL Modell für einen rein kombinatorischen Ampel Steuerungsblock entwerfen. Die in
-Funktionstabelle in Abbildung 2.3 gab uns die 16 Ampelphasen vor welche implementiert wurden.\\
-\\Weiter sollten wir diese mit einer Testbench simulieren wobei die 16 Eingangswerte mit Hilfe einer FOR-Schleife erzeugt wurden.
+In dieser Aufgabe sollten wir ein VHDL Modell für einen rein kombinatorischen Ampelsteuerungsblock entwerfen. Die
+Funktionstabelle in Abbildung 2.3 gab uns die 16 Ampelphasen vor, welche implementiert wurden.\\
+\\Weiter sollten wir diese mit einer Testbench simulieren, wobei die 16 Eingangswerte mit Hilfe einer FOR-Schleife erzeugt wurden.
 
 \begin{figure}[h!]
 \centering
@@ -214,57 +218,61 @@ Funktionstabelle in Abbildung 2.3 gab uns die 16 Ampelphasen vor welche implemen
  \label{fig:4}
 \end{figure}
 
-\subsection{Quelcode, Testbensch und Simulation zu Aufgabe 3}
+\subsection{Quellcode, Testbench und Simulation zu Aufgabe 3}
+
+\subsection{Überschrift hier}
+
+\lstinputlisting[language=VHDL, caption=Unterschrift hier]{...}
 
 \textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Quellcode und Screenshot fehlen!!!!!!!!!!!!!!!!!!!!!}}
 
 \section{Aufgabe 4}
 
-Den AmpelSteuerungsblock aus der vorigen Aufgabe fügten wir in ein Strukturmodell ein, das
-den Zähler und das Ampel Schaltnetz instanziert. Neben den Ports aus Aufgabe 1 kammen folgende Ports hinzu:
+Den Ampelsteuerungsblock aus der vorherigen Aufgabe fügten wir in ein Strukturmodell ein, das
+den Zähler und das Ampelschaltnetz instanziiert. Neben den Ports aus Aufgabe 1 kamen folgende Ports hinzu:
 \textit{rot, gelb, gruen : out std\_logic}\\
-\\Simuliert wurde der Code mit der Testbench aus Aufgabe 2 im Anschluss programierte wir die Hardware wofür wir
-alle Signals aus der Liste einem entsprechenden den Pins zuwiesen und testeten die Schaltung.
+\\Simuliert wurde der Code mit der Testbench aus Aufgabe 2, im Anschluss programmierten wir die Hardware, wofür wir
+alle Signale aus der Liste einem entsprechenden Pin zuwiesen, und testeten die Schaltung.
 
-\subsection{Quelcode, Testbensch und Simulation zu Aufgabe 4}
+\subsection{Quellcode, Testbench und Simulation zu Aufgabe 4}
 
 \textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Quellcode und Screenshot fehlen!!!!!!!!!!!!!!!!!!!!!}}
 
 \section{Aufgabe 5}
 
-Wir erstellten einen zusätzlichen Ampel Steuerungsblock als getrenntes VHDL-Modul. Es liefert ebenfalls die Signale \"rot / gelb / gruen\".
-Die Ampelphasen wurden dabei so angepasst ,dass die gelbe LED zwei Takte leuchtet und zwei Takte aus ist, die anderen blieben aus.
-Simmuliert wurde diese Schaltung mit der Testbench aus Aufgabe 3.
+Wir erstellten einen zusätzlichen Ampelsteuerungsblock als getrenntes VHDL-Modul. Es liefert ebenfalls die Signale \"rot / gelb / gruen\".
+Die Ampelphasen wurden dabei so angepasst, dass die gelbe LED zwei Takte leuchtet und zwei Takte aus ist, die anderen blieben aus.
+Simuliert wurde diese Schaltung mit der Testbench aus Aufgabe 3.
 
-\subsection{Quelcode, Testbensch und Simulation zu Aufgabe 5}
+\subsection{Quellcode, Testbench und Simulation zu Aufgabe 5}
 
 \textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Quellcode und Screenshot fehlen!!!!!!!!!!!!!!!!!!!!!}}
 
 \section{Aufgabe 6}
 
-Ziel dieser Aufgabe war es ein sequentielles VHDL Modell eines 2:1 Multiplexers zu entwerfen für zwei je drei Bit
-breite std\_logic Vektoren A und B, die abhängig von einem Signal Select auf den drei Bit breiten Ausgangsvektor Y durchgeschaltet werden.
+Ziel dieser Aufgabe war es, ein sequentielles VHDL Modell eines 2:1 Multiplexers zu entwerfen für zwei je drei Bit
+breite std\_logic Vektoren A und B, die abhängig von einem Signal textit{select} auf den drei Bit breiten Ausgangsvektor Y durchgeschaltet werden.
 
 Wir testeten das Modell via Simulation.
 
-\subsection{Quelcode, Testbensch und Simulation zu Aufgabe 6}
+\subsection{Quellcode, Testbench und Simulation zu Aufgabe 6}
 
 \textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Quellcode und Screenshot fehlen!!!!!!!!!!!!!!!!!!!!!}}
 
 \section{Aufgabe 7}
 
 Als letztes fügten wir alle Komponenten zusammen. Neben den Ports aus Aufgabe 4 fügten wir noch den Port:\textit{S2 : in std\_logic} hinzu.
-Zur Simulation nutzten wir die Testbench aus Aufgabe 2 welche wir um \textit{S2} erweiterten. Im Anschluss wurde die Hardware programiert.
-\subsection{Quelcode, Testbensch und Simulation zu Aufgabe 7}
+Zur Simulation nutzten wir die Testbench aus Aufgabe 2, welche wir um \textit{S2} erweiterten. Im Anschluss wurde die Hardware programmiert.
+\subsection{Quellcode, Testbench und Simulation zu Aufgabe 7}
 
 \textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Quellcode und Screenshot fehlen!!!!!!!!!!!!!!!!!!!!!}}
 \newpage
 
 \chapter{Versuch III}
 
-Der dritte Labortermin hatte den Schwerpunkt erste Schritte mit maschinennaher C166 Programmierung zumachen.
-Ziel des Versuchs sollete es sein die internen Abläufe in einem typischen Prozessor zu verstehen. Wir erarbeiten, was die Unterschiede zwischen 
-Konstanten und Variablen sind, und wie der Prozessor mit den internen Registern arbeitet. Weiterhin beschäftigten wir uns mit dem Übergabemechanismus von 
+Der dritte Labortermin hatte den Schwerpunkt erste Schritte mit maschinennaher C166 Programmierung zu machen.
+Ziel des Versuchs sollte es sein, die internen Abläufe in einem typischen Prozessor zu verstehen. Wir erarbeiten, was die Unterschiede zwischen 
+Konstanten und Variablen sind und wie der Prozessor mit den internen Registern arbeitet. Weiterhin beschäftigten wir uns mit dem Übergabemechanismus von 
 Parameteradressen an Unterprogramme und der Verarbeitung der Parameter per indirekter Adressierung.\\
 \\Verwendet wurde die Keil Software mit der vorgegebenen Vorlage. Zum Debuggen benutzten wir den Simulator. 
 
@@ -272,31 +280,31 @@ Parameteradressen an Unterprogramme und der Verarbeitung der Parameter per indir
 
 Wir erstellten Konstanten mit folgenden Namen und Werten:\\
 \\op1 = 30000, op2 = 5000, op3 = 40000, op4 = 4999, op5 = -30000\\
-\\Im Hauptprogramm wurden die Konstanten den Registern R1 bis R5 zugewiesen. Im Anschluss assemblierten und banden wir das Programm
-um es zu debuggen. Mit Hilfe des Register-Window konnte nun überprüft werden, ob die in den Konstanten gespeicherten Werte in die Register geladen wurden, 
+\\Im Hauptprogramm wurden die Konstanten den Registern R1 bis R5 zugewiesen. Im Anschluss assemblierten und banden wir das Programm,
+um es zu debuggen. Mit Hilfe des Register-Fenster konnte nun überprüft werden, ob die in den Konstanten gespeicherten Werte in die Register geladen wurden, 
 was hier der Fall war. Die Konstanten sind direkt im kompilierten Programmcode enthalten wie man im Disassembly-Fenster sehen konnte.
 
-\subsection{Quellcode, Listning und Screenshots der Aufgabe 1}
+\subsection{Quellcode, Listing und Screenshots der Aufgabe 1}
 
-\lstinputlisting[caption=Definitio der Konstanten in µVision Assembler source]{work1.a66}
+\lstinputlisting[caption=Definition der Konstanten in µVision Assembler source]{work1.a66}
 \lstinputlisting[caption=Listning von work1.a66]{work1.LST}
 \textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Screenshot fehlt!!!!!!!!!!!!!!!!!!!!!}}
 
 \section{Aufgabe 2}
-Die Werte wurden im Anschluss in 16bit Variablen abgelegt. Dies geschah im Variablenbereich des Programms. 
+Die Werte wurden im Anschluss in 16-Bit Variablen abgelegt. Dies geschah im Variablenbereich des Programms. 
 Durch eine direkte Adressierung wird der Wert der Variable in das zugewiesene Register geladen, dabei 
 kann man in der Listing-Datei erkennen, dass für den Speicherort ein Offset-Parameter angelegt wurde, dieser wurde auf die entsprechende Startadresse addiert
-wodurch der Speicherort definiert ist. Im Memory-Fenster konnte man an denn berechneten Adressen die Werte der Variablen ablesen. 
+wodurch der Speicherort definiert ist. Im Memory-Fenster konnte man an den berechneten Adressen die Werte der Variablen ablesen. 
 
 \subsection{Quellcode, Listing und Screenshots der Aufgabe 2}
 
-\lstinputlisting[caption=Definition der 16bit Variablen]{work2.a66}
-\lstinputlisting[caption=Listning von work2.a66]{work2.LST}
+\lstinputlisting[caption=Definition der 16-Bit Variablen]{work2.a66}
+\lstinputlisting[caption=Listing von work2.a66]{work2.LST}
 \textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Screenshot fehlt!!!!!!!!!!!!!!!!!!!!!}}
 
 \section{Aufgabe 3}
 
-Wir erweiterten das Programm aus Aufgabe 2, um folgende Rechenoperationen mit den Ziel-Registern R10 bis R14:\\
+Wir erweiterten das Programm aus Aufgabe 2 um folgende Rechenoperationen mit den Ziel-Registern R10 bis R14:\\
 \\R10 = op1 + op2; R11 = op1 + op3; R12 = op4 - op2; R13 = op1 + op5, R14 = op3 + op5;\\
 \\Danach debuggten wir im Single Step unser Programm.\\
 
@@ -304,10 +312,10 @@ Wir erweiterten das Programm aus Aufgabe 2, um folgende Rechenoperationen mit de
 
 Bei R10 op1 + op 2 entstand bei der Rechnung mit signed ein Overflow, da der zulässige Zahlenbereich überschritten wurde, das MSB wird bei der 
 signed Darstellung als Vorzeichenbit behandelt. Bei op1 + op2 wurde dieses Bit auf 1 gesetzt.\\ 
-Bei R11 op1 + op3 wurde der Zahlenbereich von 16bit unsigned überschritten, daher wurde das  Carry-Flag gesetzt.\\
+Bei R11 op1 + op3 wurde der Zahlenbereich von 16-Bit unsigned überschritten, daher wurde das Carry-Flag gesetzt.\\
 Bei R12 op4 – op2 wurde in der signed Darstellung das Ergebnis negativ (Flag N). Da der Subtrahend größer als der Minuend ist, wurde ein Carry-Flag gesetzt.\\
 Bei R13 op1 + op5 wurde das Zero-Flag gesetzt, da das Ergebnis 0 ist.\\ 
-Bei R14 op3 + op 5 handelte es sich um eine signed Operation. Op3 war jedoch nicht im definierten signed Bereich, Daher wurde die Overflow-Flag gesetzt. 
+Bei R14 op3 + op 5 handelte es sich um eine signed Operation. Op3 war jedoch nicht im definierten signed Bereich, daher wurde die Overflow-Flag gesetzt. 
 Bei der Addition entstand ein Übertrag, d.h. wurde das Carry-Flag gesetzt. 
 
 \subsection{Quellcode und Screenshots der Aufgabe 3}
@@ -317,9 +325,9 @@ Bei der Addition entstand ein Übertrag, d.h. wurde das Carry-Flag gesetzt.
 
 \section{Aufgabe 4}
 
-Wir erstellten ein Unterprogramm, das zwei 16 Bit Zahlen addiert. Die Zahlen standen direkt im Speicher. 
-Das Unterprogramm sollte beim Aufruf in R0 einen Pointer auf den ersten Operanden, in R1 und einen Pointer auf den zweiten Operanden enthalten. 
-Das Resultat wurde als Wert in R2 zurückgeliefert. Wir nutzten das Programm 4 mal, um die Werte in R10, R11, R13 und R14 zu berechnen.
+Wir erstellten ein Unterprogramm, das zwei 16-Bit Zahlen addiert. Die Zahlen standen direkt im Speicher. 
+Das Unterprogramm sollte beim Aufruf in R0 einen Pointer auf den ersten Operanden und in R1 einen Pointer auf den zweiten Operanden enthalten. 
+Das Resultat wurde als Wert in R2 zurückgeliefert. Wir nutzten das Programm 4 Mal, um die Werte in R10, R11, R13 und R14 zu berechnen.
 
 \subsection{Quellcode und Screenshot zu Aufgabe 4}
 
@@ -329,12 +337,12 @@ Das Resultat wurde als Wert in R2 zurückgeliefert. Wir nutzten das Programm 4 m
 
 \section{Aufgabe 5}
 
-Das Ziel der letzten Aufgabe war es mit 32bit Variablen zurechnen. Hoerfür wurde eine Variable angelegt, die aus 2 Words bestand welche im Speicher direkt 
-hintereinander lagen. Mittels Bitshifting wurden die Wertebereiche der 32bit Variable umgesetzt.\\
-Im folgenden wurden nun die unteren 16bit der beiden zu addierenden Variablen in das Ergebnisregister geladen und addiert. 
-Damit der Zeiger auf der nächsten Speicherstelle, und somit auf die oberen 16bit zeigt, musste in diesem Schritt die Startadressen inkrementiert werden. 
-Im nächsten Schritt konnten die oberen 16bit mit Hilfe des \textit{ADD C Befehls} addiert werden, hierdurch kann gesetztes Carry-bit der Addition der 
-unteren 16bit berücksichtigt werden. Um r0 und r1 in die Ursprungsform zubringen mussten auf dem Stack abgelegten Werte wieder in das entsprechende Register 
+Das Ziel der letzten Aufgabe war es mit 32-Bit Variablen zurechnen. Hierfür wurde eine Variable angelegt, die aus 2 Words bestand, welche im Speicher direkt 
+hintereinander lagen. Mittels Bitshifting wurden die Wertebereiche der 32-Bit Variable umgesetzt.\\
+Im Folgenden wurden nun die unteren 16-Bit der beiden zu addierenden Variablen in das Ergebnisregister geladen und addiert. 
+Damit der Zeiger auf der nächsten Speicherstelle, und somit auf die oberen 16-Bit zeigt, mussten in diesem Schritt die Startadressen inkrementiert werden. 
+Im nächsten Schritt konnten die oberen 16-Bit mit Hilfe des \textit{ADD C} Befehls addiert werden, hierdurch kann ein gesetztes Carry-bit der Addition der 
+unteren 16-Bit berücksichtigt werden. Um R0 und R1 in die Ursprungsform zu bringen, mussten die auf dem Stack abgelegten Werte wieder in das entsprechende Register 
 geladen werden.
 
 \subsection{Quellcode und Screenshot zu Aufgabe 5}
