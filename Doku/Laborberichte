@@ -1,5 +1,9 @@
 %----Laborbericht-----
-\documentclass[a4paper,10pt]{report}
+\documentclass[a4paper,12pt]{report}
+
+\usepackage{geometry}
+\geometry{a4paper, top=20mm, left=25mm, right=25mm, bottom=20mm,
+headsep=5mm, footskip=5mm}
 
 \usepackage[utf8]{inputenc}
 \usepackage[german]{babel}
@@ -7,6 +11,7 @@
 \usepackage{color}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
+\usepackage{subfigure}
 \usepackage{pdfpages}
 
 %----Dokumentenpfade-----
@@ -39,6 +44,16 @@
 }
  
 \lstset{style=mystyle}
+\lstdefinelanguage{Assembler}{
+    morekeywords={b, ble, blt, bne, 
+        ldr, str, 
+        r0, r1, r2, r3, r4, r5, r6, r7, rr8, r9, r10, r11, r12
+        sp  },
+    sensitive=false, % keywords are not case-sensitive
+    morecomment=[l]{//}, % l is for line comment
+    morecomment=[s]{/*}{*/}, % s is for start and end delimiter
+    morestring=[b]" % defines that strings are enclosed in double quotes
+} % 
 
 %----Angaben für Titelseite----
 \title{Laborbericht zum Digitallabor an der Hochschule Karlsruhe}
@@ -296,7 +311,7 @@ Durch eine direkte Adressierung wird der Wert der Variable in das zugewiesene Re
 kann man in der Listing-Datei erkennen, dass für den Speicherort ein Offset-Parameter angelegt wurde, dieser wurde auf die entsprechende Startadresse addiert
 wodurch der Speicherort definiert ist. Im Memory-Fenster konnte man an den berechneten Adressen die Werte der Variablen ablesen. 
 
-\subsection{Quellcode, Listing und Screenshots der Aufgabe 2}
+\subsection{Quellcode und Screenshots der Aufgabe 2}
 
 \lstinputlisting[caption=Definition der 16-Bit Variablen]{work2.a66}
 \lstinputlisting[caption=Listing von work2.a66]{work2.LST}
@@ -351,22 +366,158 @@ geladen werden.
 \newpage
 
 \chapter{Versuch IV}
+
+In diesem Versuch nutzten wir denn UConnect XE166 Real Time Signal Controller mit dem Ziel
+uns mit den Bitbefehlen des C166 vertraut zumachen und diese auf die Parallelports des XE166
+anzuwenden, auch das Debbuging eines Embedded System wurde an diesem Termin fokusiert.\\
+\\Verwendet wurde dabei die Keil 3 Software mit der vorgegebenen Assembler-Vorlagen Datei. Zum
+Debuggen verwendeten wir den UConnect XE166 Real Time Signal Controller (siehe Abbildung 4.1(a)), der an den USB-Bus des
+PCs angeschlossen wurde, sowie eine kleine Platine mit 4 LEDs, 2 Schaltern und 2 Tastern
+(siehe Abbildung 4.1(b)), die am Port P0 des Prozessors: UConnect XE166 Real Time Signal Controller
+angeschlossen war.\\ Die Zuordnung der Portbits zu den LEDs, Schaltern und Tastern finden
+Sie in Abbildung 4.2.
+
+\begin{figure}[h!]
+\centering
+    \subfigure[UConnect XE166]{\includegraphics[scale=0.3]{xe166.png}}
+    \subfigure[verwendete Platine]{\includegraphics[scale=0.3]{platine.png}}
+\caption{verwendete Hardeware}
+\label{fig:5}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{anschlussbelegung.png}
+ \caption{Funktionstabelle der Ampelphasen}
+ \label{fig:7}
+\end{figure}
+
 \section{Aufgabe 1}
-\subsection{Anmerkungen zu Aufgabe 1}
+
+Wir erstellten ein Assembler Programm, das LED 1 leuchten lies, wenn Taste T1 gedrückt wurde und LED2 leuchten lies, wenn die Taste T2 gedrückt wurde.
+Die Initialisierung des Ports P0 wurde in einem Unterprogramm \"PortInit\" ausgeführt, das die Pins für Tasten und Schalter auf Eingang, die für die 
+LEDs auf Ausgang stellt. Die Richtungsregister hießen \textit{P0\_IOCR\_0 bis P0\_IOCR\_7 für Portpin 0 bis 7}.
+Im Hauptprogramm wurde zuerst das Unterprogramm zur Portinitialisierung aufgerufen, danach die Endlosschleife. Es werde dabei zwei \textit{mov Befehle} verwendet.
+
+\subsection{Code welcher per Tastendruck LEDs leuchten lässt}
+
+\lstinputlisting[caption=Quellcode der Aufgabe 1]{A1.a66}
+
 \section{Aufgabe 2}
-\subsection{Anmerkungen zu Aufgabe 2}
+
+Wir erweiterten die Lösung aus Aufgabe 1 so, dass die Tasten nur dann eine Wirkung hatten, wenn der entsprechende Schalter "oben" stand. 
+Aus den Vorgaben entwickelten wir folgenden Quellcode.
+
+\subsection{Quellcode zu Aufgabe 2}
+
+\lstinputlisting[caption=Quellcode der Aufgabe 2]{A2.a66}
+
 \section{Aufgabe 3}
-\subsection{Anmerkungen zu Aufgabe 3}
+
+Diese Aufgabe entsprach der Aufgabe 1 unter Verzicht auf die Einzelbit-Befehle des C166.
+Dies entsprach dem Niveau eines einfachen Desktop Prozessors da dies bei einfachen Aufgabenstellungen wie z.B. Aufgabe 2 so richtig unübersichtlich würde 
+wäre der Verzicht auf Einelbit-Befehle in embedded Systemen eine sehr schlechte Lösung.
+
+\subsection{Quellcode der Aufgabe 3 ohne Einzelbit- Befehle}
+
+\lstinputlisting[caption=Quellcode der Aufgabe 3]{A3.a66}
+
 \section{Aufgabe 4}
+
+Wir erzeugten ein \"Delay\" in einem Unterprogramm welches die LED 3 ca. jede Sekunde Blinken lies.
+Danach fügten wir die beiden Befehle aus Aufgabe 1, die die LEDs bedienten, zu unserem Hauptprogramm hinzu.\\
+\\Bei dem Delay gab es eine Bespnderheit da 5000 Zählschritte einer Millisekunde entsprechen und Delay für 0,5 Sekunden verzögern sollte, dies 
+aber nicht mit einer Konstanten realisierbar war wegen des Wertebereichs der Konstanten, daher werden zwei Konstanten multipliziert.
+Beim Debuggen fiel auf, dass die Verzögerung durch das Unterprogramm Delay auch Einfluss auf die Funktion des Tasters hat. 
+Dies erklärte sich durch das sequentielle Durchlaufen der Endlosschleife. 
+
 \subsection{Anmerkungen zu Aufgabe 4}
 
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Quellcode fehlt!!!!!!!!!!!!!!!!!!!!!}}
+
 \chapter{Versuch V}
+
+In diesem Versuch beschäftiten wir uns mit der hardwarenahen Programmierung in \textit{\"C\"}. Dazu benutzen wir wieder denn Uconnect USB die ty-
+pischen Peripherie-Komponenten Parallelports und Timer des XE164.
+
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Testergebnis fehlt!!!!!!!!!!!!!!!!!!!!!}}
+
 \section{Aufgabe 1}
-\subsection{Anmerkungen zu Aufgabe 1}
+
+Ziel der Aufgabe war es das Übungsbeispiel aus Kernighan/Ritchie, die Umwandlung Fah-
+renheit in Celsius auf den XE164 anzupassen. Die Ausgabe über wie Konsole ersetzten wir durch
+Anschauen der Werte für Celsius mit dem Debugger im Simulationsmodus.\\ 
+Im Listing für die Ausgabe des erzeugten Assemblercodes betrachteten wir den optimierten Code, weiter hielten wir die Ergebnisse für die Codegröße und die 
+Laufzeit fest.
+
+\subsection{Teil A}
+
+Die Variable für Celcius wurde durch den Kompiler wegoptimiert, da diese Variable keine internen oder externen Abhängigkeiten besitzt. 
+
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Quellcode fehlt!!!!!!!!!!!!!!!!!!!!!}}\\
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Listing fehlt!!!!!!!!!!!!!!!!!!!!!}}
+
+\subsection{Teil B}
+
+Die Variable Celcius wurde außerhalb der Funktion deklariert. Hierdurch können Abhängigkeiten entstehen.
+Die notwenidge Multiplikation wird durch einen zweistelligen Shift nach links und die Addition des Multiplikanten optimiert.
+
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Quellcode fehlt!!!!!!!!!!!!!!!!!!!!!}}\\
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Listing fehlt!!!!!!!!!!!!!!!!!!!!!}}
+
+\subsection{Teil C}
+
+Für das Unterprogramm wurde der Übergabeparameter in Register R8 geladen und der Returnwert in Register R4 übergeben.
+
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Quellcode fehlt!!!!!!!!!!!!!!!!!!!!!}}\\
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Listing fehlt!!!!!!!!!!!!!!!!!!!!!}}
+
+\subsection{Teil D}
+
+Es werden pro Long-Variable zwei 16 bit Register für die Parameter-/Returnwertübergabe reserviert. 
+Wenn Float-Variablen benutzt werden, können keine Optimierungen verwendet werden, die Laufzeit erhöht sich.\\
+Bei Double-Variablen sind 64 bit nötig, daher werden für Returnwert vier 16 bit Register benötigt und die Laufzeit sowie die Codegröße steigert sich.
+
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Quellcode fehlt!!!!!!!!!!!!!!!!!!!!!}}\\
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Listing fehlt!!!!!!!!!!!!!!!!!!!!!}}
+
 \section{Aufgabe 2}
-\subsection{Anmerkungen zu Aufgabe 2}
+
+Zur Lösung dieser Aufgabe schrieben wir unser eigenes Headerfile, dass die Deklarationen der acht Richtungssteuerregister
+\textit{P0\_IOCRxx} sowie \textit{P0\_OUT} und \textit{P0\_IN} enthielt.\\
+\\Danach lösten wir die Aufgabe 1 und zwei aus dem Versuch 4 erneut.\\
+Mittels Bitmaskierung hatten wir zugriff auf einzelne Bits im Ein-/Ausgangsregister. 
+Die benötigten Bitmasken wurden dem Headerfile hinzugefügt. Dies führte zu gut lesbaren Programmcode.
+
+\subsection{Header und Quellcode zu Aufgabe 2}
+
+\lstinputlisting[language=C, caption=Aufgabe 2 - Header]{MYHEADA2.h}
+\lstinputlisting[language=C, caption=Aufgabe 2 - main.c]{mainA2.c}
+\textcolor{red}{\textbf{!!!!!!!!!!!!!!!!!!!Quellcode für Teil zwei der Aufgabe fehlt!!!!!!!!!!!!!!!!!!!!!}}\\
+
 \section{Aufgabe 3}
-\subsection{Anmerkungen zu Aufgabe 3}
+
+Hier sollte nun mit Keil-spezifischen Datentypen gearbeitet werden. Der 2. Teil der 2. Aufgabe soll so
+verändert werden, dass LED3 mit einer Frequenz von 1 Hz blinkt. Unterschied zu Aufgabe 5 des 4.
+Versuchs ist, dass die Bedienung der LED1 und LED2 nicht verzögert wird, da der Timer nebenläufig
+zum Programmcode ist.
+
+In dieser Aufgabe verwendeten wir die Definitionen der Keil Entwicklungsumgebung zurück. 
+Wir verwendeten den Timer T3, um die grüne LED mit 1 Hz blinken zu lassen und die beiden LEDs über die Tasten diesmal ohne Verzögerung zu bedienen.
+
+Der Timer wurde durch eine Methode \textit{T3Init} initialisiert und gestartet.\\
+\\Für symmetrische Frequenz gilt Periodendauer $$T_h = T_l = 1/F/2$$. Diese wurde benötigt um den Prescale Faktor und den Reloadwert für den Timer zu ermitteln. 
+Aus der Wahl des Vorteilers ergab sich die Zeit eines Einzelschrittes die der Timer benötigt. Um die Ticks für die gewünschte Zeit zu erhalten, 
+wurde folgende Formel verwendet: $$Reloadwert = gewuenschte Zeit/Einzelschrittzeit$$
+Der Reloadwert für T3 wird in T2 gespeichert.
+
+\subsection{Quelcode zu Aufgabe 3}
+
+\lstinputlisting[language=C, caption=Aufgabe 3 - main.c]{mainA3.c}
+\lstinputlisting[language=C, caption=Aufgabe 3 - t3power.c]{t3powerA3.c}
+\lstinputlisting[language=C, caption=Aufgabe 3 - t3power.h]{t3powerA3.h}
+\lstinputlisting[language=C, caption=Aufgabe 3 - XE164F\_HS.h]{XE164FHSA3.h}
+
 \newpage
 
 %----Anhang----
